@@ -1,6 +1,4 @@
-type MemberProps = {
-
-};
+import { MemberProps } from "@/types";
 
 export default function Member(props: MemberProps) {
     return (
