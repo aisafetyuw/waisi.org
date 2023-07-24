@@ -28,7 +28,6 @@ export default function Nav() {
           <Link href="/" className={pathname=="/" ? "p-2 md:visible invisible underline" : "p-2 md:visible invisible"}>Home</Link>
           <Link href="/about" className={pathname=="/about" ? "p-2 md:visible invisible underline" : "p-2 md:visible invisible"}>About</Link>
           <Link href="/events" className={pathname=="/events" ? "p-2 md:visible invisible underline" : "p-2 md:visible invisible"}>Events</Link>
-          <Link href="/leadership" className={pathname=="/leadership" ? "p-2 md:visible invisible underline" : "p-2 md:visible invisible"}>Team</Link>
           <Link href="/projects" className={pathname=="/projects" ? "p-2 md:visible invisible underline" : "p-2 md:visible invisible"}>Projects</Link>
         </div>
       </div>
