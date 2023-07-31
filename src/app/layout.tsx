@@ -1,9 +1,9 @@
 import '../styles/globals.css'
-import { Inter } from 'next/font/google'
+import { Open_Sans } from 'next/font/google'
 import Nav from '../components/nav';
 import Footer from '../components/footer';
 
-const inter = Inter({ subsets: ['latin'] })
+const font = Open_Sans({ subsets: ['latin'], weight: ['400'] })
 
 export const metadata = {
   title: 'Wisconsin AI Safety Initiative',
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={font.className}>
         <Nav />
         {children}
         <Footer />
