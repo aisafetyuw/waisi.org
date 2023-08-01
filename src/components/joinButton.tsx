@@ -7,7 +7,7 @@ config.autoAddCss = false;
 
 export default function JoinButton(props: JoinButtonProps) {
   return (
-    <a className="join-button" href={props.url}>
+    <a className="join-button" target="_blank" href={props.url}>
       {props.fa && <FontAwesomeIcon icon={['fab', props.fa]} />}
       {props.text}
     </a>
