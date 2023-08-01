@@ -8,7 +8,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <div>
+    <nav>
       <Image className="absolute z-0 opacity-30 max-h-32 py-6 w-full"
         src="/Wave.png"
         width={1920}
@@ -25,12 +25,12 @@ export default function Nav() {
           />
         </div>
         <div id="links" className="flex items-center justify-end space-x-4 p-8 text-lg underline-offset-8 z-10">
-          <Link href="/" className={pathname=="/" ? "p-2 md:visible invisible underline" : "p-2 md:visible invisible"}>Home</Link>
-          <Link href="/about" className={pathname=="/about" ? "p-2 md:visible invisible underline" : "p-2 md:visible invisible"}>About</Link>
-          <Link href="/events" className={pathname=="/events" ? "p-2 md:visible invisible underline" : "p-2 md:visible invisible"}>Events</Link>
-          <Link href="/projects" className={pathname=="/projects" ? "p-2 md:visible invisible underline" : "p-2 md:visible invisible"}>Projects</Link>
+          <Link href="/" className={pathname=="/" ? "p-2 underline" : "p-2"}>Home</Link>
+          <Link href="/about" className={pathname=="/about" ? "p-2 underline" : "p-2"}>About</Link>
+          <Link href="/events" className={pathname=="/events" ? "p-2 underline" : "p-2"}>Events</Link>
+          {/*<Link href="/projects" className={pathname=="/projects" ? "p-2 underline" : "p-2"}>Projects</Link>*/}
         </div>
       </div>
-    </div>
+    </nav>
   )
 }

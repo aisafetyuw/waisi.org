@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <Nav />
-        {children}
+        <div id="content" className="flex flex-col min-h-screen"  style={{ minHeight: 'calc(100vh - 230px)' }}>
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

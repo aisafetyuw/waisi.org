@@ -1,5 +1,5 @@
 export default function Events() {
   return (
-    <div id="events">Events</div>
+    <div id="events" className="page">Events</div>
   )
 }

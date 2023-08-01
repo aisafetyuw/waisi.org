@@ -1,23 +1,27 @@
-import JoinButton from '@/components/joinButton';
 import { DISCORD_URL, SLACK_URL, WIN_URL } from '@/urls';
+import JoinButton from '@/components/joinButton';
 
 export default function Home() {
   return (
-    <div id="home">
+    <div id="home" className="page">
       <h1>Wisconsin AI Safety Initiative</h1>
       <div id="home-content">
-        <img alt="Wisconsin AI Safety Initiative" src="/images/placeholder.png" height={128} />
+        <img id="landing-img" alt="Wisconsin AI Safety Initiative" src="/images/placeholder.png" height="128" />
         <main>
-          We are a very ambitious but friendly group interested in building a community of people
-          collaborating together to mitigate the risks that increasingly capable <b>Artificial Intelligence</b> brings
-          to the world.
+          <p className="mb-3">
+            We are a very ambitious but friendly group interested in building a community of people
+            collaborating together to mitigate the risks that increasingly capable <b>artificial intelligence</b> brings
+            to the world.
+          </p>
         </main>
-        <p>
-          We refine each other's mental models of the risks and build the skills to solve them through <b>AI Alignment</b> and <b>AI Governance.</b>
+        <p className="mb-3">
+          We refine each other's mental models of the risks and build the skills to solve them through <b>AI alignment</b> and <b>AI governance.</b>
         </p>
         <div id="join-buttons">
           <JoinButton url={SLACK_URL} fa="slack" text="Slack" />
+          &nbsp;&nbsp;
           <JoinButton url={DISCORD_URL} fa="discord" text="Discord" />
+          &nbsp;&nbsp;
           <JoinButton url={WIN_URL} text="WIN" />
         </div>
       </div>
