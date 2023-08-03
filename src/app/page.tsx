@@ -1,4 +1,4 @@
-import { DISCORD_URL, SLACK_URL, WIN_URL } from '@/urls';
+import { DISCORD_URL, SLACK_URL, WIN_URL } from '@/constants';
 import JoinButton from '@/components/joinButton';
 
 export default function Home() {

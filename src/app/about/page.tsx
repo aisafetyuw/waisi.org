@@ -1,6 +1,6 @@
 import { InferGetServerSidePropsType } from 'next';
 import { getServerSideProps } from '@/app/about/getServerSideProps';
-import { DISCORD_URL, SLACK_URL } from '@/urls';
+import { DISCORD_URL, SLACK_URL } from '@/constants';
 import Member from '@/components/member';
 
 export default function About(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
@@ -38,7 +38,7 @@ export default function About(props: InferGetServerSidePropsType<typeof getServe
       <h2>Leadership Team</h2>
       <div>
         <ul id="team">
-          {/*{props.members.map(member => <Member member={member}/>)}*/}
+          {props.members.map(member => <Member member={member} />)}
         </ul>
       </div>
     </div>
