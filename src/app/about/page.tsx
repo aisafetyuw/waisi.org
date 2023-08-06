@@ -25,7 +25,7 @@ export default async function About() {
           get connected with us and keep up with club announcements.
         </p>
         <p className="mb-3">
-          Each semester, we host two introductory fellowships—one for those interested <b>AI alignment</b>, the other
+          Each semester, we host two introductory fellowships—one for those interested in <b>AI alignment</b>, the other
           for those interested in <b>AI governance</b>. Stay tuned for updates pertaining to Fall 2023!
           {/*To keep up with all of our programming, take a look at our <a href="/events">events page</a>.*/}
         </p>
