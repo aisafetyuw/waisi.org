@@ -15,9 +15,9 @@ export default function About(props: InferGetServerSidePropsType<typeof getServe
       <h2>Our Mission</h2>
       <div id="mission">
         <p className="mb-3">
-          Founded in the spring of 2023, the <b>Wisconsin AI Safety Initiative</b> aspires to be an incubator for
+          Founded in the spring of 2023, the <b>Wisconsin AI Safety Initiative</b> aspires to serve as an incubator for
           students looking towards high-impact careers promoting and facilitating the safe advancement of artificial intelligence.
-          Along with this comes providing students with venues to <b>learn</b> about cutting edge developments in the field of
+          Along with this comes providing members with venues to <b>learn</b> about cutting edge developments in the field of
           AI safety, <b>connect</b> with other like-minded individuals (both students and professionals), and <b>upskill</b> via project
           opportunities to gain a deep, holistic understanding of alignment research and AI interpretability and/or
           prepare for careers in governance promoting thorough and just regulation of AI and related technologies.
