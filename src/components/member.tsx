@@ -9,7 +9,7 @@ export default function Member({ member }: MemberProps) {
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">
           <Image
-            src={`/leaders/${member.name.replace(' ', '_').toLowerCase()}.jpeg`}
+            src={`/leaders/${member.name.replace(' ', '_').toLowerCase()}.jpg`}
             alt={member.name}
             width={100}
             height={100}
@@ -26,11 +26,6 @@ export default function Member({ member }: MemberProps) {
             {member.linkedin &&
               <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={['fab', 'linkedin']} className="text-gray-500" />
-              </a>
-            }
-            {member.twitter &&
-              <a href={member.twitter} target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={['fab', 'twitter']} className="text-gray-500" />
               </a>
             }
           </div>

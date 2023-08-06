@@ -32,7 +32,7 @@ export default async function About() {
       </div>
       <h2>Leadership Team</h2>
       <div>
-        <ul id="team" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-1">
+        <ul id="team" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1">
           {members.map((member, index) => (
             <li key={index} className="col-span-1 h-full bg-white">
               <Member member={member} />
