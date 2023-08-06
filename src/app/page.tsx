@@ -6,7 +6,6 @@ export default function Home() {
     <div id="home" className="page">
       <h1>Wisconsin AI Safety Initiative</h1>
       <div id="home-content">
-        <img id="landing-img" alt="Wisconsin AI Safety Initiative" src="/images/placeholder.png" height="128" />
         <main>
           <p className="mb-3">
             We are a very ambitious but friendly group interested in building a community of people
