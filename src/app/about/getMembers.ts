@@ -1,9 +1,6 @@
-import { GetServerSideProps } from 'next';
 import { MemberData } from '@/types';
 
-export const getServerSideProps: GetServerSideProps<{
-    members: MemberData[]
-}> = async () => {
+export default async function getMembers() {
     const members: MemberData[] = [
         {
             name: 'Ben Hayum',
@@ -20,5 +17,5 @@ export const getServerSideProps: GetServerSideProps<{
             email: 'dviggiano@wisc.edu',
         }
     ]; // TODO use Google Sheets API
-    return { props: { members } };
-};
+    return members;
+}

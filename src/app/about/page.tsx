@@ -1,14 +1,9 @@
-'use client'
-
-import { InferGetServerSidePropsType } from 'next';
-import { getServerSideProps } from '@/app/about/getServerSideProps';
 import { DISCORD_URL, SLACK_URL } from '@/constants';
 import Member from '@/components/member';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import getMembers from '@/app/about/getMembers';
 
-export default function About(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const pathname = usePathname();
+export default async function About() {
+  const members = await getMembers();
 
   return (
     <div id="about" className="page">
@@ -37,8 +32,12 @@ export default function About(props: InferGetServerSidePropsType<typeof getServe
       </div>
       <h2>Leadership Team</h2>
       <div>
-        <ul id="team">
-          {/*{props.members.map(member => <Member member={member} />)}*/}
+        <ul id="team" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-1">
+          {members.map((member, index) => (
+            <li key={index} className="col-span-1 h-full bg-white">
+              <Member member={member} />
+            </li>
+          ))}
         </ul>
       </div>
     </div>
