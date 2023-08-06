@@ -1,44 +1,44 @@
+'use client'
+
 import { InferGetServerSidePropsType } from 'next';
 import { getServerSideProps } from '@/app/about/getServerSideProps';
 import { DISCORD_URL, SLACK_URL } from '@/constants';
 import Member from '@/components/member';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function About(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const pathname = usePathname();
+
   return (
     <div id="about" className="page">
       <h2>Our Mission</h2>
       <div id="mission">
         <p className="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.
-        </p>
-        <p className="mb-3">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.
+          Founded in the spring of 2023, the <b>Wisconsin AI Safety Initiative</b> aspires to be an incubator for
+          students looking towards high-impact careers promoting and facilitating the safe advancement of artificial intelligence.
+          Along with this comes providing students with venues to <b>learn</b> about cutting edge developments in the field of
+          AI safety, <b>connect</b> with other like-minded individuals (both students and professionals), and <b>upskill</b> via project
+          opportunities to gain a deep, holistic understanding of alignment research and AI interpretability and/or
+          prepare for careers in governance promoting thorough and just regulation of AI and related technologies.
         </p>
       </div>
       <h2>Getting Started</h2>
       <div id="getting-started">
         <p className="mb-3">
-          Looking to get involved? <b>Join our <a href={SLACK_URL}>Slack</a> and <a href={DISCORD_URL}>Discord</a> channels</b> to connect with
-          other students and keep up with club announcements.
+          Looking to get involved? <b>Join our <a href={SLACK_URL}>Slack</a> and <a href={DISCORD_URL}>Discord</a> channels</b> to
+          get connected with us and keep up with club announcements.
         </p>
         <p className="mb-3">
           Each semester, we host two introductory fellowships—one for those interested <b>AI alignment</b>, the other
-          for those interested in <b>AI governance</b>.
-          To keep up with all of our programming, take a look at our <a>events page</a>.
+          for those interested in <b>AI governance</b>. Stay tuned for updates pertaining to Fall 2023!
+          {/*To keep up with all of our programming, take a look at our <a href="/events">events page</a>.*/}
         </p>
       </div>
       <h2>Leadership Team</h2>
       <div>
         <ul id="team">
-          {props.members.map(member => <Member member={member} />)}
+          {/*{props.members.map(member => <Member member={member} />)}*/}
         </ul>
       </div>
     </div>

@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function Nav() {
@@ -27,7 +27,7 @@ export default function Nav() {
         <div id="links" className="flex items-center justify-end space-x-4 p-8 text-lg underline-offset-8 z-10">
           <Link href="/" className={pathname=="/" ? "p-2 underline" : "p-2"}>Home</Link>
           <Link href="/about" className={pathname=="/about" ? "p-2 underline" : "p-2"}>About</Link>
-          <Link href="/events" className={pathname=="/events" ? "p-2 underline" : "p-2"}>Events</Link>
+          {/*<Link href="/events" className={pathname=="/events" ? "p-2 underline" : "p-2"}>Events</Link>*/}
           {/*<Link href="/projects" className={pathname=="/projects" ? "p-2 underline" : "p-2"}>Projects</Link>*/}
         </div>
       </div>
