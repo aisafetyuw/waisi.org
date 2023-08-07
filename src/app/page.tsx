@@ -17,11 +17,9 @@ export default function Home() {
           We refine each other's mental models of the risks and build the skills to solve them through <b>AI alignment</b> and <b>AI governance.</b>
         </p>
         <div id="join-buttons">
-          <JoinButton url={SLACK_URL} fa="slack" text="Slack" />
+          <JoinButton url={WIN_URL} text="WIN" />
           &nbsp;&nbsp;
           <JoinButton url={DISCORD_URL} fa="discord" text="Discord" />
-          &nbsp;&nbsp;
-          <JoinButton url={WIN_URL} text="WIN" />
         </div>
       </div>
     </div>
