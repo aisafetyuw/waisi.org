@@ -16,3 +16,9 @@ export type JoinButtonProps = {
     fa?: 'slack' | 'discord',
     text: string,
 };
+
+export type MobileNavProps = {
+    open: boolean,
+    setOpen: (open: boolean) => void,
+    pathname: string,
+};

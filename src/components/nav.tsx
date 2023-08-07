@@ -4,12 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-
-interface MobileNavProps {
-  open: boolean;
-  setOpen: (open: boolean) => void;
-  pathname: string;
-}
+import { MobileNavProps } from '@/types';
 
 function MobileNav({open, setOpen, pathname}: MobileNavProps) {
   return (
@@ -30,18 +25,20 @@ export default function Nav() {
   return (
     <nav>
       <MobileNav open={open} setOpen={setOpen} pathname={pathname}/>
-      <Image className="absolute z-0 opacity-30 max-h-32 py-6 w-full"
+
+      <Image className="absolute z-0 opacity-40 max-h-32 py-6 w-full"
         src="/Wave.png"
         width={1920}
         height={200}
         alt=""
       />
-      <div className="flex justify-between items-center max-w-6xl mx-auto">
+
+      <div className="flex justify-between items-center mx-auto">
         <div className="flex items-center p-6">
           <Image className="z-10"
             src="/waisi_gradient_rounded.png"
-            width={75}
-            height={75}
+            width={80}
+            height={80}
             alt="WAISI logo"
           />
         </div>
@@ -54,7 +51,7 @@ export default function Nav() {
         <div className="w-4/5 md:hidden flex justify-end p-8 items-center">
           <div className="group z-50 w-6 h-6 cursor-pointer flex-col justify-between items-center flex" onClick={() => { setOpen(!open) }}>
             <span className={`h-1 w-full bg-black rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-2.5" : ""}`} />
-            <span className={`h-1 w-full bg-black rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${open ? "w-1" : "w-full"}`} />
+            <span className={`h-1 w-full bg-black rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${open ? "w-0" : "w-full"}`} />
             <span className={`h-1 w-full bg-black rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-2.5" : ""}`} />
           </div>
         </div>
