@@ -13,7 +13,7 @@ export default function Home() {
         </main>
         <h3 className="mb-4">
           We refine each other's mental models of the risks and build the skills to solve them through <b>AI alignment</b> and <b>AI governance.</b>
-        </p>
+        </h3>
         <div id="join-buttons" className="py-2">
           <JoinButton url={WIN_URL} text="WIN" />
           &nbsp;&nbsp;
