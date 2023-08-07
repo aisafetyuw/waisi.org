@@ -1,4 +1,4 @@
-import { DISCORD_URL, SLACK_URL } from '@/constants';
+import { DISCORD_URL } from '@/constants';
 import Member from '@/components/member';
 import getMembers from '@/app/about/getMembers';
 
@@ -21,7 +21,7 @@ export default async function About() {
       <h2>Getting Started</h2>
       <div id="getting-started">
         <p className="mb-3">
-          Looking to get involved? <b>Join our <a href={DISCORD_URL}>Discord channel</a></b> to
+          Looking to get involved? <b>Join our <a href={DISCORD_URL}>Discord</a> channel</b> to
           get connected with us and keep up with club announcements.
         </p>
         <p className="mb-3">
@@ -31,8 +31,8 @@ export default async function About() {
         </p>
       </div>
       <h2>Leadership Team</h2>
-      <div className="mb-3">
-        <ul id="team" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1">
+      <div>
+        <ul id="team" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1 mb-10">
           {members.map((member, index) => (
             <li key={index} className="col-span-1 h-full bg-white">
               <Member member={member} />
