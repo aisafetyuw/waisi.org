@@ -35,12 +35,14 @@ export default function Nav() {
 
       <div className="flex justify-between items-center mx-auto">
         <div className="flex items-center p-6">
-          <Image className="z-10"
-            src="/waisi_gradient_rounded.png"
-            width={80}
-            height={80}
-            alt="WAISI logo"
-          />
+          <Link href="/" className="z-10">
+            <Image
+              src="/waisi_gradient_rounded.png"
+              width={80}
+              height={80}
+              alt="WAISI logo"
+            />
+          </Link>
         </div>
 
         <div className="flex items-center justify-end space-x-4 p-8 text-lg font-semibold underline-offset-8 z-50 md:flex hidden">
