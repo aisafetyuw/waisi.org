@@ -51,7 +51,7 @@ export default function Nav() {
         <div className="w-4/5 md:hidden flex justify-end p-8 items-center">
           <div className="group z-50 w-6 h-6 cursor-pointer flex-col justify-between items-center flex" onClick={() => { setOpen(!open) }}>
             <span className={`h-1 w-full bg-black rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-2.5" : ""}`} />
-            <span className={`h-1 w-full bg-black rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${open ? "w-0" : "w-full"}`} />
+            <span className={`h-1 w-full bg-black rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${open ? "w-px" : "w-full"}`} />
             <span className={`h-1 w-full bg-black rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-2.5" : ""}`} />
           </div>
         </div>
