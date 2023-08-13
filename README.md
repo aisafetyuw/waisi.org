@@ -1,4 +1,4 @@
-Official website for the Wisconsin AI Safety Initiative.
+Official website for the Wisconsin AI Safety Initiative. Production site hosted at (https://github.com/aisafetyuw/waisi.org) via Netlify.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
