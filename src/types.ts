@@ -11,7 +11,7 @@ export type MemberProps = {
     member: MemberData,
 };
 
-export type JoinButtonProps = {
+export type ButtonProps = {
     url: string,
     fa?: 'slack' | 'discord',
     text: string,
