@@ -12,12 +12,16 @@ export default function Home() {
           </h3>
         </main>
         <h3 className="mb-4">
-          We first develop a holistic understanding of the risks and then build the skills to solve them in <b>AI alignment</b> and <b>AI governance.</b>
+          We first develop a <b>holistic understanding of the risks</b> and then build the skills to solve them in <b>AI alignment</b> and <b>AI governance.</b>
         </h3>
         <div id="join-buttons" className="py-2">
-          <JoinButton url={WIN_URL} text="WIN" />
+          <JoinButton url={"/about"} text="About" />
           &nbsp;&nbsp;
+          {/*<JoinButton url={"/programming"} text="Programming" />*/}
+          {/*&nbsp;&nbsp;*/}
           <JoinButton url={DISCORD_URL} fa="discord" text="Discord" />
+          &nbsp;&nbsp;
+          <JoinButton url={WIN_URL} text="WIN" />
         </div>
       </div>
     </div>
