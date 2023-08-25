@@ -1,10 +1,4 @@
-import { DISCORD_URL } from '@/constants';
-import Member from '@/components/member';
-import getMembers from '@/app/about/getMembers';
-
-export default async function About() {
-  const members = await getMembers();
-
+export default function About() {
   return (
     <div id="about" className="page">
       <h2>Our Mission</h2>
@@ -12,11 +6,12 @@ export default async function About() {
         <p className="mb-3">
           Founded in Spring 2023, the Wisconsin AI Safety Initiative aspires to serve as an incubator for high-impact
           careers promoting and facilitating the safe advancement of artificial intelligence.
-          Meet our team <a href="#team">here</a>.
+          Meet our team <a href="/team">here</a>.
           {/*See our newly refined programs <a href="/programming">here</a>.*/}
         </p>
       </div>
       <h2>Why AI Safety?</h2>
+      <div>
         <h3>Exponential AI Advancement</h3>
         <p className="mb-3">
           The field of Artificial Intelligence (AI) has seen notable acceleration, fueled by the <a target="_blank" href="https://cset.georgetown.edu/publication/the-ai-triad-and-what-it-means-for-national-security-strategy/">
@@ -127,17 +122,6 @@ export default async function About() {
           join the Wisconsin AI Safety Initiative</b> and learn how to contribute to mitigating these risks and ensuring that AI is beneficial for all of us. 
           {/*See our programming <a href="/programming">here</a>.*/}
         </p>
-      <h2>Getting Started</h2>
-      <div id="getting-started">
-        <p className="mb-3">
-          Looking to get involved? <b>Join our <a target="_blank" href={DISCORD_URL}>Discord</a> channel</b> to
-          get connected with us and keep up with club announcements.
-        </p>
-        <p className="mb-3">
-          Each semester, we host two introductory fellowships—one for those interested in <b>AI alignment</b>, the other
-          for those interested in <b>AI governance</b>. Stay tuned for updates pertaining to Fall 2023!
-          {/*To keep up with all of our programming, take a look at our <a href="/programming">programming page</a>.*/}
-        </p>
         <h3>Other Introductory Resources</h3>
         <h4 className="mb-3 text-lg font-semibold">Readings</h4>
         <ul className="mb-3 list-disc">
@@ -192,16 +176,6 @@ export default async function About() {
           <li className="ml-4">
             <i><a target="_blank" href="https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies">Superintelligence</a></i> by Nick Bostrom
           </li>
-        </ul>
-      </div>
-      <h2 id="team">Leadership Team</h2>
-      <div>
-        <ul id="team" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1 mb-8">
-          {members.map((member, index) => (
-            <li key={index} className="col-span-1 h-full bg-white">
-              <Member member={member} />
-            </li>
-          ))}
         </ul>
       </div>
     </div>
