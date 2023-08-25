@@ -17,8 +17,8 @@ export default function About() {
           The field of Artificial Intelligence (AI) has seen notable acceleration, fueled by the <a target="_blank" href="https://cset.georgetown.edu/publication/the-ai-triad-and-what-it-means-for-national-security-strategy/">
           triad of data availability, growing computational power, and algorithmic progress</a>. We’re already seeing some beneficial applications of AI in <a target="_blank" href="https://en.wikipedia.org/wiki/Artificial_intelligence_in_healthcare">healthcare</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Seeing_AI">accessibility</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Machine_translation">language translation</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Advanced_driver-assistance_system">automotive safety</a>,
           and <a target="_blank" href="https://en.wikipedia.org/wiki/Artificial_intelligence_art">art creation</a>, to name just a few. The potential for economic growth
-          has taken a large <a target="_blank" href="https://www.businessnewsdaily.com/9402-artificial-intelligence-business-trends.html">mindshare of the business world</a> while the potential for
-          <a target="_blank" href="https://arxiv.org/pdf/2306.12001.pdf">catastrophic outcomes</a> has taken a <a target="_blank" href="https://www.vox.com/future-perfect/2023/8/18/23836362/ai-slow-down-poll-regulation">
+          has taken a large <a target="_blank" href="https://www.businessnewsdaily.com/9402-artificial-intelligence-business-trends.html">mindshare of the business world</a> while the potential
+          for <a target="_blank" href="https://arxiv.org/pdf/2306.12001.pdf">catastrophic outcomes</a> has taken a <a target="_blank" href="https://www.vox.com/future-perfect/2023/8/18/23836362/ai-slow-down-poll-regulation">
           large mindshare of the population at large</a>. AI is already beginning to make many productive aspects of our lives easier, and we should not
           anticipate this trend to stop.
 
@@ -30,8 +30,7 @@ export default function About() {
           could get out of hand</a>.  
 
           And, in case you didn't know, <a target="_blank" href="https://www.cnn.com/videos/tv/2023/05/02/amanpour-leahy-ai.cnn#:~:text=Follow%20CNN-,AI%20Researcher%3A%20There%27s%20more%20regulation%20on%20selling%20sandwiches,on%20%27God%2Dlike%27%20tech&text=Conjecture%20CEO%20Connor%20Leahy%20warns,intelligence%20is%20not%20far%20away.">
-            there is currently more governmental regulation for sandwiches than there is for artificial intelligence.
-          </a>
+          there is currently more governmental regulation for sandwiches than there is for artificial intelligence.</a>
         </p>
         <h3>This may be difficult to control</h3>
         <p className="mb-3">
