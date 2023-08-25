@@ -12,7 +12,7 @@ export default async function About() {
         <p className="mb-3">
           Founded in Spring 2023, the Wisconsin AI Safety Initiative aspires to serve as an incubator for high-impact
           careers promoting and facilitating the safe advancement of artificial intelligence.
-          Meet our team <a href="#team">here.</a>
+          Meet our team <a href="#team">here</a>.
           {/*See our newly refined programs <a href="/programming">here</a>.*/}
         </p>
       </div>
