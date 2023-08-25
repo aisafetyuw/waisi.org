@@ -1,5 +1,5 @@
 import { DISCORD_URL, WIN_URL } from '@/constants';
-import JoinButton from '@/components/joinButton';
+import Button from '@/components/button';
 
 export default function Home() {
   return (
@@ -14,14 +14,14 @@ export default function Home() {
         <h3 className="mb-4">
           We first develop a <b>holistic understanding of the risks</b> and then build the skills to solve them in <b>AI alignment</b> and <b>AI governance.</b>
         </h3>
-        <div id="join-buttons" className="py-2">
-          <JoinButton url={"/about"} text="About" />
+        <div id="buttons" className="py-2">
+          <Button url={"/about"} text="About" />
           &nbsp;&nbsp;
-          {/*<JoinButton url={"/programming"} text="Programming" />*/}
+          {/*<Button url={"/programming"} text="Programming" />*/}
           {/*&nbsp;&nbsp;*/}
-          <JoinButton url={DISCORD_URL} fa="discord" text="Discord" />
+          <Button url={DISCORD_URL} fa="discord" text="Discord" />
           &nbsp;&nbsp;
-          <JoinButton url={WIN_URL} text="WIN" />
+          <Button url={WIN_URL} text="WIN" />
         </div>
       </div>
     </div>

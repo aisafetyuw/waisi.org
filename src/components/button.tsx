@@ -1,13 +1,12 @@
-import { JoinButtonProps } from '@/types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ButtonProps } from '@/types';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 config.autoAddCss = false;
 
-export default function JoinButton(props: JoinButtonProps) {
+export default function Button(props: ButtonProps) {
   return (
-    <a className="join-button" target="_blank" href={props.url}>
+    <a className="waisi-button" target={props.url.includes("https") ? "_blank" : "_self"} href={props.url}>
       {props.fa && <><i className={'fa-brands fa-' + props.fa}></i>&nbsp;</>}
       {props.text}
     </a>

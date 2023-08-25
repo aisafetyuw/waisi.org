@@ -74,11 +74,11 @@ h1, h2, h3 {
     text-decoration: underline;
 }
 
-#join-buttons {
+#buttons {
     margin: 35px 0;
 }
 
-.join-button {
+.waisi-button {
     padding: 17px;
     font-weight: 600;
     color: white;
@@ -88,7 +88,7 @@ h1, h2, h3 {
     transition: all 0.3s ease;
 }
 
-.join-button:hover {
+.waisi-button:hover {
     opacity: 80%;
 }
 
