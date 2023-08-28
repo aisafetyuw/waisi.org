@@ -70,8 +70,16 @@ h1, h2, h3 {
     color: rgb(170, 68, 255);
 }
 
+#programs .waisi-button {
+    color: white;
+}
+
 #about a:hover, #programs a:hover {
     text-decoration: underline;
+}
+
+#programs .waisi-button:hover {
+    text-decoration: none;
 }
 
 #buttons {

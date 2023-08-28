@@ -1,6 +1,7 @@
 export type ProgramData = {
     name: string,
-    description?: string,
+    type: string,
+    reserved_for?: string,
     curriculumSimilarTo?: boolean,
     curriculumLink?: string
     applicationLink?: string,

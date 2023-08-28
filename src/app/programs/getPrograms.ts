@@ -25,7 +25,7 @@ const sheets = google.sheets({ version: 'v4', auth: client });
 export default async function getMembers() {
     const request = {
         spreadsheetId: '1OGoGF4GnfSnaO6LFdpgtVtF4JagANq5zAErhqp10goE',
-        range: 'Programs!A:G',
+        range: 'Programs!A:H',
     };
 
     const response = await sheets.spreadsheets.values.get(request);
@@ -34,12 +34,13 @@ export default async function getMembers() {
     const programs: ProgramData[] = rows.slice(1).map((row: string[]) => {
         return {
             name: row[0],
-            description: row[1],
-            curriculumSimilarTo: (row[2] === "TRUE"),
-            curriculumLink: row[3],
-            applicationLink: row[4],
-            applicationDeadline: row[5],
-            email: row[6],
+            type: row[1],
+            reserved_for: row[2],
+            curriculumSimilarTo: (row[3] === "TRUE"),
+            curriculumLink: row[4],
+            applicationLink: row[5],
+            applicationDeadline: row[6],
+            email: row[7],
         };
     });
 

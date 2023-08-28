@@ -1,30 +1,41 @@
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import { ProgramProps } from "@/types";
 
 export default function Program({ program }: ProgramProps) {
   return (
-    <div className="program bg-gray-50 shadow-lg rounded-lg p-2 h-max flex flex-col space-y-2">
+    <div className="program bg-gray-100 shadow-lg rounded-lg p-4 h-max w-full flex flex-col">
       <h3>{program.name}</h3>
-      {program.description &&
-        <p>{program.description}</p>
-      }
-      {program.email &&
-        <p>
-          Email <a href={"mailto:" + program.email}>{program.email}</a> with your qualifications and why you are interested.
+      {program.reserved_for && (
+        <p className="bg-fuchsia-400 bg-opacity-20 rounded-md p-2 mb-2 text-xs">
+          ⓘ Reserved for {program.reserved_for}
         </p>
-      }
-      {program.curriculumLink &&
+      )}
+      <hr className="mb-2" />
+      {program.email && (
         <p>
-          {program.curriculumSimilarTo ? "Curriculum similar to: " : "Curriculum: "}
+          Email <a href={"mailto:" + program.email}>{program.email}</a> with
+          your qualifications and why you are interested.
+        </p>
+      )}
+      {program.curriculumLink && (
+        <p>
+          {program.curriculumSimilarTo
+            ? "Curriculum similar to: "
+            : "Curriculum: "}
           <a href={program.curriculumLink}>{program.curriculumLink}</a>
         </p>
-      }
-      {program.applicationLink &&
-        <a href={program.applicationLink}>Apply here!</a>
-      }
-      {program.applicationDeadline &&
+      )}
+      {program.applicationLink && (
+        <a
+          className="waisi-button bg-indigo-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
+          href={program.applicationLink}
+        >
+          <b>Apply now!</b>
+        </a>
+      )}
+      {program.applicationDeadline && (
         <p>Applications due by {program.applicationDeadline}.</p>
-      }
+      )}
     </div>
   );
 }
