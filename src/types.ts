@@ -1,3 +1,17 @@
+export type ProgramData = {
+    name: string,
+    description?: string,
+    curriculumSimilarTo?: boolean,
+    curriculumLink?: string
+    applicationLink?: string,
+    applicationDeadline?: string,
+    email?: string,
+}
+
+export type ProgramProps = {
+    program: ProgramData,
+};
+
 export type MemberData = {
     name: string,
     pronouns: string,

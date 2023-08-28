@@ -66,11 +66,11 @@ h1, h2, h3 {
     font-size: 1.25em;
 }
 
-#about a {
+#about a, #programs a {
     color: rgb(170, 68, 255);
 }
 
-#about a:hover {
+#about a:hover, #programs a:hover {
     text-decoration: underline;
 }
 
