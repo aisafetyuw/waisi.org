@@ -27,10 +27,7 @@ export default async function Programs() {
   return (
     <div id="programs" className="page mb-8 sm:mb-16">
       <div>
-        <h2>Events</h2>
-      </div>
-      <div>
-        <h2>Fall 2023 Programs</h2>
+        <h2>Fall 2023 Programs - Scroll down to Apply!</h2>
         <div>
           <Image
             src={`/fall-2023-programs.jpeg`}
