@@ -22,11 +22,12 @@ export default function Program({ program }: ProgramProps) {
           {program.curriculumSimilarTo
             ? "Curriculum similar to: "
             : "Curriculum: "}
-          <a href={program.curriculumLink}>{program.curriculumLink}</a>
+          <a target="_blank" href={program.curriculumLink}>{program.curriculumLink}</a>
         </p>
       )}
       {program.applicationLink && (
         <a
+          target="_blank" 
           className="waisi-button bg-indigo-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
           href={program.applicationLink}
         >
@@ -38,7 +39,7 @@ export default function Program({ program }: ProgramProps) {
       )}
       {program.link && (
         <p>
-          <a href={program.link}>{program.link}</a>
+          <a target="_blank" href={program.link}>{program.link}</a>
         </p>
       )}
     </div>
