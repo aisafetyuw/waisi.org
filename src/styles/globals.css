@@ -13,6 +13,23 @@
     }
 }
 
+.about-img-left {
+    float: left;
+}
+
+.about-img-right {
+    float: right;
+}
+
+#programs {
+    animation: enter .8s forwards;
+    padding-top: 15px;
+    padding-right: 35px;
+    max-width: 1600px;
+    align-self: center;
+    color: #261e2d;
+}
+
 .page {
     animation: enter .8s forwards;
     padding-top: 15px;
@@ -104,6 +121,12 @@ h1, h2, h3 {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 1200px) {
+    #programs-img {
+        display: none;
+    }
 }
 
 .text-gradient {

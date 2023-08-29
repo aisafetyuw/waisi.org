@@ -1,9 +1,12 @@
+import AboutImage from "@/components/aboutimg";
+
 export default function About() {
   return (
     <div id="about" className="page">
       <h2>Our Mission</h2>
       <div id="mission">
         <p className="mb-3">
+          <AboutImage filename={'mission'} alt={'Our Mission'} />
           Founded in Spring 2023, the Wisconsin AI Safety Initiative aspires to serve as an incubator for high-impact
           careers promoting and facilitating the safe advancement of artificial intelligence.
           Meet our team <a href="/team">here</a>, and see our newly refined programs <a href="/programs">here</a>.
@@ -20,7 +23,9 @@ export default function About() {
           for <a target="_blank" href="https://arxiv.org/pdf/2306.12001.pdf">catastrophic outcomes</a> has taken a <a target="_blank" href="https://www.vox.com/future-perfect/2023/8/18/23836362/ai-slow-down-poll-regulation">
           large mindshare of the population at large</a>. AI is already beginning to make many productive aspects of our lives easier, and we should not
           anticipate this trend to stop.
-
+        </p>
+        <p className="mb-3">
+          <AboutImage filename={'advancement'} alt={'Exponential AI Advancement'} left={true} />
           Eventually, we should expect <a target="_blank" href="https://www.cold-takes.com/transformative-ai-timelines-part-1-of-4-what-kind-of-ai/#explosive-scientific-and-technological-advancement">AIs that will automate
           R&D (Research and Development) across many STEM-related areas</a>, even
           Artificial Intelligence, sparking feedback loops of intelligence growth. Extreme hypothetical versions of this are referred to
@@ -53,6 +58,7 @@ export default function About() {
           </li>
         </ul>
         <p className="mb-3">
+          <AboutImage filename={'control'} alt={'This may be difficult to control'} />
           Furthermore, AIs are currently <a target="_blank" href="https://en.wikipedia.org/wiki/Black_box">blackboxes</a> whose internals we
           don't understand. We know that they grow their learnings and internal schemas through the process of <a target="_blank" href="https://youtu.be/IHZwWFHWa-w?si=JhipFNH8hXMloXn1">gradient descent</a>, but we can't understand specifically
           what these schemes are and how subcomponents of the neural network contribute to the overall decision making process. 
@@ -97,6 +103,7 @@ export default function About() {
           </li>
         </ul>
         <p className="mb-3">
+          <AboutImage filename={'downsides'} alt={'What downsides do we face?'} />
           Longer term, we may need to worry about risks from <b>autonomous AI</b>:
         </p>
         <ul className="mb-3 list-disc">
@@ -119,6 +126,7 @@ export default function About() {
           How the development of AI turns out will influence not just the next 25 years but likely the next 1,000,000. <b>Come
           join the Wisconsin AI Safety Initiative</b> and learn how to contribute to mitigating these risks and ensuring that AI is beneficial for all of us. 
           {/*See our programming <a href="/programming">here</a>.*/}
+          <AboutImage filename={'seriously'} alt={'We ought to take all of these downsides seriously'} />
         </p>
         <h3>Other Introductory Resources</h3>
         <h4 className="mb-3 text-lg font-semibold">Readings</h4>

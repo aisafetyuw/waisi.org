@@ -25,56 +25,57 @@ export default async function Programs() {
   const governanceProgramsTwo = governancePrograms;
 
   return (
-    <div id="programs" className="page mb-8 sm:mb-16">
-      <div>
-        <h2>Fall 2023 Programs - Scroll down to Apply!</h2>
+    <div id="programs" className="mb-8 sm:mb-16 p-4">
+      <h2>Fall 2023 Programs</h2>
+      <div className="flex flex-row">
         <div>
-          <Image
-            src={`/fall-2023-programs.jpeg`}
-            alt="Poster of fall 2023 programs"
-            width={1080}
-            height={1920}
-            className="rounded-lg shadow-lg bg-gray-50 p-4"
-          />
-        </div>
-        <div className="p-4">
-          <h2>Alignment</h2>
-          <div className="flex flex-wrap justify-between space-y-4 md:space-y-0">
-            <div className="w-full md:w-1/2 space-y-4 md:pr-2">
-              {alignmentProgramsOne.map((program, index) => (
-                <div key={index}>
-                  <Program program={program} />
-                </div>
-              ))}
+          <div>
+            <h2>Alignment</h2>
+            <div className="flex flex-wrap justify-between space-y-4 md:space-y-0">
+              <div className="w-full md:w-1/2 space-y-4 md:pr-2">
+                {alignmentProgramsOne.map((program, index) => (
+                  <div key={index}>
+                    <Program program={program} />
+                  </div>
+                ))}
+              </div>
+              <div className="w-full md:w-1/2 space-y-4 md:pl-2">
+                {alignmentProgramsTwo.map((program, index) => (
+                  <div key={index}>
+                    <Program program={program} />
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="w-full md:w-1/2 space-y-4 md:pl-2">
-              {alignmentProgramsTwo.map((program, index) => (
-                <div key={index}>
-                  <Program program={program} />
-                </div>
-              ))}
+          </div>
+          <div>
+            <h2>Governance</h2>
+            <div className="flex flex-wrap justify-between space-y-4 md:space-y-0">
+              <div className="w-full md:w-1/2 space-y-4 md:pr-2">
+                {governanceProgramsOne.map((program, index) => (
+                  <div key={index}>
+                    <Program program={program} />
+                  </div>
+                ))}
+              </div>
+              <div className="w-full md:w-1/2 space-y-4 md:pl-2">
+                {governanceProgramsTwo.map((program, index) => (
+                  <div key={index}>
+                    <Program program={program} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-        <div className="p-4">
-          <h2>Governance</h2>
-          <div className="flex flex-wrap justify-between space-y-4 md:space-y-0">
-            <div className="w-full md:w-1/2 space-y-4 md:pr-2">
-              {governanceProgramsOne.map((program, index) => (
-                <div key={index}>
-                  <Program program={program} />
-                </div>
-              ))}
-            </div>
-            <div className="w-full md:w-1/2 space-y-4 md:pl-2">
-              {governanceProgramsTwo.map((program, index) => (
-                <div key={index}>
-                  <Program program={program} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <Image
+          id="programs-img"
+          src={`/fall-2023-programs.jpeg`}
+          alt="Poster of fall 2023 programs"
+          width={1080 * .6}
+          height={1920 * .6}
+          className="rounded-lg shadow-lg bg-gray-50 m-2 p-4"
+        />
       </div>
     </div>
   );
