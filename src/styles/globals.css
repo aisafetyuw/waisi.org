@@ -21,6 +21,10 @@
     float: right;
 }
 
+.program a {
+    word-break: break-all;
+}
+
 #programs {
     animation: enter .8s forwards;
     padding-top: 15px;

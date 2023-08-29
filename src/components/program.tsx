@@ -3,7 +3,7 @@ import { ProgramProps } from "@/types";
 
 export default function Program({ program }: ProgramProps) {
   return (
-    <div className="program bg-gray-100 shadow-lg rounded-lg p-4 h-max w-full flex flex-col">
+    <div className="program bg-gray-100 h-full shadow-lg rounded-lg p-4 w-full flex flex-col">
       <h3>{program.name}</h3>
       {program.reserved_for && (
         <p className="bg-fuchsia-400 bg-opacity-20 rounded-md p-2 mb-4 text-xs">
