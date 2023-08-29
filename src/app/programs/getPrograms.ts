@@ -41,6 +41,7 @@ export default async function getMembers() {
             applicationLink: row[5],
             applicationDeadline: row[6],
             email: row[7],
+            link: row[8],
         };
     });
 

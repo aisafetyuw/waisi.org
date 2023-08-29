@@ -36,6 +36,11 @@ export default function Program({ program }: ProgramProps) {
       {program.applicationDeadline && (
         <p>Applications due by {program.applicationDeadline}.</p>
       )}
+      {program.link && (
+        <p>
+          <a href={program.link}>{program.link}</a>
+        </p>
+      )}
     </div>
   );
 }

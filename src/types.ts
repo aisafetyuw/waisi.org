@@ -7,6 +7,7 @@ export type ProgramData = {
     applicationLink?: string,
     applicationDeadline?: string,
     email?: string,
+    link?: string,
 }
 
 export type ProgramProps = {
