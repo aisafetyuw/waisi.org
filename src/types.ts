@@ -30,7 +30,6 @@ export type MemberProps = {
 export type AboutImageProps = {
     filename: string,
     alt: string,
-    left?: boolean,
 };
 
 export type ButtonProps = {

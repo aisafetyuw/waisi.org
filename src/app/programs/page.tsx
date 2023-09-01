@@ -18,7 +18,10 @@ export default async function Programs() {
   return (
     <div id="programs" className="mb-8 sm:mb-16 p-4">
       <h2 className="underline">Fall 2023 Programs</h2>
-      <div className="flex flex-row">
+      <p className="mb-3">
+        See<span className="md:hidden"> bottom</span> infographic for more information.
+      </p>
+      <div id="program-container">
         <div>
           <div>
             <h2>Alignment</h2>
@@ -44,10 +47,10 @@ export default async function Programs() {
         <Image
           id="programs-img"
           src={`/fall-2023-programs.jpeg`}
-          alt="Poster of fall 2023 programs"
+          alt="Infographic of fall 2023 programs"
           width={648}
-          height={1152}
-          className="rounded-lg shadow-lg bg-gray-50 m-2 p-4"
+          height={972}
+          className="rounded-lg shadow-lg bg-gray-50 m-2 p-2"
         />
       </div>
     </div>
