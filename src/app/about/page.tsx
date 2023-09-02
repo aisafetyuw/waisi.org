@@ -114,6 +114,7 @@ export default function About() {
           </li>
         </ul>
         <AboutImage filename={'downsides'} alt={'What downsides do we face?'} />
+        <h3>Let's take this seriously</h3>
         <p className="mb-4">
           We ought to take all of these downsides seriously, even the more hypothetical ones. They are a pretty clear and
           research grounded extrapolation of where AI technology will go. The leaders of the top AI companies agree and
