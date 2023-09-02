@@ -126,7 +126,7 @@ export default function About() {
         <p className="mb-3">
           How the development of AI turns out will influence not just the next 25 years but likely the next 1,000,000. <b>Come
           join the Wisconsin AI Safety Initiative</b> and learn how to contribute to mitigating these risks and ensuring that AI is beneficial for all of us. 
-          See our programming <a href="/programming">here</a>.
+          See our programming <a href="/programs">here</a>.
         </p>
         <AboutImage filename={'seriously'} alt={'We ought to take all of these downsides seriously'} />
         <h3>Other Introductory Resources</h3>
