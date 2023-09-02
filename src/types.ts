@@ -7,6 +7,7 @@ export type ProgramData = {
     applicationLink?: string,
     applicationDeadline?: string,
     email?: string,
+    link?: string,
 }
 
 export type ProgramProps = {
@@ -24,6 +25,11 @@ export type MemberData = {
 
 export type MemberProps = {
     member: MemberData,
+};
+
+export type AboutImageProps = {
+    filename: string,
+    alt: string,
 };
 
 export type ButtonProps = {

@@ -3,7 +3,7 @@ import { ProgramProps } from "@/types";
 
 export default function Program({ program }: ProgramProps) {
   return (
-    <div className="program bg-gray-100 shadow-lg rounded-lg p-4 h-max w-full flex flex-col">
+    <div className="program bg-gray-100 h-full shadow-lg rounded-lg p-4 w-full flex flex-col">
       <h3>
         <div dangerouslySetInnerHTML={{ __html: program.name }}/>
       </h3>
@@ -24,11 +24,12 @@ export default function Program({ program }: ProgramProps) {
           {program.curriculumSimilarTo
             ? "Curriculum similar to: "
             : "Curriculum: "}
-          <a href={program.curriculumLink}>{program.curriculumLink}</a>
+          <a target="_blank" href={program.curriculumLink}>{program.curriculumLink}</a>
         </p>
       )}
       {program.applicationLink && (
         <a
+          target="_blank" 
           className="waisi-button bg-indigo-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
           href={program.applicationLink}
         >
@@ -37,6 +38,11 @@ export default function Program({ program }: ProgramProps) {
       )}
       {program.applicationDeadline && (
         <p>Applications due by {program.applicationDeadline}.</p>
+      )}
+      {program.link && (
+        <p>
+          <a target="_blank" href={program.link}>{program.link}</a>
+        </p>
       )}
     </div>
   );
