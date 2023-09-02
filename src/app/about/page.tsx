@@ -8,13 +8,15 @@ export default function About() {
         <p className="mb-3">
           Founded in Spring 2023, the Wisconsin AI Safety Initiative aspires to serve as an incubator for high-impact
           careers promoting and facilitating the safe advancement of artificial intelligence.
+        </p>
+        <p className="mb-3">
           Meet our team <a href="/team">here</a>, and see our newly refined programs <a href="/programs">here</a>.
         </p>
         <AboutImage filename={'mission'} alt={'Our Mission'} />
       </div>
       <h2>Why AI Safety?</h2>
       <div>
-        <h3>Exponential AI Advancement</h3>
+        <h3>Rapid AI Advances</h3>
         <p className="mb-3">
           The field of Artificial Intelligence (AI) has seen notable acceleration, fueled by the <a target="_blank" href="https://cset.georgetown.edu/publication/the-ai-triad-and-what-it-means-for-national-security-strategy/">
           triad of data availability, growing computational power, and algorithmic progress</a>. We’re already seeing some beneficial applications of AI in <a target="_blank" href="https://en.wikipedia.org/wiki/Artificial_intelligence_in_healthcare">healthcare</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Seeing_AI">accessibility</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Machine_translation">language translation</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Advanced_driver-assistance_system">automotive safety</a>,
