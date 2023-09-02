@@ -40,9 +40,7 @@ export default function Program({ program }: ProgramProps) {
         <p>Applications due by {program.applicationDeadline}.</p>
       )}
       {program.link && (
-        <p>
-          <a target="_blank" href={program.link}>{program.link}</a>
-        </p>
+        <div dangerouslySetInnerHTML={{ __html: program.link }}/>
       )}
     </div>
   );
