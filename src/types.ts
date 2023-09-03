@@ -1,3 +1,5 @@
+import { calendar_v3 } from "googleapis/build/src/apis/calendar/v3";
+
 export type ProgramData = {
     name: string,
     type: string,
@@ -27,21 +29,8 @@ export type MemberProps = {
     member: MemberData,
 };
 
-export type EventData = {
-    description: string | null | undefined,
-    summary: string | null | undefined,
-    htmlLink: string | null | undefined,
-    start: {
-        dateTime: string,
-    },
-    end: {
-        dateTime: string,
-    },
-    location: string | null | undefined,
-};
-
 export type EventProps = {
-    event: EventData,
+    event: calendar_v3.Schema$Event,
 };
 
 export type AboutImageProps = {
