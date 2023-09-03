@@ -18,9 +18,9 @@ export default function Home() {
           <Button url={"/about"} text="About" />
           &nbsp;&nbsp;
           <Button url={"/programs"} text="Programs" />
-          {/*&nbsp;&nbsp;*/}
-          {/*<Button url={"/events"} text="Events" />*/}
           &nbsp;&nbsp;
+          {/*<Button url={"/events"} text="Events" />*/}
+          {/*&nbsp;&nbsp;*/}
           <Button url={DISCORD_URL} fa="discord" text="Discord" />
           &nbsp;&nbsp;
           {/* <Button url={WIN_URL} text="WIN" /> */}

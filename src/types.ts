@@ -27,6 +27,23 @@ export type MemberProps = {
     member: MemberData,
 };
 
+export type EventData = {
+    description: string | null | undefined,
+    summary: string | null | undefined,
+    htmlLink: string | null | undefined,
+    start: {
+        dateTime: string,
+    },
+    end: {
+        dateTime: string,
+    },
+    location: string | null | undefined,
+};
+
+export type EventProps = {
+    event: EventData,
+};
+
 export type AboutImageProps = {
     filename: string,
     alt: string,
