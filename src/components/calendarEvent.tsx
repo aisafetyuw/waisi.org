@@ -58,7 +58,7 @@ export default function CalendarEvent({ event }: EventProps) {
       {event.description &&
         <span>
           <hr className="mb-1" />
-          <div className="text-md event-description" dangerouslySetInnerHTML={{ __html: event.description }} />
+          <div className="text-sm event-description" dangerouslySetInnerHTML={{ __html: event.description }} />
         </span>
       }
     </div>
