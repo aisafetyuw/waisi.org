@@ -16,6 +16,14 @@ export default function CalendarEvent({ event }: EventProps) {
     return baseURL + encodeURIComponent(location);
   }
 
+  function formatDescription(description: string): string {
+    description = description.replace(/(?<!^)<p>/g, '<br />');
+    description = description.replace(/<\/p>(?!$)/g, '<br />');
+    description = description.replace(/^<p>|<\/p>$/g, '');
+    description = description.replace(/(<br \/>\s*){2,}/g, '<br />');
+    return description;
+  }
+
   return (
     <div className="bg-gray-50 shadow-lg rounded-lg my-4 p-4 h-full transform transition-transform hover:scale-105">
       {event.htmlLink &&
@@ -58,7 +66,7 @@ export default function CalendarEvent({ event }: EventProps) {
       {event.description &&
         <span>
           <hr className="mb-1" />
-          <div className="text-sm event-description" dangerouslySetInnerHTML={{ __html: event.description }} />
+          <div className="text-md event-description" dangerouslySetInnerHTML={{ __html: formatDescription(event.description) }} />
         </span>
       }
     </div>
