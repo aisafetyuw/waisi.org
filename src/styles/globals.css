@@ -55,9 +55,17 @@
     align-items: flex-start;
 }
 
+#see-info {
+    display: none;
+}
+
 
 @media (max-width: 1200px) {
     #program-container {
+        display: block;
+    }
+
+    #see-info {
         display: block;
     }
 }

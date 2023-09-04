@@ -1,8 +1,13 @@
 import { EventProps } from "@/types";
 
 export default function CalendarEvent({ event }: EventProps) {
-  function formatDate(dateString: string): string {
+  function formatDate(dateString: string, isAllDay: boolean): string {
     const date = new Date(dateString);
+
+    if (isAllDay) {
+        date.setDate(date.getDate() + 1);
+    }
+
     return `${date.toLocaleString('default', { month: 'short' })}. ${date.getDate()}`;
   }
 
@@ -41,7 +46,7 @@ export default function CalendarEvent({ event }: EventProps) {
           <i className="fa-regular fa-clock text-sm text-gray-500 mb-3"></i>
           &nbsp;
           <span className="text-sm">
-            {event.start.date ? formatDate(event.start.date) : formatDate(event.start.dateTime!)}
+            {event.start.date ? formatDate(event.start.date, true) : formatDate(event.start.dateTime!, false)}
           </span>
           {event.start.dateTime && event.end && event.end.dateTime &&
             <span className="text-sm">
