@@ -64,8 +64,8 @@ export default function About() {
           don't understand. We know that they grow their learnings and internal schemas through the process of <a target="_blank" href="https://youtu.be/IHZwWFHWa-w?si=JhipFNH8hXMloXn1">gradient descent</a>, but we can't understand specifically
           what these schemes are and how subcomponents of the neural network contribute to the overall decision making process. 
 
-          Solutions such as <a target="_blank" href="https://arxiv.org/abs/2211.03540">scalable model oversight</a> and <a target="_blank" href="https://www.alignmentforum.org/posts/vnocLyeWXcAxtdDnP/a-comprehensive-mechanistic-interpretability-explainer-and">mechanistic interpretability</a>
-          are still in their infancy. Without these, we can't even know the extent of an AI's capabilities to try to be informed when we make regulatory decisions.
+          Solutions such as <a target="_blank" href="https://arxiv.org/abs/2211.03540">scalable model oversight</a> and <a target="_blank" href="https://www.alignmentforum.org/posts/vnocLyeWXcAxtdDnP/a-comprehensive-mechanistic-interpretability-explainer-and">mechanistic interpretability</a> are
+          still in their infancy. Without these, we can't even know the extent of an AI's capabilities to try to be informed when we make regulatory decisions.
           We know what <a target="_blank" href="https://arxiv.org/pdf/2305.15324.pdf">dangerous capabilities</a> might look like, but how could we detect them?
         </p>
         <AboutImage filename={'control'} alt={'This may be difficult to control'} />
