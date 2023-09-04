@@ -32,9 +32,11 @@ export default function About() {
           Artificial Intelligence, sparking feedback loops of intelligence growth. Extreme hypothetical versions of this are referred to
           as <a target="_blank" href="https://en.wikipedia.org/wiki/Technological_singularity">the Singularity</a>, where the hyperbolic growth of intelligence goes haywire within hours or days, but, beyond this case, one can
           easily see how the <a target="_blank" href="https://www.lesswrong.com/posts/HBxe6wdjxK239zajf/what-failure-looks-like">feedback cycles here gradually take humans more and more out of the loop and, without specific interventions,
-          could get out of hand</a>.  
-
-          And, in case you didn't know, <a target="_blank" href="https://www.cnn.com/videos/tv/2023/05/02/amanpour-leahy-ai.cnn#:~:text=Follow%20CNN-,AI%20Researcher%3A%20There%27s%20more%20regulation%20on%20selling%20sandwiches,on%20%27God%2Dlike%27%20tech&text=Conjecture%20CEO%20Connor%20Leahy%20warns,intelligence%20is%20not%20far%20away.">
+          could get out of hand</a>. 
+        </p>
+        <p className="mb-3">
+          One can imagine the transition from AIs being assistants at the workplace, to having some decision making power, to being the full-on CEOs. With no interventions, they will take over the market, lobby government, and 
+          generally assert power an irreversible fashion once we've entangled them with society. And, in case you didn't know, <a target="_blank" href="https://www.cnn.com/videos/tv/2023/05/02/amanpour-leahy-ai.cnn#:~:text=Follow%20CNN-,AI%20Researcher%3A%20There%27s%20more%20regulation%20on%20selling%20sandwiches,on%20%27God%2Dlike%27%20tech&text=Conjecture%20CEO%20Connor%20Leahy%20warns,intelligence%20is%20not%20far%20away.">
           there is currently more governmental regulation for sandwiches than there is for artificial intelligence.</a>
         </p>
         <AboutImage filename={'advancement'} alt={'Exponential AI Advancement'} />
@@ -62,10 +64,11 @@ export default function About() {
         <p className="mb-3">
           Furthermore, AIs are currently <a target="_blank" href="https://en.wikipedia.org/wiki/Black_box">blackboxes</a> whose internals we
           don't understand. We know that they grow their learnings and internal schemas through the process of <a target="_blank" href="https://youtu.be/IHZwWFHWa-w?si=JhipFNH8hXMloXn1">gradient descent</a>, but we can't understand specifically
-          what these schemes are and how subcomponents of the neural network contribute to the overall decision making process. 
-
-          Solutions such as <a target="_blank" href="https://arxiv.org/abs/2211.03540">scalable model oversight</a> and <a target="_blank" href="https://www.alignmentforum.org/posts/vnocLyeWXcAxtdDnP/a-comprehensive-mechanistic-interpretability-explainer-and">mechanistic interpretability</a>
-          are still in their infancy. Without these, we can't even know the extent of an AI's capabilities to try to be informed when we make regulatory decisions.
+          what these schemas are and how subcomponents of the neural network contribute to the overall decision making process. Solutions such as <a target="_blank" href="https://arxiv.org/abs/2211.03540">scalable model 
+          oversight</a> and <a target="_blank" href="https://www.alignmentforum.org/posts/vnocLyeWXcAxtdDnP/a-comprehensive-mechanistic-interpretability-explainer-and">mechanistic interpretability</a> are still in their infancy.
+        </p>
+        <p className="mb-3">
+          Without these, we can't even know the extent of an AI's capabilities is to try to be informed when we make regulatory decisions.
           We know what <a target="_blank" href="https://arxiv.org/pdf/2305.15324.pdf">dangerous capabilities</a> might look like, but how could we detect them?
         </p>
         <AboutImage filename={'control'} alt={'This may be difficult to control'} />
@@ -121,12 +124,14 @@ export default function About() {
           We ought to take all of these downsides seriously, even the more hypothetical ones. They are a pretty clear and
           research grounded extrapolation of where AI technology will go. That's not to say that things necessarily must end up horribly bad. 
           But, when the extrapolation looks how it looks right now, it's clear that there is work to be dome. 
-          The leaders of the top 3 AI companies of OpenAI, DeepMind, and Anthropic agree and
-          have signed on in agreement with the <a target="_blank" href="https://www.safe.ai/statement-on-ai-risk">Center for AI Safety's Statement on AI Risk</a> 
+          The leaders of the top 3 AI companies of <b>OpenAI, DeepMind, and Anthropic agree and
+          have signed on in agreement</b> with the <a target="_blank" href="https://www.safe.ai/statement-on-ai-risk">Center for AI Safety's Statement on AI Risk</a> 
           which reads: 
         </p>
         <p className="mb-4 text-xl text-gray-500">
-          “Mitigating the risk of extinction from AI should be a global priority alongside other societal-scale risks such as pandemics and nuclear war.”
+          <em>
+            “Mitigating the risk of extinction from AI should be a global priority alongside other societal-scale risks such as pandemics and nuclear war.”
+          </em>
         </p>
         <p className="mb-3">
           How the development of AI turns out will influence not just the next 25 years but likely the next 1,000,000. <b>Come
