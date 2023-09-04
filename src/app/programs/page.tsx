@@ -18,7 +18,7 @@ export default async function Programs() {
   return (
     <div id="programs" className="mb-8 sm:mb-16 p-4">
       <p id="see-info" className="mb-3">
-        See infographic for more information.
+        See bottom infographic for more information.
       </p>
       <div id="program-container">
         <div>
