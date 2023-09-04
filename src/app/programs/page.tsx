@@ -17,14 +17,13 @@ export default async function Programs() {
 
   return (
     <div id="programs" className="mb-8 sm:mb-16 p-4">
-      <h2 className="underline">Fall 2023 Programs</h2>
       <p className="mb-3">
         See<span className="md:hidden"> bottom</span> infographic for more information.
       </p>
       <div id="program-container">
         <div>
           <div>
-            <h2>Alignment</h2>
+            <h2>Alignment Programs</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 m-1 mb-8">
               {alignmentPrograms.map((program, index) => (
                 <div key={index}>
@@ -34,7 +33,7 @@ export default async function Programs() {
             </div>
           </div>
           <div>
-            <h2>Governance</h2>
+            <h2>Governance Programs</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 m-1 mb-8">
               {governancePrograms.map((program, index) => (
                 <div key={index}>
@@ -46,7 +45,7 @@ export default async function Programs() {
         </div>
         <Image
           id="programs-img"
-          src={`/fall-2023-programs.jpeg`}
+          src={`/fall-2023-programs.jpg`}
           alt="Infographic of fall 2023 programs"
           width={648}
           height={972}

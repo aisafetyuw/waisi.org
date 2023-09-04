@@ -5,7 +5,7 @@ export default function Program({ program }: ProgramProps) {
   return (
     <div className="program bg-gray-100 h-full shadow-lg rounded-lg p-4 w-full flex flex-col">
       <h3>
-        <div dangerouslySetInnerHTML={{ __html: program.name }}/>
+        <div dangerouslySetInnerHTML={{ __html: program.name }} />
       </h3>
       {program.reserved_for && (
         <p className="bg-fuchsia-400 bg-opacity-20 rounded-md p-2 mb-4 text-xs">
@@ -40,9 +40,7 @@ export default function Program({ program }: ProgramProps) {
         <p>Applications due by {program.applicationDeadline}.</p>
       )}
       {program.link && (
-        <p>
-          <a target="_blank" href={program.link}>{program.link}</a>
-        </p>
+        <a target="_blank" href={program.link}>{program.link}</a>
       )}
     </div>
   );
