@@ -124,9 +124,8 @@ export default function About() {
           We ought to take all of these downsides seriously, even the more hypothetical ones. They are a pretty clear and
           research grounded extrapolation of where AI technology will go. That's not to say that things necessarily must end up horribly bad. 
           But, when the extrapolation looks how it looks right now, it's clear that there is work to be dome. 
-          The leaders of the top 3 AI companies of OpenAI, DeepMind, and Anthropic agree and
-          have signed on in agreement with the <a target="_blank" href="https://www.safe.ai/statement-on-ai-risk">Center for AI Safety's Statement on AI Risk</a> 
-          which reads: 
+          The leaders of the top 3 AI companies of <b>OpenAI, DeepMind,</b> and <b>Anthropic</b> agree and
+          have signed on in agreement with the <a target="_blank" href="https://www.safe.ai/statement-on-ai-risk">Center for AI Safety's Statement on AI Risk</a> which reads: 
         </p>
         <p className="mb-4 text-xl text-gray-500">
           <em>
