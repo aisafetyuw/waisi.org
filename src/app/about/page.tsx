@@ -12,6 +12,9 @@ export default function About() {
         <p className="mb-3">
           Meet our team <a href="/team">here</a>, and see our newly refined programs <a href="/programs">here</a>.
         </p>
+        <p className="mb-3">
+          <a target="_blank" href="https://docs.google.com/document/d/1KUVD7c-ZM0uijD0RvYYk6yBl0Oe09AAgIvYyoVUj4h8/edit?usp=sharing">Click here</a> to read about what kind of group culture we hope to cultivate.
+        </p>
         <AboutImage filename={'mission'} alt={'Our Mission'} />
       </div>
       <h2>Why AI Safety?</h2>
