@@ -1,4 +1,4 @@
-import { DISCORD_URL, WIN_URL } from '@/constants';
+import { DISCORD_URL, TWITTER_URL } from '@/constants';
 import Button from '@/components/button';
 import Events from '@/components/events';
 
@@ -22,7 +22,7 @@ export default function Home() {
           &nbsp;&nbsp;
           <Button url={DISCORD_URL} fa="discord" text="Discord" />
           &nbsp;&nbsp;
-          {/* <Button url={WIN_URL} text="WIN" /> */}
+          <Button url={TWITTER_URL} fa="twitter" text="Twitter" />
         </div>
         <Events />
       </div>
