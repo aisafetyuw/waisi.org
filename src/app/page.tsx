@@ -21,8 +21,8 @@ export default function Home() {
           <Button url={"/programs"} text="Programs" />
           &nbsp;&nbsp;
           <Button url={DISCORD_URL} fa="discord" text="Discord" />
-          &nbsp;&nbsp;
-          <Button url={TWITTER_URL} fa="twitter" text="Twitter" />
+          {/* &nbsp;&nbsp; */}
+          {/* <Button url={TWITTER_URL} fa="twitter" text="Twitter" /> */}
         </div>
         <Events />
       </div>

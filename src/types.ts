@@ -40,8 +40,8 @@ export type AboutImageProps = {
 
 export type ButtonProps = {
     url: string,
-    fa?: 'slack' | 'discord' | 'twitter',
     text: string,
+    fa?: 'discord' | 'twitter',
 };
 
 export type MobileNavProps = {
