@@ -116,6 +116,10 @@ h1, h2, h3 {
     color: white;
 }
 
+#programs .waisi-button .closed {
+    background-image: linear-gradient(to top right, #f65c5c, #ce2323);
+}
+
 #about a:hover, #programs a:hover, .event-description a:hover {
     text-decoration: underline;
 }
