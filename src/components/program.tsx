@@ -28,13 +28,21 @@ export default function Program({ program }: ProgramProps) {
         </p>
       )}
       {program.applicationLink && (
-        <a
-          target="_blank" 
-          className="waisi-button bg-indigo-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
-          href={program.applicationLink}
-        >
-          <b>Apply now!</b>
-        </a>
+        program.closed
+          ? <a
+            target="_blank" 
+            className="waisi-button bg-red-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
+          >
+            <b>Applications closed!</b>
+          </a>
+          : <a
+            target="_blank" 
+            className="waisi-button bg-indigo-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
+            href={program.applicationLink}
+          >
+            <b>Apply now!</b>
+          </a>
+        
       )}
       {program.applicationDeadline && (
         <p>Applications due by {program.applicationDeadline}.</p>
