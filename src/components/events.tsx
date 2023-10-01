@@ -1,3 +1,5 @@
+'use client';
+
 import getEvents from '@/app/getEvents';
 import CalendarEvent from '@/components/calendarEvent';
 
