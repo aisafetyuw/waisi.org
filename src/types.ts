@@ -22,8 +22,8 @@ export type MemberData = {
     pronouns: string,
     description: string,
     email: string,
-    linkedin?: string,
     twitter?: string,
+    linkedin?: string,
 };
 
 export type MemberProps = {
