@@ -11,7 +11,7 @@ export default async function Events() {
           <h2>Upcoming Events</h2>
           <ul className="md:w-5/6">
             {events.map((event, index) => (
-              <li>
+              <li key={index}>
                 <CalendarEvent key={index} event={event} />
               </li>
             ))}
