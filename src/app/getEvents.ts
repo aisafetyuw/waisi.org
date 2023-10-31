@@ -22,7 +22,7 @@ client.authorize((err) => {
 
 const calendar = google.calendar({ version: 'v3', auth: client });
 
-async function getEvents() {
+export default async function getEvents() {
     const response = await calendar.events.list({
         calendarId: 'ef5131b341f5487d64d28b938ebf9bf59f14e27704bbe3f6a9459abbec74753b@group.calendar.google.com',
         timeMin: (new Date()).toISOString(),
@@ -33,6 +33,3 @@ async function getEvents() {
 
     return response.data.items;
 }
-
-export const revalidate = 3600; // Revalidate data every hour. See https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#fetching-data-on-the-server-with-third-party-libraries 
-export default cache(getEvents);
