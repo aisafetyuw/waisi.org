@@ -1,6 +1,5 @@
 import { google } from 'googleapis';
 import credentials from '@/credentials.json';
-import { cache } from 'react'
 
 const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 

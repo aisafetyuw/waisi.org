@@ -2,8 +2,6 @@ import { DISCORD_URL, TWITTER_URL } from '@/constants';
 import Button from '@/components/button';
 import Events from '@/components/events';
 
-export const revalidate = 3600;
-
 export default function Home() {
   return (
     <div id="home" className="page">
