@@ -14,7 +14,6 @@ const client = new google.auth.JWT(
 client.authorize((err, tokens) => {
     if (err) {
         console.error(err);
-        return;
     } else {
         console.log("Successfully connected to Programs!");
     }
