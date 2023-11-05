@@ -2,8 +2,6 @@ import { DISCORD_URL, TWITTER_URL } from '@/constants';
 import Button from '@/components/button';
 import Events from '@/components/events';
 
-export const dynamic = 'force-dynamic'; // Front page refreshes events on every load
-
 export default function Home() {
   return (
     <div id="home" className="page">
