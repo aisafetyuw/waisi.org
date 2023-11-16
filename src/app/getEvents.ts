@@ -31,4 +31,4 @@ export default async function getEvents() {
     });
 
     return response.data.items;
-}
+};
