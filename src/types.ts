@@ -11,7 +11,7 @@ export type ProgramData = {
     email?: string,
     link?: string,
     closed?: string,
-}
+};
 
 export type ProgramProps = {
     program: ProgramData,
