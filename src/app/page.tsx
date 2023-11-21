@@ -1,12 +1,14 @@
 import { DISCORD_URL, TWITTER_URL } from '@/constants';
 import Button from '@/components/button';
 import Events from '@/components/events';
+import AboutImage from '@/components/aboutImage';
 
 export default function Home() {
   return (
     <div id="home" className="page">
       <h1 className="text-gradient text-5xl font-extrabold py-4">Wisconsin AI Safety Initiative</h1>
       <div id="home-content">
+        <AboutImage filename={'danger'} alt={'Detecting Danger in Artificial Intelligence'} />
         <main>
           <h3 className="mb-4">
             We're a community aiming to <b>mitigate the risks</b> that increasingly capable <b>artificial intelligence</b> brings to the world.
