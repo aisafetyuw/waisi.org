@@ -108,7 +108,7 @@ h1, h2, h3 {
     font-size: 1.25em;
 }
 
-#about a, #programs a, .location, .event-description a {
+#about a, #programs a, .location, .event-description a, #headline a {
     color: rgb(170, 68, 255);
 }
 
