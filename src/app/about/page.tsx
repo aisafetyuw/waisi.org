@@ -1,10 +1,14 @@
 import AboutImage from "@/components/aboutImage";
+import { Handbooks } from '@/constants';
 
 export default function About() {
   return (
     <div id="about" className="page">
       <h2>Our Mission</h2>
       <div id="mission">
+        <p className="mb-3 text-xl font-bold">
+          <a href={Handbooks.AT_A_GLANCE}>WAISI At A Glance</a> &bull; <a href={Handbooks.FELLOWSHIP}>AISF Fellowship Handbook</a> &bull; <a href={Handbooks.SAFETY_SCHOLARS}>Safety Scholars Handbook</a>
+        </p>
         <p className="mb-3">
           Founded in Spring 2023, the Wisconsin AI Safety Initiative aspires to serve as an incubator for high-impact
           careers promoting and facilitating the safe advancement of artificial intelligence.
