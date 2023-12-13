@@ -6,7 +6,7 @@ export default async function Events() {
 
   return (
     <div id="events">
-      {events &&
+      {events && events.length > 0 &&
         <div>
           <h2>Upcoming Events</h2>
           <ul className="md:w-5/6">
