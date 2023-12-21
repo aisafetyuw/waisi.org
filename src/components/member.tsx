@@ -30,10 +30,6 @@ export default function Member({ member }: MemberProps) {
           </div>
         </div>
       </div>
-      <hr className="mt-2" />
-      <div className="mt-2">
-        <p>{member.description}</p>
-      </div>
     </div>
   );
 }

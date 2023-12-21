@@ -24,6 +24,7 @@ export type MemberData = {
     email: string,
     twitter?: string,
     linkedin?: string,
+    team: string,
 };
 
 export type MemberProps = {
