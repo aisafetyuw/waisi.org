@@ -8,7 +8,7 @@ export default function Member({ member }: MemberProps) {
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">
           <Image
-            src={`/leaders/${member.name.replace(' ', '_').toLowerCase()}.jpg`}
+            src={`/leaders/${member.name.replaceAll(' ', '_').toLowerCase()}.jpg`}
             alt={member.name}
             width={100}
             height={100}
