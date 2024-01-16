@@ -45,8 +45,8 @@ export default async function Programs() {
         </div>
         <Image
           id="programs-img"
-          src={`/fall-2023-programs.jpg`}
-          alt="Infographic of fall 2023 programs"
+          src={`/spring-2023-programs.png`}
+          alt="Infographic of Spring 2023 programs"
           width={648}
           height={972}
           className="rounded-lg shadow-lg bg-gray-50 m-2 p-2"
