@@ -17,6 +17,11 @@ export default function Program({ program }: ProgramProps) {
         </p>
       )}
       <hr className="mb-2" />
+      {program.desc && (
+        <p>
+          {program.desc}
+        </p>
+      )}
       {program.email && (
         <p>
           Email <a href={"mailto:" + program.email}>{program.email}</a> with
@@ -24,12 +29,15 @@ export default function Program({ program }: ProgramProps) {
         </p>
       )}
       {program.curriculumLink && (
-        <p>
-          {program.curriculumSimilarTo
-            ? "Curriculum similar to: "
-            : "Curriculum: "}
-          <a target="_blank" href={program.curriculumLink}>{program.curriculumLink}</a>
-        </p>
+        <div>
+          <hr className="mb-2" />
+          <p>
+            {program.curriculumSimilarTo
+              ? "Curriculum similar to: "
+              : "Curriculum: "}
+            <a target="_blank" href={program.curriculumLink}>{program.curriculumLink}</a>
+          </p>
+        </div>
       )}
       {program.applicationLink && (
         program.closed

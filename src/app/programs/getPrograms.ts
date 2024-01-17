@@ -24,7 +24,7 @@ const sheets = google.sheets({ version: 'v4', auth: client });
 export default async function getMembers() {
     const request = {
         spreadsheetId: '1OGoGF4GnfSnaO6LFdpgtVtF4JagANq5zAErhqp10goE',
-        range: 'Programs!A:I',
+        range: 'Programs!A:K',
     };
 
     const response = await sheets.spreadsheets.values.get(request);
@@ -41,6 +41,8 @@ export default async function getMembers() {
             applicationDeadline: row[6],
             email: row[7],
             link: row[8],
+            closed: row[9],
+            desc: row[10],
         };
     });
 

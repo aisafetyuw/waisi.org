@@ -7,41 +7,16 @@ import getPrograms from "@/app/programs/getPrograms";
 export default async function Programs() {
   const programs = await getPrograms();
 
-  const alignmentPrograms = programs.filter(
-    (program) => program.type === "alignment"
-  );
-
-  const governancePrograms = programs.filter(
-    (program) => program.type === "governance"
-  );
-
   return (
     <div id="programs" className="mb-8 sm:mb-16 p-4">
-      <p id="see-info" className="mb-3">
-        See bottom infographic for more information.
-      </p>
+      <h2>Programs</h2>
       <div id="program-container">
-        <div>
-          <div>
-            <h2>Alignment Programs</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 m-1 mb-8">
-              {alignmentPrograms.map((program, index) => (
-                <div key={index}>
-                  <Program program={program} />
-                </div>
-              ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 lg:w-2/3 gap-4 m-1 mb-8">
+          {programs.filter(program => ["governance", "alignment"].includes(program.type)).map((program, index) => (
+            <div key={index}>
+              <Program program={program} />
             </div>
-          </div>
-          <div>
-            <h2>Governance Programs</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 m-1 mb-8">
-              {governancePrograms.map((program, index) => (
-                <div key={index}>
-                  <Program program={program} />
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
         <div>
           <Image
