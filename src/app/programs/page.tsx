@@ -17,6 +17,9 @@ export default async function Programs() {
 
   return (
     <div id="programs" className="mb-8 sm:mb-16 p-4">
+      <p className="mb-3">
+        Infographic designed by Sophie Fellinger.
+      </p>
       <p id="see-info" className="mb-3">
         See bottom infographic for more information.
       </p>
