@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-
 import Program from "@/components/program";
 import getPrograms from "@/app/programs/getPrograms";
 
