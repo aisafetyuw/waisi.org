@@ -17,9 +17,6 @@ export default async function Programs() {
 
   return (
     <div id="programs" className="mb-8 sm:mb-16 p-4">
-      <p className="mb-3">
-        Infographic designed by Sophie Fellinger.
-      </p>
       <p id="see-info" className="mb-3">
         See bottom infographic for more information.
       </p>
@@ -46,14 +43,19 @@ export default async function Programs() {
             </div>
           </div>
         </div>
-        <Image
-          id="programs-img"
-          src={`/spring-2023-programs.png`}
-          alt="Infographic of Spring 2023 programs"
-          width={648}
-          height={972}
-          className="rounded-lg shadow-lg bg-gray-50 m-2 p-2"
-        />
+        <div>
+          <Image
+            id="programs-img"
+            src={`/spring-2023-programs.png`}
+            alt="Infographic of Spring 2023 programs"
+            width={648}
+            height={972}
+            className="rounded-lg shadow-lg bg-gray-50 m-2 p-2"
+          />
+          <p className="mb-3 ml-3 text-xs text-gray-500">
+            Infographic designed by <a target="_blank" href="https://www.instagram.com/sophie_noelle_art/">Sophie Fellinger</a>.
+          </p>
+        </div>
       </div>
     </div>
   );
