@@ -10,7 +10,7 @@ export type ProgramData = {
     applicationDeadline?: string,
     email?: string,
     link?: string,
-    closed?: string,
+    closed?: boolean,
     desc?: string,
 };
 

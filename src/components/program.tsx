@@ -48,10 +48,11 @@ export default function Program({ program }: ProgramProps) {
             <b>Applications closed!</b>
           </a>
           : <a
-            target="_blank" 
+            target="_blank"
+            href={program.applicationLink}
             className="waisi-button closed bg-red-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
           >
-            <b>Applications closed!</b>
+            <b>Apply now!</b>
           </a>
         
       )}

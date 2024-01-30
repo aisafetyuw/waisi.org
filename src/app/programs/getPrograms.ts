@@ -41,10 +41,12 @@ export default async function getMembers() {
             applicationDeadline: row[6],
             email: row[7],
             link: row[8],
-            closed: row[9],
+            closed: (row[9] === "TRUE"),
             desc: row[10],
         };
     });
+
+    console.log(programs);
 
     return programs;
 }
