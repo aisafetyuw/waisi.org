@@ -1,7 +1,6 @@
-import { DISCORD_URL, TWITTER_URL } from '@/constants';
+import { DISCORD_URL } from '@/constants';
 import Button from '@/components/button';
 import Events from '@/components/events';
-import AboutImage from '@/components/aboutImage';
 
 export default function Home() {
   return (
