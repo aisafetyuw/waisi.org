@@ -3,7 +3,6 @@ import getMembers from '@/app/team/getMembers';
 
 export default async function Team() {
   const members = await getMembers();
-
   return (
     <div id="team" className="page">
       <h2>Leadership Team</h2>
