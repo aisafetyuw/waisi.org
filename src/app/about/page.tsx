@@ -1,24 +1,43 @@
 import AboutImage from "@/components/aboutImage";
-import { Handbooks } from '@/constants';
+import Handbook from "@/components/handbook";
+import { CULTURE_STATEMENT, Handbooks } from '@/constants';
+import { HandbookProps } from "@/types";
+
+const handbooks: HandbookProps[] = [
+  {
+    url: CULTURE_STATEMENT,
+    title: "Group Culture Statement",
+    description: "A bit about or mission and the culture we aim to cultivate as a student organization.",
+  },
+  {
+    url: Handbooks.AT_A_GLANCE,
+    title: "WAISI At A Glance",
+    description: "Our handbook regarding our organizational structure.",
+  },
+  {
+    url: Handbooks.FELLOWSHIP,
+    title: "AISF Fellowship Handbook",
+    description: "Our handbook regarding our introductory programs to educate members about the fundamentals of AI safety and cultivate discussion.",
+  },
+  {
+    url: Handbooks.SAFETY_SCHOLARS,
+    title: "Safety Scholars Handbook",
+    description: "Our handbook regarding our programs for advanced members who have completed AI Safety Fundamentals.",
+  },
+];
 
 export default function About() {
   return (
     <div id="about" className="page">
       <h2>Our Mission</h2>
       <div id="mission">
-        <p className="mb-3 text-xl font-bold">
-          <a href={Handbooks.AT_A_GLANCE}>WAISI At A Glance</a> &bull; <a href={Handbooks.FELLOWSHIP}>AISF Fellowship Handbook</a> &bull; <a href={Handbooks.SAFETY_SCHOLARS}>Safety Scholars Handbook</a>
-        </p>
         <p className="mb-3">
           Founded in Spring 2023, the Wisconsin AI Safety Initiative aspires to serve as an incubator for high-impact
           careers promoting and facilitating the safe advancement of artificial intelligence.
         </p>
-        <p className="mb-3">
-          Meet our team <a href="/team">here</a>, and see our newly refined programs <a href="/programs">here</a>.
-        </p>
-        <p className="mb-3">
-          <a target="_blank" href="https://docs.google.com/document/d/1KUVD7c-ZM0uijD0RvYYk6yBl0Oe09AAgIvYyoVUj4h8/edit?usp=sharing">Click here</a> to read about what kind of group culture we hope to cultivate.
-        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {handbooks.map((handbook, i) => <Handbook key={i} url={handbook.url} title={handbook.title} description={handbook.description} />)}
+        </div>
         <AboutImage filename={'mission'} alt={'Our Mission'} />
       </div>
       <h2>Why AI Safety?</h2>

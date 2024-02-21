@@ -18,6 +18,7 @@ export default function Member({ member }: MemberProps) {
         <div>
           <div className="text-lg font-semibold">{member.name}</div>
           <div className="text-gray-500">{member.pronouns}</div>
+          <div className="text-gray-700 font-semibold">{member.role}</div>
           <div className="mt-1 flex items-center space-x-2">
             <a href={`mailto:${member.email}`}>
               <i className="fa-solid fa-envelope text-gray-500 hover:text-gray-700"></i>

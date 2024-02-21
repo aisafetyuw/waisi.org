@@ -21,7 +21,7 @@ export type ProgramProps = {
 export type MemberData = {
     name: string,
     pronouns: string,
-    description: string,
+    role: string,
     email: string,
     twitter?: string,
     linkedin?: string,
@@ -44,7 +44,13 @@ export type AboutImageProps = {
 export type ButtonProps = {
     url: string,
     text: string,
-    fa?: 'discord' | 'twitter',
+    fa?: 'discord' | 'twitter' | 'instagram',
+};
+
+export type HandbookProps = {
+    title: string,
+    url: string,
+    description: string,
 };
 
 export type MobileNavProps = {

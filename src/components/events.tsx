@@ -1,4 +1,4 @@
-import getEvents from '@/app/getEvents';
+import getEvents from '@/app/events/getEvents';
 import CalendarEvent from '@/components/calendarEvent';
 
 export default async function Events() {

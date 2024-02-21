@@ -50,7 +50,7 @@ export default function Program({ program }: ProgramProps) {
           : <a
             target="_blank"
             href={program.applicationLink}
-            className="waisi-button closed bg-red-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
+            className="waisi-button bg-red-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
           >
             <b>Apply now!</b>
           </a>

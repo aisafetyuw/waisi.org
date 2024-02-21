@@ -35,7 +35,7 @@ export default async function getMembers() {
         return {
             name: row[0],
             pronouns: row[1],
-            description: row[2],
+            role: row[2],
             email: row[3],
             linkedin: row[4],
             team: row[5],
