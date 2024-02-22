@@ -129,7 +129,9 @@ h1, h2, h3 {
 }
 
 #buttons {
-    margin: 35px 0;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
 }
 
 .waisi-button {
@@ -140,6 +142,10 @@ h1, h2, h3 {
     background-image: linear-gradient(to top right, #8B5CF6, #D946EF);
     border-radius: 12px;
     transition: all 0.3s ease;
+}
+
+#buttons .waisi-button {
+    margin-bottom: 10px;
 }
 
 .waisi-button:hover {
