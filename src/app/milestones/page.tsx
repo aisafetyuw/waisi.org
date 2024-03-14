@@ -1,7 +1,7 @@
 import Professor from "@/components/prof";
 import { ProfProps } from "@/types";
 
-export default function Achievements() {
+export default function Milestones() {
     const profs: ProfProps[] = [
         {
             name: "Sharon Li",
