@@ -54,7 +54,7 @@ export default function Nav() {
           <Link href="/about" className={`p-2 ${pathname=="/about" ? "underline" : ""}`}>About</Link>
           <Link href="/events" className={`p-2 ${pathname=="/events" ? "underline" : ""}`}>Events</Link>
           <Link href="/programs" className={`p-2 ${pathname=="/programs" ? "underline" : ""}`}>Programs</Link>
-          <Link href="/milestones" className={`p-2 ${pathname=="/milestones" ? "underline" : ""}`}>milestones</Link>
+          <Link href="/milestones" className={`p-2 ${pathname=="/milestones" ? "underline" : ""}`}>Milestones</Link>
           <Link href="/team" className={`p-2 ${pathname=="/team" ? "underline" : ""}`}>Team</Link>
         </div>
 
