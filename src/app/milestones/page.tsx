@@ -33,7 +33,7 @@ export default function Milestones() {
 
     return (
         <div id="achievements" className="page">
-            <h2>Group Achievements</h2>
+            <h2>Group Milestones</h2>
             <h3>By The Numbers</h3>
             <ul id="stats">
                 <li>
