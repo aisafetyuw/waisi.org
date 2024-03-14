@@ -43,10 +43,10 @@ export default function Milestones() {
                     <span className="stat-num">3</span> Masters Safety Scholars
                 </li>
                 <li>
-                    <span className="stat-num">20+</span> undergraduate Safety Scholars
+                    <span className="stat-num">20+</span> Undergraduate Safety Scholars
                 </li>
                 <li>
-                    <span className="stat-num">39</span> current AI Safety Fundamentals participants
+                    <span className="stat-num">39</span> Current AI Safety Fundamentals participants
                 </li>
                 <li>
                     <span className="stat-num">100+</span> AI Safety Fundamentals graduates
