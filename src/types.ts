@@ -58,3 +58,10 @@ export type MobileNavProps = {
     setOpen: (open: boolean) => void,
     pathname: string,
 };
+
+export type ProfProps = {
+    link: string,
+    name: string,
+    focus: string,
+    extra?: string,
+}

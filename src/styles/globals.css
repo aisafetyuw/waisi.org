@@ -108,8 +108,16 @@ h1, h2, h3 {
     font-size: 1.25em;
 }
 
-#about a, #programs a, .location, .event-description a, #headline a {
+#about a, #achievements a, #programs a, .location, .event-description a, #headline a {
     color: rgb(170, 68, 255);
+}
+
+#achievements a {
+    font-weight: 800;
+}
+
+#achievements p, #achievements ul {
+    font-weight: 450;
 }
 
 #programs .waisi-button {
@@ -120,7 +128,7 @@ h1, h2, h3 {
     background-image: linear-gradient(to top right, #7d618c, #4a3b4c);
 }
 
-#about a:hover, #programs a:hover, .event-description a:hover {
+#about a:hover, #achievements a:hover, #programs a:hover, .event-description a:hover {
     text-decoration: underline;
 }
 
@@ -165,4 +173,30 @@ h1, h2, h3 {
     background-size: 400%;
     background-position: 0;
     animation: gradientshift 6s ease infinite;
+}
+
+
+
+#stats {
+    font-size: 1.25em;
+    font-weight: 700;
+    list-style: none;
+    padding: 0;
+}
+
+.stat-num {
+    font-weight: 900;
+}
+
+#stats li {
+    display: inline-block;
+    margin-right: 6px;
+}
+
+#stats li:after {
+    content: " • ";
+}
+
+#stats li:last-child:after {
+    content: "";
 }
