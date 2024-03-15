@@ -6,23 +6,23 @@ export default function Milestones() {
         {
             name: "Sharon Li",
             link: "https://pages.cs.wisc.edu/~sharonli/",
-            focus: "Algorithmic and Theoretical Foundations of Reliable Machine Learning",
+            focus: "Algorithmic and theoretical foundations of reliable machine learning",
             extra: "MIT Technology Review's 2023 Innovator of the Year",
         },
         {
             name: "Fred Sala",
             link: "https://pages.cs.wisc.edu/~fredsala/",
-            focus: "Fundamentals of Data-Driven Systems and Machine Learning",
+            focus: "Fundamentals of data-driven systems and machine learning",
         },
         {
             name: "Kangwook Lee",
             link: "https://kangwooklee.com/",
-            focus: "Theory and Algorithms for Deep Learning with Foundation Models",
+            focus: "Theory and algorithms for deep learning with foundation models",
         },
         {
             name: "Junjie Hu",
             link: "https://junjiehu.github.io/",
-            focus: "Natural Language Processing and Machine Learning",
+            focus: "Natural language processing and machine learning",
         },
         {
             name: "Dimitris Papailiopoulos",
