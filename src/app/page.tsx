@@ -1,6 +1,5 @@
-import { DISCORD_URL, INSTAGRAM_URL } from '@/constants';
+import { DISCORD_URL, INSTAGRAM_URL, TWITTER_URL } from '@/constants';
 import Button from '@/components/button';
-import Events from '@/components/events';
 
 export default function Home() {
   return (
@@ -23,8 +22,8 @@ export default function Home() {
           <Button url={INSTAGRAM_URL} fa="instagram" text="Instagram" />
           &nbsp;&nbsp;
           <Button url={DISCORD_URL} fa="discord" text="Discord" />
-          {/* &nbsp;&nbsp; */}
-          {/* <Button url={TWITTER_URL} fa="twitter" text="Twitter" /> */}
+          &nbsp;&nbsp;
+          <Button url={TWITTER_URL} fa="twitter" text="Twitter" />
         </div>
       </div>
     </div>
