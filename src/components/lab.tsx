@@ -9,7 +9,7 @@ export default function Lab(lab: LabProps) {
           alt={lab.name}
           height={100}
           width={100}
-          className="transition-transform duration-300 ease-in-out hover:scale-110 filter hover:saturate-100 saturate-50 brightness-125"
+          className="transition-transform duration-300 ease-in-out hover:scale-110 filter hover:saturate-100 saturate-60 brightness-120"
         />
     </a>
   );
