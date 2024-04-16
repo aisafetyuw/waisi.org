@@ -64,4 +64,10 @@ export type ProfProps = {
     name: string,
     focus: string,
     extra?: string,
-}
+};
+
+export type LabProps = {
+    name: string,
+    filename: string,
+    link: string,
+};

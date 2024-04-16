@@ -200,3 +200,7 @@ h1, h2, h3 {
 #stats li:last-child:after {
     content: "";
 }
+
+.lab {
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
+}

@@ -1,5 +1,6 @@
+import Lab from "@/components/lab";
 import Professor from "@/components/prof";
-import { ProfProps } from "@/types";
+import { LabProps, ProfProps } from "@/types";
 
 export default function Milestones() {
     const profs: ProfProps[] = [
@@ -8,6 +9,11 @@ export default function Milestones() {
             link: "https://pages.cs.wisc.edu/~sharonli/",
             focus: "Algorithmic and theoretical foundations of reliable machine learning",
             extra: "MIT Technology Review's 2023 Innovator of the Year",
+        },
+        {
+            name: "Grigorios Chrysos",
+            link: "https://grigorisg9gr.github.io/_pages/about/",
+            focus: "Learning (robust) representations and generative modeling",
         },
         {
             name: "Fred Sala",
@@ -28,6 +34,29 @@ export default function Milestones() {
             name: "Dimitris Papailiopoulos",
             link: "https://papail.io/",
             focus: "Machine learning, coding theory, and optimization",
+        },
+    ];
+
+    const labs: LabProps[] = [
+        {
+            name: "Google DeepMind",
+            filename: "deepmind.png",
+            link: "https://deepmind.google/",
+        },
+        {
+            name: "METR",
+            filename: "arcevals.svg",
+            link: "https://metr.org/",
+        },
+        {
+            name: "Center for a New American Security",
+            filename: "cnas.png",
+            link: "https://www.cnas.org/",
+        },
+        {
+            name: "Anthropic",
+            filename: "anthropic.webp",
+            link: "https://www.anthropic.com/",
         },
     ];
 
@@ -53,9 +82,12 @@ export default function Milestones() {
                 </li>
             </ul>
             <h3>Involvement and Impact</h3>
-            {/* TODO <p>
+            <p className="mb-3 text-lg">
                 Research groups with members hosted by WAISI for speaker events:
-            </p> */}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-1 m-1 mb-8 content-center">
+                {labs.map(lab => <Lab name={lab.name} filename={lab.filename} link={lab.link} />)}
+            </div>
             <p className="mb-3 text-lg">
                 One of our members contributed to <a target="_blank" className="link" href="https://docs.legis.wisconsin.gov/2023/proposals/reg/asm/bill/ab664">AB 664</a>, a bill on disclosing AI generated material in political ads.
             </p>
