@@ -85,7 +85,7 @@ export default function Milestones() {
             <p className="mb-3 text-lg">
                 Research groups with members hosted by WAISI for speaker events:
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-1 m-1 mb-8 content-center">
+            <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-1 m-1 mb-8 content-center pl-14 pr-14">
                 {labs.map(lab => <Lab name={lab.name} filename={lab.filename} link={lab.link} />)}
             </div>
             <p className="mb-3 text-lg">
