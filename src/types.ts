@@ -44,7 +44,7 @@ export type AboutImageProps = {
 export type ButtonProps = {
     url: string,
     text: string,
-    fa?: 'discord' | 'twitter' | 'instagram',
+    fa?: 'discord' | 'linkedin' | 'twitter' | 'instagram',
 };
 
 export type HandbookProps = {

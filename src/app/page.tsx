@@ -12,18 +12,20 @@ export default function Home() {
           </h3>
         </main>
         <h3 className="mb-4">
-          We first develop a <b>holistic understanding of the risks</b> and then build the skills to solve them in <b>AI alignment</b> and <b>AI governance.</b>
+          We first develop a <b>holistic understanding of the risks</b> and then build the skills to solve them with <b>technical safety research</b> and <b>policy frameworks</b>.
         </h3>
         <div id="buttons" className="py-2">
           <Button url={"/about"} text="About" />
           &nbsp;&nbsp;
           <Button url={"/programs"} text="Programs" />
           &nbsp;&nbsp;
-          <Button url={INSTAGRAM_URL} fa="instagram" text="Instagram" />
-          &nbsp;&nbsp;
           <Button url={DISCORD_URL} fa="discord" text="Discord" />
           &nbsp;&nbsp;
+          <Button url={INSTAGRAM_URL} fa="instagram" text="Instagram" />
+          &nbsp;&nbsp;
           <Button url={TWITTER_URL} fa="twitter" text="Twitter" />
+          &nbsp;&nbsp;
+          <Button url={TWITTER_URL} fa="linkedin" text="LinkedIn" />
         </div>
       </div>
     </div>

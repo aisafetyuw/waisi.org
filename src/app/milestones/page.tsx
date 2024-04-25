@@ -8,7 +8,7 @@ export default function Milestones() {
             name: "Sharon Li",
             link: "https://pages.cs.wisc.edu/~sharonli/",
             focus: "Algorithmic and theoretical foundations of reliable machine learning",
-            extra: "MIT Technology Review's 2023 Innovator of the Year",
+            // extra: "MIT Technology Review's 2023 Innovator of the Year",
         },
         {
             name: "Grigorios Chrysos",
