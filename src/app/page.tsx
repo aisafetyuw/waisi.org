@@ -1,4 +1,4 @@
-import { DISCORD_URL, INSTAGRAM_URL, TWITTER_URL } from '@/constants';
+import { DISCORD_URL, INSTAGRAM_URL, TWITTER_URL, LINKEDIN_URL } from '@/constants';
 import Button from '@/components/button';
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
           &nbsp;&nbsp;
           <Button url={TWITTER_URL} fa="twitter" text="Twitter" />
           &nbsp;&nbsp;
-          <Button url={TWITTER_URL} fa="linkedin" text="LinkedIn" />
+          <Button url={LINKEDIN_URL} fa="linkedin" text="LinkedIn" />
         </div>
       </div>
     </div>
