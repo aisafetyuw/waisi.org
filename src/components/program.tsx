@@ -17,9 +17,7 @@ export default function Program({ program }: ProgramProps) {
       )}
       <hr className="mb-2" />
       {program.desc && (
-        <p>
-          {program.desc}
-        </p>
+        <div dangerouslySetInnerHTML={{ __html: program.desc }} />
       )}
       {program.email && (
         <p>
@@ -27,7 +25,7 @@ export default function Program({ program }: ProgramProps) {
           your qualifications and why you are interested.
         </p>
       )}
-      {program.curriculumLink && (
+      {/* {program.curriculumLink && (
         <div>
           <hr className="mb-2" />
           <p>
@@ -37,7 +35,7 @@ export default function Program({ program }: ProgramProps) {
             <a target="_blank" href={program.curriculumLink}>{program.curriculumLink}</a>
           </p>
         </div>
-      )}
+      )} */}
       {program.applicationLink && (
         program.closed
           ? <a
