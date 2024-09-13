@@ -16,6 +16,24 @@ export default function Program({ program }: ProgramProps) {
         </p>
       )}
       <hr className="mb-2" />
+      {program.applicationLink && (
+        program.closed
+          ? <a
+            target="_blank" 
+            className="waisi-button closed bg-red-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
+          >
+            <b>Applications closed!</b>
+          </a>
+          : <a
+            target="_blank"
+            href={program.applicationLink}
+            className="waisi-button bg-red-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
+          >
+            <b>Apply now!</b>
+          </a>
+        
+      )}
+      <hr className="mb-2" />
       {program.desc && (
         <div dangerouslySetInnerHTML={{ __html: program.desc }} />
       )}
@@ -36,23 +54,6 @@ export default function Program({ program }: ProgramProps) {
           </p>
         </div>
       )} */}
-      {program.applicationLink && (
-        program.closed
-          ? <a
-            target="_blank" 
-            className="waisi-button closed bg-red-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
-          >
-            <b>Applications closed!</b>
-          </a>
-          : <a
-            target="_blank"
-            href={program.applicationLink}
-            className="waisi-button bg-red-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
-          >
-            <b>Apply now!</b>
-          </a>
-        
-      )}
       {program.applicationDeadline && (
         <p>Applications due by {program.applicationDeadline}.</p>
       )}
