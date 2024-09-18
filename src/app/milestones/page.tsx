@@ -35,6 +35,16 @@ export default function Milestones() {
             link: "https://papail.io/",
             focus: "Machine learning, coding theory, and optimization",
         },
+        {
+            name: "Vikas Singh",
+            link: "https://www.biostat.wisc.edu/~vsingh/",
+            focus: "Image analysis, computer vision, and ML in biostatistics",
+        },
+        {
+            name: "Patrick McDaniel",
+            link: "https://patrickmcdaniel.org/",
+            focus: "Mobile security, adversarial ML, and systems security research",
+        },
     ];
 
     const labs: LabProps[] = [
