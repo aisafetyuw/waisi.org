@@ -44,6 +44,12 @@ export default function Milestones() {
             name: "Patrick McDaniel",
             link: "https://patrickmcdaniel.org/",
             focus: "Mobile security, adversarial ML, and systems security research",
+
+        },
+        {
+            name: "Josiah Hanna",
+            link: "https://pages.cs.wisc.edu/~jphanna/",
+            focus: "Reinforcement learning and autonomous agents",
         },
     ];
 
@@ -76,13 +82,13 @@ export default function Milestones() {
             <h3>By The Numbers</h3>
             <ul id="stats">
                 <li>
-                    <span className="stat-num">6</span> PhD Safety Scholars
+                    <span className="stat-num">7</span> PhD Safety Scholars
                 </li>
                 <li>
                     <span className="stat-num">3</span> Masters Safety Scholars
                 </li>
                 <li>
-                    <span className="stat-num">20+</span> Undergraduate Safety Scholars
+                    <span className="stat-num">50+</span> Undergraduate Safety Scholars
                 </li>
                 <li>
                     <span className="stat-num">39</span> Current AI Safety Fundamentals participants
