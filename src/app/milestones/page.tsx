@@ -51,6 +51,16 @@ export default function Milestones() {
             link: "https://pages.cs.wisc.edu/~jphanna/",
             focus: "Reinforcement learning and autonomous agents",
         },
+        {
+            name:"Ramya Vinayak",
+            link: "https://ramyakv.github.io/",
+            focus: "Machine learning, statistical inference, and crowdsourcing",
+        },
+        {
+            name:"Somesh Jha",
+            link: "https://pages.cs.wisc.edu/~jha/",
+            focus: "Adversarial machine learning, privacy, and formal methods",
+        }
     ];
 
     const labs: LabProps[] = [
