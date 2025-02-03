@@ -5,7 +5,7 @@ import { MemberProps } from "@/types";
 export default function Member({ member }: MemberProps) {
   return (
     <div className="member bg-gray-50 shadow-lg rounded-lg p-4 h-full transform transition-transform hover:scale-105">
-      <div className="flex items-center space-x-4">
+      <div className="flex space-x-4 items-start">
         <div className="flex-shrink-0">
           <Image
             src={`/leaders/${member.name.replaceAll(' ', '_').toLowerCase()}.jpg`}

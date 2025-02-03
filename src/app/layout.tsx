@@ -7,7 +7,7 @@ const font = Open_Sans({ subsets: ['latin'], weight: ['400'] })
 
 export const metadata = {
   title: 'Wisconsin AI Safety Initiative',
-  description: 'Building a community of students collaborating to mitigate the risks of artificial intelligence',
+  description: 'A community of students building skills to reduce risk from advanced AI',
 }
 
 export default function RootLayout({

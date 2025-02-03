@@ -7,7 +7,7 @@ export default async function Events() {
   return (
     <div id="events">
         <div>
-          <h2>Upcoming Events</h2>
+          <h2 className="font-bold">Upcoming Events</h2>
           {events && events.length > 0 ?
             <ul className="md:w-5/6">
               {events.map((event, index) => (
