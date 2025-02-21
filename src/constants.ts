@@ -1,6 +1,6 @@
 export const DISCORD_URL = 'https://discord.gg/8xZtDBmCHa';
 export const TWITTER_URL = 'https://twitter.com/aisafetyuw';
-export const INSTAGRAM_URL = 'https://www.instagram.com/aisafetyuw/';
+export const INSTAGRAM_URL = 'https://www.instagram.com/waisi_uw/';
 export const LINKEDIN_URL = 'https://www.linkedin.com/company/waisi/';
 export const CULTURE_STATEMENT = 'https://docs.google.com/document/d/1KUVD7c-ZM0uijD0RvYYk6yBl0Oe09AAgIvYyoVUj4h8/edit?usp=sharing';
 export const INTEREST_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdWum58p_SbQdSp3XouCpi3zwPQOf3Pm_rRobxRlorr0Dn2Ag/viewform';

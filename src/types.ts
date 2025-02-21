@@ -18,6 +18,18 @@ export type ProgramProps = {
     program: ProgramData,
 };
 
+export type ResearchData = {
+    author: string,
+    name: string,
+    link: string,
+    authors: string,
+    date: string,
+};
+
+export type ResearchProps = {
+    research: ResearchData,
+};
+
 export type MemberData = {
     name: string,
     pronouns: string,

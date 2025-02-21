@@ -37,7 +37,6 @@
 .page {
     animation: enter .8s forwards;
     padding-top: 15px;
-    padding-right: 35px;
     max-width: 900px;
     align-self: center;
     color: #261e2d;

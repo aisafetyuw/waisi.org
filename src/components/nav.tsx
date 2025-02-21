@@ -12,10 +12,11 @@ function MobileNav({open, setOpen, pathname}: MobileNavProps) {
         
       <div className="flex flex-col justify-center items-center mt-28">
         <a href="/" className={`text-2xl font-semibold my-4 ${pathname=="/" ? "underline" : ""}`}>Home</a>
-        {/* <a href="/about" className={`text-2xl font-semibold my-4 ${pathname=="/about" ? "underline" : ""}`}>About</a> */}
+        <a href="/about" className={`text-2xl font-semibold my-4 ${pathname=="/about" ? "underline" : ""}`}>About</a>
         <a href="/programs" className={`text-2xl font-semibold my-4 ${pathname=="/programs" ? "underline" : ""}`}>Get Involved</a>
-        <a href="/events" className={`text-2xl font-semibold my-4 ${pathname=="/events" ? "underline" : ""}`}>Events</a>
+        {/* <a href="/events" className={`text-2xl font-semibold my-4 ${pathname=="/events" ? "underline" : ""}`}>Events</a> */}
         <a href="/milestones" className={`text-2xl font-semibold my-4 ${pathname=="/milestones" ? "underline" : ""}`}>Milestones</a>
+        <a href="/research" className={`text-2xl font-semibold my-4 ${pathname=="/research" ? "underline" : ""}`}>Research</a>
         <a href="/team" className={`text-2xl font-semibold my-4 ${pathname=="/team" ? "underline" : ""}`}>Team</a>
       </div>  
     </div>
@@ -42,6 +43,7 @@ export default function Nav() {
           <Link href="/" className="z-10">
             <Image
               src="/waisi_gradient_rounded.png"
+              // src="/waisi_banner.png"
               width={80}
               height={80}
               alt="WAISI logo"
@@ -50,11 +52,12 @@ export default function Nav() {
         </div>
 
         <div className="flex items-center justify-end space-x-4 p-8 text-lg font-semibold underline-offset-8 z-50 md:flex hidden">
-          <Link href="/" className={`p-2 ${pathname=="/" ? "underline" : ""}`}>Home</Link>
-          {/* <Link href="/about" className={`p-2 ${pathname=="/about" ? "underline" : ""}`}>About</Link> */}
+          {/* <Link href="/" className={`p-2 ${pathname=="/" ? "underline" : ""}`}>Home</Link> */}
+          <Link href="/about" className={`p-2 ${pathname=="/about" ? "underline" : ""}`}>About</Link>
           <Link href="/programs" className={`p-2 ${pathname=="/programs" ? "underline" : ""}`}>Get Involved</Link>
-          <Link href="/events" className={`p-2 ${pathname=="/events" ? "underline" : ""}`}>Events</Link>
+          {/* <Link href="/events" className={`p-2 ${pathname=="/events" ? "underline" : ""}`}>Events</Link> */}
           <Link href="/milestones" className={`p-2 ${pathname=="/milestones" ? "underline" : ""}`}>Milestones</Link>
+          <Link href="/research" className={`p-2 ${pathname=="/research" ? "underline" : ""}`}>Research</Link>
           <Link href="/team" className={`p-2 ${pathname=="/team" ? "underline" : ""}`}>Team</Link>
         </div>
 

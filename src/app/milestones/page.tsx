@@ -89,40 +89,52 @@ export default function Milestones() {
     return (
         <div id="achievements" className="page">
             <h2>Group Milestones</h2>
-            <h3>By The Numbers</h3>
-            <ul id="stats">
-                <li>
-                    <span className="stat-num">7</span> PhD Safety Scholars
-                </li>
-                <li>
-                    <span className="stat-num">3</span> Masters Safety Scholars
-                </li>
-                <li>
-                    <span className="stat-num">50+</span> Undergraduate Safety Scholars
-                </li>
-                <li>
-                    <span className="stat-num">39</span> Current AI Safety Fundamentals participants
-                </li>
-                <li>
-                    <span className="stat-num">100+</span> AI Safety Fundamentals graduates
-                </li>
-            </ul>
-            <h3>Involvement and Impact</h3>
-            <p className="mb-3 text-lg">
-                Research groups with members hosted by WAISI for speaker events:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-1 m-1 mb-8 content-center pl-14 pr-14">
-                {labs.map(lab => <Lab name={lab.name} filename={lab.filename} link={lab.link} />)}
-            </div>
-            <p className="mb-3 text-lg">
-                One of our members contributed to <a target="_blank" className="link" href="https://docs.legis.wisconsin.gov/2023/proposals/reg/asm/bill/ab664">AB 664</a>, a bill on disclosing AI generated material in political ads.
-            </p>
-            <h4 className="mb-3 font-semibold text-lg">
-                Members in these professors' research labs:
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1 mb-8">
-                {profs.sort((a, b) => a.name.split(' ')[1].toLowerCase().localeCompare(b.name.split(' ')[1].toLowerCase())) // sort by last name
-                      .map(prof => <Professor link={prof.link} name={prof.name} extra={prof.extra} focus={prof.focus} />)}
+            <div className="flex flex-col gap-4">
+                <div>
+                    <h3>By The Numbers</h3>
+                    <ul id="stats">
+                        <li>
+                            <span className="stat-num">10</span> PhD Safety Scholars
+                        </li>
+                        <li>
+                            <span className="stat-num">6</span> Masters Safety Scholars
+                        </li>
+                        <li>
+                            <span className="stat-num">50+</span> Undergraduate Safety Scholars
+                        </li>
+                        <li>
+                            <span className="stat-num">30</span> Current AI Safety Fundamentals participants
+                        </li>
+                        <li>
+                            <span className="stat-num">130+</span> AI Safety Fundamentals graduates
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Involvement and Impact</h3>
+                    <p className="mb-3 text-lg">
+                        Research groups with members hosted by WAISI for speaker events:
+                    </p>
+                    <div className="collapse sm:visible grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-1 m-1 mb-8 content-center pl-14 pr-14">
+                        {labs.map(lab => <Lab name={lab.name} filename={lab.filename} link={lab.link} />)}
+                    </div>
+                    <ul className="list-disc pl-5 text-lg">
+                        <li>9 WAISI members flew out to DC to participate in a Congressional Exhibition on Advanced AI, hosted by the <a href="https://www.centeraipolicy.org/" target="_blank">Center for AI Policy (CAIP)</a>.</li>
+                        <li>One of our members contributed to Wisconsin's <a href="https://docs.legis.wisconsin.gov/2023/proposals/reg/asm/bill/ab664" target="_blank">2023 Assembly Bill 664</a>, which requires disclosing AI-generated material in political ads.</li>
+                        <li>We've hosted speakers from <a href="https://deepmind.google/" target="_blank">Google DeepMind</a>, <a href="https://www.anthropic.com/" target="_blank">Anthropic</a>, <a href="https://www.metr.org/" target="_blank">Model Evaluation and Threat Research (METR)</a>, the <a href="https://www.cnas.org/" target="_blank">Center for a New American Security (CNAS)</a>, and the <a href="https://horizonpublicservice.org/" target="_blank">Horizon Institute for Public Service</a>.</li>
+                        <li>We have members in 11 research labs on campus. Learn more below.</li>
+                        <li>We've collaborated with professors from the School of Computer, Data, and Information Sciences, the School of Education, the School of Business, and the Department of Philosophy.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Research</h3>
+                    <p className="text-lg">See our <a href="research">research page</a> for recent research papers published by WAISI members.</p>
+                    <p className="mb-6 text-lg">Our members work with the following professors:</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1 mb-8">
+                        {profs.sort((a, b) => a.name.split(' ')[1].toLowerCase().localeCompare(b.name.split(' ')[1].toLowerCase())) // sort by last name
+                            .map(prof => <Professor link={prof.link} name={prof.name} extra={prof.extra} focus={prof.focus} />)}
+                    </div>
+                </div>
             </div>
             {/* TODO <h3>Alumni</h3> */}
         </div>
