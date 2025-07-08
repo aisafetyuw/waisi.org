@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -16,15 +17,51 @@ export default function About() {
           At the Wisconsin AI Safety Initiative (WAISI), we bring people together to understand and address the risks of advanced AI. Our aim is to guide its development toward a future that benefits everyone — and the best time to work on that future is now.
           </p>
         </div>
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <Image
+            src="/about/Intro.jpg"
+            alt="Students gathered at a WAISI intro presentation"
+            width={792}
+            height={891}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+          />
+          <Image
+            src="/about/Scholars_1.jpg"
+            alt="7 students learning about AI"
+            width={792}
+            height={891}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+          />
+        </div>
         <div className="flex flex-col gap-2">
           <h2 className="border-b">Our Impact</h2>
           <ul className="list-disc pl-5 text-lg">
-            <li>9 WAISI members flew out to DC to participate in a Congressional Exhibition on Advanced AI, hosted by the <a href="https://www.centeraipolicy.org/" target="_blank">Center for AI Policy (CAIP)</a>.</li>
+            <li>9 WAISI members flew out to DC to <a href="https://www.cs.wisc.edu/2025/03/13/waisi-presents-caip-advanced-ai-expo/" target="_blank">participate in a Congressional Exhibition on Advanced AI.</a></li>
             <li>One of our members contributed to Wisconsin's <a href="https://docs.legis.wisconsin.gov/2023/proposals/reg/asm/bill/ab664" target="_blank">2023 Assembly Bill 664</a>, which requires disclosing AI-generated material in political ads.</li>
             <li>We've hosted speakers from <a href="https://deepmind.google/" target="_blank">Google DeepMind</a>, <a href="https://www.anthropic.com/" target="_blank">Anthropic</a>, <a href="https://www.metr.org/" target="_blank">Model Evaluation and Threat Research (METR)</a>, the <a href="https://www.cnas.org/" target="_blank">Center for a New American Security (CNAS)</a>, and the <a href="https://horizonpublicservice.org/" target="_blank">Horizon Institute for Public Service</a>.</li>
             <li>We have members in 12 research labs on campus. <a href="research">See our research page.</a></li>
             <li>We've collaborated with professors from the School of Computer, Data, and Information Sciences, the School of Education, the School of Business, and the Department of Philosophy.</li>
           </ul>
+        </div>
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <Image
+            src="/about/CAIP_2.JPG"
+            alt="Nine WAISI members in front of the US Capitol"
+            width={792}
+            height={891}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+          />
+          <Image
+            src="/about/AConversationOnAI_3.jpeg"
+            alt="A speaker event"
+            width={792}
+            height={891}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+          />
         </div>
         <div className="flex flex-col gap-2">
           <h2 className="border-b">Our Goals</h2>
@@ -33,6 +70,24 @@ export default function About() {
             <li className="text-lg"><b>Help students build skills for technical AI research and AI policy positions.</b> We connect students with mentors, share relevant opportunities, and run projects that matter. Learn more about our programs <a href="programs">here.</a></li>
             <li className="text-lg"><b>Build a club that lasts.</b> We aim to be a place where friendliness, critical thinking, and shared ambition bring out the best in each other. Learn more by reading our <a href="https://docs.google.com/document/d/1KUVD7c-ZM0uijD0RvYYk6yBl0Oe09AAgIvYyoVUj4h8/edit?usp=sharing" target="_blank">culture statement</a>.</li>
           </ol>
+        </div>
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <Image
+            src="/about/Tabling.jpg"
+            alt="A WAISI booth at the student organizaiton fair"
+            width={792}
+            height={891}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+          />
+          <Image
+            src="/about/Scholars_2.jpg"
+            alt="WAISI students participating in a group discussion"
+            width={792}
+            height={891}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+          />
         </div>
         <div className="flex flex-col gap-1">
           <h2 className="border-b">Contact</h2>
