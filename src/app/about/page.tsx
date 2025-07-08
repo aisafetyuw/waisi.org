@@ -14,7 +14,7 @@ export default function About() {
           AI has the potential to be a force for immense good, provided we can develop and deploy it safely. The field of AI safety addresses this challenge, requiring expertise that spans technical research, policy, and ethics.
           </p><br/>
           <p className="text-lg">
-          At the Wisconsin AI Safety Initiative (WAISI), we bring people together to understand and address the risks of advanced AI. Our aim is to guide its development toward a future that benefits everyone — and the best time to work on that future is now.
+          At the Wisconsin AI Safety Initiative (WAISI), we bring people together to understand and address the risks of advanced AI. Our aim is to guide its development toward a future that benefits everyone—and the best time to work on that future is now.
           </p>
         </div>
         <div className="flex flex-col gap-4 sm:flex-row">

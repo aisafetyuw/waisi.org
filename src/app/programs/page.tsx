@@ -11,6 +11,24 @@ export default async function Programs() {
       <div className="flex flex-col xl:flex-row md:gap-8 lg:gap-16">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Image
+                src="/about/Scholars_2.jpg"
+                alt="WAISI students participating in a group discussion"
+                width={792}
+                height={891}
+                sizes="(min-width: 640px) 50vw, 100vw"
+                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+              />
+              <Image
+                src="/about/Scholars_1.jpg"
+                alt="7 students learning about AI"
+                width={792}
+                height={891}
+                sizes="(min-width: 640px) 50vw, 100vw"
+                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+              />
+            </div>
             <h2 className="border-b">Getting Involved</h2>
             <p className="text-lg">WAISI hosts speaker events and socials relevant to AI safety. To keep up to date, you can subscribe to our <a href={INTEREST_URL} target="_blank">mailing list</a>, join our <a href={DISCORD_URL} target="_blank">Discord community</a>, or follow our <a href={INSTAGRAM_URL} target="_blank">Instagram</a>.</p>
             <p className="text-lg">Want to get more involved? We run two main programs: <b>AI Safety Fundamentals</b> (our introductory programs) and <b>Safety Scholars</b> (our core membership groups). More details below.</p>

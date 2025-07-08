@@ -18,7 +18,7 @@ export default function Home() {
       <div id="home-content">
         <div className="flex flex-col py-4">
         <h3 className="text-xl">
-        At the Wisconsin AI Safety Initiative (WAISI), we think that reducing risks from advanced artificial intelligence may be one of the most important problems of our time. It's a challenge that spans technical research, policy, and ethics — and we're bringing people together to work on it.
+        At the Wisconsin AI Safety Initiative (WAISI), we think that reducing risks from advanced artificial intelligence may be one of the most important problems of our time. It's a challenge that spans technical research, policy, and ethics—and we're bringing people together to work on it.
         </h3>
         <h3 className="text-xl">
         We run semester-long introductory programs on AI safety, including a technical and policy track. <a href="/programs" className="underline">Learn more here.</a>
