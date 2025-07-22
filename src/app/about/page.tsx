@@ -6,6 +6,24 @@ export default function About() {
     <div id="about" className="page">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <Image
+              src="/about/CAIP_2.JPG"
+              alt="Nine WAISI members in front of the US Capitol"
+              width={792}
+              height={891}
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+            />
+            <Image
+              src="/about/AConversationOnAI_3.jpeg"
+              alt="A speaker event"
+              width={792}
+              height={891}
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+            />
+          </div>
           <h2 className="border-b">Our Mission</h2>
           <p className="text-lg">
           Our modern world is the product of technological advancement. Artificial intelligence is poised to accelerate this transformation, reshaping economies, global power structures, and daily life. These shifts aren't decades away; in fact, they've already begun.
@@ -47,16 +65,16 @@ export default function About() {
         </div>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Image
-            src="/about/CAIP_2.JPG"
-            alt="Nine WAISI members in front of the US Capitol"
+            src="/about/Tabling.jpg"
+            alt="A WAISI booth at the student organizaiton fair"
             width={792}
             height={891}
             sizes="(min-width: 640px) 50vw, 100vw"
             className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
           />
           <Image
-            src="/about/AConversationOnAI_3.jpeg"
-            alt="A speaker event"
+            src="/about/Scholars_2.jpg"
+            alt="WAISI students participating in a group discussion"
             width={792}
             height={891}
             sizes="(min-width: 640px) 50vw, 100vw"
@@ -73,16 +91,16 @@ export default function About() {
         </div>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Image
-            src="/about/Tabling.jpg"
-            alt="A WAISI booth at the student organizaiton fair"
+            src="/about/CAIP_3.jpg"
+            alt="4 WAISI students working on a project"
             width={792}
             height={891}
             sizes="(min-width: 640px) 50vw, 100vw"
             className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
           />
           <Image
-            src="/about/Scholars_2.jpg"
-            alt="WAISI students participating in a group discussion"
+            src="/about/ITPC.jpg"
+            alt="WAISI students at a conference"
             width={792}
             height={891}
             sizes="(min-width: 640px) 50vw, 100vw"
