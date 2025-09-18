@@ -13,7 +13,7 @@ export default async function Programs() {
           <div className="flex flex-col gap-1">
             <div className="flex flex-col gap-4 sm:flex-row">
               <Image
-                src="/about/Scholars_2.jpg"
+                src="/about/Leaders.jpg"
                 alt="WAISI students participating in a group discussion"
                 width={792}
                 height={891}
@@ -41,7 +41,7 @@ export default async function Programs() {
                 <p className="text-lg">Learn the basics of AI safety and how to prevent harm from AI systems in an eight-week reading group. WAISI offers two intro tracks, focusing on technical and policy respectively. Applications are open at the beginning of each semester, and we recommend applying to the program you are most interested in. You can participate in both tracks simultaneously.</p>
                 <p className="text-lg">Participants meet every week to read material, complete interactive activities, and participate in discussions. Each session runs for 2 hours, with at most 1 hour of preparation work assigned prior to each session. For full details, review the handbook <a href="https://docs.google.com/document/d/1nlA0I7yGo7e7tC6xS8kBQUuyil88xrYji5KPeyUPRwA/edit?usp=sharing" target="_blank">here.</a></p>
               </div>
-              {/* <div className="grid grid-cols-1 md:grid-cols-2 md:gap-16"> */}
+              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-16">
                 <div>
                   <h3 className="border-b">Technical Fundamentals</h3>
                   <div className="flex flex-col gap-2">
@@ -54,7 +54,7 @@ export default async function Programs() {
                       Our technical curriculum is based on <a href="https://course.aisafetyfundamentals.com/alignment" target="_blank">this course</a>. 
                     </p>
                     <p className="text-lg">Students with machine learning experience are especially encouraged to apply, although <b>no prior experience is needed.</b></p>
-                    {/* <b className="text-xl"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdMtjkEGX2Y643_tsdvFsLVHHiLZSIkHbeJfkP6zZWpztfjSg/viewform?usp=dialog" target="_blank">Apply here by Friday, February 14th, 11:59 PM CST. →</a></b> */}
+                    <b className="text-xl"><a href="https://forms.gle/pPn5idt81BEDH8bG8" target="_blank">Apply here by this Sunday, September 21st, 11:59 PM CST. →</a></b>
                   </div>
                 </div>
                 <div>
@@ -72,10 +72,10 @@ export default async function Programs() {
                     <p className="text-lg">
                     Students with public policy background and/or career interest are especially encouraged to apply, although <b>no prior experience is needed</b>.
                     </p>
-                    {/* <b className="text-xl"><a href="https://docs.google.com/forms/d/e/1FAIpQLSe1IjXd0QfiWLTjgfhVbod1V-SOQULtMDUEV-76pTEZydryVw/viewform?usp=dialog" target="_blank">Apply here by Friday, February 14th, 11:59 PM CST. →</a></b> */}
+                    <b className="text-xl"><a href="https://forms.gle/bcRimCCmg7F3uEaS9" target="_blank">Apply here by Sunday, February 21st, 11:59 PM CST. →</a></b>
                   </div>
                 </div>
-              {/* </div> */}
+              </div>
             </div>
             </div>
           </div>

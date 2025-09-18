@@ -11,9 +11,9 @@ export default function Home() {
         </h1>
       </div>
       <div className="flex flex-col py-4 gap-4 w-full md:w-2/3 text-xl md:text-2xl">
-      <Button url={INTEREST_URL} text="Join our mailing list →"/>
-      {/* <Button url={"https://docs.google.com/forms/d/e/1FAIpQLSdMtjkEGX2Y643_tsdvFsLVHHiLZSIkHbeJfkP6zZWpztfjSg/viewform?usp=dialog"} text="Apply to our technical intro program →"/>
-      <Button url={"https://docs.google.com/forms/d/e/1FAIpQLSe1IjXd0QfiWLTjgfhVbod1V-SOQULtMDUEV-76pTEZydryVw/viewform?usp=dialog"} text="Apply to our policy intro program →"/> */}
+      {/* <Button url={INTEREST_URL} text="Join our mailing list →"/> */}
+      <Button url={"https://forms.gle/pPn5idt81BEDH8bG8"} text="Apply to our technical intro program →"/>
+      <Button url={"https://forms.gle/bcRimCCmg7F3uEaS9"} text="Apply to our policy intro program →"/>
       </div>
       <div id="home-content">
         <div className="flex flex-col py-4">

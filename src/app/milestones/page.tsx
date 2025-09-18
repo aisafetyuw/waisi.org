@@ -124,7 +124,7 @@ export default function Milestones() {
                         {labs.map(lab => <Lab name={lab.name} filename={lab.filename} link={lab.link} />)}
                     </div>
                     <ul className="list-disc pl-5 text-lg">
-                        <li>9 WAISI members flew out to DC to participate in a Congressional Exhibition on Advanced AI, hosted by the <a href="https://www.centeraipolicy.org/" target="_blank">Center for AI Policy (CAIP)</a>.</li>
+                        <li>9 WAISI members flew out to DC to <a href="https://www.cs.wisc.edu/2025/03/13/waisi-presents-caip-advanced-ai-expo/" target="_blank">participate in a Congressional Exhibition on Advanced AI.</a></li>
                         <li>One of our members contributed to Wisconsin's <a href="https://docs.legis.wisconsin.gov/2023/proposals/reg/asm/bill/ab664" target="_blank">2023 Assembly Bill 664</a>, which requires disclosing AI-generated material in political ads.</li>
                         <li>We've hosted speakers from <a href="https://deepmind.google/" target="_blank">Google DeepMind</a>, <a href="https://www.anthropic.com/" target="_blank">Anthropic</a>, <a href="https://www.metr.org/" target="_blank">Model Evaluation and Threat Research (METR)</a>, the <a href="https://www.cnas.org/" target="_blank">Center for a New American Security (CNAS)</a>, and the <a href="https://horizonpublicservice.org/" target="_blank">Horizon Institute for Public Service</a>.</li>
                         <li>We have members in 12 research labs on campus. Learn more below.</li>
