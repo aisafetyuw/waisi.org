@@ -107,11 +107,6 @@ export default function About() {
             className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
           />
         </div>
-        <div className="flex flex-col gap-1">
-          <h2 className="border-b">Contact</h2>
-          <p className="text-lg">If you're a student interested in getting involved, check out our <a href="programs">programs page</a>.</p>
-          <p className="text-lg">For all other inquiries, email us at <a href="mailto:aisafetyuw@gmail.com">aisafetyuw@gmail.com</a>.</p>
-        </div>
       </div>
     </div>
   );
