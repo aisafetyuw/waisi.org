@@ -45,14 +45,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/20 mt-8 pt-6 text-center">
-          <p className="text-white/90">
-            © 2024 Wisconsin AI Safety Initiative ·
-            <a href="mailto:aisafetyuw@gmail.com" className="ml-2 text-white hover:underline">
-              aisafetyuw@gmail.com
-            </a>
-          </p>
-        </div>
       </div>
     </footer>
   )
