@@ -18,6 +18,7 @@ function MobileNav({open, setOpen, pathname}: MobileNavProps) {
         <a href="/milestones" className={`text-2xl font-semibold my-4 ${pathname=="/milestones" ? "underline" : ""}`}>Milestones</a>
         <a href="/research" className={`text-2xl font-semibold my-4 ${pathname=="/research" ? "underline" : ""}`}>Research</a>
         <a href="/team" className={`text-2xl font-semibold my-4 ${pathname=="/team" ? "underline" : ""}`}>Team</a>
+        <a href="/contact" className={`text-2xl font-semibold my-4 ${pathname=="/contact" ? "underline" : ""}`}>Contact</a>
       </div>  
     </div>
   )
@@ -59,6 +60,7 @@ export default function Nav() {
           <Link href="/milestones" className={`p-2 ${pathname=="/milestones" ? "underline" : ""}`}>Milestones</Link>
           <Link href="/research" className={`p-2 ${pathname=="/research" ? "underline" : ""}`}>Research</Link>
           <Link href="/team" className={`p-2 ${pathname=="/team" ? "underline" : ""}`}>Team</Link>
+          <Link href="/contact" className={`p-2 ${pathname=="/contact" ? "underline" : ""}`}>Contact</Link>
         </div>
 
         <div className="w-4/5 md:hidden flex justify-end p-8 items-center">
