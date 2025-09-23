@@ -14,18 +14,18 @@ export default async function Programs() {
               <Image
                 src="/about/Leaders.jpg"
                 alt="WAISI students participating in a group discussion"
-                width={792}
-                height={891}
-                sizes="(min-width: 640px) 50vw, 100vw"
-                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+                width={594}
+                height={668}
+                sizes="(min-width: 640px) 40vw, 100vw"
+                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50 max-w-md mx-auto sm:mx-0"
               />
               <Image
                 src="/about/Scholars_1.jpg"
                 alt="7 students learning about AI"
-                width={792}
-                height={891}
-                sizes="(min-width: 640px) 50vw, 100vw"
-                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50"
+                width={594}
+                height={668}
+                sizes="(min-width: 640px) 40vw, 100vw"
+                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50 max-w-md mx-auto sm:mx-0"
               />
             </div>
             <h2 className="border-b">Getting Involved</h2>
