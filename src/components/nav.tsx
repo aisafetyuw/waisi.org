@@ -15,8 +15,8 @@ function MobileNav({open, setOpen, pathname}: MobileNavProps) {
         <a href="/about" className={`text-2xl font-semibold my-4 ${pathname=="/about" ? "underline" : ""}`}>About</a>
         <a href="/programs" className={`text-2xl font-semibold my-4 ${pathname=="/programs" ? "underline" : ""}`}>Get Involved</a>
         {/* <a href="/events" className={`text-2xl font-semibold my-4 ${pathname=="/events" ? "underline" : ""}`}>Events</a> */}
-        <a href="/milestones" className={`text-2xl font-semibold my-4 ${pathname=="/milestones" ? "underline" : ""}`}>Milestones</a>
         <a href="/research" className={`text-2xl font-semibold my-4 ${pathname=="/research" ? "underline" : ""}`}>Research</a>
+        <a href="/resources" className={`text-2xl font-semibold my-4 ${pathname=="/resources" ? "underline" : ""}`}>Resources</a>
         <a href="/team" className={`text-2xl font-semibold my-4 ${pathname=="/team" ? "underline" : ""}`}>Team</a>
         <a href="/contact" className={`text-2xl font-semibold my-4 ${pathname=="/contact" ? "underline" : ""}`}>Contact</a>
       </div>  
@@ -57,8 +57,8 @@ export default function Nav() {
           <Link href="/about" className={`p-2 ${pathname=="/about" ? "underline" : ""}`}>About</Link>
           <Link href="/programs" className={`p-2 ${pathname=="/programs" ? "underline" : ""}`}>Get Involved</Link>
           {/* <Link href="/events" className={`p-2 ${pathname=="/events" ? "underline" : ""}`}>Events</Link> */}
-          <Link href="/milestones" className={`p-2 ${pathname=="/milestones" ? "underline" : ""}`}>Milestones</Link>
           <Link href="/research" className={`p-2 ${pathname=="/research" ? "underline" : ""}`}>Research</Link>
+          <Link href="/resources" className={`p-2 ${pathname=="/resources" ? "underline" : ""}`}>Resources</Link>
           <Link href="/team" className={`p-2 ${pathname=="/team" ? "underline" : ""}`}>Team</Link>
           <Link href="/contact" className={`p-2 ${pathname=="/contact" ? "underline" : ""}`}>Contact</Link>
         </div>
