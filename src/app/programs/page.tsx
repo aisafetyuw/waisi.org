@@ -8,8 +8,7 @@ export default async function Programs() {
   return (
   <div id="programs" className="page">
     <div className="px-4 sm:px-12 md:px-24 lg:px-32">
-      <div className="flex flex-col xl:flex-row md:gap-8 lg:gap-16">
-        <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
             <div className="flex flex-col gap-4 sm:flex-row">
               <Image
@@ -41,7 +40,7 @@ export default async function Programs() {
                 <p className="text-lg">Learn the basics of AI safety and how to prevent harm from AI systems in an eight-week reading group. WAISI offers two intro tracks, focusing on technical and policy respectively. Applications are open at the beginning of each semester, and we recommend applying to the program you are most interested in. You can participate in both tracks simultaneously.</p>
                 <p className="text-lg">Participants meet every week to read material, complete interactive activities, and participate in discussions. Each session runs for 2 hours, with at most 1 hour of preparation work assigned prior to each session. For full details, review the handbook <a href="https://docs.google.com/document/d/1nlA0I7yGo7e7tC6xS8kBQUuyil88xrYji5KPeyUPRwA/edit?usp=sharing" target="_blank">here.</a></p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-16">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
                 <div>
                   <h3 className="border-b">Technical Fundamentals</h3>
                   <div className="flex flex-col gap-2">
@@ -51,12 +50,27 @@ export default async function Programs() {
                       View last semester's curriculum <a href="https://colab.research.google.com/drive/1mAv04ekDL52WQNEn49POV6YfSikP9bIc" target="_blank">here.</a>
                     </p> */}
                     <p className="text-lg">
-                      Our technical curriculum is based on <a href="https://course.aisafetyfundamentals.com/alignment" target="_blank">this course</a>. 
+                      Our technical curriculum is based on <a href="https://course.aisafetyfundamentals.com/alignment" target="_blank">this course</a>.
                     </p>
                     <p className="text-lg">Students with machine learning experience are especially encouraged to apply, although <b>no prior experience is needed.</b></p>
                     <b className="text-xl"><a href="https://forms.gle/pPn5idt81BEDH8bG8" target="_blank">Apply here by this Sunday, September 21st, 11:59 PM CST. →</a></b>
                   </div>
                 </div>
+
+                <div className="flex flex-col items-center">
+                  <Zoom>
+                    <Image
+                      id="programs-img"
+                      src={`/spring-2023-programs.png`}
+                      alt="Infographic of WAISI's programs"
+                      width={324}
+                      height={486}
+                      className="rounded-lg shadow-lg bg-gray-50 p-2 w-full h-auto max-w-sm"
+                    />
+                  </Zoom>
+                  <p className="mt-2 text-center text-gray-600 text-sm">Click to expand!</p>
+                </div>
+
                 <div>
                   <h3 className="border-b">Policy Fundamentals</h3>
                   <div className="flex flex-col gap-2">
@@ -67,7 +81,7 @@ export default async function Programs() {
                       View last semester's curriculum <a href="https://docs.google.com/document/d/1A-4n6pU9AFk1p2EsOhuoHo2oYGbK-MYJ9NFWrsWw-FM/edit?usp=sharing">here</a>.
                     </p> */}
                     <p className="text-lg">
-                      Our policy curriculum is based on <a href="https://course.aisafetyfundamentals.com/governance" target="_blank">this course</a>. 
+                      Our policy curriculum is based on <a href="https://course.aisafetyfundamentals.com/governance" target="_blank">this course</a>.
                     </p>
                     <p className="text-lg">
                     Students with public policy background and/or career interest are especially encouraged to apply, although <b>no prior experience is needed</b>.
@@ -90,22 +104,6 @@ export default async function Programs() {
             <p className="text-lg">
             If you are an undergraduate student interested in participating, we open applications for this program towards the end of each semester. We are particularly looking for students who stood out in our intro programs, or otherwise have a strong interest in and relevant background for AI safety work. If you believe you are a particularly strong applicant, send us an email.
             </p>
-          </div>
-        </div>
-        <div className="mt-8 xl:mt-0 xl:w-full">
-          <div className="top-8">
-            <Zoom>
-              <Image
-                id="programs-img"
-                src={`/spring-2023-programs.png`}
-                alt="Infographic of WAISI's programs"
-                width={648}
-                height={972}
-                className="rounded-lg shadow-lg bg-gray-50 p-2 w-full h-auto"
-              />
-            </Zoom>
-            <p className="invisible xl:visible mt-2">Click on the image to expand it!</p>
-          </div>
         </div>
       </div>
     </div>
