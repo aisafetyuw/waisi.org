@@ -10,14 +10,14 @@ export default async function Programs() {
     <div className="px-4 sm:px-12 md:px-24 lg:px-32">
       <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Image
                 src="/about/Leaders.jpg"
                 alt="WAISI students participating in a group discussion"
                 width={594}
                 height={668}
                 sizes="(min-width: 640px) 40vw, 100vw"
-                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50 max-w-md mx-auto sm:mx-0"
+                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50 max-w-md"
               />
               <Image
                 src="/about/Scholars_1.jpg"
@@ -25,7 +25,7 @@ export default async function Programs() {
                 width={594}
                 height={668}
                 sizes="(min-width: 640px) 40vw, 100vw"
-                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50 max-w-md mx-auto sm:mx-0"
+                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50 max-w-md"
               />
             </div>
             <h2 className="border-b">Getting Involved</h2>
