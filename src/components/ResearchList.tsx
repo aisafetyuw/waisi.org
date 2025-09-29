@@ -51,7 +51,7 @@ export default function ResearchList({ research, clubMembers }: ResearchListProp
                   </td>
                 </tr>
 
-                {index < research.length - 1 && <tr><td colSpan={3} className="border-b"></td></tr>}
+                {index < research.length - 1 && <tr><td colSpan={3} className="border-b" style={{borderColor: '#E8DCC8'}}></td></tr>}
               </React.Fragment>
             ))}
           </tbody>
