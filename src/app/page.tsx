@@ -1,13 +1,13 @@
 import { INTEREST_URL, DISCORD_URL, INSTAGRAM_URL, TWITTER_URL, LINKEDIN_URL } from '@/constants';
 import Button from '@/components/button';
+import CompanyCarousel from '@/components/CompanyCarousel';
 
 export default function Home() {
   return (
     <div id="home" className="page">
       <div className="flex flex-col py-4">
         <h1 className="text-4xl md:text-6xl" >
-          We're a group of UW-Madison students building skills to{' '}
-          <span className="text-gradient inline">reduce risks from advanced AI.</span>
+          <span className="text-gradient inline">On with Safe AI</span>
         </h1>
       </div>
       <div className="flex flex-col py-4 gap-4 w-full md:w-2/3 text-xl md:text-2xl">
@@ -36,6 +36,100 @@ export default function Home() {
           <Button url={LINKEDIN_URL} fa="linkedin" text="LinkedIn" />
         </div> */}
       </div>
+
+      {/* Collaborations Section */}
+      <CompanyCarousel companies={[
+            {
+              name: "UChicago XLab",
+              logo: "/xlab_logo.jpeg",
+              bgColor: "bg-red-50"
+            },
+            {
+              name: "Center for AI Safety",
+              logo: "/cais_logo.jpeg",
+              bgColor: "bg-blue-50"
+            },
+            {
+              name: "Americans for Responsible Innovation",
+              logo: "/americans_for_responsible_innovation_logo.jpeg",
+              bgColor: "bg-green-50"
+            },
+            {
+              name: "MATS",
+              logo: "/mats_logo.jpeg",
+              bgColor: "bg-purple-50"
+            },
+            {
+              name: "NYU Alignment Group",
+              logo: "/nyu_logo.png",
+              bgColor: "bg-purple-50"
+            },
+            {
+              name: "Stanford SAIL",
+              logo: "/sail_logo.jpg",
+              bgColor: "bg-red-50"
+            },
+            {
+              name: "OpenNLP Labs",
+              logo: "/opennlplabs_logo.jpeg",
+              bgColor: "bg-indigo-50"
+            },
+            {
+              name: "EleutherAI",
+              logo: "/eleuther_logo.png",
+              bgColor: "bg-gray-50"
+            },
+            {
+              name: "Meta",
+              logo: "/meta_logo.jpeg",
+              bgColor: "bg-blue-50"
+            },
+            {
+              name: "DeepSeek",
+              logo: "/deepseek_logo.jpeg",
+              bgColor: "bg-teal-50"
+            },
+            {
+              name: "AISI",
+              logo: "/ai_safety_institute_logo.jpeg",
+              bgColor: "bg-blue-50"
+            },
+            {
+              name: "Cooperative AI Foundation",
+              logo: "/cooperative_ai.jpeg",
+              bgColor: "bg-green-50"
+            },
+            {
+              name: "Anthropic",
+              logo: "/labs/anthropic.webp",
+              bgColor: "bg-orange-50"
+            },
+            {
+              name: "FAR.AI",
+              logo: "/far_ai_logo.jpeg",
+              bgColor: "bg-purple-50"
+            },
+            {
+              name: "Google",
+              logo: "/google_logo.jpeg",
+              bgColor: "bg-blue-50"
+            },
+            {
+              name: "Microsoft",
+              logo: "/microsoft_logo.jpeg",
+              bgColor: "bg-gray-50"
+            },
+            {
+              name: "Apple",
+              logo: "/apple_logo.jpeg",
+              bgColor: "bg-gray-50"
+            },
+            {
+              name: "Amazon",
+              logo: "/amazon_logo.jpeg",
+              bgColor: "bg-yellow-50"
+            }
+          ]} />
     </div>
   )
 }
