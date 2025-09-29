@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MobileNavProps } from '@/types';
 
 function MobileNav({open, setOpen, pathname}: MobileNavProps) {
@@ -26,10 +26,23 @@ function MobileNav({open, setOpen, pathname}: MobileNavProps) {
 
 export default function Nav() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const isHomePage = pathname === '/';
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navBackground = isHomePage && !scrolled ? 'transparent' : '#FFF9F0';
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50" style={{backgroundColor: '#FFF9F0'}}>
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={{backgroundColor: navBackground}}>
       <MobileNav open={open} setOpen={setOpen} pathname={pathname}/>
 
       <div className="flex justify-between items-center mx-auto">
@@ -42,7 +55,7 @@ export default function Nav() {
               height={60}
               alt="WAISI logo"
             />
-            <span className="text-2xl font-bold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>
+            <span className="text-2xl font-bold" style={{color: isHomePage && !scrolled ? '#FFF9F0' : '#6B46C1', fontFamily: '"Lora", serif'}}>
               WAISI
             </span>
           </Link>
@@ -50,20 +63,20 @@ export default function Nav() {
 
         <div className="flex items-center justify-end space-x-4 p-4 text-lg font-semibold underline-offset-8 z-50 md:flex hidden">
           {/* <Link href="/" className={`p-2 hover:underline ${pathname=="/" ? "underline" : ""}`}>Home</Link> */}
-          <Link href="/about" className={`p-2 hover:underline ${pathname=="/about" ? "underline" : ""}`} style={{color: pathname=="/about" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>About</Link>
-          <Link href="/programs" className={`p-2 hover:underline ${pathname=="/programs" ? "underline" : ""}`} style={{color: pathname=="/programs" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Get Involved</Link>
+          <Link href="/about" className={`p-2 hover:underline ${pathname=="/about" ? "underline" : ""}`} style={{color: pathname=="/about" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>About</Link>
+          <Link href="/programs" className={`p-2 hover:underline ${pathname=="/programs" ? "underline" : ""}`} style={{color: pathname=="/programs" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Get Involved</Link>
           {/* <Link href="/events" className={`p-2 hover:underline ${pathname=="/events" ? "underline" : ""}`}>Events</Link> */}
-          <Link href="/research" className={`p-2 hover:underline ${pathname=="/research" ? "underline" : ""}`} style={{color: pathname=="/research" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Research</Link>
-          <Link href="/resources" className={`p-2 hover:underline ${pathname=="/resources" ? "underline" : ""}`} style={{color: pathname=="/resources" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Resources</Link>
-          <Link href="/team" className={`p-2 hover:underline ${pathname=="/team" ? "underline" : ""}`} style={{color: pathname=="/team" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Team</Link>
-          <Link href="/contact" className={`p-2 hover:underline ${pathname=="/contact" ? "underline" : ""}`} style={{color: pathname=="/contact" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Contact</Link>
+          <Link href="/research" className={`p-2 hover:underline ${pathname=="/research" ? "underline" : ""}`} style={{color: pathname=="/research" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Research</Link>
+          <Link href="/resources" className={`p-2 hover:underline ${pathname=="/resources" ? "underline" : ""}`} style={{color: pathname=="/resources" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Resources</Link>
+          <Link href="/team" className={`p-2 hover:underline ${pathname=="/team" ? "underline" : ""}`} style={{color: pathname=="/team" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Team</Link>
+          <Link href="/contact" className={`p-2 hover:underline ${pathname=="/contact" ? "underline" : ""}`} style={{color: pathname=="/contact" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Contact</Link>
         </div>
 
         <div className="w-4/5 md:hidden flex justify-end p-4 items-center">
           <div className="group z-50 w-6 h-6 cursor-pointer flex-col justify-between items-center flex" onClick={() => { setOpen(!open) }}>
-            <span className={`h-1 w-full rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-2.5" : ""}`} style={{backgroundColor: '#6B46C1'}} />
-            <span className={`h-1 w-full rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${open ? "w-px" : "w-full"}`} style={{backgroundColor: '#6B46C1'}} />
-            <span className={`h-1 w-full rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-2.5" : ""}`} style={{backgroundColor: '#6B46C1'}} />
+            <span className={`h-1 w-full rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-2.5" : ""}`} style={{backgroundColor: isHomePage && !scrolled ? '#FFF9F0' : '#6B46C1'}} />
+            <span className={`h-1 w-full rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${open ? "w-px" : "w-full"}`} style={{backgroundColor: isHomePage && !scrolled ? '#FFF9F0' : '#6B46C1'}} />
+            <span className={`h-1 w-full rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-2.5" : ""}`} style={{backgroundColor: isHomePage && !scrolled ? '#FFF9F0' : '#6B46C1'}} />
           </div>
         </div>
       </div>
