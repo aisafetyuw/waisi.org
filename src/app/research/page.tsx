@@ -74,38 +74,36 @@ export default async function ResearchPage() {
   ];
 
   return (
-    <div id="research" className="page">
-      <div className="mb-12">
-        <h2 className="text-3xl mb-6">Current Projects: <span className="text-purple-600">WAISI</span> & <span className="text-red-800">XLab</span></h2>
-        <div className="space-y-6">
-          <div className="bg-gray-50 rounded-lg p-6 shadow-md">
-            <h3 className="text-xl font-semibold mb-3">WAISI Technical AI Safety Workshop Program</h3>
-            <p className="text-gray-700 leading-relaxed">
+    <div id="research" className="-mx-10" style={{marginLeft: '-40px', marginRight: '-40px', backgroundColor: '#FFF9F0'}}>
+      <div className="px-8 pt-8">
+        <h2 className="text-3xl font-semibold mb-6" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"Lora", serif'}}>Current Projects: <span style={{color: '#8B5CF6'}}>WAISI</span> <span style={{color: '#2D2A26'}}>&</span> <span style={{color: '#800000'}}>XLab</span></h2>
+        <div className="space-y-6 mb-12">
+          <div className="p-6" style={{backgroundColor: '#F7F0E6'}}>
+            <h3 className="text-xl font-semibold mb-3" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>WAISI Technical AI Safety Workshop Program</h3>
+            <p className="leading-relaxed" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
               Most AI Safety communities introduce members who are interested in technical AI safety through the pipeline of Intro Technical Fellowship → Paper Reading Sessions → Alignment Research Engineer Accelerator program (ARENA) → Research Programs (SPAR, XLab SRF, MATS). However, most university groups have struggled with ARENA sessions for a few key reasons: the steep learning curve, significant time commitment, and lack of experienced TA's. The technical workshop program aims to address these issues by creating ARENA-styled workshops on AI Safety topics that focus on shorter, more manageable exercises, while still preserving the rigor of research-style work.
             </p>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 shadow-md">
-            <h3 className="text-xl font-semibold mb-3">Transferable Adversarial Materials (TAM): Defeating ISR AUASs and LAWSs via Disruptive and Adversarial Material</h3>
-            <p className="text-gray-700 leading-relaxed">
+          <div className="p-6" style={{backgroundColor: '#F7F0E6'}}>
+            <h3 className="text-xl font-semibold mb-3" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Transferable Adversarial Materials (TAM): Defeating ISR AUASs and LAWSs via Disruptive and Adversarial Material</h3>
+            <p className="leading-relaxed" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
               Within the past decade, small portable Unmanned Aerial Systems (UASs) operated by individual infantry units have been demonstrated to be vital assets on the battlefield in intelligence, surveillance, and reconnaissance (ISR) roles as well as in one-way suicide attacks (loitering munition) and reusable bomb-dropping UASs. Many countries are attempting to integrate AI vision models into these systems to automate navigation and target identification and reduce vulnerability to jamming. We aim to demonstrate the effectiveness of a Transferable Adversarial Material (TAM), a deformable material which could be deployed in a variety of settings and deceive military-purpose computer vision models analogous to those being deployed in AUASs.
             </p>
           </div>
         </div>
-      </div>
-
-      <div className="flex align-center justify-center mb-4 sm:mb-8 margin-auto">
-        <h1 className="text-4xl">
-          Our Research Catalog
-        </h1>
-      </div>
-      <ResearchList research={research} clubMembers={clubMembers} />
-      <div className="mt-12">
-        <h2 className="text-3xl mb-6">Faculty Collaborators</h2>
-        <p className="mb-6 text-lg">Our members work with the following professors:</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1 mb-8">
-          {profs.sort((a, b) => a.name.split(' ')[1].toLowerCase().localeCompare(b.name.split(' ')[1].toLowerCase())) // sort by last name
-            .map(prof => <Professor link={prof.link} name={prof.name} extra={prof.extra} focus={prof.focus} />)}
+        <div className="flex align-center justify-center mb-6">
+          <h1 className="text-4xl font-semibold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>
+            Our Research Catalog
+          </h1>
+        </div>
+        <ResearchList research={research} clubMembers={clubMembers} />
+        <div className="mt-12">
+          <h2 className="text-3xl font-semibold mb-6" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"Lora", serif'}}>Faculty Collaborators</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1 mb-8">
+            {profs.sort((a, b) => a.name.split(' ')[1].toLowerCase().localeCompare(b.name.split(' ')[1].toLowerCase())) // sort by last name
+              .map(prof => <Professor link={prof.link} name={prof.name} extra={prof.extra} focus={prof.focus} />)}
+          </div>
         </div>
       </div>
     </div>

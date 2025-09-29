@@ -42,7 +42,7 @@ export default async function Programs() {
                       alt="Infographic of WAISI's programs"
                       width={324}
                       height={486}
-                      className="rounded-lg p-2 w-full h-auto max-w-sm" style={{backgroundColor: '#FFF9F0', border: '2px solid #E8DCC8'}}
+                      className="p-2 w-full h-auto max-w-sm" style={{backgroundColor: '#FFF9F0', border: '2px solid #E8DCC8'}}
                     />
                   </Zoom>
                   <p className="mt-2 text-center text-sm" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>Click to expand!</p>

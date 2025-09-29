@@ -39,7 +39,7 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-3" style={{color: '#FFF9F0', fontFamily: '"Lora", serif'}}>Stay Updated</h3>
             <p className="mb-3" style={{color: '#FFF9F0', opacity: 0.9, fontFamily: '"Lora", serif'}}>Join our mailing list for updates on programs, events, and research.</p>
             <a href={INTEREST_URL} target="_blank" rel="noopener noreferrer"
-               className="inline-block px-4 py-2 rounded-lg transition-colors hover:opacity-90" style={{backgroundColor: '#C4B5FD', color: '#6B46C1', fontFamily: '"Lora", serif', fontWeight: 600}}>
+               className="inline-block px-4 py-2 transition-colors hover:opacity-90" style={{backgroundColor: '#C4B5FD', color: '#6B46C1', fontFamily: '"Lora", serif', fontWeight: 600}}>
               Subscribe →
             </a>
           </div>

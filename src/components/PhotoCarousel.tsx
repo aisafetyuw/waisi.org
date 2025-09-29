@@ -96,7 +96,7 @@ export default function PhotoCarousel() {
         {/* Navigation Arrows */}
         <button
           onClick={goToPrevious}
-          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full p-1.5 transition-all"
+          className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 transition-all"
           style={{backgroundColor: 'rgba(255, 249, 240, 0.8)'}}
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FFF9F0'}
           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 249, 240, 0.8)'}
@@ -109,7 +109,7 @@ export default function PhotoCarousel() {
 
         <button
           onClick={goToNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-1.5 transition-all"
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 transition-all"
           style={{backgroundColor: 'rgba(255, 249, 240, 0.8)'}}
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FFF9F0'}
           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 249, 240, 0.8)'}
@@ -127,7 +127,7 @@ export default function PhotoCarousel() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all ${
+            className={`h-2 transition-all ${
               index === currentIndex
                 ? 'w-6'
                 : 'w-2'
