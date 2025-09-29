@@ -76,7 +76,7 @@ export default async function ResearchPage() {
   return (
     <div id="research" className="page">
       <div className="mb-12">
-        <h2 className="text-3xl mb-6">Current Projects</h2>
+        <h2 className="text-3xl mb-6">Current Projects: <span className="text-purple-600">WAISI</span> & <span className="text-red-800">XLab</span></h2>
         <div className="space-y-6">
           <div className="bg-gray-50 rounded-lg p-6 shadow-md">
             <h3 className="text-xl font-semibold mb-3">WAISI Technical AI Safety Workshop Program</h3>
@@ -91,10 +91,6 @@ export default async function ResearchPage() {
               Within the past decade, small portable Unmanned Aerial Systems (UASs) operated by individual infantry units have been demonstrated to be vital assets on the battlefield in intelligence, surveillance, and reconnaissance (ISR) roles as well as in one-way suicide attacks (loitering munition) and reusable bomb-dropping UASs. Many countries are attempting to integrate AI vision models into these systems to automate navigation and target identification and reduce vulnerability to jamming. We aim to demonstrate the effectiveness of a Transferable Adversarial Material (TAM), a deformable material which could be deployed in a variety of settings and deceive military-purpose computer vision models analogous to those being deployed in AUASs.
             </p>
           </div>
-
-          <p className="text-lg mt-4 text-gray-600 text-center">
-            Interested in joining a research project? Reach out to our research team or attend our Safety Scholars meetings.
-          </p>
         </div>
       </div>
 
