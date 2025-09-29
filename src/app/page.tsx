@@ -7,7 +7,8 @@ export default function Home() {
     <div id="home" className="page">
       <div className="flex flex-col py-4">
         <h1 className="text-4xl md:text-6xl" >
-          <span className="text-gradient inline">On with Safe AI</span>
+          A community at UW–Madison aligned to making{' '}
+          <span className="text-gradient inline">AI safe and beneficial for all.</span>
         </h1>
       </div>
       <div className="flex flex-col py-4 gap-4 w-full md:w-2/3 text-xl md:text-2xl">
