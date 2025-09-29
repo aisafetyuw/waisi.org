@@ -154,6 +154,47 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Highlighted Research Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2" style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw'}}>
+          {/* Left Column - Image with Title Overlay */}
+          <div className="flex items-center justify-center relative">
+            <Image
+              src="/waisi_writing.jpeg"
+              alt="WAISI members working on research"
+              width={600}
+              height={800}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="bg-opacity-90 p-4" style={{backgroundColor: '#FFF9F0'}}>
+                <h2 className="text-3xl font-semibold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Current Projects</h2>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Research Excerpts */}
+          <div className="flex flex-col gap-6 px-8 py-8">
+
+            {/* Project 1 */}
+            <div className="p-6" style={{backgroundColor: '#F7F0E6', border: '2px solid #E8DCC8'}}>
+              <h3 className="text-xl font-semibold mb-3" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>WAISI Technical AI Safety Workshop Program</h3>
+              <p className="leading-relaxed" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+                Most AI Safety communities introduce members who are interested in technical AI safety through the pipeline of Intro Technical Fellowship → Paper Reading Sessions → Alignment Research Engineer Accelerator program (ARENA)...
+              </p>
+              <a href="/research" className="text-lg font-semibold mt-2 inline-block" style={{color: '#8B5CF6', fontFamily: '"Lora", serif'}}>Learn more →</a>
+            </div>
+
+            {/* Project 2 */}
+            <div className="p-6" style={{backgroundColor: '#F7F0E6', border: '2px solid #E8DCC8'}}>
+              <h3 className="text-xl font-semibold mb-3" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Transferable Adversarial Materials (TAM)</h3>
+              <p className="leading-relaxed" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+                Within the past decade, small portable Unmanned Aerial Systems (UASs) operated by individual infantry units have been demonstrated to be vital assets on the battlefield in intelligence, surveillance...
+              </p>
+              <a href="/research" className="text-lg font-semibold mt-2 inline-block" style={{color: '#8B5CF6', fontFamily: '"Lora", serif'}}>Learn more →</a>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Collaborations Section */}
