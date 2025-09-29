@@ -107,13 +107,52 @@ export default function Home() {
           {/* Right Column - Photo Carousel */}
           <PhotoCarousel />
         </div>
-      </div>
 
-      {/* Application Buttons Section */}
-      <div className="px-8 py-8" style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw'}}>
-        <div className="flex flex-col gap-4 w-full md:w-2/3 text-xl md:text-2xl">
-          <Button url={"https://forms.gle/pPn5idt81BEDH8bG8"} text="Apply to our technical intro program →"/>
-          <Button url={"https://forms.gle/bcRimCCmg7F3uEaS9"} text="Apply to our policy intro program →"/>
+        {/* Opportunities Section */}
+        <div className="px-8 py-16" style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw'}}>
+          <h2 className="text-3xl font-semibold text-center mb-8" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"Lora", serif', maxWidth: '800px', margin: '0 auto 2rem'}}>Opportunities</h2>
+
+          <div className="max-w-6xl mx-auto mb-8 relative">
+            {/* Top Row - Technical and Policy Fundamentals */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+              {/* Technical Fundamentals */}
+              <a href="/programs" className="flex flex-col gap-2 p-6 relative cursor-pointer" style={{backgroundColor: '#FFF9F0', border: '2px solid #E8DCC8', textDecoration: 'none'}}>
+                <h3 className="text-2xl font-semibold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Technical Fundamentals</h3>
+                <p className="text-lg" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+                  The technical track of AI Safety Fundamentals is an eight-week research-oriented reading group on technical AI safety. Topics include reward specification, generalization, interpretability...
+                </p>
+                <p className="text-lg font-semibold mt-2" style={{color: '#8B5CF6', fontFamily: '"Lora", serif'}}>Click to learn more</p>
+              </a>
+
+              {/* Policy Fundamentals */}
+              <a href="/programs" className="flex flex-col gap-2 p-6 relative cursor-pointer" style={{backgroundColor: '#FFF9F0', border: '2px solid #E8DCC8', textDecoration: 'none'}}>
+                <h3 className="text-2xl font-semibold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Policy Fundamentals</h3>
+                <p className="text-lg" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+                  The policy track of AI Safety Fundamentals is an eight-week reading group on the foundational governance and policy challenges posed by advanced AI systems. Topics include AI harms...
+                </p>
+                <p className="text-lg font-semibold mt-2" style={{color: '#8B5CF6', fontFamily: '"Lora", serif'}}>Click to learn more</p>
+              </a>
+            </div>
+
+            {/* Connection Lines */}
+            <svg className="absolute hidden md:block" style={{top: '200px', left: '0', width: '100%', height: '140px', pointerEvents: 'none', zIndex: 0}}>
+              {/* Line from Technical to Safety Scholars */}
+              <line x1="25%" y1="0" x2="37.5%" y2="100%" stroke="#E8DCC8" strokeWidth="2" />
+              {/* Line from Policy to Safety Scholars */}
+              <line x1="75%" y1="0" x2="62.5%" y2="100%" stroke="#E8DCC8" strokeWidth="2" />
+            </svg>
+
+            {/* Bottom Row - Safety Scholars (Centered) */}
+            <div className="flex justify-center">
+              <a href="/programs" className="flex flex-col gap-2 p-6 w-full md:w-1/2 relative z-10 cursor-pointer" style={{backgroundColor: '#FFF9F0', border: '2px solid #E8DCC8', textDecoration: 'none'}}>
+                <h3 className="text-2xl font-semibold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Safety Scholars Program</h3>
+                <p className="text-lg" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+                  Safety Scholars are our core groups of members engaged in AI safety work. Members meet weekly to discuss topics in either technical AI safety or AI policy over a provided meal...
+                </p>
+                <p className="text-lg font-semibold mt-2" style={{color: '#8B5CF6', fontFamily: '"Lora", serif'}}>Click to learn more</p>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 

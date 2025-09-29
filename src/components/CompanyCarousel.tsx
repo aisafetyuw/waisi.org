@@ -88,7 +88,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
   };
 
   return (
-    <div className="mt-16 mb-8" style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw'}}>
+    <div style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw', paddingTop: '64px', paddingBottom: '32px'}}>
       <h2 className="text-3xl font-semibold text-center mb-8 px-8" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Our Members Have Collaborated With</h2>
 
       <div
