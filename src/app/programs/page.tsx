@@ -7,31 +7,8 @@ import { INTEREST_URL, DISCORD_URL, INSTAGRAM_URL } from "@/constants";
 export default async function Programs() {
   return (
   <div id="programs" className="page">
-    <div className="px-4 sm:px-12 md:px-24 lg:px-32">
+    <div className="px-4 sm:px-8 md:px-12 lg:px-16">
       <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-1">
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Image
-                src="/about/Leaders.jpg"
-                alt="WAISI students participating in a group discussion"
-                width={594}
-                height={668}
-                sizes="(min-width: 640px) 40vw, 100vw"
-                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50 max-w-md"
-              />
-              <Image
-                src="/about/Scholars_1.jpg"
-                alt="7 students learning about AI"
-                width={594}
-                height={668}
-                sizes="(min-width: 640px) 40vw, 100vw"
-                className="w-full sm:w-1/2 h-auto rounded-lg shadow-lg bg-gray-50 max-w-md"
-              />
-            </div>
-            <h2 className="border-b">Getting Involved</h2>
-            <p className="text-lg">WAISI hosts speaker events and socials relevant to AI safety. To keep up to date, you can subscribe to our <a href={INTEREST_URL} target="_blank">mailing list</a>, join our <a href={DISCORD_URL} target="_blank">Discord community</a>, or follow our <a href={INSTAGRAM_URL} target="_blank">Instagram</a>.</p>
-            <p className="text-lg">Want to get more involved? We run two main programs: <b>AI Safety Fundamentals</b> (our introductory programs) and <b>Safety Scholars</b> (our core membership groups). More details below.</p>
-          </div>
           <div className="flex flex-col">
             <div>
             <div className="flex flex-col gap-2">

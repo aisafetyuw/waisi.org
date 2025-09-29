@@ -37,7 +37,7 @@
 .page {
     animation: enter .8s forwards;
     padding-top: 15px;
-    max-width: 900px;
+    max-width: 1400px;
     align-self: center;
     color: #261e2d;
 }
@@ -74,8 +74,8 @@
 }
 
 #content {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
     padding-bottom: 10px;
 }
 
@@ -181,16 +181,8 @@ h1, h2, h3 {
 }
 
 #stats li {
-    display: inline-block;
-    margin-right: 6px;
-}
-
-#stats li:after {
-    content: " • ";
-}
-
-#stats li:last-child:after {
-    content: "";
+    display: block;
+    margin: 0;
 }
 
 .lab {

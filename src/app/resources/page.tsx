@@ -79,7 +79,7 @@ export default function Resources() {
   ];
 
   return (
-    <div id="resources" className="page">
+    <div id="resources" className="page max-w-full px-8">
       <h1 className="text-4xl mb-8">AI Safety Resources</h1>
 
       <div className="flex flex-col gap-8">

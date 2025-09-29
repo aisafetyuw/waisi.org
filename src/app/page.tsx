@@ -4,7 +4,7 @@ import CompanyCarousel from '@/components/CompanyCarousel';
 
 export default function Home() {
   return (
-    <div id="home" className="page">
+    <div id="home" className="page max-w-full px-8">
       <div className="flex flex-col py-4">
         <h1 className="text-4xl md:text-6xl" >
           A community at UW–Madison aligned to making{' '}
