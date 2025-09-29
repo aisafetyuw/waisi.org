@@ -7,6 +7,7 @@ interface Company {
   name: string;
   logo: string;
   bgColor: string;
+  website?: string;
 }
 
 interface CompanyCarouselProps {
@@ -104,26 +105,44 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto scroll-smooth hide-scrollbar"
         >
-          {duplicatedCompanies.map((company, index) => (
-            <div
-              key={`${company.name}-${index}`}
-              className="flex-shrink-0 flex flex-col items-center justify-center p-4 hover:scale-105 transition-all duration-300 h-36 w-48 group cursor-pointer"
-            >
-              <div className="w-32 h-28 mb-2 flex items-center justify-center relative">
-                <Image
-                  src={company.logo}
-                  alt={`${company.name} logo`}
-                  width={120}
-                  height={100}
-                  className="object-contain group-hover:scale-110 transition-transform duration-300"
-                  unoptimized={company.logo.startsWith('http')}
-                />
+          {duplicatedCompanies.map((company, index) => {
+            const content = (
+              <>
+                <div className="w-32 h-28 mb-2 flex items-center justify-center relative">
+                  <Image
+                    src={company.logo}
+                    alt={`${company.name} logo`}
+                    width={120}
+                    height={100}
+                    className="object-contain group-hover:scale-110 transition-transform duration-300"
+                    unoptimized={company.logo.startsWith('http')}
+                  />
+                </div>
+                <span className="text-xs font-semibold text-gray-700 text-center line-clamp-2 group-hover:text-purple-600 transition-colors duration-300">
+                  {company.name}
+                </span>
+              </>
+            );
+
+            return company.website ? (
+              <a
+                key={`${company.name}-${index}`}
+                href={company.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 flex flex-col items-center justify-center p-4 hover:scale-105 transition-all duration-300 h-36 w-48 group cursor-pointer"
+              >
+                {content}
+              </a>
+            ) : (
+              <div
+                key={`${company.name}-${index}`}
+                className="flex-shrink-0 flex flex-col items-center justify-center p-4 hover:scale-105 transition-all duration-300 h-36 w-48 group cursor-pointer"
+              >
+                {content}
               </div>
-              <span className="text-xs font-semibold text-gray-700 text-center line-clamp-2">
-                {company.name}
-              </span>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

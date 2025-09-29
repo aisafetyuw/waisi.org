@@ -42,92 +42,110 @@ export default function Home() {
             {
               name: "UChicago XLab",
               logo: "/xlab_logo.jpeg",
-              bgColor: "bg-red-50"
+              bgColor: "bg-red-50",
+              website: "https://xrisk.uchicago.edu/"
             },
             {
               name: "Center for AI Safety",
               logo: "/cais_logo.jpeg",
-              bgColor: "bg-blue-50"
+              bgColor: "bg-blue-50",
+              website: "https://www.safe.ai/"
             },
             {
               name: "Americans for Responsible Innovation",
               logo: "/americans_for_responsible_innovation_logo.jpeg",
-              bgColor: "bg-green-50"
+              bgColor: "bg-green-50",
+              website: "https://responsibleinnovation.org/"
             },
             {
               name: "MATS",
               logo: "/mats_logo.jpeg",
-              bgColor: "bg-purple-50"
+              bgColor: "bg-purple-50",
+              website: "https://www.matsprogram.org/"
             },
             {
               name: "NYU Alignment Group",
               logo: "/nyu_logo.png",
-              bgColor: "bg-purple-50"
+              bgColor: "bg-purple-50",
+              website: "https://wp.nyu.edu/arg/"
             },
             {
               name: "Stanford SAIL",
               logo: "/sail_logo.jpg",
-              bgColor: "bg-red-50"
+              bgColor: "bg-red-50",
+              website: "https://ai.stanford.edu/"
             },
             {
               name: "OpenNLP Labs",
               logo: "/opennlplabs_logo.jpeg",
-              bgColor: "bg-indigo-50"
+              bgColor: "bg-indigo-50",
+              website: "https://opennlp.apache.org/"
             },
             {
               name: "EleutherAI",
               logo: "/eleuther_logo.png",
-              bgColor: "bg-gray-50"
+              bgColor: "bg-gray-50",
+              website: "https://www.eleuther.ai/"
             },
             {
               name: "Meta",
               logo: "/meta_logo.jpeg",
-              bgColor: "bg-blue-50"
+              bgColor: "bg-blue-50",
+              website: "https://about.meta.com/"
             },
             {
               name: "DeepSeek",
               logo: "/deepseek_logo.jpeg",
-              bgColor: "bg-teal-50"
+              bgColor: "bg-teal-50",
+              website: "https://www.deepseek.com/"
             },
             {
               name: "AISI",
               logo: "/ai_safety_institute_logo.jpeg",
-              bgColor: "bg-blue-50"
+              bgColor: "bg-blue-50",
+              website: "https://www.aisi.gov.uk/"
             },
             {
               name: "Cooperative AI Foundation",
               logo: "/cooperative_ai.jpeg",
-              bgColor: "bg-green-50"
+              bgColor: "bg-green-50",
+              website: "https://www.cooperativeai.com/"
             },
             {
               name: "Anthropic",
               logo: "/labs/anthropic.webp",
-              bgColor: "bg-orange-50"
+              bgColor: "bg-orange-50",
+              website: "https://www.anthropic.com/"
             },
             {
               name: "FAR.AI",
               logo: "/far_ai_logo.jpeg",
-              bgColor: "bg-purple-50"
+              bgColor: "bg-purple-50",
+              website: "https://far.ai/"
             },
             {
               name: "Google",
               logo: "/google_logo.jpeg",
-              bgColor: "bg-blue-50"
+              bgColor: "bg-blue-50",
+              website: "https://www.google.com/"
             },
             {
               name: "Microsoft",
               logo: "/microsoft_logo.jpeg",
-              bgColor: "bg-gray-50"
+              bgColor: "bg-gray-50",
+              website: "https://www.microsoft.com/"
             },
             {
               name: "Apple",
               logo: "/apple_logo.jpeg",
-              bgColor: "bg-gray-50"
+              bgColor: "bg-gray-50",
+              website: "https://www.apple.com/"
             },
             {
               name: "Amazon",
               logo: "/amazon_logo.jpeg",
-              bgColor: "bg-yellow-50"
+              bgColor: "bg-yellow-50",
+              website: "https://www.amazon.com/"
             }
           ]} />
     </div>
