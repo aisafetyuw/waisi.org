@@ -140,7 +140,7 @@ h1, h2, h3 {
     color: white;
     background-position: 0;
     background-image: linear-gradient(to top right, #8B5CF6, #D946EF);
-    border-radius: 12px;
+    border-radius: 0px;
     transition: all 0.3s ease;
 }
 
