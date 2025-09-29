@@ -83,61 +83,67 @@ export default function Resources() {
       <h1 className="text-4xl mb-8">AI Safety Resources</h1>
 
       <div className="flex flex-col gap-8">
-        <div>
-          <h2 className="text-2xl font-semibold border-b mb-4">Videos</h2>
-          <div className="flex flex-col gap-4">
-            {videos.map((video, index) => (
-              <div key={index} className="border-l-4 border-purple-500 pl-4">
-                <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-purple-600 hover:underline">
-                  {video.title}
-                </a>
-                <p className="text-sm text-gray-600">by {video.author}</p>
-                <p className="text-base">{video.description}</p>
-              </div>
-            ))}
+        {/* Top row: Videos and Blogs side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-2xl font-semibold border-b mb-4">Videos</h2>
+            <div className="flex flex-col gap-4">
+              {videos.map((video, index) => (
+                <div key={index} className="border-l-4 border-purple-500 pl-4">
+                  <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-purple-600 hover:underline">
+                    {video.title}
+                  </a>
+                  <p className="text-sm text-gray-600">by {video.author}</p>
+                  <p className="text-base">{video.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold border-b mb-4">Blogs & Articles</h2>
+            <div className="flex flex-col gap-4">
+              {blogs.map((blog, index) => (
+                <div key={index} className="border-l-4 border-purple-500 pl-4">
+                  <a href={blog.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-purple-600 hover:underline">
+                    {blog.title}
+                  </a>
+                  <p className="text-base">{blog.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold border-b mb-4">Blogs & Articles</h2>
-          <div className="flex flex-col gap-4">
-            {blogs.map((blog, index) => (
-              <div key={index} className="border-l-4 border-purple-500 pl-4">
-                <a href={blog.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-purple-600 hover:underline">
-                  {blog.title}
-                </a>
-                <p className="text-base">{blog.description}</p>
-              </div>
-            ))}
+        {/* Bottom row: Podcasts and Websites side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-2xl font-semibold border-b mb-4">Podcasts</h2>
+            <div className="flex flex-col gap-4">
+              {podcasts.map((podcast, index) => (
+                <div key={index} className="border-l-4 border-purple-500 pl-4">
+                  <a href={podcast.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-purple-600 hover:underline">
+                    {podcast.title}
+                  </a>
+                  <p className="text-sm text-gray-600">Hosted by {podcast.host}</p>
+                  <p className="text-base">{podcast.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold border-b mb-4">Podcasts</h2>
-          <div className="flex flex-col gap-4">
-            {podcasts.map((podcast, index) => (
-              <div key={index} className="border-l-4 border-purple-500 pl-4">
-                <a href={podcast.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-purple-600 hover:underline">
-                  {podcast.title}
-                </a>
-                <p className="text-sm text-gray-600">Hosted by {podcast.host}</p>
-                <p className="text-base">{podcast.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold border-b mb-4">Exploratory Websites</h2>
-          <div className="flex flex-col gap-4">
-            {websites.map((site, index) => (
-              <div key={index} className="border-l-4 border-purple-500 pl-4">
-                <a href={site.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-purple-600 hover:underline">
-                  {site.title}
-                </a>
-                <p className="text-base">{site.description}</p>
-              </div>
-            ))}
+          <div>
+            <h2 className="text-2xl font-semibold border-b mb-4">Exploratory Websites</h2>
+            <div className="flex flex-col gap-4">
+              {websites.map((site, index) => (
+                <div key={index} className="border-l-4 border-purple-500 pl-4">
+                  <a href={site.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-purple-600 hover:underline">
+                    {site.title}
+                  </a>
+                  <p className="text-base">{site.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
