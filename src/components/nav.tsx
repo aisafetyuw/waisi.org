@@ -11,13 +11,13 @@ function MobileNav({open, setOpen, pathname}: MobileNavProps) {
     <div className={`md:hidden absolute top-0 left-0 h-screen w-screen transition-all duration-500 ease-in-out filter ${open ? "z-50 opacity-100 translate-y-2" : "opacity-0 -translate-y-2"}`} style={{backgroundColor: '#FFF9F0'}}>
 
       <div className="flex flex-col justify-center items-center mt-28">
-        <a href="/" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/" ? "underline" : ""}`} style={{color: pathname=="/" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Home</a>
-        <a href="/programs" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/programs" ? "underline" : ""}`} style={{color: pathname=="/programs" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Get Involved</a>
+        <a href="/" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/" ? "underline" : ""}`} style={{color: pathname=="/" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Home</a>
+        <a href="/programs" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/programs" ? "underline" : ""}`} style={{color: pathname=="/programs" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Get Involved</a>
         {/* <a href="/events" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/events" ? "underline" : ""}`}>Events</a> */}
-        <a href="/research" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/research" ? "underline" : ""}`} style={{color: pathname=="/research" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Research</a>
-        <a href="/resources" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/resources" ? "underline" : ""}`} style={{color: pathname=="/resources" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Resources</a>
-        <a href="/team" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/team" ? "underline" : ""}`} style={{color: pathname=="/team" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Team</a>
-        <a href="/contact" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/contact" ? "underline" : ""}`} style={{color: pathname=="/contact" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Contact</a>
+        <a href="/research" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/research" ? "underline" : ""}`} style={{color: pathname=="/research" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Research</a>
+        <a href="/resources" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/resources" ? "underline" : ""}`} style={{color: pathname=="/resources" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Resources</a>
+        <a href="/team" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/team" ? "underline" : ""}`} style={{color: pathname=="/team" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Team</a>
+        <a href="/contact" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/contact" ? "underline" : ""}`} style={{color: pathname=="/contact" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Contact</a>
       </div>
     </div>
   )
@@ -54,7 +54,7 @@ export default function Nav() {
               height={60}
               alt="WAISI logo"
             />
-            <span className="text-2xl font-bold" style={{color: isHomePage && !scrolled ? '#FFF9F0' : '#6B46C1', fontFamily: '"Lora", serif'}}>
+            <span className="text-2xl font-bold" style={{color: isHomePage && !scrolled ? '#FFF9F0' : '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>
               WAISI
             </span>
           </Link>
@@ -62,12 +62,12 @@ export default function Nav() {
 
         <div className="flex items-center justify-end space-x-4 p-4 text-lg font-semibold underline-offset-8 z-50 md:flex hidden">
           {/* <Link href="/" className={`p-2 hover:underline ${pathname=="/" ? "underline" : ""}`}>Home</Link> */}
-          <Link href="/programs" className={`p-2 hover:underline ${pathname=="/programs" ? "underline" : ""}`} style={{color: pathname=="/programs" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Get Involved</Link>
+          <Link href="/programs" className={`p-2 hover:underline ${pathname=="/programs" ? "underline" : ""}`} style={{color: pathname=="/programs" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"DM Serif Display", serif'}}>Get Involved</Link>
           {/* <Link href="/events" className={`p-2 hover:underline ${pathname=="/events" ? "underline" : ""}`}>Events</Link> */}
-          <Link href="/research" className={`p-2 hover:underline ${pathname=="/research" ? "underline" : ""}`} style={{color: pathname=="/research" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Research</Link>
-          <Link href="/resources" className={`p-2 hover:underline ${pathname=="/resources" ? "underline" : ""}`} style={{color: pathname=="/resources" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Resources</Link>
-          <Link href="/team" className={`p-2 hover:underline ${pathname=="/team" ? "underline" : ""}`} style={{color: pathname=="/team" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Team</Link>
-          <Link href="/contact" className={`p-2 hover:underline ${pathname=="/contact" ? "underline" : ""}`} style={{color: pathname=="/contact" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Contact</Link>
+          <Link href="/research" className={`p-2 hover:underline ${pathname=="/research" ? "underline" : ""}`} style={{color: pathname=="/research" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"DM Serif Display", serif'}}>Research</Link>
+          <Link href="/resources" className={`p-2 hover:underline ${pathname=="/resources" ? "underline" : ""}`} style={{color: pathname=="/resources" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"DM Serif Display", serif'}}>Resources</Link>
+          <Link href="/team" className={`p-2 hover:underline ${pathname=="/team" ? "underline" : ""}`} style={{color: pathname=="/team" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"DM Serif Display", serif'}}>Team</Link>
+          <Link href="/contact" className={`p-2 hover:underline ${pathname=="/contact" ? "underline" : ""}`} style={{color: pathname=="/contact" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"DM Serif Display", serif'}}>Contact</Link>
         </div>
 
         <div className="w-4/5 md:hidden flex justify-end p-4 items-center">

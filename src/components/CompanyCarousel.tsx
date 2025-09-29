@@ -89,7 +89,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
 
   return (
     <div style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw', paddingTop: '64px', paddingBottom: '32px'}}>
-      <h2 className="text-3xl font-semibold text-center mb-8 px-8" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Our Members Have Collaborated With</h2>
+      <h2 className="text-3xl font-semibold text-center mb-8 px-8" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Our Members Have Collaborated With</h2>
 
       <div
         className="relative overflow-hidden"
@@ -118,7 +118,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
                     unoptimized={company.logo.startsWith('http')}
                   />
                 </div>
-                <span className="text-xs font-semibold text-center line-clamp-2 transition-colors duration-300" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+                <span className="text-xs font-semibold text-center line-clamp-2 transition-colors duration-300" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
                   {company.name}
                 </span>
               </>

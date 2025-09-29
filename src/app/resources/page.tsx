@@ -81,35 +81,35 @@ export default function Resources() {
   return (
     <div id="resources" className="-mx-10" style={{marginLeft: '-40px', marginRight: '-40px', backgroundColor: '#FFF9F0'}}>
       <div className="px-8 pt-8">
-        <h1 className="text-4xl font-semibold mb-8" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"Lora", serif'}}>AI Safety Resources</h1>
+        <h1 className="text-4xl font-semibold mb-8" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>AI Safety Resources</h1>
 
       <div className="flex flex-col gap-8">
         {/* Top row: Videos and Blogs side by side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Videos</h2>
+            <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Videos</h2>
             <div className="flex flex-col gap-4">
               {videos.map((video, index) => (
                 <div key={index} className="pl-4 h-24 flex flex-col justify-start" style={{borderLeft: '4px solid #C4B5FD'}}>
-                  <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}>
+                  <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif', textDecoration: 'none'}}>
                     {video.title}
                   </a>
-                  <p className="text-sm" style={{color: '#2D2A26', opacity: 0.8, fontFamily: '"Lora", serif'}}>by {video.author}</p>
-                  <p className="text-base" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>{video.description}</p>
+                  <p className="text-sm" style={{color: '#2D2A26', opacity: 0.8, fontFamily: '"DM Serif Display", serif'}}>by {video.author}</p>
+                  <p className="text-base" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>{video.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Blogs & Articles</h2>
+            <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Blogs & Articles</h2>
             <div className="flex flex-col gap-4">
               {blogs.map((blog, index) => (
                 <div key={index} className="pl-4 h-20 flex flex-col justify-start" style={{borderLeft: '4px solid #C4B5FD'}}>
-                  <a href={blog.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}>
+                  <a href={blog.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif', textDecoration: 'none'}}>
                     {blog.title}
                   </a>
-                  <p className="text-base" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>{blog.description}</p>
+                  <p className="text-base" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>{blog.description}</p>
                 </div>
               ))}
             </div>
@@ -119,29 +119,29 @@ export default function Resources() {
         {/* Bottom row: Podcasts and Websites side by side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Podcasts</h2>
+            <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Podcasts</h2>
             <div className="flex flex-col gap-4">
               {podcasts.map((podcast, index) => (
                 <div key={index} className="pl-4 h-24 flex flex-col justify-start" style={{borderLeft: '4px solid #C4B5FD'}}>
-                  <a href={podcast.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}>
+                  <a href={podcast.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif', textDecoration: 'none'}}>
                     {podcast.title}
                   </a>
-                  <p className="text-sm" style={{color: '#2D2A26', opacity: 0.8, fontFamily: '"Lora", serif'}}>Hosted by {podcast.host}</p>
-                  <p className="text-base" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>{podcast.description}</p>
+                  <p className="text-sm" style={{color: '#2D2A26', opacity: 0.8, fontFamily: '"DM Serif Display", serif'}}>Hosted by {podcast.host}</p>
+                  <p className="text-base" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>{podcast.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Exploratory Websites</h2>
+            <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Exploratory Websites</h2>
             <div className="flex flex-col gap-4">
               {websites.map((site, index) => (
                 <div key={index} className="pl-4 h-20 flex flex-col justify-start" style={{borderLeft: '4px solid #C4B5FD'}}>
-                  <a href={site.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}>
+                  <a href={site.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif', textDecoration: 'none'}}>
                     {site.title}
                   </a>
-                  <p className="text-base" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>{site.description}</p>
+                  <p className="text-base" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>{site.description}</p>
                 </div>
               ))}
             </div>

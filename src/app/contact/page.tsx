@@ -5,13 +5,13 @@ export default function Contact() {
   return (
     <div id="contact" className="-mx-10" style={{marginLeft: '-40px', marginRight: '-40px', backgroundColor: '#FFF9F0'}}>
       <div className="px-8 py-8">
-        <h1 className="text-4xl font-semibold mb-8" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"Lora", serif'}}>Contact Us</h1>
+        <h1 className="text-4xl font-semibold mb-8" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>Contact Us</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column */}
           <div className="flex flex-col gap-8">
             <div>
-              <h2 className="text-3xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Get Connected</h2>
+              <h2 className="text-3xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Get Connected</h2>
 
               <div className="flex flex-col gap-3 max-w-md">
                 <Button url={DISCORD_URL} fa="discord" text="Join our Discord Community" />
@@ -21,14 +21,14 @@ export default function Contact() {
             </div>
 
             <div>
-              <h2 className="text-3xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Direct Inquiries</h2>
-              <p className="text-lg mb-4" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+              <h2 className="text-3xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Direct Inquiries</h2>
+              <p className="text-lg mb-4" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
                 For general questions, partnerships, or other inquiries, please reach out to us directly:
               </p>
               <a
                 href="mailto:aisafetyuw@gmail.com"
                 className="inline-flex items-center gap-2 text-lg font-semibold hover:underline"
-                style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}
+                style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif', textDecoration: 'none'}}
               >
                 <i className="fas fa-envelope"></i>
                 aisafetyuw@gmail.com
@@ -36,8 +36,8 @@ export default function Contact() {
             </div>
 
             <div>
-              <h2 className="text-3xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Office Hours</h2>
-              <p className="text-lg" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+              <h2 className="text-3xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Office Hours</h2>
+              <p className="text-lg" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
                 Our team members hold regular office hours for students interested in learning more about AI safety.
                 Check our Discord for the latest schedule and announcements.
               </p>

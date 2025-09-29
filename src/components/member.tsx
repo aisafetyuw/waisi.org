@@ -16,9 +16,9 @@ export default function Member({ member }: MemberProps) {
           />
         </div>
         <div>
-          <div className="text-lg font-semibold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>{member.name}</div>
-          <div style={{color: '#2D2A26', opacity: 0.7, fontFamily: '"Lora", serif'}}>{member.pronouns}</div>
-          <div className="font-semibold" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>{member.role}</div>
+          <div className="text-lg font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>{member.name}</div>
+          <div style={{color: '#2D2A26', opacity: 0.7, fontFamily: '"DM Serif Display", serif'}}>{member.pronouns}</div>
+          <div className="font-semibold" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>{member.role}</div>
           <div className="mt-1 flex items-center space-x-2">
             <a href={`mailto:${member.email}`}>
               <i className="fa-solid fa-envelope hover:opacity-80" style={{color: '#8B5CF6'}}></i>

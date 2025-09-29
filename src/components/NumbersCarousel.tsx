@@ -23,10 +23,10 @@ export default function NumbersCarousel() {
         {/* Left Column - Quote */}
         <div className="flex flex-col justify-center items-center lg:items-end lg:pr-8">
           <div className="max-w-md">
-            <p className="text-xl italic mb-4" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+            <p className="text-xl italic mb-4" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
               "It's been great working with everyone and getting to be around people who are really interested in AI Safety and helping people get involved. It's exciting to be a part of this."
             </p>
-            <p className="text-lg font-semibold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>
+            <p className="text-lg font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>
               — Shawn Im, PhD Student
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function NumbersCarousel() {
         <div className="flex flex-col gap-2 items-center text-center relative px-8">
           <div className="absolute left-0 top-0 bottom-0 w-px hidden lg:block" style={{backgroundColor: '#E8DCC8'}}></div>
           <div className="absolute right-0 top-0 bottom-0 w-px hidden lg:block" style={{backgroundColor: '#E8DCC8'}}></div>
-          <h2 className="text-3xl font-semibold mb-2" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Numbers and Beyond</h2>
+          <h2 className="text-3xl font-semibold mb-2" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Numbers and Beyond</h2>
           <div className="relative flex items-center justify-center">
             <ul className="flex flex-col items-center justify-center gap-3">
           {stats.map((stat, index) => (
@@ -45,7 +45,7 @@ export default function NumbersCarousel() {
               className="list-none text-xl"
               style={{
                 color: '#2D2A26',
-                fontFamily: '"Lora", serif'
+                fontFamily: '"DM Serif Display", serif'
               }}
             >
               <span className="font-black">
@@ -63,10 +63,10 @@ export default function NumbersCarousel() {
         {/* Right Column - Quote */}
         <div className="flex flex-col justify-center items-center lg:items-start lg:pl-8">
           <div className="max-w-md">
-            <p className="text-xl italic mb-4" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+            <p className="text-xl italic mb-4" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
               "...A year ago the idea of facilitating a group discussion would've been hugely intimidating to me but now I find myself looking forward to my cohort sessions. This much needed nudge out of my comfort zone has shaped my growth as a leader and student..."
             </p>
-            <p className="text-lg font-semibold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>
+            <p className="text-lg font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>
               — Elise Fischer, Policy Team
             </p>
           </div>

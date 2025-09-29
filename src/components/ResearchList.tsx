@@ -25,13 +25,13 @@ export default function ResearchList({ research, clubMembers }: ResearchListProp
                       className="font-bold hover:underline"
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}
+                      style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif', textDecoration: 'none'}}
                     >
                       {paper.name}
                     </a>
                   </td>
-                  <td className="px-4 py-2 w-1/2" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>{highlightAuthors(paper.authors, clubMembers)}</td>
-                  <td className="px-4 py-2 w-1/6 text-right pl-2" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>{paper.date}</td>
+                  <td className="px-4 py-2 w-1/2" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>{highlightAuthors(paper.authors, clubMembers)}</td>
+                  <td className="px-4 py-2 w-1/6 text-right pl-2" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>{paper.date}</td>
                 </tr>
 
                 {/* Mobile view */}
@@ -42,12 +42,12 @@ export default function ResearchList({ research, clubMembers }: ResearchListProp
                       className="font-bold hover:underline"
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}
+                      style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif', textDecoration: 'none'}}
                     >
                       {paper.name}
                     </a>
-                    <div className="mt-1" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>{highlightAuthors(paper.authors, clubMembers)}</div>
-                    <div className="mt-1" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>{paper.date}</div>
+                    <div className="mt-1" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>{highlightAuthors(paper.authors, clubMembers)}</div>
+                    <div className="mt-1" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>{paper.date}</div>
                   </td>
                 </tr>
 
@@ -61,7 +61,7 @@ export default function ResearchList({ research, clubMembers }: ResearchListProp
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="px-6 py-2 font-semibold transition-opacity hover:opacity-80"
-          style={{backgroundColor: '#C4B5FD', color: '#6B46C1', fontFamily: '"Lora", serif'}}
+          style={{backgroundColor: '#C4B5FD', color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}
         >
           {isExpanded ? 'Collapse' : 'Expand All'}
         </button>

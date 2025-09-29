@@ -10,7 +10,7 @@ export default function Button(props: ButtonProps) {
       className="waisi-button"
       target={props.url.includes("https") ? "_blank" : "_self"}
       href={props.url}
-      style={{fontFamily: '"Lora", serif'}}
+      style={{fontFamily: '"DM Serif Display", serif'}}
     >
       {props.fa && <><i className={'fa-brands fa-' + props.fa}></i>&nbsp;</>}
       {props.text}
