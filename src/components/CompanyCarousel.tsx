@@ -88,8 +88,8 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
   };
 
   return (
-    <div className="mt-16 mb-8">
-      <h2 className="text-3xl font-semibold text-center mb-8">Our Members Have Collaborated With</h2>
+    <div className="mt-16 mb-8" style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw'}}>
+      <h2 className="text-3xl font-semibold text-center mb-8 px-8" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Our Members Have Collaborated With</h2>
 
       <div
         className="relative overflow-hidden"
@@ -98,8 +98,8 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
         onWheel={handleWheel}
       >
         {/* Gradient fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{background: 'linear-gradient(to right, #FFF9F0, transparent)'}} />
+        <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{background: 'linear-gradient(to left, #FFF9F0, transparent)'}} />
 
         <div
           ref={scrollRef}
@@ -118,7 +118,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
                     unoptimized={company.logo.startsWith('http')}
                   />
                 </div>
-                <span className="text-xs font-semibold text-gray-700 text-center line-clamp-2 group-hover:text-purple-600 transition-colors duration-300">
+                <span className="text-xs font-semibold text-center line-clamp-2 transition-colors duration-300" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
                   {company.name}
                 </span>
               </>
@@ -158,11 +158,21 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
               scrollContainer.scrollLeft = i * cardWidth * 2;
               setScrollPosition(i * cardWidth * 2);
             }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              Math.floor(scrollPosition / 432) === i
-                ? 'bg-purple-600 w-8'
-                : 'bg-gray-300 hover:bg-gray-400'
-            }`}
+            className={`h-2 rounded-full transition-all duration-300`}
+            style={{
+              backgroundColor: Math.floor(scrollPosition / 432) === i ? '#6B46C1' : '#E8DCC8',
+              width: Math.floor(scrollPosition / 432) === i ? '32px' : '8px'
+            }}
+            onMouseEnter={(e) => {
+              if (Math.floor(scrollPosition / 432) !== i) {
+                e.currentTarget.style.backgroundColor = '#C4B5FD';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (Math.floor(scrollPosition / 432) !== i) {
+                e.currentTarget.style.backgroundColor = '#E8DCC8';
+              }
+            }}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}

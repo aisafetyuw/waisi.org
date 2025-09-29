@@ -18,7 +18,7 @@ export default function NumbersCarousel() {
 
 
   return (
-    <div className="py-16" style={{backgroundColor: '#FFF9F0', marginLeft: '-40px', marginRight: '-40px'}}>
+    <div className="py-16" style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw'}}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-8 lg:px-16">
         {/* Left Column - Quote */}
         <div className="flex flex-col justify-center items-center lg:items-end lg:pr-8">

@@ -12,7 +12,6 @@ function MobileNav({open, setOpen, pathname}: MobileNavProps) {
 
       <div className="flex flex-col justify-center items-center mt-28">
         <a href="/" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/" ? "underline" : ""}`} style={{color: pathname=="/" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Home</a>
-        <a href="/about" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/about" ? "underline" : ""}`} style={{color: pathname=="/about" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>About</a>
         <a href="/programs" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/programs" ? "underline" : ""}`} style={{color: pathname=="/programs" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Get Involved</a>
         {/* <a href="/events" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/events" ? "underline" : ""}`}>Events</a> */}
         <a href="/research" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/research" ? "underline" : ""}`} style={{color: pathname=="/research" ? '#6B46C1' : '#2D2A26', fontFamily: '"Lora", serif'}}>Research</a>
@@ -63,7 +62,6 @@ export default function Nav() {
 
         <div className="flex items-center justify-end space-x-4 p-4 text-lg font-semibold underline-offset-8 z-50 md:flex hidden">
           {/* <Link href="/" className={`p-2 hover:underline ${pathname=="/" ? "underline" : ""}`}>Home</Link> */}
-          <Link href="/about" className={`p-2 hover:underline ${pathname=="/about" ? "underline" : ""}`} style={{color: pathname=="/about" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>About</Link>
           <Link href="/programs" className={`p-2 hover:underline ${pathname=="/programs" ? "underline" : ""}`} style={{color: pathname=="/programs" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Get Involved</Link>
           {/* <Link href="/events" className={`p-2 hover:underline ${pathname=="/events" ? "underline" : ""}`}>Events</Link> */}
           <Link href="/research" className={`p-2 hover:underline ${pathname=="/research" ? "underline" : ""}`} style={{color: pathname=="/research" ? '#6B46C1' : (isHomePage && !scrolled ? '#FFF9F0' : '#2D2A26'), fontFamily: '"Lora", serif'}}>Research</Link>

@@ -69,7 +69,7 @@ export default function PhotoCarousel() {
 
   return (
     <div
-      className="relative w-full"
+      className="relative w-full flex flex-col justify-center"
       style={{backgroundColor: '#FFF9F0'}}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -119,35 +119,35 @@ export default function PhotoCarousel() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
-      </div>
 
-      {/* Dot Indicators */}
-      <div className="flex justify-center gap-2 py-4">
-        {photos.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2 transition-all ${
-              index === currentIndex
-                ? 'w-6'
-                : 'w-2'
-            }`}
-            style={{
-              backgroundColor: index === currentIndex ? '#6B46C1' : '#E8DCC8'
-            }}
-            onMouseEnter={(e) => {
-              if (index !== currentIndex) {
-                e.currentTarget.style.backgroundColor = '#C4B5FD';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (index !== currentIndex) {
-                e.currentTarget.style.backgroundColor = '#E8DCC8';
-              }
-            }}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+        {/* Dot Indicators */}
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+          {photos.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`h-2 transition-all ${
+                index === currentIndex
+                  ? 'w-6'
+                  : 'w-2'
+              }`}
+              style={{
+                backgroundColor: index === currentIndex ? '#6B46C1' : '#E8DCC8'
+              }}
+              onMouseEnter={(e) => {
+                if (index !== currentIndex) {
+                  e.currentTarget.style.backgroundColor = '#C4B5FD';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (index !== currentIndex) {
+                  e.currentTarget.style.backgroundColor = '#E8DCC8';
+                }
+              }}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
