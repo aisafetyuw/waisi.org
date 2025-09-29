@@ -29,30 +29,26 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
 
   return (
-    <nav>
+    <nav className="fixed top-0 left-0 right-0 bg-white z-50 shadow-md">
       <MobileNav open={open} setOpen={setOpen} pathname={pathname}/>
 
-      <Image className="absolute z-0 opacity-40 max-h-32 py-6 w-full"
-        src="/Wave.png"
-        width={1920}
-        height={200}
-        alt=""
-      />
-
       <div className="flex justify-between items-center mx-auto">
-        <div className="flex items-center p-6">
-          <Link href="/" className="z-10">
+        <div className="flex items-center p-3">
+          <Link href="/" className="z-10 flex items-center gap-3">
             <Image
               src="/waisi_gradient_rounded.png"
               // src="/waisi_banner.png"
-              width={80}
-              height={80}
+              width={60}
+              height={60}
               alt="WAISI logo"
             />
+            <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+              WAISI
+            </span>
           </Link>
         </div>
 
-        <div className="flex items-center justify-end space-x-4 p-8 text-lg font-semibold underline-offset-8 z-50 md:flex hidden">
+        <div className="flex items-center justify-end space-x-4 p-4 text-lg font-semibold underline-offset-8 z-50 md:flex hidden">
           {/* <Link href="/" className={`p-2 hover:underline ${pathname=="/" ? "underline" : ""}`}>Home</Link> */}
           <Link href="/about" className={`p-2 hover:underline ${pathname=="/about" ? "underline" : ""}`}>About</Link>
           <Link href="/programs" className={`p-2 hover:underline ${pathname=="/programs" ? "underline" : ""}`}>Get Involved</Link>
@@ -63,7 +59,7 @@ export default function Nav() {
           <Link href="/contact" className={`p-2 hover:underline ${pathname=="/contact" ? "underline" : ""}`}>Contact</Link>
         </div>
 
-        <div className="w-4/5 md:hidden flex justify-end p-8 items-center">
+        <div className="w-4/5 md:hidden flex justify-end p-4 items-center">
           <div className="group z-50 w-6 h-6 cursor-pointer flex-col justify-between items-center flex" onClick={() => { setOpen(!open) }}>
             <span className={`h-1 w-full bg-black rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-2.5" : ""}`} />
             <span className={`h-1 w-full bg-black rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${open ? "w-px" : "w-full"}`} />
