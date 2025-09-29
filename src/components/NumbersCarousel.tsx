@@ -16,40 +16,61 @@ export default function NumbersCarousel() {
     { number: "130+", label: "AI Safety Fundamentals graduates" }
   ];
 
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % stats.length);
-    }, 2500); // Change every 2.5 seconds
-
-    return () => clearInterval(interval);
-  }, [stats.length]);
 
   return (
-    <div className="flex flex-col gap-4 items-center text-center my-12">
-      <h2 className="text-3xl font-semibold">By The Numbers</h2>
-      <div className="relative h-64 flex items-center justify-center">
-        <ul className="flex flex-col items-center justify-center gap-3">
+    <div className="py-16" style={{backgroundColor: '#FFF9F0', marginLeft: '-40px', marginRight: '-40px'}}>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-8 lg:px-16">
+        {/* Left Column - Quote */}
+        <div className="flex flex-col justify-center items-center lg:items-end lg:pr-8">
+          <div className="max-w-md">
+            <p className="text-xl italic mb-4" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+              "It's been great working with everyone and getting to be around people who are really interested in AI Safety and helping people get involved. It's exciting to be a part of this."
+            </p>
+            <p className="text-lg font-semibold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>
+              — Shawn Im, PhD Student
+            </p>
+          </div>
+        </div>
+
+        {/* Center Column - Numbers */}
+        <div className="flex flex-col gap-2 items-center text-center relative px-8">
+          <div className="absolute left-0 top-0 bottom-0 w-px hidden lg:block" style={{backgroundColor: '#E8DCC8'}}></div>
+          <div className="absolute right-0 top-0 bottom-0 w-px hidden lg:block" style={{backgroundColor: '#E8DCC8'}}></div>
+          <h2 className="text-3xl font-semibold mb-2" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Numbers and Beyond</h2>
+          <div className="relative flex items-center justify-center">
+            <ul className="flex flex-col items-center justify-center gap-3">
           {stats.map((stat, index) => (
             <li
               key={index}
-              className={`
-                list-none transition-all duration-700 ease-in-out text-xl
-                ${index === activeIndex
-                  ? 'scale-125 opacity-100 text-purple-600 font-bold'
-                  : 'scale-100 opacity-60 text-gray-600'}
-              `}
+              className="list-none text-xl"
+              style={{
+                color: '#2D2A26',
+                fontFamily: '"Lora", serif'
+              }}
             >
-              <span className="font-black transition-all duration-700">
+              <span className="font-black">
                 {stat.number}
               </span>{' '}
-              <span className="transition-all duration-700">
+              <span>
                 {stat.label}
               </span>
             </li>
           ))}
-        </ul>
+            </ul>
+          </div>
+        </div>
+
+        {/* Right Column - Quote */}
+        <div className="flex flex-col justify-center items-center lg:items-start lg:pl-8">
+          <div className="max-w-md">
+            <p className="text-xl italic mb-4" style={{color: '#2D2A26', fontFamily: '"Lora", serif'}}>
+              "...A year ago the idea of facilitating a group discussion would've been hugely intimidating to me but now I find myself looking forward to my cohort sessions. This much needed nudge out of my comfort zone has shaped my growth as a leader and student..."
+            </p>
+            <p className="text-lg font-semibold" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>
+              — Elise Fischer, Policy Team
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
