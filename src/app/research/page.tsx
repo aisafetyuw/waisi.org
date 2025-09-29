@@ -75,6 +75,29 @@ export default async function ResearchPage() {
 
   return (
     <div id="research" className="page">
+      <div className="mb-12">
+        <h2 className="text-3xl mb-6">Current Projects</h2>
+        <div className="space-y-6">
+          <div className="bg-gray-50 rounded-lg p-6 shadow-md">
+            <h3 className="text-xl font-semibold mb-3">WAISI Technical AI Safety Workshop Program</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Most AI Safety communities introduce members who are interested in technical AI safety through the pipeline of Intro Technical Fellowship → Paper Reading Sessions → Alignment Research Engineer Accelerator program (ARENA) → Research Programs (SPAR, XLab SRF, MATS). However, most university groups have struggled with ARENA sessions for a few key reasons: the steep learning curve, significant time commitment, and lack of experienced TA's. The technical workshop program aims to address these issues by creating ARENA-styled workshops on AI Safety topics that focus on shorter, more manageable exercises, while still preserving the rigor of research-style work.
+            </p>
+          </div>
+
+          <div className="bg-gray-50 rounded-lg p-6 shadow-md">
+            <h3 className="text-xl font-semibold mb-3">Transferable Adversarial Materials (TAM): Defeating ISR AUASs and LAWSs via Disruptive and Adversarial Material</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Within the past decade, small portable Unmanned Aerial Systems (UASs) operated by individual infantry units have been demonstrated to be vital assets on the battlefield in intelligence, surveillance, and reconnaissance (ISR) roles as well as in one-way suicide attacks (loitering munition) and reusable bomb-dropping UASs. Many countries are attempting to integrate AI vision models into these systems to automate navigation and target identification and reduce vulnerability to jamming. We aim to demonstrate the effectiveness of a Transferable Adversarial Material (TAM), a deformable material which could be deployed in a variety of settings and deceive military-purpose computer vision models analogous to those being deployed in AUASs.
+            </p>
+          </div>
+
+          <p className="text-lg mt-4 text-gray-600 text-center">
+            Interested in joining a research project? Reach out to our research team or attend our Safety Scholars meetings.
+          </p>
+        </div>
+      </div>
+
       <div className="flex align-center justify-center mb-4 sm:mb-8 margin-auto">
         <h1 className="text-4xl">
           Our Research Catalog
