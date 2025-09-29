@@ -90,7 +90,7 @@ export default function Resources() {
             <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Videos</h2>
             <div className="flex flex-col gap-4">
               {videos.map((video, index) => (
-                <div key={index} className="pl-4" style={{borderLeft: '4px solid #C4B5FD'}}>
+                <div key={index} className="pl-4 h-24 flex flex-col justify-start" style={{borderLeft: '4px solid #C4B5FD'}}>
                   <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}>
                     {video.title}
                   </a>
@@ -105,7 +105,7 @@ export default function Resources() {
             <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Blogs & Articles</h2>
             <div className="flex flex-col gap-4">
               {blogs.map((blog, index) => (
-                <div key={index} className="pl-4" style={{borderLeft: '4px solid #C4B5FD'}}>
+                <div key={index} className="pl-4 h-20 flex flex-col justify-start" style={{borderLeft: '4px solid #C4B5FD'}}>
                   <a href={blog.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}>
                     {blog.title}
                   </a>
@@ -122,7 +122,7 @@ export default function Resources() {
             <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Podcasts</h2>
             <div className="flex flex-col gap-4">
               {podcasts.map((podcast, index) => (
-                <div key={index} className="pl-4" style={{borderLeft: '4px solid #C4B5FD'}}>
+                <div key={index} className="pl-4 h-24 flex flex-col justify-start" style={{borderLeft: '4px solid #C4B5FD'}}>
                   <a href={podcast.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}>
                     {podcast.title}
                   </a>
@@ -137,7 +137,7 @@ export default function Resources() {
             <h2 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"Lora", serif'}}>Exploratory Websites</h2>
             <div className="flex flex-col gap-4">
               {websites.map((site, index) => (
-                <div key={index} className="pl-4" style={{borderLeft: '4px solid #C4B5FD'}}>
+                <div key={index} className="pl-4 h-20 flex flex-col justify-start" style={{borderLeft: '4px solid #C4B5FD'}}>
                   <a href={site.url} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline" style={{color: '#8B5CF6', fontFamily: '"Lora", serif', textDecoration: 'none'}}>
                     {site.title}
                   </a>
