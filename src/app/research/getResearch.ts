@@ -25,7 +25,7 @@ const sheets = google.sheets({ version: 'v4', auth: client });
 export default async function getResearch() {
     const request = {
         spreadsheetId: '1OGoGF4GnfSnaO6LFdpgtVtF4JagANq5zAErhqp10goE',
-        range: 'Research!A:E',
+        range: 'Research!A:F',
     };
 
     const response = await sheets.spreadsheets.values.get(request);
@@ -38,6 +38,7 @@ export default async function getResearch() {
             link: row[2],
             authors: row[3],
             date: row[4],
+            conference: row[5] || undefined,
         };
     });
 

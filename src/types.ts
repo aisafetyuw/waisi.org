@@ -24,6 +24,7 @@ export type ResearchData = {
     link: string,
     authors: string,
     date: string,
+    conference?: string,
 };
 
 export type ResearchProps = {
