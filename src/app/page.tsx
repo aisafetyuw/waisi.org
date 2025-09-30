@@ -239,7 +239,7 @@ export default function Home() {
               name: "OpenNLP Labs",
               logo: "/opennlplabs_logo.jpeg",
               bgColor: "bg-indigo-50",
-              website: "https://opennlp.apache.org/"
+              website: "http://opennlplabs.org/"
             },
             {
               name: "EleutherAI",

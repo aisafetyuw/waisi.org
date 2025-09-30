@@ -30,13 +30,21 @@ export default function Nav() {
   const isHomePage = pathname === '/';
 
   useEffect(() => {
+    if (!isHomePage) return;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        const aboutTop = aboutSection.getBoundingClientRect().top;
+        // Navbar becomes opaque when it reaches the about section (top of viewport)
+        setScrolled(aboutTop <= 0);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on mount
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHomePage]);
 
   const navBackground = isHomePage && !scrolled ? 'transparent' : '#FFF9F0';
 

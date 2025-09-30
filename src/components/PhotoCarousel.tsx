@@ -31,6 +31,9 @@ export default function PhotoCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
 
   // Auto-rotation effect
   useEffect(() => {
@@ -67,18 +70,64 @@ export default function PhotoCarousel() {
     setCurrentIndex(index);
   };
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.clientX);
+    setIsPaused(true);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const currentX = e.clientX;
+    const diff = currentX - startX;
+    setDragOffset(diff);
+  };
+
+  const handleMouseUp = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+
+    // If dragged more than 50px, change slide
+    if (dragOffset > 50) {
+      goToPrevious();
+    } else if (dragOffset < -50) {
+      goToNext();
+    }
+
+    setDragOffset(0);
+    setTimeout(() => setIsPaused(false), 1000);
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false);
+      setDragOffset(0);
+      setTimeout(() => setIsPaused(false), 1000);
+    }
+  };
+
   return (
     <div
       className="relative w-full flex flex-col justify-center"
       style={{backgroundColor: '#FFF9F0'}}
       onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Main Image Container */}
-      <div className="relative w-full overflow-hidden" style={{height: '400px'}}>
+      <div
+        className="relative w-full overflow-hidden"
+        style={{height: '400px', cursor: isDragging ? 'grabbing' : 'grab'}}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+      >
         <div
           className="flex transition-transform duration-500 ease-in-out h-full"
-          style={{transform: `translateX(-${currentIndex * 100}%)`}}
+          style={{
+            transform: `translateX(calc(-${currentIndex * 100}% + ${dragOffset}px))`,
+            transition: isDragging ? 'none' : 'transform 500ms ease-in-out'
+          }}
         >
           {photos.map((photo, index) => (
             <div key={index} className="w-full h-full flex-shrink-0">

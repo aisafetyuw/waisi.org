@@ -36,6 +36,9 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
   const [isPaused, setIsPaused] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   // Duplicate companies for infinite scroll effect
   const duplicatedCompanies = [...companies, ...companies];
@@ -87,6 +90,39 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
     setTimeout(() => setIsPaused(false), 3000);
   };
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainer.offsetLeft);
+    setScrollLeft(scrollContainer.scrollLeft);
+    setIsPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setTimeout(() => setIsPaused(false), 3000);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    setTimeout(() => setIsPaused(false), 3000);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const x = e.pageX - scrollContainer.offsetLeft;
+    const walk = (x - startX) * 2; // Multiply by 2 for faster scroll
+    scrollContainer.scrollLeft = scrollLeft - walk;
+    setScrollPosition(scrollContainer.scrollLeft);
+  };
+
   return (
     <div style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw', paddingTop: '64px', paddingBottom: '32px'}}>
       <h2 className="text-3xl font-semibold text-center mb-8 px-8" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Our Members Have Collaborated With</h2>
@@ -94,7 +130,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
       <div
         className="relative overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
+        onMouseLeave={handleMouseLeave}
         onWheel={handleWheel}
       >
         {/* Gradient fade edges */}
@@ -104,6 +140,10 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto scroll-smooth hide-scrollbar"
+          style={{cursor: isDragging ? 'grabbing' : 'grab'}}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
         >
           {duplicatedCompanies.map((company, index) => {
             const content = (
