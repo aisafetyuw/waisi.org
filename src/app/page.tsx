@@ -195,6 +195,85 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Research Highlights Section */}
+        <div className="px-8 py-16" style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw'}}>
+          <h2 className="text-3xl font-semibold text-center mb-8" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif', maxWidth: '800px', margin: '0 auto 2rem'}}>Research Highlights</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {/* Paper 1 */}
+            <div className="flex flex-col overflow-hidden" style={{backgroundColor: '#F7F0E6', border: '2px solid #E8DCC8'}}>
+              <div className="relative w-full" style={{height: '200px'}}>
+                <Image
+                  src="/towards_interp.png"
+                  alt="Towards Interpretability Without Sacrifice"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-semibold mb-3" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>
+                  Towards Interpretability Without Sacrifice: Faithful Dense Layer Decomposition with Mixture of Decoders
+                </h3>
+                <div className="mt-auto">
+                  <a href="https://arxiv.org/pdf/2505.21364" target="_blank" rel="noopener noreferrer" className="text-base font-semibold inline-block hover:underline" style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif', textDecoration: 'none'}}>
+                    Read paper →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Paper 2 */}
+            <div className="flex flex-col overflow-hidden" style={{backgroundColor: '#F7F0E6', border: '2px solid #E8DCC8'}}>
+              <div className="relative w-full" style={{height: '200px'}}>
+                <Image
+                  src="/Debate_or_Vote.png"
+                  alt="Debate or Vote"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-semibold mb-3" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>
+                  Debate or Vote: Which Yields Better Decisions in Multi-Agent Large Language Models?
+                </h3>
+                <div className="mt-auto">
+                  <a href="https://arxiv.org/pdf/2508.17536" target="_blank" rel="noopener noreferrer" className="text-base font-semibold inline-block hover:underline" style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif', textDecoration: 'none'}}>
+                    Read paper →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Paper 3 */}
+            <div className="flex flex-col overflow-hidden" style={{backgroundColor: '#F7F0E6', border: '2px solid #E8DCC8'}}>
+              <div className="relative w-full" style={{height: '200px'}}>
+                <Image
+                  src="/Everything_Everywhere.png"
+                  alt="Everything Everywhere All at Once"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-semibold mb-3" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>
+                  Everything Everywhere All at Once: LLMs can In-Context Learn Multiple Tasks in Superposition
+                </h3>
+                <div className="mt-auto">
+                  <a href="https://arxiv.org/pdf/2410.05603" target="_blank" rel="noopener noreferrer" className="text-base font-semibold inline-block hover:underline" style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif', textDecoration: 'none'}}>
+                    Read paper →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* See More Papers Button */}
+          <div className="flex justify-center mt-8">
+            <a href="/research" className="px-6 py-3 font-semibold transition-opacity hover:opacity-80" style={{backgroundColor: '#8B5CF6', color: '#FFF9F0', fontFamily: '"DM Serif Display", serif'}}>
+              See our 20+ Papers
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Collaborations Section */}
