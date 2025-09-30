@@ -4,7 +4,7 @@ import Button from '@/components/button';
 export default function Contact() {
   return (
     <div id="contact" className="-mx-10" style={{marginLeft: '-40px', marginRight: '-40px', backgroundColor: '#FFF9F0'}}>
-      <div className="px-8 py-8">
+      <div className="px-8 py-8 pb-16">
         <h1 className="text-4xl font-semibold mb-8" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>Contact Us</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

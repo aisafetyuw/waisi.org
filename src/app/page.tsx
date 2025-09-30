@@ -310,7 +310,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto">
           {/* KAIROS */}
           <div className="flex flex-col items-center gap-4">
-            <a href="https://www.darpa.mil/program/kairos" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80">
+            <a href="https://kairos-project.org" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80">
               <Image
                 src="/kairos_logo.jpeg"
                 alt="KAIROS Logo"

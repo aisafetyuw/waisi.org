@@ -7,7 +7,7 @@ import { INTEREST_URL, DISCORD_URL, INSTAGRAM_URL } from "@/constants";
 export default async function Programs() {
   return (
   <div id="programs" className="-mx-10" style={{marginLeft: '-40px', marginRight: '-40px', backgroundColor: '#FFF9F0'}}>
-    <div className="px-8 py-8">
+    <div className="px-8 py-8 pb-16">
       <div className="flex flex-col gap-6">
           <div className="flex flex-col">
             <div>

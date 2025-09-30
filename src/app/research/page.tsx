@@ -98,7 +98,7 @@ export default async function ResearchPage() {
           </h1>
         </div>
         <ResearchList research={research} clubMembers={clubMembers} />
-        <div className="mt-12">
+        <div className="mt-12 pb-16">
           <h2 className="text-3xl font-semibold mb-6" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>Faculty Collaborators</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1">
             {profs.sort((a, b) => a.name.split(' ')[1].toLowerCase().localeCompare(b.name.split(' ')[1].toLowerCase())) // sort by last name
