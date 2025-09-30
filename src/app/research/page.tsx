@@ -76,7 +76,7 @@ export default async function ResearchPage() {
   return (
     <div id="research" className="-mx-10" style={{marginLeft: '-40px', marginRight: '-40px', backgroundColor: '#FFF9F0'}}>
       <div className="px-8 pt-8">
-        <h2 className="text-3xl font-semibold mb-6" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>Current Projects: <span style={{color: '#8B5CF6'}}>WAISI</span> <span style={{color: '#2D2A26'}}>&</span> <span style={{color: '#800000'}}>XLab</span></h2>
+        <h2 className="text-3xl font-semibold mb-6" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}><span style={{color: '#6B46C1'}}>WAISI</span> <span style={{color: '#2D2A26'}}>&</span> <span style={{color: '#800000'}}>XLab</span></h2>
         <div className="space-y-6 mb-12">
           <div className="p-6" style={{backgroundColor: '#F7F0E6'}}>
             <h3 className="text-xl font-semibold mb-3" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>WAISI Technical AI Safety Workshop Program</h3>

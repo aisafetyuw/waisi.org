@@ -45,6 +45,16 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Copyright and Non-Profit Notice */}
+        <div className="mt-8 pt-6 border-t text-center" style={{borderColor: 'rgba(255, 249, 240, 0.2)'}}>
+          <p style={{color: '#FFF9F0', opacity: 0.9, fontFamily: '"DM Serif Display", serif'}}>
+            © {new Date().getFullYear()} Wisconsin AI Safety Initiative. All rights reserved.
+          </p>
+          <p className="mt-2" style={{color: '#FFF9F0', opacity: 0.9, fontFamily: '"DM Serif Display", serif'}}>
+            WAISI is a 501(c)(3) non-profit organization.
+          </p>
+        </div>
+
       </div>
     </footer>
   )
