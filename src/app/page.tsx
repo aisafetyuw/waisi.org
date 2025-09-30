@@ -308,6 +308,41 @@ export default function Home() {
               website: "https://www.amazon.com/"
             }
           ]} />
+
+      {/* Our Sponsors Section */}
+      <div className="px-8 py-16" style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw'}}>
+        <h2 className="text-3xl font-semibold text-center mb-12" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif', maxWidth: '800px', margin: '0 auto 3rem'}}>Our Sponsors</h2>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto">
+          {/* KAIROS */}
+          <div className="flex flex-col items-center gap-4">
+            <a href="https://www.darpa.mil/program/kairos" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80">
+              <Image
+                src="/kairos_logo.jpeg"
+                alt="KAIROS Logo"
+                width={200}
+                height={100}
+                className="object-contain"
+              />
+            </a>
+            <p className="text-lg font-semibold text-center" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>KAIROS</p>
+          </div>
+
+          {/* UW Madison CS */}
+          <div className="flex flex-col items-center gap-4">
+            <a href="https://www.cs.wisc.edu/" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80">
+              <Image
+                src="/uw_madison_computer_sciences_logo.jpeg"
+                alt="UW Madison Computer Sciences Logo"
+                width={200}
+                height={100}
+                className="object-contain"
+              />
+            </a>
+            <p className="text-lg font-semibold text-center" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>UW-Madison Computer Sciences</p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
