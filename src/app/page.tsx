@@ -260,12 +260,6 @@ export default function Home() {
               website: "https://www.deepseek.com/"
             },
             {
-              name: "AISI",
-              logo: "/ai_safety_institute_logo.jpeg",
-              bgColor: "bg-blue-50",
-              website: "https://www.aisi.gov.uk/"
-            },
-            {
               name: "Cooperative AI Foundation",
               logo: "/cooperative_ai.jpeg",
               bgColor: "bg-green-50",
