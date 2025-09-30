@@ -74,8 +74,8 @@ export default async function ResearchPage() {
   ];
 
   return (
-    <div id="research" className="-mx-10" style={{marginLeft: '-40px', marginRight: '-40px', backgroundColor: '#FFF9F0'}}>
-      <div className="px-8 pt-8">
+    <div id="research" style={{backgroundColor: '#FFF9F0', marginLeft: '-40px', marginRight: '-40px'}}>
+      <div className="mx-auto pt-8" style={{width: '75%'}}>
         <h2 className="text-3xl font-semibold mb-6" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}><span style={{color: '#6B46C1'}}>WAISI</span> <span style={{color: '#2D2A26'}}>&</span> <span style={{color: '#800000'}}>XLab</span></h2>
         <div className="space-y-6 mb-12">
           <div className="p-6" style={{backgroundColor: '#F7F0E6'}}>
