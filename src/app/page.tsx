@@ -1,11 +1,26 @@
+'use client';
+
 import { INTEREST_URL, DISCORD_URL, INSTAGRAM_URL, TWITTER_URL, LINKEDIN_URL } from '@/constants';
 import Button from '@/components/button';
 import CompanyCarousel from '@/components/CompanyCarousel';
 import NumbersCarousel from '@/components/NumbersCarousel';
 import PhotoCarousel from '@/components/PhotoCarousel';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [showArrow, setShowArrow] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hide arrow when scrolled down more than 100px
+      setShowArrow(window.scrollY < 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div id="home" style={{marginLeft: '-40px', marginRight: '-40px', width: '100%'}}>
       {/* Full Screen Hero Banner */}
@@ -24,7 +39,10 @@ export default function Home() {
           </h1>
 
           {/* Scroll Down Arrow */}
-          <div className="absolute bottom-8 animate-bounce" style={{opacity: 0.6}}>
+          <div
+            className="absolute bottom-8 animate-bounce transition-opacity duration-300"
+            style={{opacity: showArrow ? 0.6 : 0, pointerEvents: showArrow ? 'auto' : 'none'}}
+          >
             <svg
               width="32"
               height="32"
