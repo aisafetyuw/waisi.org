@@ -8,7 +8,7 @@ import { MobileNavProps } from '@/types';
 
 function MobileNav({open, setOpen, pathname}: MobileNavProps) {
   return (
-    <div className={`md:hidden absolute top-0 left-0 h-screen w-screen transition-all duration-500 ease-in-out filter ${open ? "z-50 opacity-100 translate-y-2" : "opacity-0 -translate-y-2"}`} style={{backgroundColor: '#FFF9F0'}}>
+    <div className={`md:hidden absolute top-0 left-0 h-screen w-screen transition-all duration-500 ease-in-out filter ${open ? "z-50 opacity-100 translate-y-2" : "opacity-0 -translate-y-2 pointer-events-none"}`} style={{backgroundColor: '#FFF9F0'}}>
 
       <div className="flex flex-col justify-center items-center mt-28">
         <a href="/" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/" ? "underline" : ""}`} style={{color: pathname=="/" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Home</a>
