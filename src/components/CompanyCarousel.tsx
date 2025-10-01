@@ -87,7 +87,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
 
     // Pause auto-scroll temporarily when user is scrolling
     setIsPaused(true);
-    setTimeout(() => setIsPaused(false), 3000);
+    setTimeout(() => setIsPaused(false), 1000);
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -102,12 +102,12 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
 
   const handleMouseLeave = () => {
     setIsDragging(false);
-    setTimeout(() => setIsPaused(false), 3000);
+    setTimeout(() => setIsPaused(false), 1000);
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
-    setTimeout(() => setIsPaused(false), 3000);
+    setTimeout(() => setIsPaused(false), 1000);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
