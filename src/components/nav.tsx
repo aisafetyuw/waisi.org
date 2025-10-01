@@ -11,13 +11,13 @@ function MobileNav({open, setOpen, pathname}: MobileNavProps) {
     <div className={`md:hidden absolute top-0 left-0 h-screen w-screen transition-all duration-500 ease-in-out filter ${open ? "z-50 opacity-100 translate-y-2" : "opacity-0 -translate-y-2 pointer-events-none"}`} style={{backgroundColor: '#FFF9F0'}}>
 
       <div className="flex flex-col justify-center items-center mt-28">
-        <a href="/" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/" ? "underline" : ""}`} style={{color: pathname=="/" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Home</a>
-        <a href="/programs" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/programs" ? "underline" : ""}`} style={{color: pathname=="/programs" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Get Involved</a>
-        {/* <a href="/events" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/events" ? "underline" : ""}`}>Events</a> */}
-        <a href="/research" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/research" ? "underline" : ""}`} style={{color: pathname=="/research" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Research</a>
-        <a href="/resources" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/resources" ? "underline" : ""}`} style={{color: pathname=="/resources" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Resources</a>
-        <a href="/team" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/team" ? "underline" : ""}`} style={{color: pathname=="/team" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Team</a>
-        <a href="/contact" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/contact" ? "underline" : ""}`} style={{color: pathname=="/contact" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Contact</a>
+        <Link href="/" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/" ? "underline" : ""}`} style={{color: pathname=="/" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Home</Link>
+        <Link href="/programs" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/programs" ? "underline" : ""}`} style={{color: pathname=="/programs" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Get Involved</Link>
+        {/* <Link href="/events" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/events" ? "underline" : ""}`}>Events</Link> */}
+        <Link href="/research" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/research" ? "underline" : ""}`} style={{color: pathname=="/research" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Research</Link>
+        <Link href="/resources" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/resources" ? "underline" : ""}`} style={{color: pathname=="/resources" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Resources</Link>
+        <Link href="/team" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/team" ? "underline" : ""}`} style={{color: pathname=="/team" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Team</Link>
+        <Link href="/contact" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/contact" ? "underline" : ""}`} style={{color: pathname=="/contact" ? '#6B46C1' : '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Contact</Link>
       </div>
     </div>
   )
@@ -30,7 +30,10 @@ export default function Nav() {
   const isHomePage = pathname === '/';
 
   useEffect(() => {
-    if (!isHomePage) return;
+    if (!isHomePage) {
+      setScrolled(false);
+      return;
+    }
 
     const handleScroll = () => {
       const aboutSection = document.getElementById('about');
@@ -41,9 +44,16 @@ export default function Nav() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Small delay to ensure DOM is ready (Safari fix)
+    const timeoutId = setTimeout(() => {
+      handleScroll();
+    }, 0);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [isHomePage]);
 
   const navBackground = isHomePage && !scrolled ? 'transparent' : '#FFF9F0';
