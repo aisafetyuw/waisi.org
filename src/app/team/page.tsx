@@ -6,7 +6,7 @@ export default async function Team() {
   
   return (
     <div id="team" className="-mx-10" style={{marginLeft: '-40px', marginRight: '-40px', backgroundColor: '#FFF9F0'}}>
-      <div className="px-8 pt-8 pb-16">
+      <div className="px-16 pt-8 pb-16">
         <h2 className="text-3xl font-semibold mb-6" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>Leadership Team</h2>
         <h3 className="text-2xl font-semibold mb-4" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Community Builders</h3>
         <ul id="team-list" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1 mb-8">

@@ -80,7 +80,7 @@ export default function Resources() {
 
   return (
     <div id="resources" className="-mx-10" style={{marginLeft: '-40px', marginRight: '-40px', backgroundColor: '#FFF9F0'}}>
-      <div className="px-8 pt-8 pb-16">
+      <div className="px-16 pt-8 pb-16">
         <h1 className="text-4xl font-semibold mb-8" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>AI Safety Resources</h1>
 
       <div className="flex flex-col gap-8">
