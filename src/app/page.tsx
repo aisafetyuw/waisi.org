@@ -60,27 +60,27 @@ export default function Home() {
             <div className="flex flex-col gap-4 h-full" style={{paddingRight: '32px'}}>
               <h2 className="text-3xl font-semibold" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>Our Mission</h2>
               <p className="text-lg" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
-                The Wisconsin AI Safety Initiative brings together students and stakeholders to understand and address the risks of advanced AI.
+                The Wisconsin AI Safety Initiative advances understanding and mitigation of advanced AI risks through strategic collaboration and rigorous inquiry.
               </p>
               <p className="text-lg font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>
-                We pursue this mission through three pillars:
+                We pursue this mission through three integrated pillars:
               </p>
               <div className="space-y-4 ml-4 flex-grow">
                 <p className="text-lg flex items-start" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
                   <span style={{color: '#6B46C1', marginRight: '8px'}}>•</span>
-                  <span><span className="font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Spark dialogue.</span> We leverage our position at a flagship school to promote better models of AI futures, encourage productive debate, and engage with key decision-makers.</span>
+                  <span><span className="font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Advancing Public Discourse.</span> We leverage our platform at a leading research institution to shape informed perspectives on AI futures, catalyze substantive debate, and engage decision-makers across sectors.</span>
                 </p>
                 <p className="text-lg flex items-start" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
                   <span style={{color: '#6B46C1', marginRight: '8px'}}>•</span>
-                  <span><span className="font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Build expertise.</span> We help students develop skills for technical AI research and policy positions by running meaningful projects, connecting students with mentors, and sharing opportunities</span>
+                  <span><span className="font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Driving Research and Innovation.</span> We conduct meaningful research projects that address critical questions in AI safety, bridging technical analysis with policy implications and fostering collaboration across disciplines.</span>
                 </p>
                 <p className="text-lg flex items-start" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
                   <span style={{color: '#6B46C1', marginRight: '8px'}}>•</span>
-                  <span><span className="font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Foster community.</span> We cultivate a lasting culture where friendliness, critical thinking, and shared ambition bring out the best in each other.</span>
+                  <span><span className="font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Strengthening Community.</span> We cultivate an enduring intellectual culture where collaborative rigor, critical analysis, and shared purpose drive collective excellence.</span>
                 </p>
               </div>
               <p className="text-lg" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
-                AI safety requires expertise spanning technical research, policy, and ethics. As AI accelerates technological transformation, we're committed to ensuring it is developed and deployed safely.
+                Addressing AI safety demands expertise spanning technical research, policy, and ethics. As AI reshapes our technological landscape, we are committed to ensuring its responsible development and deployment.
               </p>
             </div>
           </div>
