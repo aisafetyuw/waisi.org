@@ -12,7 +12,7 @@ export default async function Programs() {
                 {/* Top Row - AI Safety Fundamentals Programs (Centered) */}
                 <div className="flex justify-center mb-16">
                   <div className="flex flex-col gap-2 p-6 w-full md:w-2/3 relative z-10" style={{backgroundColor: '#FFF9F0', border: '2px solid #E8DCC8'}}>
-                    <h2 className="text-3xl font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>AI Safety Fundamentals Programs</h2>
+                    <h2 className="text-3xl font-semibold" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>AI Safety Fundamentals Programs</h2>
                     <ul className="list-disc pl-5 text-lg space-y-2 mt-2" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
                       <li>8-week reading group on AI safety fundamentals</li>
                       <li>Two tracks available: technical and policy (can participate in both simultaneously)</li>
@@ -36,8 +36,8 @@ export default async function Programs() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Technical Fundamentals */}
                   <div className="flex flex-col gap-2 p-6 relative" style={{backgroundColor: '#F7F0E6', border: '2px solid #E8DCC8'}}>
-                    <h3 className="text-2xl font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Technical Fundamentals</h3>
-                    <ul className="list-disc pl-5 text-lg space-y-2" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
+                    <h3 className="text-2xl font-semibold" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>Technical Fundamentals</h3>
+                    <ul className="list-disc pl-5 text-lg space-y-2 mt-2" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
                       <li><b style={{color: '#6B46C1'}}>Topics include:</b> reward specification, generalization, interpretability, unlearning, career explorations, and more</li>
                       <li>Curriculum based on the <a href="https://course.aisafetyfundamentals.com/alignment" target="_blank" style={{color: '#8B5CF6', textDecoration: 'none'}} className="hover:underline">Bluedot Alignment Course</a></li>
                       <li>Machine learning experience encouraged but not required</li>
@@ -47,8 +47,8 @@ export default async function Programs() {
 
                   {/* Policy Fundamentals */}
                   <div className="flex flex-col gap-2 p-6 relative" style={{backgroundColor: '#F7F0E6', border: '2px solid #E8DCC8'}}>
-                    <h3 className="text-2xl font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Policy Fundamentals</h3>
-                    <ul className="list-disc pl-5 text-lg space-y-2" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
+                    <h3 className="text-2xl font-semibold" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>Policy Fundamentals</h3>
+                    <ul className="list-disc pl-5 text-lg space-y-2 mt-2" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
                       <li><b style={{color: '#6B46C1'}}>Topics include:</b> AI harms, economic and social impacts, responsible scaling policies, open vs. closed source AI, career explorations, and more</li>
                       <li>Curriculum based on the <a href="https://course.aisafetyfundamentals.com/governance" target="_blank" style={{color: '#8B5CF6', textDecoration: 'none'}} className="hover:underline">Bluedot Governance Course</a></li>
                       <li>Public policy background or career interest encouraged but not required</li>
@@ -60,9 +60,9 @@ export default async function Programs() {
                 {/* Bottom Row - Safety Scholars Programs (Centered) */}
                 <div className="flex justify-center mt-16">
                   <div className="flex flex-col gap-2 p-6 w-full md:w-2/3 relative z-10" style={{backgroundColor: '#F7F0E6', border: '2px solid #E8DCC8'}}>
-                    <h2 className="text-3xl font-semibold" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Safety Scholars Programs</h2>
+                    <h2 className="text-3xl font-semibold" style={{color: '#6B46C1', borderBottom: '2px solid #E8DCC8', paddingBottom: '8px', fontFamily: '"DM Serif Display", serif'}}>Safety Scholars Programs</h2>
 
-                    <div className="flex flex-col gap-3 mt-2">
+                    <div className="flex flex-col gap-3 mt-4">
                       <p className="text-lg" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
                         <b style={{color: '#6B46C1'}}>Core structure:</b> Weekly meetings to discuss either Technical or Policy based AI Safety topics
                       </p>
