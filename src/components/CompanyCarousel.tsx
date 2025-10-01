@@ -129,8 +129,6 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
 
       <div
         className="relative overflow-hidden"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={handleMouseLeave}
         onWheel={handleWheel}
       >
         {/* Gradient fade edges */}
