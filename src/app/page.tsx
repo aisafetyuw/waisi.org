@@ -416,7 +416,7 @@ export default function Home() {
                 className="object-contain"
               />
             </a>
-            <p className="text-lg font-semibold text-center" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>KAIROS</p>
+            <p className="text-lg font-semibold text-center" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>Kairos</p>
           </div>
 
           {/* UW Madison CS */}
