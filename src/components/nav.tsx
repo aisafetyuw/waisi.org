@@ -39,8 +39,9 @@ export default function Nav() {
       const aboutSection = document.getElementById('about');
       if (aboutSection) {
         const aboutTop = aboutSection.getBoundingClientRect().top;
-        // Navbar becomes opaque when it reaches the about section (top of viewport)
-        setScrolled(aboutTop <= 0);
+        const shouldBeScrolled = aboutTop <= 0;
+        // Only update state if the value has changed
+        setScrolled(prev => prev === shouldBeScrolled ? prev : shouldBeScrolled);
       }
     };
 
