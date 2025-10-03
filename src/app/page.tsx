@@ -14,10 +14,11 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       // Hide arrow when scrolled down more than 100px
-      setShowArrow(window.scrollY < 100);
+      const shouldShow = window.scrollY < 100;
+      setShowArrow(prev => prev === shouldShow ? prev : shouldShow);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

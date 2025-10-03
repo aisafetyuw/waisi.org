@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 interface Company {
@@ -15,6 +16,8 @@ interface CompanyCarouselProps {
 }
 
 export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
+  const pathname = usePathname();
+
   // Add custom CSS for hiding scrollbar
   const scrollbarHideStyles = `
     .hide-scrollbar::-webkit-scrollbar {
@@ -40,6 +43,13 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
+  // Pause carousel when navigating away
+  useEffect(() => {
+    setIsPaused(true);
+    const timer = setTimeout(() => setIsPaused(false), 500);
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
   // Duplicate companies for infinite scroll effect
   const duplicatedCompanies = [...companies, ...companies];
 
@@ -47,8 +57,9 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer || isPaused) return;
 
-    const scrollSpeed = 1; // pixels per frame
+    const scrollSpeed = 0.5; // pixels per frame
     const scrollWidth = scrollContainer.scrollWidth / 2; // Half because we duplicated
+    let animationFrameId: number;
 
     const scroll = () => {
       setScrollPosition((prev) => {
@@ -59,11 +70,12 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
         }
         return newPosition;
       });
+      animationFrameId = requestAnimationFrame(scroll);
     };
 
-    const animationId = setInterval(scroll, 30); // ~33fps
+    animationFrameId = requestAnimationFrame(scroll);
 
-    return () => clearInterval(animationId);
+    return () => cancelAnimationFrame(animationFrameId);
   }, [isPaused, companies.length]);
 
   useEffect(() => {
