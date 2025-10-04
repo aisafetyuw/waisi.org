@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 interface Company {
@@ -16,8 +15,6 @@ interface CompanyCarouselProps {
 }
 
 export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
-  const pathname = usePathname();
-
   // Add custom CSS for hiding scrollbar
   const scrollbarHideStyles = `
     .hide-scrollbar::-webkit-scrollbar {
@@ -43,13 +40,6 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  // Pause carousel when navigating away
-  useEffect(() => {
-    setIsPaused(true);
-    const timer = setTimeout(() => setIsPaused(false), 500);
-    return () => clearTimeout(timer);
-  }, [pathname]);
-
   // Duplicate companies for infinite scroll effect
   const duplicatedCompanies = [...companies, ...companies];
 
@@ -60,8 +50,11 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
     const scrollSpeed = 0.5; // pixels per frame
     const scrollWidth = scrollContainer.scrollWidth / 2; // Half because we duplicated
     let animationFrameId: number;
+    let isMounted = true;
 
     const scroll = () => {
+      if (!isMounted) return;
+
       setScrollPosition((prev) => {
         const newPosition = prev + scrollSpeed;
         // Reset to beginning when we've scrolled through the first set
@@ -70,12 +63,18 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
         }
         return newPosition;
       });
-      animationFrameId = requestAnimationFrame(scroll);
+
+      if (isMounted) {
+        animationFrameId = requestAnimationFrame(scroll);
+      }
     };
 
     animationFrameId = requestAnimationFrame(scroll);
 
-    return () => cancelAnimationFrame(animationFrameId);
+    return () => {
+      isMounted = false;
+      cancelAnimationFrame(animationFrameId);
+    };
   }, [isPaused, companies.length]);
 
   useEffect(() => {
@@ -154,6 +153,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
         >
           {duplicatedCompanies.map((company, index) => {
             const content = (

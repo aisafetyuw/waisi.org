@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 interface Photo {
@@ -10,8 +9,6 @@ interface Photo {
 }
 
 export default function PhotoCarousel() {
-  const pathname = usePathname();
-
   const photos: Photo[] = [
     {
       src: "/about/AConversationOnAI_3.jpeg",
@@ -37,13 +34,6 @@ export default function PhotoCarousel() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
-
-  // Pause carousel when navigating away
-  useEffect(() => {
-    setIsPaused(true);
-    const timer = setTimeout(() => setIsPaused(false), 500);
-    return () => clearTimeout(timer);
-  }, [pathname]);
 
   // Auto-rotation effect
   useEffect(() => {
