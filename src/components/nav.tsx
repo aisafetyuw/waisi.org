@@ -48,11 +48,15 @@ export default function Nav() {
         ticking = true;
         rafId = requestAnimationFrame(() => {
           const aboutSection = document.getElementById('about');
+          // Defensive check: only update if element exists
           if (aboutSection) {
             const aboutTop = aboutSection.getBoundingClientRect().top;
             const shouldBeScrolled = aboutTop <= 0;
             // Only update state if the value has changed
             setScrolled(prev => prev === shouldBeScrolled ? prev : shouldBeScrolled);
+          } else {
+            // Element doesn't exist (not on homepage or during navigation) - reset to false
+            setScrolled(false);
           }
           ticking = false;
         });

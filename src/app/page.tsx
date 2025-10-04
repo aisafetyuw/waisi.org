@@ -12,7 +12,13 @@ export default function Home() {
   const [showArrow, setShowArrow] = useState(true);
 
   useEffect(() => {
+    // Store original scroll restoration behavior
+    const originalScrollRestoration = 'scrollRestoration' in window.history
+      ? window.history.scrollRestoration
+      : 'auto';
+
     // Disable browser scroll restoration for Firefox compatibility
+    // Only affects this page - will be restored when navigating away
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
@@ -33,10 +39,15 @@ export default function Home() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (rafId !== null) {
         cancelAnimationFrame(rafId);
+      }
+      // Restore original scroll restoration behavior when leaving homepage
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = originalScrollRestoration;
       }
     };
   }, []);
