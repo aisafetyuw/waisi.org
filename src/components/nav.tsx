@@ -29,19 +29,33 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const isHomePage = pathname === '/';
 
+  // Close mobile menu on navigation (Firefox fix)
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     if (!isHomePage) {
       setScrolled(false);
       return;
     }
 
+    let rafId: number | null = null;
+    let ticking = false;
+
     const handleScroll = () => {
-      const aboutSection = document.getElementById('about');
-      if (aboutSection) {
-        const aboutTop = aboutSection.getBoundingClientRect().top;
-        const shouldBeScrolled = aboutTop <= 0;
-        // Only update state if the value has changed
-        setScrolled(prev => prev === shouldBeScrolled ? prev : shouldBeScrolled);
+      if (!ticking) {
+        ticking = true;
+        rafId = requestAnimationFrame(() => {
+          const aboutSection = document.getElementById('about');
+          if (aboutSection) {
+            const aboutTop = aboutSection.getBoundingClientRect().top;
+            const shouldBeScrolled = aboutTop <= 0;
+            // Only update state if the value has changed
+            setScrolled(prev => prev === shouldBeScrolled ? prev : shouldBeScrolled);
+          }
+          ticking = false;
+        });
       }
     };
 
@@ -54,6 +68,9 @@ export default function Nav() {
     return () => {
       clearTimeout(timeoutId);
       window.removeEventListener('scroll', handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
     };
   }, [isHomePage]);
 

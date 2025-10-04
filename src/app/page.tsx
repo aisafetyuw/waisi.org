@@ -12,14 +12,33 @@ export default function Home() {
   const [showArrow, setShowArrow] = useState(true);
 
   useEffect(() => {
+    // Disable browser scroll restoration for Firefox compatibility
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    let rafId: number | null = null;
+    let ticking = false;
+
     const handleScroll = () => {
-      // Hide arrow when scrolled down more than 100px
-      const shouldShow = window.scrollY < 100;
-      setShowArrow(prev => prev === shouldShow ? prev : shouldShow);
+      if (!ticking) {
+        ticking = true;
+        rafId = requestAnimationFrame(() => {
+          // Hide arrow when scrolled down more than 100px
+          const shouldShow = window.scrollY < 100;
+          setShowArrow(prev => prev === shouldShow ? prev : shouldShow);
+          ticking = false;
+        });
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   return (
