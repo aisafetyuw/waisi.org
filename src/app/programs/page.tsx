@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+import { INTEREST_URL } from "@/constants";
 
 export default async function Programs() {
   return (
@@ -42,7 +44,7 @@ export default async function Programs() {
                       <li>Curriculum based on the <a href="https://course.aisafetyfundamentals.com/alignment" target="_blank" style={{color: '#8B5CF6', textDecoration: 'none'}} className="hover:underline">Bluedot Alignment Course</a></li>
                       <li>Machine learning experience encouraged but not required</li>
                     </ul>
-                    <p className="text-xl font-semibold mt-2" style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif'}}><a href="https://forms.gle/pPn5idt81BEDH8bG8" target="_blank" style={{color: '#8B5CF6', textDecoration: 'none'}} className="hover:underline">Apply here by this Sunday, September 21st, 11:59 PM CST. →</a></p>
+                    <p className="text-lg mt-2" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>The application period has passed. <a href={INTEREST_URL} target="_blank" rel="noopener noreferrer" style={{color: '#8B5CF6', textDecoration: 'none'}} className="hover:underline">Fill out the general interest form</a> and visit our <Link href="/contact" style={{color: '#8B5CF6', textDecoration: 'none'}} className="hover:underline">contact page</Link> to join our mailing list and receive future updates.</p>
                   </div>
 
                   {/* Policy Fundamentals */}
@@ -53,7 +55,7 @@ export default async function Programs() {
                       <li>Curriculum based on the <a href="https://course.aisafetyfundamentals.com/governance" target="_blank" style={{color: '#8B5CF6', textDecoration: 'none'}} className="hover:underline">Bluedot Governance Course</a></li>
                       <li>Public policy background or career interest encouraged but not required</li>
                     </ul>
-                    <p className="text-xl font-semibold mt-2" style={{color: '#8B5CF6', fontFamily: '"DM Serif Display", serif'}}><a href="https://forms.gle/bcRimCCmg7F3uEaS9" target="_blank" style={{color: '#8B5CF6', textDecoration: 'none'}} className="hover:underline">Apply here by Sunday, February 21st, 11:59 PM CST. →</a></p>
+                    <p className="text-lg mt-2" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>The application period has passed. <a href={INTEREST_URL} target="_blank" rel="noopener noreferrer" style={{color: '#8B5CF6', textDecoration: 'none'}} className="hover:underline">Fill out the general interest form</a> and visit our <Link href="/contact" style={{color: '#8B5CF6', textDecoration: 'none'}} className="hover:underline">contact page</Link> to join our mailing list and receive future updates.</p>
                   </div>
                 </div>
 
