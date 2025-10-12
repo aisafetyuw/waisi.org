@@ -607,7 +607,7 @@ export default function Home() {
           {/* Left Column - Image with Title Overlay */}
           <div className="flex items-center justify-center relative">
             <Image
-              src="/waisi_writing.jpeg"
+              src="/waisi_writing.webp"
               alt="WAISI members working on research"
               width={600}
               height={800}
