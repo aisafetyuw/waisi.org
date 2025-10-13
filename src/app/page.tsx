@@ -90,7 +90,6 @@ export default function Home() {
             className="text-4xl md:text-6xl text-center px-8 font-semibold max-w-5xl"
             style={{
               color: "#FFF9F0",
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             A community at UW–Madison dedicated to making AI safe and beneficial
@@ -161,7 +160,6 @@ export default function Home() {
                   color: "#6B46C1",
                   borderBottom: "2px solid #E8DCC8",
                   paddingBottom: "8px",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Our Mission
@@ -170,7 +168,6 @@ export default function Home() {
                 className="text-lg"
                 style={{
                   color: "#2D2A26",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 The Wisconsin AI Safety Initiative advances understanding and
@@ -181,7 +178,6 @@ export default function Home() {
                 className="text-lg font-semibold"
                 style={{
                   color: "#6B46C1",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 We pursue this mission through three integrated pillars:
@@ -191,7 +187,6 @@ export default function Home() {
                   className="text-lg flex items-start"
                   style={{
                     color: "#2D2A26",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   <span style={{ color: "#6B46C1", marginRight: "8px" }}>
@@ -202,7 +197,6 @@ export default function Home() {
                       className="font-semibold"
                       style={{
                         color: "#6B46C1",
-                        fontFamily: '"DM Serif Display", serif',
                       }}
                     >
                       Advancing Public Discourse.
@@ -217,7 +211,6 @@ export default function Home() {
                   className="text-lg flex items-start"
                   style={{
                     color: "#2D2A26",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   <span style={{ color: "#6B46C1", marginRight: "8px" }}>
@@ -228,7 +221,6 @@ export default function Home() {
                       className="font-semibold"
                       style={{
                         color: "#6B46C1",
-                        fontFamily: '"DM Serif Display", serif',
                       }}
                     >
                       Driving Research and Innovation.
@@ -243,7 +235,6 @@ export default function Home() {
                   className="text-lg flex items-start"
                   style={{
                     color: "#2D2A26",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   <span style={{ color: "#6B46C1", marginRight: "8px" }}>
@@ -254,7 +245,6 @@ export default function Home() {
                       className="font-semibold"
                       style={{
                         color: "#6B46C1",
-                        fontFamily: '"DM Serif Display", serif',
                       }}
                     >
                       Strengthening Community.
@@ -269,7 +259,6 @@ export default function Home() {
                 className="text-lg"
                 style={{
                   color: "#2D2A26",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Addressing AI safety demands expertise spanning technical
@@ -300,7 +289,6 @@ export default function Home() {
                   color: "#6B46C1",
                   borderBottom: "2px solid #E8DCC8",
                   paddingBottom: "8px",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Involvement and Impact
@@ -309,7 +297,6 @@ export default function Home() {
                 className="list-disc pl-5 text-lg space-y-2 mt-4"
                 style={{
                   color: "#2D2A26",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 <li>
@@ -422,7 +409,6 @@ export default function Home() {
               color: "#6B46C1",
               borderBottom: "2px solid #E8DCC8",
               paddingBottom: "8px",
-              fontFamily: '"DM Serif Display", serif',
               maxWidth: "800px",
               margin: "0 auto 2rem",
             }}
@@ -447,7 +433,6 @@ export default function Home() {
                   className="text-2xl font-semibold"
                   style={{
                     color: "#6B46C1",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Technical Fundamentals
@@ -456,7 +441,6 @@ export default function Home() {
                   className="text-lg"
                   style={{
                     color: "#2D2A26",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   The technical track of AI Safety Fundamentals is an eight-week
@@ -468,7 +452,6 @@ export default function Home() {
                   className="text-lg font-semibold mt-2"
                   style={{
                     color: "#8B5CF6",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Click to learn more
@@ -489,7 +472,6 @@ export default function Home() {
                   className="text-2xl font-semibold"
                   style={{
                     color: "#6B46C1",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Policy Fundamentals
@@ -498,7 +480,6 @@ export default function Home() {
                   className="text-lg"
                   style={{
                     color: "#2D2A26",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   The policy track of AI Safety Fundamentals is an eight-week
@@ -510,7 +491,6 @@ export default function Home() {
                   className="text-lg font-semibold mt-2"
                   style={{
                     color: "#8B5CF6",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Click to learn more
@@ -565,7 +545,6 @@ export default function Home() {
                   className="text-2xl font-semibold"
                   style={{
                     color: "#6B46C1",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Safety Scholars Program
@@ -574,7 +553,6 @@ export default function Home() {
                   className="text-lg"
                   style={{
                     color: "#2D2A26",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Safety Scholars are our core groups of members engaged in AI
@@ -585,7 +563,6 @@ export default function Home() {
                   className="text-lg font-semibold mt-2"
                   style={{
                     color: "#8B5CF6",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Click to learn more
@@ -622,7 +599,6 @@ export default function Home() {
                   className="text-3xl font-semibold"
                   style={{
                     color: "#6B46C1",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Current Projects
@@ -645,7 +621,6 @@ export default function Home() {
                 className="text-xl font-semibold mb-3"
                 style={{
                   color: "#6B46C1",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 WAISI Technical AI Safety Workshop Program
@@ -654,7 +629,6 @@ export default function Home() {
                 className="leading-relaxed"
                 style={{
                   color: "#2D2A26",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Most AI Safety communities introduce members who are interested
@@ -667,7 +641,6 @@ export default function Home() {
                 className="text-lg font-semibold mt-2 inline-block"
                 style={{
                   color: "#8B5CF6",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Learn more →
@@ -686,7 +659,6 @@ export default function Home() {
                 className="text-xl font-semibold mb-3"
                 style={{
                   color: "#6B46C1",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Transferable Adversarial Materials (TAM)
@@ -695,7 +667,6 @@ export default function Home() {
                 className="leading-relaxed"
                 style={{
                   color: "#2D2A26",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Within the past decade, small portable Unmanned Aerial Systems
@@ -708,7 +679,6 @@ export default function Home() {
                 className="text-lg font-semibold mt-2 inline-block"
                 style={{
                   color: "#8B5CF6",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Learn more →
@@ -732,7 +702,6 @@ export default function Home() {
               color: "#6B46C1",
               borderBottom: "2px solid #E8DCC8",
               paddingBottom: "8px",
-              fontFamily: '"DM Serif Display", serif',
               maxWidth: "800px",
               margin: "0 auto 2rem",
             }}
@@ -761,7 +730,6 @@ export default function Home() {
                   className="text-lg font-semibold mb-3"
                   style={{
                     color: "#6B46C1",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Towards Interpretability Without Sacrifice: Faithful Dense
@@ -775,7 +743,6 @@ export default function Home() {
                     className="text-base font-semibold inline-block hover:underline"
                     style={{
                       color: "#8B5CF6",
-                      fontFamily: '"DM Serif Display", serif',
                       textDecoration: "none",
                     }}
                   >
@@ -806,7 +773,6 @@ export default function Home() {
                   className="text-lg font-semibold mb-3"
                   style={{
                     color: "#6B46C1",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Debate or Vote: Which Yields Better Decisions in Multi-Agent
@@ -820,7 +786,6 @@ export default function Home() {
                     className="text-base font-semibold inline-block hover:underline"
                     style={{
                       color: "#8B5CF6",
-                      fontFamily: '"DM Serif Display", serif',
                       textDecoration: "none",
                     }}
                   >
@@ -851,7 +816,6 @@ export default function Home() {
                   className="text-lg font-semibold mb-3"
                   style={{
                     color: "#6B46C1",
-                    fontFamily: '"DM Serif Display", serif',
                   }}
                 >
                   Everything Everywhere All at Once: LLMs can In-Context Learn
@@ -865,7 +829,6 @@ export default function Home() {
                     className="text-base font-semibold inline-block hover:underline"
                     style={{
                       color: "#8B5CF6",
-                      fontFamily: '"DM Serif Display", serif',
                       textDecoration: "none",
                     }}
                   >
@@ -884,7 +847,6 @@ export default function Home() {
               style={{
                 backgroundColor: "#8B5CF6",
                 color: "#FFF9F0",
-                fontFamily: '"DM Serif Display", serif',
               }}
             >
               See our 20+ Papers
@@ -1016,7 +978,6 @@ export default function Home() {
             color: "#6B46C1",
             borderBottom: "2px solid #E8DCC8",
             paddingBottom: "8px",
-            fontFamily: '"DM Serif Display", serif',
             maxWidth: "800px",
             margin: "0 auto 3rem",
           }}
@@ -1045,7 +1006,6 @@ export default function Home() {
               className="text-lg font-semibold text-center"
               style={{
                 color: "#2D2A26",
-                fontFamily: '"DM Serif Display", serif',
               }}
             >
               Kairos
@@ -1072,7 +1032,6 @@ export default function Home() {
               className="text-lg font-semibold text-center"
               style={{
                 color: "#2D2A26",
-                fontFamily: '"DM Serif Display", serif',
               }}
             >
               UW-Madison Computer Sciences

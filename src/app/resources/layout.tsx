@@ -1,19 +1,16 @@
-import { Lora } from 'next/font/google';
+import { Lora } from "next/font/google";
 
-const lora = Lora({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-lora'
-});
+// const lora = Lora({
+//   subsets: ['latin'],
+//   weight: ['400', '500', '600', '700'],
+//   variable: '--font-lora'
+// });
 
 export default function ResourcesLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  return (
-    <div className={lora.className}>
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 }
+

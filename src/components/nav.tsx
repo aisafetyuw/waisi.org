@@ -18,7 +18,6 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
           className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/" ? "underline" : ""}`}
           style={{
             color: pathname == "/" ? "#6B46C1" : "#2D2A26",
-            fontFamily: '"DM Serif Display", serif',
           }}
         >
           Home
@@ -28,7 +27,6 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
           className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/programs" ? "underline" : ""}`}
           style={{
             color: pathname == "/programs" ? "#6B46C1" : "#2D2A26",
-            fontFamily: '"DM Serif Display", serif',
           }}
         >
           Get Involved
@@ -39,7 +37,6 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
           className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/research" ? "underline" : ""}`}
           style={{
             color: pathname == "/research" ? "#6B46C1" : "#2D2A26",
-            fontFamily: '"DM Serif Display", serif',
           }}
         >
           Research
@@ -49,7 +46,6 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
           className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/resources" ? "underline" : ""}`}
           style={{
             color: pathname == "/resources" ? "#6B46C1" : "#2D2A26",
-            fontFamily: '"DM Serif Display", serif',
           }}
         >
           Resources
@@ -59,7 +55,6 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
           className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/team" ? "underline" : ""}`}
           style={{
             color: pathname == "/team" ? "#6B46C1" : "#2D2A26",
-            fontFamily: '"DM Serif Display", serif',
           }}
         >
           Team
@@ -69,7 +64,6 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
           className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/contact" ? "underline" : ""}`}
           style={{
             color: pathname == "/contact" ? "#6B46C1" : "#2D2A26",
-            fontFamily: '"DM Serif Display", serif',
           }}
         >
           Contact
@@ -159,7 +153,6 @@ export default function Nav() {
               className="text-2xl font-bold"
               style={{
                 color: isHomePage && !scrolled ? "#FFF9F0" : "#6B46C1",
-                fontFamily: '"DM Serif Display", serif',
               }}
             >
               WAISI
@@ -179,7 +172,6 @@ export default function Nav() {
                   : isHomePage && !scrolled
                     ? "#FFF9F0"
                     : "#2D2A26",
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             Get Involved
@@ -195,7 +187,6 @@ export default function Nav() {
                   : isHomePage && !scrolled
                     ? "#FFF9F0"
                     : "#2D2A26",
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             Research
@@ -210,7 +201,6 @@ export default function Nav() {
                   : isHomePage && !scrolled
                     ? "#FFF9F0"
                     : "#2D2A26",
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             Resources
@@ -225,7 +215,6 @@ export default function Nav() {
                   : isHomePage && !scrolled
                     ? "#FFF9F0"
                     : "#2D2A26",
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             Team
@@ -240,7 +229,6 @@ export default function Nav() {
                   : isHomePage && !scrolled
                     ? "#FFF9F0"
                     : "#2D2A26",
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             Contact
@@ -281,4 +269,3 @@ export default function Nav() {
     </nav>
   );
 }
-

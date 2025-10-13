@@ -103,7 +103,6 @@ export default async function ResearchPage() {
             color: "#6B46C1",
             borderBottom: "2px solid #E8DCC8",
             paddingBottom: "8px",
-            fontFamily: '"DM Serif Display", serif',
           }}
         >
           <span style={{ color: "#6B46C1" }}>WAISI</span>{" "}
@@ -116,7 +115,6 @@ export default async function ResearchPage() {
               className="text-xl font-semibold mb-3"
               style={{
                 color: "#6B46C1",
-                fontFamily: '"DM Serif Display", serif',
               }}
             >
               WAISI Technical AI Safety Workshop Program
@@ -125,7 +123,6 @@ export default async function ResearchPage() {
               className="leading-relaxed"
               style={{
                 color: "#2D2A26",
-                fontFamily: '"DM Serif Display", serif',
               }}
             >
               Most AI Safety communities introduce members who are interested in
@@ -147,7 +144,6 @@ export default async function ResearchPage() {
               className="text-xl font-semibold mb-3"
               style={{
                 color: "#6B46C1",
-                fontFamily: '"DM Serif Display", serif',
               }}
             >
               Transferable Adversarial Materials (TAM): Defeating ISR AUASs and
@@ -157,7 +153,6 @@ export default async function ResearchPage() {
               className="leading-relaxed"
               style={{
                 color: "#2D2A26",
-                fontFamily: '"DM Serif Display", serif',
               }}
             >
               Within the past decade, small portable Unmanned Aerial Systems
@@ -180,7 +175,6 @@ export default async function ResearchPage() {
             className="text-4xl font-semibold"
             style={{
               color: "#6B46C1",
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             Our Research Catalog
@@ -194,7 +188,6 @@ export default async function ResearchPage() {
               color: "#6B46C1",
               borderBottom: "2px solid #E8DCC8",
               paddingBottom: "8px",
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             Faculty Collaborators
