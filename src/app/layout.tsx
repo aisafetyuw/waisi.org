@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import { Open_Sans, DM_Serif_Display } from "next/font/google";
+import { DM_Serif_Display, Lora } from "next/font/google";
 import { Suspense } from "react";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
@@ -9,6 +9,12 @@ const dmSerifDisplay = DM_Serif_Display({
   weight: ["400"],
   style: ["normal", "italic"],
   variable: "--font-dm-serif",
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-lora",
 });
 
 export const metadata = {
@@ -30,9 +36,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         ></script>
       </head>
-      <body
-        className={`${dmSerifDisplay.className} ${dmSerifDisplay.variable}`}
-      >
+      <body className={`${lora.className} ${lora.variable}`}>
         <Suspense
           fallback={
             <div

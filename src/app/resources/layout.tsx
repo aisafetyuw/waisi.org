@@ -1,11 +1,5 @@
 import { Lora } from "next/font/google";
 
-// const lora = Lora({
-//   subsets: ['latin'],
-//   weight: ['400', '500', '600', '700'],
-//   variable: '--font-lora'
-// });
-
 export default function ResourcesLayout({
   children,
 }: {
@@ -13,4 +7,3 @@ export default function ResourcesLayout({
 }) {
   return <div>{children}</div>;
 }
-

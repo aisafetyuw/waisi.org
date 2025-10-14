@@ -20,7 +20,6 @@ export default function Member({ member }: MemberProps) {
             className="text-lg font-semibold"
             style={{
               color: "#6B46C1",
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             {member.name}
@@ -29,7 +28,6 @@ export default function Member({ member }: MemberProps) {
             style={{
               color: "#2D2A26",
               opacity: 0.7,
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             {member.pronouns}
@@ -38,7 +36,6 @@ export default function Member({ member }: MemberProps) {
             className="font-semibold"
             style={{
               color: "#2D2A26",
-              fontFamily: '"DM Serif Display", serif',
             }}
           >
             {member.role}

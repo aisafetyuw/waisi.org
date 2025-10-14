@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState, useRef } from 'react';
-import Image from 'next/image';
+import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 
 interface Company {
   name: string;
@@ -27,9 +27,12 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
   `;
 
   // Add style tag to document head
-  if (typeof document !== 'undefined' && !document.querySelector('#scrollbar-hide-styles')) {
-    const style = document.createElement('style');
-    style.id = 'scrollbar-hide-styles';
+  if (
+    typeof document !== "undefined" &&
+    !document.querySelector("#scrollbar-hide-styles")
+  ) {
+    const style = document.createElement("style");
+    style.id = "scrollbar-hide-styles";
     style.innerHTML = scrollbarHideStyles;
     document.head.appendChild(style);
   }
@@ -135,21 +138,41 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
   };
 
   return (
-    <div style={{backgroundColor: '#FFF9F0', width: '100vw', maxWidth: '100vw', paddingTop: '64px', paddingBottom: '32px'}}>
-      <h2 className="text-3xl font-semibold text-center mb-8 px-8" style={{color: '#6B46C1', fontFamily: '"DM Serif Display", serif'}}>Our Members Have Collaborated With</h2>
-
-      <div
-        className="relative overflow-hidden"
-        onWheel={handleWheel}
+    <div
+      style={{
+        backgroundColor: "#FFF9F0",
+        width: "100vw",
+        maxWidth: "100vw",
+        paddingTop: "64px",
+        paddingBottom: "32px",
+      }}
+    >
+      <h2
+        className="text-3xl font-semibold text-center mb-8 px-8"
+        style={{ color: "#6B46C1" }}
       >
+        Our Members Have Collaborated With
+      </h2>
+
+      <div className="relative overflow-hidden" onWheel={handleWheel}>
         {/* Gradient fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{background: 'linear-gradient(to right, #FFF9F0, transparent)'}} />
-        <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{background: 'linear-gradient(to left, #FFF9F0, transparent)'}} />
+        <div
+          className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+          style={{
+            background: "linear-gradient(to right, #FFF9F0, transparent)",
+          }}
+        />
+        <div
+          className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+          style={{
+            background: "linear-gradient(to left, #FFF9F0, transparent)",
+          }}
+        />
 
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto scroll-smooth hide-scrollbar"
-          style={{cursor: isDragging ? 'grabbing' : 'grab'}}
+          style={{ cursor: isDragging ? "grabbing" : "grab" }}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
@@ -165,10 +188,15 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
                     width={120}
                     height={100}
                     className="object-contain group-hover:scale-110 transition-transform duration-300"
-                    unoptimized={company.logo.startsWith('http')}
+                    unoptimized={company.logo.startsWith("http")}
                   />
                 </div>
-                <span className="text-xs font-semibold text-center line-clamp-2 transition-colors duration-300" style={{color: '#2D2A26', fontFamily: '"DM Serif Display", serif'}}>
+                <span
+                  className="text-xs font-semibold text-center line-clamp-2 transition-colors duration-300"
+                  style={{
+                    color: "#2D2A26",
+                  }}
+                >
                   {company.name}
                 </span>
               </>
@@ -210,17 +238,18 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
             }}
             className={`h-2 rounded-full transition-all duration-300`}
             style={{
-              backgroundColor: Math.floor(scrollPosition / 432) === i ? '#6B46C1' : '#E8DCC8',
-              width: Math.floor(scrollPosition / 432) === i ? '32px' : '8px'
+              backgroundColor:
+                Math.floor(scrollPosition / 432) === i ? "#6B46C1" : "#E8DCC8",
+              width: Math.floor(scrollPosition / 432) === i ? "32px" : "8px",
             }}
             onMouseEnter={(e) => {
               if (Math.floor(scrollPosition / 432) !== i) {
-                e.currentTarget.style.backgroundColor = '#C4B5FD';
+                e.currentTarget.style.backgroundColor = "#C4B5FD";
               }
             }}
             onMouseLeave={(e) => {
               if (Math.floor(scrollPosition / 432) !== i) {
-                e.currentTarget.style.backgroundColor = '#E8DCC8';
+                e.currentTarget.style.backgroundColor = "#E8DCC8";
               }
             }}
             aria-label={`Go to slide ${i + 1}`}
@@ -230,3 +259,4 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
     </div>
   );
 }
+

@@ -143,7 +143,7 @@ export default function Nav() {
         <div className="flex items-center p-3">
           <Link href="/" className="z-10 flex items-center gap-3">
             <Image
-              src="/waisi_gradient_rounded.png"
+              src="/waisi_gradient_rounded.webp"
               // src="/waisi_banner.png"
               width={60}
               height={60}

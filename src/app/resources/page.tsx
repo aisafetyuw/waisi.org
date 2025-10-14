@@ -102,7 +102,6 @@ export default function Resources() {
             color: "#6B46C1",
             borderBottom: "2px solid #E8DCC8",
             paddingBottom: "8px",
-            fontFamily: '"DM Serif Display", serif',
           }}
         >
           AI Safety Resources
@@ -116,7 +115,6 @@ export default function Resources() {
                 className="text-2xl font-semibold mb-4"
                 style={{
                   color: "#6B46C1",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Videos
@@ -135,7 +133,6 @@ export default function Resources() {
                       className="text-lg font-semibold hover:underline"
                       style={{
                         color: "#8B5CF6",
-                        fontFamily: '"DM Serif Display", serif',
                         textDecoration: "none",
                       }}
                     >
@@ -146,7 +143,6 @@ export default function Resources() {
                       style={{
                         color: "#2D2A26",
                         opacity: 0.8,
-                        fontFamily: '"DM Serif Display", serif',
                       }}
                     >
                       by {video.author}
@@ -155,7 +151,6 @@ export default function Resources() {
                       className="text-base"
                       style={{
                         color: "#2D2A26",
-                        fontFamily: '"DM Serif Display", serif',
                       }}
                     >
                       {video.description}
@@ -170,7 +165,6 @@ export default function Resources() {
                 className="text-2xl font-semibold mb-4"
                 style={{
                   color: "#6B46C1",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Blogs & Articles
@@ -189,7 +183,6 @@ export default function Resources() {
                       className="text-lg font-semibold hover:underline"
                       style={{
                         color: "#8B5CF6",
-                        fontFamily: '"DM Serif Display", serif',
                         textDecoration: "none",
                       }}
                     >
@@ -199,7 +192,6 @@ export default function Resources() {
                       className="text-base"
                       style={{
                         color: "#2D2A26",
-                        fontFamily: '"DM Serif Display", serif',
                       }}
                     >
                       {blog.description}
@@ -217,7 +209,6 @@ export default function Resources() {
                 className="text-2xl font-semibold mb-4"
                 style={{
                   color: "#6B46C1",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Podcasts
@@ -236,7 +227,6 @@ export default function Resources() {
                       className="text-lg font-semibold hover:underline"
                       style={{
                         color: "#8B5CF6",
-                        fontFamily: '"DM Serif Display", serif',
                         textDecoration: "none",
                       }}
                     >
@@ -247,7 +237,6 @@ export default function Resources() {
                       style={{
                         color: "#2D2A26",
                         opacity: 0.8,
-                        fontFamily: '"DM Serif Display", serif',
                       }}
                     >
                       Hosted by {podcast.host}
@@ -256,7 +245,6 @@ export default function Resources() {
                       className="text-base"
                       style={{
                         color: "#2D2A26",
-                        fontFamily: '"DM Serif Display", serif',
                       }}
                     >
                       {podcast.description}
@@ -271,7 +259,6 @@ export default function Resources() {
                 className="text-2xl font-semibold mb-4"
                 style={{
                   color: "#6B46C1",
-                  fontFamily: '"DM Serif Display", serif',
                 }}
               >
                 Exploratory Websites
@@ -290,7 +277,6 @@ export default function Resources() {
                       className="text-lg font-semibold hover:underline"
                       style={{
                         color: "#8B5CF6",
-                        fontFamily: '"DM Serif Display", serif',
                         textDecoration: "none",
                       }}
                     >
@@ -300,7 +286,6 @@ export default function Resources() {
                       className="text-base"
                       style={{
                         color: "#2D2A26",
-                        fontFamily: '"DM Serif Display", serif',
                       }}
                     >
                       {site.description}
@@ -315,4 +300,3 @@ export default function Resources() {
     </div>
   );
 }
-
