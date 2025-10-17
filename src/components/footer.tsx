@@ -85,7 +85,7 @@ export default function Footer() {
                   opacity: 0.9,
                 }}
               >
-                <i className="fab fa-discord mr-2"></i>Discord
+                <i className="fab fa-discord mr-2" aria-hidden="true"></i>Discord
               </a>
               <a
                 href={INSTAGRAM_URL}
@@ -97,7 +97,7 @@ export default function Footer() {
                   opacity: 0.9,
                 }}
               >
-                <i className="fab fa-instagram mr-2"></i>Instagram
+                <i className="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram
               </a>
               <a
                 href={TWITTER_URL}
@@ -109,7 +109,7 @@ export default function Footer() {
                   opacity: 0.9,
                 }}
               >
-                <i className="fab fa-twitter mr-2"></i>Twitter
+                <i className="fab fa-twitter mr-2" aria-hidden="true"></i>Twitter
               </a>
               <a
                 href={LINKEDIN_URL}
@@ -121,7 +121,7 @@ export default function Footer() {
                   opacity: 0.9,
                 }}
               >
-                <i className="fab fa-linkedin mr-2"></i>LinkedIn
+                <i className="fab fa-linkedin mr-2" aria-hidden="true"></i>LinkedIn
               </a>
             </div>
           </div>

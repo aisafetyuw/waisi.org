@@ -81,7 +81,7 @@ export default function Contact() {
                   textDecoration: "none",
                 }}
               >
-                <i className="fas fa-envelope"></i>
+                <i className="fas fa-envelope" aria-hidden="true"></i>
                 aisafetyuw@gmail.com
               </a>
             </div>

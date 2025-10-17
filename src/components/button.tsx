@@ -13,7 +13,7 @@ export default function Button(props: ButtonProps) {
     >
       {props.fa && (
         <>
-          <i className={"fa-brands fa-" + props.fa}></i>&nbsp;
+          <i className={"fa-brands fa-" + props.fa} aria-hidden="true"></i>&nbsp;
         </>
       )}
       {props.text}
