@@ -84,3 +84,14 @@ export type LabProps = {
     filename: string,
     link: string,
 };
+
+export type ResourceData = {
+    category: 'Video' | 'Blog' | 'Podcast' | 'Website',
+    title: string,
+    description: string,
+    url: string,
+};
+
+export type ResourceProps = {
+    resource: ResourceData,
+};
