@@ -52,7 +52,7 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
           {blogs.map((blog, index) => (
             <div
               key={index}
-              className="pl-4 h-20 flex flex-col justify-start"
+              className="pl-4 flex flex-col justify-start pb-2"
               style={{ borderLeft: "4px solid #C4B5FD" }}
             >
               <a
@@ -212,7 +212,7 @@ export default function Resources() {
         backgroundColor: "#FFF9F0",
       }}
     >
-      <div className="px-16 pt-8 pb-16">
+      <div className="px-4 sm:px-8 md:px-16 pt-8 pb-16">
         <h1
           className="text-4xl font-semibold mb-8"
           style={{
@@ -240,7 +240,7 @@ export default function Resources() {
                 {videos.map((video, index) => (
                   <div
                     key={index}
-                    className="pl-4 h-24 flex flex-col justify-start"
+                    className="pl-4 flex flex-col justify-start pb-2"
                     style={{ borderLeft: "4px solid #C4B5FD" }}
                   >
                     <a
@@ -286,7 +286,7 @@ export default function Resources() {
                 {podcasts.map((podcast, index) => (
                   <div
                     key={index}
-                    className="pl-4 h-24 flex flex-col justify-start"
+                    className="pl-4 flex flex-col justify-start pb-2"
                     style={{ borderLeft: "4px solid #C4B5FD" }}
                   >
                     <a
@@ -327,7 +327,7 @@ export default function Resources() {
                 {websites.map((site, index) => (
                   <div
                     key={index}
-                    className="pl-4 h-20 flex flex-col justify-start"
+                    className="pl-4 flex flex-col justify-start pb-2"
                     style={{ borderLeft: "4px solid #C4B5FD" }}
                   >
                     <a
