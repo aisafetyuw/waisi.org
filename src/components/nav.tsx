@@ -31,7 +31,15 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
         >
           Get Involved
         </Link>
-        {/* <Link href="/events" className={`text-2xl font-semibold my-4 hover:underline ${pathname=="/events" ? "underline" : ""}`}>Events</Link> */}
+        <Link
+          href="/events"
+          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/events" ? "underline" : ""}`}
+          style={{
+            color: pathname == "/events" ? "#6B46C1" : "#2D2A26",
+          }}
+        >
+          Events
+        </Link>
         <Link
           href="/research"
           className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/research" ? "underline" : ""}`}
@@ -176,7 +184,20 @@ export default function Nav() {
           >
             Get Involved
           </Link>
-          {/* <Link href="/events" className={`p-2 hover:underline ${pathname=="/events" ? "underline" : ""}`}>Events</Link> */}
+          <Link
+            href="/events"
+            className={`p-2 hover:underline ${pathname == "/events" ? "underline" : ""}`}
+            style={{
+              color:
+                pathname == "/events"
+                  ? "#6B46C1"
+                  : isHomePage && !scrolled
+                    ? "#FFF9F0"
+                    : "#2D2A26",
+            }}
+          >
+            Events
+          </Link>
           <Link
             href="/research"
             className={`p-2 hover:underline ${pathname == "/research" ? "underline" : ""}`}

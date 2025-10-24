@@ -12,7 +12,7 @@ export default async function Events() {
             <ul className="md:w-5/6">
               {events.map((event, index) => (
                 <li key={index}>
-                  <CalendarEvent key={index} event={event} />
+                  <CalendarEvent event={event} />
                 </li>
               ))}
             </ul> :
