@@ -1,5 +1,20 @@
 import { calendar_v3 } from "googleapis/build/src/apis/calendar/v3";
 
+export type CalendarEventData = {
+    htmlLink?: string | null;
+    summary?: string | null;
+    description?: string | null;
+    location?: string | null;
+    start?: {
+        date?: string | null;
+        dateTime?: string | null;
+    } | null;
+    end?: {
+        date?: string | null;
+        dateTime?: string | null;
+    } | null;
+};
+
 export type ProgramData = {
     name: string,
     type: string,

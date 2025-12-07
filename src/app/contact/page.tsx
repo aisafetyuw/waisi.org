@@ -9,7 +9,6 @@ export default function Contact() {
       style={{
         marginLeft: "-40px",
         marginRight: "-40px",
-        backgroundColor: "#FFF9F0",
       }}
     >
       <div className="px-16 py-8 pb-16">
@@ -127,4 +126,3 @@ export default function Contact() {
     </div>
   );
 }
-

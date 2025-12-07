@@ -1,6 +1,6 @@
-import { EventProps } from "@/types";
+import { CalendarEventData } from "@/types";
 
-export default function CalendarEvent({ event }: EventProps) {
+export default function CalendarEvent({ event }: { event: CalendarEventData }) {
   function formatDate(dateString: string, isAllDay: boolean): string {
     const date = new Date(dateString);
 

@@ -50,7 +50,10 @@ export default function RootLayout({
         <div
           id="content"
           className="flex flex-col min-h-screen pt-20"
-          style={{ minHeight: "calc(100vh - 210px)" }}
+          style={{
+            minHeight: "calc(100vh - 210px)",
+            backgroundColor: "#FFF9F0",
+          }}
         >
           {children}
         </div>
