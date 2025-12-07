@@ -80,11 +80,11 @@ export default function Home() {
           fill
           className="object-cover"
           priority
-          style={{ zIndex: -1 }}
+          style={{ zIndex: 0 }}
         />
         <div
           className="absolute inset-0 flex flex-col items-center justify-center"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", zIndex: 0 }}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", zIndex: 1 }}
         >
           <h1
             className="text-4xl md:text-6xl text-center px-8 font-semibold max-w-5xl"
