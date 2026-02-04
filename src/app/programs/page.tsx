@@ -220,7 +220,7 @@ export default async function Programs() {
                       >
                         Applications are due by February 17th, 2026.{" "}
                         <a
-                          href="https://docs.google.com/forms/d/e/1FAIpQLSeWz9mJWh_efuYJSr7px28n2m4Qo1x9cCDDa1n9JAIWKbXoew/viewform?usp=publish-editor"
+                          href="https://forms.gle/4fBTy2cFxuQECqz17"
                           target="_blank"
                           rel="noopener noreferrer"
                           style={{ color: "#8B5CF6", textDecoration: "none" }}
