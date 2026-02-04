@@ -1,7 +1,3 @@
-import React from "react";
-import Link from "next/link";
-import { INTEREST_URL } from "@/constants";
-
 export default async function Programs() {
   return (
     <div
@@ -222,25 +218,17 @@ export default async function Programs() {
                           color: "#2D2A26",
                         }}
                       >
-                        The application period has passed.{" "}
+                        Applications are due by February 17th, 2026.{" "}
                         <a
-                          href={INTEREST_URL}
+                          href="https://docs.google.com/forms/d/e/1FAIpQLSeWz9mJWh_efuYJSr7px28n2m4Qo1x9cCDDa1n9JAIWKbXoew/viewform?usp=publish-editor"
                           target="_blank"
                           rel="noopener noreferrer"
                           style={{ color: "#8B5CF6", textDecoration: "none" }}
                           className="hover:underline"
                         >
-                          Fill out the general interest form
-                        </a>{" "}
-                        and visit our{" "}
-                        <Link
-                          href="/contact"
-                          style={{ color: "#8B5CF6", textDecoration: "none" }}
-                          className="hover:underline"
-                        >
-                          contact page
-                        </Link>{" "}
-                        to join our mailing list and receive future updates.
+                          Apply here
+                        </a>
+                        .
                       </p>
                     </div>
                   </div>
