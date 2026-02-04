@@ -156,25 +156,17 @@ export default async function Programs() {
                           color: "#2D2A26",
                         }}
                       >
-                        The application period has passed.{" "}
+                        Applications are due by February 19th, 2026.{" "}
                         <a
-                          href={INTEREST_URL}
+                          href="https://docs.google.com/forms/d/e/1FAIpQLSdJ5rgafADd1JlnpmVoCd323XMUGOGzGreGWsmaLGF_3OvMMg/viewform?usp=header"
                           target="_blank"
                           rel="noopener noreferrer"
                           style={{ color: "#8B5CF6", textDecoration: "none" }}
                           className="hover:underline"
                         >
-                          Fill out the general interest form
-                        </a>{" "}
-                        and visit our{" "}
-                        <Link
-                          href="/contact"
-                          style={{ color: "#8B5CF6", textDecoration: "none" }}
-                          className="hover:underline"
-                        >
-                          contact page
-                        </Link>{" "}
-                        to join our mailing list and receive future updates.
+                          Apply here
+                        </a>
+                        .
                       </p>
                     </div>
 
