@@ -253,6 +253,97 @@ export default async function Programs() {
                     </div>
                   </div>
 
+                  {/* Technical Upskilling Program (Centered) */}
+                  <div className="flex justify-center mt-16">
+                    <div
+                      className="flex flex-col gap-2 p-6 w-full md:w-2/3 relative z-10"
+                      style={{
+                        backgroundColor: "#F7F0E6",
+                        border: "2px solid #E8DCC8",
+                      }}
+                    >
+                      <h2
+                        className="text-3xl font-semibold"
+                        style={{
+                          color: "#6B46C1",
+                          borderBottom: "2px solid #E8DCC8",
+                          paddingBottom: "8px",
+                        }}
+                      >
+                        Technical Upskilling Program
+                      </h2>
+
+                      <div className="flex flex-col gap-3 mt-4">
+                        <ul
+                          className="list-disc pl-5 text-lg space-y-2"
+                          style={{
+                            color: "#2D2A26",
+                          }}
+                        >
+                          <li>Build a strong foundational knowledge of machine learning</li>
+                          <li>Receive a general overview of the major topics covered in AI Safety</li>
+                          <li>Be well equipped with the knowledge necessary to participate effectively in technical scholars sessions</li>
+                          <li>Receive a certificate of completion after completing the program in full</li>
+                        </ul>
+
+                        <div>
+                          <p
+                            className="text-lg mb-2"
+                            style={{
+                              color: "#6B46C1",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            Additional info:
+                          </p>
+                          <p
+                            className="text-lg"
+                            style={{
+                              color: "#2D2A26",
+                            }}
+                          >
+                            <a
+                              href="https://docs.google.com/document/d/16UH2uN-9Bu8DMiBNqYc1LYbkBIhVF0R_dvN9nC-3qIo/edit?usp=sharing"
+                              target="_blank"
+                              style={{ color: "#8B5CF6", textDecoration: "none" }}
+                              className="hover:underline"
+                            >
+                              View the program details document
+                            </a>
+                          </p>
+                        </div>
+
+                        <div>
+                          <p
+                            className="text-lg mb-2"
+                            style={{
+                              color: "#6B46C1",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            Interest:
+                          </p>
+                          <p
+                            className="text-lg"
+                            style={{
+                              color: "#2D2A26",
+                            }}
+                          >
+                            <a
+                              href="https://forms.gle/ZB9855GZi6aZ4obh9"
+                              target="_blank"
+                              style={{ color: "#8B5CF6", textDecoration: "none" }}
+                              className="hover:underline"
+                            >
+                              Fill out the interest form
+                            </a>{" "}
+                            to express your interest in joining this program.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Bottom Row - Safety Scholars Programs (Centered) */}
                   <div className="flex justify-center mt-16">
                     <div
