@@ -166,7 +166,7 @@ export default function Nav() {
         <div className="flex items-center p-3">
           <Link href="/" className="z-10 flex items-center gap-3">
             <Image
-              src={isTransparent || isDark ? "/wordmark_dark.png" : "/wordmark_light.png"}
+              src={isTransparent || isDark ? "/waisi_white_full.png" : "/waisi_black_full.png"}
               width={120}
               height={120}
               alt="WAISI logo"
