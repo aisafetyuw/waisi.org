@@ -89,7 +89,7 @@ export default function Home() {
           <h1
             className="text-4xl md:text-6xl text-center px-8 font-semibold max-w-5xl"
             style={{
-              color: "#FFF9F0",
+              color: "#FFFFFF",
             }}
           >
             A community at UW–Madison dedicated to making AI safe and beneficial
@@ -124,14 +124,14 @@ export default function Home() {
       <div
         id="about"
         style={{
-          backgroundColor: "#FFF9F0",
+          backgroundColor: "var(--bg-page)",
           width: "100vw",
           maxWidth: "100vw",
         }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
           {/* Left Column - Photo */}
-          <div className="flex flex-col" style={{ backgroundColor: "#FFF9F0" }}>
+          <div className="flex flex-col" style={{ backgroundColor: "var(--bg-page)" }}>
             <Image
               src="/about/CAIP_2.JPG"
               alt="Nine WAISI members in front of the US Capitol"
@@ -145,7 +145,7 @@ export default function Home() {
           <div
             className="flex flex-col py-8 h-full"
             style={{
-              backgroundColor: "#FFF9F0",
+              backgroundColor: "var(--bg-page)",
               paddingLeft: "32px",
               paddingRight: "0px",
             }}
@@ -157,8 +157,7 @@ export default function Home() {
               <h2
                 className="text-3xl font-semibold"
                 style={{
-                  color: "#6B46C1",
-                  borderBottom: "2px solid #E8DCC8",
+                  color: "var(--text-heading)",
                   paddingBottom: "8px",
                 }}
               >
@@ -167,7 +166,7 @@ export default function Home() {
               <p
                 className="text-lg"
                 style={{
-                  color: "#2D2A26",
+                  color: "var(--text-primary)",
                 }}
               >
                 The Wisconsin AI Safety Initiative advances understanding and
@@ -177,7 +176,7 @@ export default function Home() {
               <p
                 className="text-lg font-semibold"
                 style={{
-                  color: "#6B46C1",
+                  color: "var(--text-heading)",
                 }}
               >
                 We pursue this mission through three integrated pillars:
@@ -186,17 +185,17 @@ export default function Home() {
                 <p
                   className="text-lg flex items-start"
                   style={{
-                    color: "#2D2A26",
+                    color: "var(--text-primary)",
                   }}
                 >
-                  <span style={{ color: "#6B46C1", marginRight: "8px" }}>
+                  <span style={{ color: "var(--text-heading)", marginRight: "8px" }}>
                     •
                   </span>
                   <span>
                     <span
                       className="font-semibold"
                       style={{
-                        color: "#6B46C1",
+                        color: "var(--text-heading)",
                       }}
                     >
                       Advancing Public Discourse.
@@ -210,17 +209,17 @@ export default function Home() {
                 <p
                   className="text-lg flex items-start"
                   style={{
-                    color: "#2D2A26",
+                    color: "var(--text-primary)",
                   }}
                 >
-                  <span style={{ color: "#6B46C1", marginRight: "8px" }}>
+                  <span style={{ color: "var(--text-heading)", marginRight: "8px" }}>
                     •
                   </span>
                   <span>
                     <span
                       className="font-semibold"
                       style={{
-                        color: "#6B46C1",
+                        color: "var(--text-heading)",
                       }}
                     >
                       Driving Research and Innovation.
@@ -234,17 +233,17 @@ export default function Home() {
                 <p
                   className="text-lg flex items-start"
                   style={{
-                    color: "#2D2A26",
+                    color: "var(--text-primary)",
                   }}
                 >
-                  <span style={{ color: "#6B46C1", marginRight: "8px" }}>
+                  <span style={{ color: "var(--text-heading)", marginRight: "8px" }}>
                     •
                   </span>
                   <span>
                     <span
                       className="font-semibold"
                       style={{
-                        color: "#6B46C1",
+                        color: "var(--text-heading)",
                       }}
                     >
                       Strengthening Community.
@@ -258,7 +257,7 @@ export default function Home() {
               <p
                 className="text-lg"
                 style={{
-                  color: "#2D2A26",
+                  color: "var(--text-primary)",
                 }}
               >
                 Addressing AI safety demands expertise spanning technical
@@ -280,14 +279,13 @@ export default function Home() {
           {/* Left Column - Involvement and Impact */}
           <div
             className="flex flex-col gap-6 px-8 py-8"
-            style={{ backgroundColor: "#FFF9F0" }}
+            style={{ backgroundColor: "var(--bg-page)" }}
           >
             <div className="flex flex-col gap-2">
               <h2
                 className="text-3xl font-semibold"
                 style={{
-                  color: "#6B46C1",
-                  borderBottom: "2px solid #E8DCC8",
+                  color: "var(--text-heading)",
                   paddingBottom: "8px",
                 }}
               >
@@ -296,7 +294,7 @@ export default function Home() {
               <ul
                 className="list-disc pl-5 text-lg space-y-2 mt-4"
                 style={{
-                  color: "#2D2A26",
+                  color: "var(--text-primary)",
                 }}
               >
                 <li>
@@ -304,7 +302,7 @@ export default function Home() {
                   <a
                     href="https://www.cs.wisc.edu/2025/03/13/waisi-presents-caip-advanced-ai-expo/"
                     target="_blank"
-                    style={{ color: "#8B5CF6", textDecoration: "none" }}
+                    style={{ color: "var(--text-link)", textDecoration: "none" }}
                     className="hover:underline"
                   >
                     participate in a Congressional Exhibition on Advanced AI.
@@ -315,7 +313,7 @@ export default function Home() {
                   <a
                     href="https://docs.legis.wisconsin.gov/2023/proposals/reg/asm/bill/ab664"
                     target="_blank"
-                    style={{ color: "#8B5CF6", textDecoration: "none" }}
+                    style={{ color: "var(--text-link)", textDecoration: "none" }}
                     className="hover:underline"
                   >
                     2023 Assembly Bill 664
@@ -328,7 +326,7 @@ export default function Home() {
                   <a
                     href="https://deepmind.google/"
                     target="_blank"
-                    style={{ color: "#8B5CF6", textDecoration: "none" }}
+                    style={{ color: "var(--text-link)", textDecoration: "none" }}
                     className="hover:underline"
                   >
                     Google DeepMind
@@ -337,7 +335,7 @@ export default function Home() {
                   <a
                     href="https://www.anthropic.com/"
                     target="_blank"
-                    style={{ color: "#8B5CF6", textDecoration: "none" }}
+                    style={{ color: "var(--text-link)", textDecoration: "none" }}
                     className="hover:underline"
                   >
                     Anthropic
@@ -346,7 +344,7 @@ export default function Home() {
                   <a
                     href="https://www.metr.org/"
                     target="_blank"
-                    style={{ color: "#8B5CF6", textDecoration: "none" }}
+                    style={{ color: "var(--text-link)", textDecoration: "none" }}
                     className="hover:underline"
                   >
                     Model Evaluation and Threat Research (METR)
@@ -355,7 +353,7 @@ export default function Home() {
                   <a
                     href="https://www.cnas.org/"
                     target="_blank"
-                    style={{ color: "#8B5CF6", textDecoration: "none" }}
+                    style={{ color: "var(--text-link)", textDecoration: "none" }}
                     className="hover:underline"
                   >
                     Center for a New American Security (CNAS)
@@ -364,7 +362,7 @@ export default function Home() {
                   <a
                     href="https://horizonpublicservice.org/"
                     target="_blank"
-                    style={{ color: "#8B5CF6", textDecoration: "none" }}
+                    style={{ color: "var(--text-link)", textDecoration: "none" }}
                     className="hover:underline"
                   >
                     Horizon Institute for Public Service
@@ -375,7 +373,7 @@ export default function Home() {
                   Members in 12+ research labs on campus.{" "}
                   <a
                     href="/research"
-                    style={{ color: "#8B5CF6", textDecoration: "none" }}
+                    style={{ color: "var(--text-link)", textDecoration: "none" }}
                     className="hover:underline"
                   >
                     See our research page.
@@ -398,7 +396,7 @@ export default function Home() {
         <div
           className="px-8 py-16"
           style={{
-            backgroundColor: "#FFF9F0",
+            backgroundColor: "var(--bg-page)",
             width: "100vw",
             maxWidth: "100vw",
           }}
@@ -406,9 +404,8 @@ export default function Home() {
           <h2
             className="text-3xl font-semibold text-center mb-8"
             style={{
-              color: "#6B46C1",
-              borderBottom: "2px solid #E8DCC8",
-              paddingBottom: "8px",
+              color: "var(--text-heading)",
+                            paddingBottom: "8px",
               maxWidth: "800px",
               margin: "0 auto 2rem",
             }}
@@ -417,22 +414,23 @@ export default function Home() {
           </h2>
 
           <div className="max-w-6xl mx-auto mb-8 relative">
-            {/* Top Row - Technical and Policy Fundamentals */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {/* Top Row - Technical Fundamentals, Policy Fundamentals, Technical Upskilling */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               {/* Technical Fundamentals */}
               <a
                 href="/programs"
                 className="flex flex-col gap-2 p-6 relative cursor-pointer"
                 style={{
-                  backgroundColor: "#FFF9F0",
-                  border: "2px solid #E8DCC8",
+                  backgroundColor: "var(--bg-card-alt)",
+                  borderRadius: "12px",
+                  boxShadow: "var(--shadow-card)",
                   textDecoration: "none",
                 }}
               >
                 <h3
                   className="text-2xl font-semibold"
                   style={{
-                    color: "#6B46C1",
+                    color: "var(--text-heading)",
                   }}
                 >
                   Technical Fundamentals
@@ -440,18 +438,17 @@ export default function Home() {
                 <p
                   className="text-lg"
                   style={{
-                    color: "#2D2A26",
+                    color: "var(--text-primary)",
                   }}
                 >
-                  The technical track of AI Safety Fundamentals is an eight-week
-                  research-oriented reading group on technical AI safety. Topics
-                  include reward specification, generalization,
+                  An eight-week research-oriented reading group on technical AI
+                  safety. Topics include reward specification, generalization,
                   interpretability...
                 </p>
                 <p
                   className="text-lg font-semibold mt-2"
                   style={{
-                    color: "#8B5CF6",
+                    color: "var(--text-link)",
                   }}
                 >
                   Click to learn more
@@ -463,15 +460,16 @@ export default function Home() {
                 href="/programs"
                 className="flex flex-col gap-2 p-6 relative cursor-pointer"
                 style={{
-                  backgroundColor: "#FFF9F0",
-                  border: "2px solid #E8DCC8",
+                  backgroundColor: "var(--bg-card-alt)",
+                  borderRadius: "12px",
+                  boxShadow: "var(--shadow-card)",
                   textDecoration: "none",
                 }}
               >
                 <h3
                   className="text-2xl font-semibold"
                   style={{
-                    color: "#6B46C1",
+                    color: "var(--text-heading)",
                   }}
                 >
                   Policy Fundamentals
@@ -479,18 +477,56 @@ export default function Home() {
                 <p
                   className="text-lg"
                   style={{
-                    color: "#2D2A26",
+                    color: "var(--text-primary)",
                   }}
                 >
-                  The policy track of AI Safety Fundamentals is an eight-week
-                  reading group on the foundational governance and policy
-                  challenges posed by advanced AI systems. Topics include AI
-                  harms...
+                  An eight-week reading group on the foundational governance and
+                  policy challenges posed by advanced AI systems. Topics include
+                  AI harms...
                 </p>
                 <p
                   className="text-lg font-semibold mt-2"
                   style={{
-                    color: "#8B5CF6",
+                    color: "var(--text-link)",
+                  }}
+                >
+                  Click to learn more
+                </p>
+              </a>
+
+              {/* Technical Upskilling */}
+              <a
+                href="/programs"
+                className="flex flex-col gap-2 p-6 relative cursor-pointer"
+                style={{
+                  backgroundColor: "var(--bg-card-alt)",
+                  borderRadius: "12px",
+                  boxShadow: "var(--shadow-card)",
+                  textDecoration: "none",
+                }}
+              >
+                <h3
+                  className="text-2xl font-semibold"
+                  style={{
+                    color: "var(--text-heading)",
+                  }}
+                >
+                  Technical Upskilling
+                </h3>
+                <p
+                  className="text-lg"
+                  style={{
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  Build foundational machine learning knowledge and get an
+                  overview of major AI safety topics. Receive a certificate of
+                  completion after finishing the program...
+                </p>
+                <p
+                  className="text-lg font-semibold mt-2"
+                  style={{
+                    color: "var(--text-link)",
                   }}
                 >
                   Click to learn more
@@ -498,53 +534,22 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Connection Lines */}
-            <svg
-              className="absolute hidden md:block"
-              style={{
-                top: "200px",
-                left: "0",
-                width: "100%",
-                height: "140px",
-                pointerEvents: "none",
-                zIndex: 0,
-              }}
-            >
-              {/* Line from Technical to Safety Scholars */}
-              <line
-                x1="25%"
-                y1="0"
-                x2="37.5%"
-                y2="100%"
-                stroke="#E8DCC8"
-                strokeWidth="2"
-              />
-              {/* Line from Policy to Safety Scholars */}
-              <line
-                x1="75%"
-                y1="0"
-                x2="62.5%"
-                y2="100%"
-                stroke="#E8DCC8"
-                strokeWidth="2"
-              />
-            </svg>
-
             {/* Bottom Row - Safety Scholars (Centered) */}
             <div className="flex justify-center">
               <a
                 href="/programs"
                 className="flex flex-col gap-2 p-6 w-full md:w-1/2 relative z-10 cursor-pointer"
                 style={{
-                  backgroundColor: "#FFF9F0",
-                  border: "2px solid #E8DCC8",
+                  backgroundColor: "var(--bg-card-alt)",
+                  borderRadius: "12px",
+                  boxShadow: "var(--shadow-card)",
                   textDecoration: "none",
                 }}
               >
                 <h3
                   className="text-2xl font-semibold"
                   style={{
-                    color: "#6B46C1",
+                    color: "var(--text-heading)",
                   }}
                 >
                   Safety Scholars Program
@@ -552,7 +557,7 @@ export default function Home() {
                 <p
                   className="text-lg"
                   style={{
-                    color: "#2D2A26",
+                    color: "var(--text-primary)",
                   }}
                 >
                   Safety Scholars are our core groups of members engaged in AI
@@ -562,7 +567,7 @@ export default function Home() {
                 <p
                   className="text-lg font-semibold mt-2"
                   style={{
-                    color: "#8B5CF6",
+                    color: "var(--text-link)",
                   }}
                 >
                   Click to learn more
@@ -576,7 +581,7 @@ export default function Home() {
         <div
           className="grid grid-cols-1 lg:grid-cols-2"
           style={{
-            backgroundColor: "#FFF9F0",
+            backgroundColor: "var(--bg-page)",
             width: "100vw",
             maxWidth: "100vw",
           }}
@@ -593,12 +598,12 @@ export default function Home() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div
                 className="bg-opacity-90 p-4"
-                style={{ backgroundColor: "#FFF9F0" }}
+                style={{ backgroundColor: "var(--bg-card-alt)", borderRadius: "12px" }}
               >
                 <h2
                   className="text-3xl font-semibold"
                   style={{
-                    color: "#6B46C1",
+                    color: "var(--text-heading)",
                   }}
                 >
                   Current Projects
@@ -613,14 +618,15 @@ export default function Home() {
             <div
               className="p-6"
               style={{
-                backgroundColor: "#F7F0E6",
-                border: "2px solid #E8DCC8",
+                backgroundColor: "var(--bg-card)",
+                borderRadius: "12px",
+                  boxShadow: "var(--shadow-card)",
               }}
             >
               <h3
                 className="text-xl font-semibold mb-3"
                 style={{
-                  color: "#6B46C1",
+                  color: "var(--text-heading)",
                 }}
               >
                 WAISI Technical AI Safety Workshop Program
@@ -628,7 +634,7 @@ export default function Home() {
               <p
                 className="leading-relaxed"
                 style={{
-                  color: "#2D2A26",
+                  color: "var(--text-primary)",
                 }}
               >
                 Most AI Safety communities introduce members who are interested
@@ -640,7 +646,7 @@ export default function Home() {
                 href="/research"
                 className="text-lg font-semibold mt-2 inline-block"
                 style={{
-                  color: "#8B5CF6",
+                  color: "var(--text-link)",
                 }}
               >
                 Learn more →
@@ -651,14 +657,15 @@ export default function Home() {
             <div
               className="p-6"
               style={{
-                backgroundColor: "#F7F0E6",
-                border: "2px solid #E8DCC8",
+                backgroundColor: "var(--bg-card)",
+                borderRadius: "12px",
+                  boxShadow: "var(--shadow-card)",
               }}
             >
               <h3
                 className="text-xl font-semibold mb-3"
                 style={{
-                  color: "#6B46C1",
+                  color: "var(--text-heading)",
                 }}
               >
                 Transferable Adversarial Materials (TAM)
@@ -666,7 +673,7 @@ export default function Home() {
               <p
                 className="leading-relaxed"
                 style={{
-                  color: "#2D2A26",
+                  color: "var(--text-primary)",
                 }}
               >
                 Within the past decade, small portable Unmanned Aerial Systems
@@ -678,7 +685,7 @@ export default function Home() {
                 href="/research"
                 className="text-lg font-semibold mt-2 inline-block"
                 style={{
-                  color: "#8B5CF6",
+                  color: "var(--text-link)",
                 }}
               >
                 Learn more →
@@ -691,7 +698,7 @@ export default function Home() {
         <div
           className="px-8 py-16"
           style={{
-            backgroundColor: "#FFF9F0",
+            backgroundColor: "var(--bg-page)",
             width: "100vw",
             maxWidth: "100vw",
           }}
@@ -699,9 +706,8 @@ export default function Home() {
           <h2
             className="text-3xl font-semibold text-center mb-8"
             style={{
-              color: "#6B46C1",
-              borderBottom: "2px solid #E8DCC8",
-              paddingBottom: "8px",
+              color: "var(--text-heading)",
+                            paddingBottom: "8px",
               maxWidth: "800px",
               margin: "0 auto 2rem",
             }}
@@ -711,10 +717,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Paper 1 */}
             <div
-              className="flex flex-col overflow-hidden"
+              className="flex flex-col overflow-hidden rounded-xl"
               style={{
-                backgroundColor: "#F7F0E6",
-                border: "2px solid #E8DCC8",
+                backgroundColor: "var(--bg-card)",
+                borderRadius: "12px",
+                  boxShadow: "var(--shadow-card)",
               }}
             >
               <div className="relative w-full" style={{ height: "200px" }}>
@@ -729,7 +736,7 @@ export default function Home() {
                 <h3
                   className="text-lg font-semibold mb-3"
                   style={{
-                    color: "#6B46C1",
+                    color: "var(--text-heading)",
                   }}
                 >
                   Towards Interpretability Without Sacrifice: Faithful Dense
@@ -742,7 +749,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="text-base font-semibold inline-block hover:underline"
                     style={{
-                      color: "#8B5CF6",
+                      color: "var(--text-link)",
                       textDecoration: "none",
                     }}
                   >
@@ -754,10 +761,11 @@ export default function Home() {
 
             {/* Paper 2 */}
             <div
-              className="flex flex-col overflow-hidden"
+              className="flex flex-col overflow-hidden rounded-xl"
               style={{
-                backgroundColor: "#F7F0E6",
-                border: "2px solid #E8DCC8",
+                backgroundColor: "var(--bg-card)",
+                borderRadius: "12px",
+                  boxShadow: "var(--shadow-card)",
               }}
             >
               <div className="relative w-full" style={{ height: "200px" }}>
@@ -772,7 +780,7 @@ export default function Home() {
                 <h3
                   className="text-lg font-semibold mb-3"
                   style={{
-                    color: "#6B46C1",
+                    color: "var(--text-heading)",
                   }}
                 >
                   Debate or Vote: Which Yields Better Decisions in Multi-Agent
@@ -785,7 +793,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="text-base font-semibold inline-block hover:underline"
                     style={{
-                      color: "#8B5CF6",
+                      color: "var(--text-link)",
                       textDecoration: "none",
                     }}
                   >
@@ -797,10 +805,11 @@ export default function Home() {
 
             {/* Paper 3 */}
             <div
-              className="flex flex-col overflow-hidden"
+              className="flex flex-col overflow-hidden rounded-xl"
               style={{
-                backgroundColor: "#F7F0E6",
-                border: "2px solid #E8DCC8",
+                backgroundColor: "var(--bg-card)",
+                borderRadius: "12px",
+                  boxShadow: "var(--shadow-card)",
               }}
             >
               <div className="relative w-full" style={{ height: "200px" }}>
@@ -815,7 +824,7 @@ export default function Home() {
                 <h3
                   className="text-lg font-semibold mb-3"
                   style={{
-                    color: "#6B46C1",
+                    color: "var(--text-heading)",
                   }}
                 >
                   Everything Everywhere All at Once: LLMs can In-Context Learn
@@ -828,7 +837,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="text-base font-semibold inline-block hover:underline"
                     style={{
-                      color: "#8B5CF6",
+                      color: "var(--text-link)",
                       textDecoration: "none",
                     }}
                   >
@@ -846,7 +855,8 @@ export default function Home() {
               className="px-6 py-3 font-semibold transition-opacity hover:opacity-80"
               style={{
                 backgroundColor: "#8B5CF6",
-                color: "#FFF9F0",
+                color: "#FFFFFF",
+                borderRadius: "12px",
               }}
             >
               See our 20+ Papers
@@ -967,7 +977,7 @@ export default function Home() {
       <div
         className="px-8 py-16"
         style={{
-          backgroundColor: "#FFF9F0",
+          backgroundColor: "var(--bg-page)",
           width: "100vw",
           maxWidth: "100vw",
         }}
@@ -975,9 +985,8 @@ export default function Home() {
         <h2
           className="text-3xl font-semibold text-center mb-12"
           style={{
-            color: "#6B46C1",
-            borderBottom: "2px solid #E8DCC8",
-            paddingBottom: "8px",
+            color: "var(--text-heading)",
+                        paddingBottom: "8px",
             maxWidth: "800px",
             margin: "0 auto 3rem",
           }}
@@ -1005,7 +1014,7 @@ export default function Home() {
             <p
               className="text-lg font-semibold text-center"
               style={{
-                color: "#2D2A26",
+                color: "var(--text-primary)",
               }}
             >
               Kairos
@@ -1031,7 +1040,7 @@ export default function Home() {
             <p
               className="text-lg font-semibold text-center"
               style={{
-                color: "#2D2A26",
+                color: "var(--text-primary)",
               }}
             >
               UW-Madison Computer Sciences

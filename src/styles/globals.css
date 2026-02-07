@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== Theme Variables ===== */
+:root {
+  --bg-page: #FFFFFF;
+  --bg-card: #F5F5F5;
+  --bg-card-alt: #FAFAFA;
+  --text-primary: #1A1A1A;
+  --text-heading: #6B46C1;
+  --text-link: #8B5CF6;
+  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.08);
+  --line-color: rgba(0, 0, 0, 0.08);
+  --border-subtle: #E0E0E0;
+}
+
+[data-theme="dark"] {
+  --bg-page: #000000;
+  --bg-card: #1A1A1A;
+  --bg-card-alt: #111111;
+  --text-primary: #FFFFFF;
+  --text-heading: #6B46C1;
+  --text-link: #8B5CF6;
+  --shadow-card: 0 2px 20px rgba(255, 255, 255, 0.3);
+  --line-color: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  font-family: "SF Pro Rounded", "SF Pro", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, sans-serif;
+  font-weight: 300;
+}
+
 @keyframes enter {
   0% {
     opacity: 0;
@@ -31,7 +61,7 @@
   padding-right: 35px;
   max-width: 1600px;
   align-self: center;
-  color: #261e2d;
+  color: var(--text-primary);
 }
 
 .page {
@@ -39,7 +69,7 @@
   padding-top: 15px;
   max-width: 1400px;
   align-self: center;
-  color: #261e2d;
+  color: var(--text-primary);
 }
 
 @media (max-width: 900px) {
@@ -141,7 +171,7 @@ h3 {
   font-weight: 600;
   color: white;
   background-color: #8b5cf6;
-  border-radius: 0px;
+  border-radius: 12px;
   transition: all 0.3s ease;
 }
 

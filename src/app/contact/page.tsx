@@ -15,8 +15,7 @@ export default function Contact() {
         <h1
           className="text-4xl font-semibold mb-8"
           style={{
-            color: "#6B46C1",
-            borderBottom: "2px solid #E8DCC8",
+            color: "var(--text-heading)",
             paddingBottom: "8px",
           }}
         >
@@ -30,7 +29,7 @@ export default function Contact() {
               <h2
                 className="text-3xl font-semibold mb-4"
                 style={{
-                  color: "#6B46C1",
+                  color: "var(--text-heading)",
                 }}
               >
                 Get Connected
@@ -58,7 +57,7 @@ export default function Contact() {
               <h2
                 className="text-3xl font-semibold mb-4"
                 style={{
-                  color: "#6B46C1",
+                  color: "var(--text-heading)",
                 }}
               >
                 Direct Inquiries
@@ -66,7 +65,7 @@ export default function Contact() {
               <p
                 className="text-lg mb-4"
                 style={{
-                  color: "#2D2A26",
+                  color: "var(--text-primary)",
                 }}
               >
                 For general questions, partnerships, or other inquiries, please
@@ -76,7 +75,7 @@ export default function Contact() {
                 href="mailto:aisafetyuw@gmail.com"
                 className="inline-flex items-center gap-2 text-lg font-semibold hover:underline"
                 style={{
-                  color: "#8B5CF6",
+                  color: "var(--text-link)",
                   textDecoration: "none",
                 }}
               >
@@ -89,7 +88,7 @@ export default function Contact() {
               <h2
                 className="text-3xl font-semibold mb-4"
                 style={{
-                  color: "#6B46C1",
+                  color: "var(--text-heading)",
                 }}
               >
                 Office Hours
@@ -97,7 +96,7 @@ export default function Contact() {
               <p
                 className="text-lg"
                 style={{
-                  color: "#2D2A26",
+                  color: "var(--text-primary)",
                 }}
               >
                 Our team members hold regular office hours for students
@@ -116,7 +115,7 @@ export default function Contact() {
               frameBorder="0"
               marginHeight={0}
               marginWidth={0}
-              style={{ border: "2px solid #E8DCC8" }}
+              style={{ borderRadius: "12px", boxShadow: "var(--shadow-card)" }}
             >
               Loading…
             </iframe>

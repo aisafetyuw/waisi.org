@@ -5,7 +5,7 @@ export default function Calendar() {
       <div
         id="calendar"
         className="page"
-        style={{ backgroundColor: "#FFF9F0" }}
+        style={{ backgroundColor: "var(--bg-page)" }}
       >
         <Events />
       </div>

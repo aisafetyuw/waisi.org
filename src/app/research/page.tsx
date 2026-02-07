@@ -1,4 +1,3 @@
-import React from "react";
 import getResearch from "@/app/research/getResearch";
 import Professor from "@/components/prof";
 import ResearchList from "@/components/ResearchList";
@@ -91,7 +90,7 @@ export default async function ResearchPage() {
     <div
       id="research"
       style={{
-        backgroundColor: "#FFF9F0",
+        backgroundColor: "var(--bg-page)",
         marginLeft: "-40px",
         marginRight: "-40px",
       }}
@@ -100,21 +99,20 @@ export default async function ResearchPage() {
         <h2
           className="text-3xl font-semibold mb-6"
           style={{
-            color: "#6B46C1",
-            borderBottom: "2px solid #E8DCC8",
+            color: "var(--text-heading)",
             paddingBottom: "8px",
           }}
         >
-          <span style={{ color: "#6B46C1" }}>WAISI</span>{" "}
-          <span style={{ color: "#2D2A26" }}>&</span>{" "}
+          <span style={{ color: "var(--text-heading)" }}>WAISI</span>{" "}
+          <span style={{ color: "var(--text-primary)" }}>&</span>{" "}
           <span style={{ color: "#800000" }}>XLab</span>
         </h2>
         <div className="space-y-6 mb-12">
-          <div className="p-6" style={{ backgroundColor: "#F7F0E6" }}>
+          <div className="p-6" style={{ backgroundColor: "var(--bg-card)", borderRadius: "12px", boxShadow: "var(--shadow-card)" }}>
             <h3
               className="text-xl font-semibold mb-3"
               style={{
-                color: "#6B46C1",
+                color: "var(--text-heading)",
               }}
             >
               WAISI Technical AI Safety Workshop Program
@@ -122,7 +120,7 @@ export default async function ResearchPage() {
             <p
               className="leading-relaxed"
               style={{
-                color: "#2D2A26",
+                color: "var(--text-primary)",
               }}
             >
               Most AI Safety communities introduce members who are interested in
@@ -139,11 +137,11 @@ export default async function ResearchPage() {
             </p>
           </div>
 
-          <div className="p-6" style={{ backgroundColor: "#F7F0E6" }}>
+          <div className="p-6" style={{ backgroundColor: "var(--bg-card)", borderRadius: "12px", boxShadow: "var(--shadow-card)" }}>
             <h3
               className="text-xl font-semibold mb-3"
               style={{
-                color: "#6B46C1",
+                color: "var(--text-heading)",
               }}
             >
               Transferable Adversarial Materials (TAM): Defeating ISR AUASs and
@@ -152,7 +150,7 @@ export default async function ResearchPage() {
             <p
               className="leading-relaxed"
               style={{
-                color: "#2D2A26",
+                color: "var(--text-primary)",
               }}
             >
               Within the past decade, small portable Unmanned Aerial Systems
@@ -174,7 +172,7 @@ export default async function ResearchPage() {
           <h1
             className="text-4xl font-semibold"
             style={{
-              color: "#6B46C1",
+              color: "var(--text-heading)",
             }}
           >
             Our Research Catalog
@@ -185,8 +183,7 @@ export default async function ResearchPage() {
           <h2
             className="text-3xl font-semibold mb-6"
             style={{
-              color: "#6B46C1",
-              borderBottom: "2px solid #E8DCC8",
+              color: "var(--text-heading)",
               paddingBottom: "8px",
             }}
           >
@@ -202,6 +199,7 @@ export default async function ResearchPage() {
               ) // sort by last name
               .map((prof) => (
                 <Professor
+                  key={prof.name}
                   link={prof.link}
                   name={prof.name}
                   extra={prof.extra}

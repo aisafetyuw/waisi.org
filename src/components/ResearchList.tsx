@@ -43,7 +43,7 @@ export default function ResearchList({
         ref={scrollRef}
         onScroll={handleScroll}
         className="overflow-x-auto max-h-96 overflow-y-auto p-4"
-        style={{ backgroundColor: "#FFF9F0" }}
+        style={{ backgroundColor: "var(--bg-card)", borderRadius: "12px", boxShadow: "var(--shadow-card)" }}
       >
         <table className="w-full border-collapse">
           <tbody>
@@ -57,7 +57,7 @@ export default function ResearchList({
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
-                        color: "#8B5CF6",
+                        color: "var(--text-link)",
                         textDecoration: "none",
                       }}
                     >
@@ -67,7 +67,7 @@ export default function ResearchList({
                   <td
                     className="px-4 py-2 w-2/5"
                     style={{
-                      color: "#2D2A26",
+                      color: "var(--text-primary)",
                     }}
                   >
                     {highlightAuthors(paper.authors, clubMembers)}
@@ -75,7 +75,7 @@ export default function ResearchList({
                   <td
                     className="px-4 py-2 w-1/6"
                     style={{
-                      color: "#2D2A26",
+                      color: "var(--text-primary)",
                     }}
                   >
                     {paper.conference && (
@@ -83,8 +83,8 @@ export default function ResearchList({
                         className="inline-block px-2 py-1 text-sm font-semibold"
                         style={{
                           backgroundColor: "#EDE9FE",
-                          color: "#6B46C1",
-                          borderRadius: "4px",
+                          color: "var(--text-heading)",
+                          borderRadius: "8px",
                         }}
                       >
                         {paper.conference}
@@ -94,7 +94,7 @@ export default function ResearchList({
                   <td
                     className="px-4 py-2 w-1/6 text-right pl-2"
                     style={{
-                      color: "#2D2A26",
+                      color: "var(--text-primary)",
                     }}
                   >
                     {paper.date}
@@ -110,7 +110,7 @@ export default function ResearchList({
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
-                        color: "#8B5CF6",
+                        color: "var(--text-link)",
                         textDecoration: "none",
                       }}
                     >
@@ -119,7 +119,7 @@ export default function ResearchList({
                     <div
                       className="mt-1"
                       style={{
-                        color: "#2D2A26",
+                        color: "var(--text-primary)",
                       }}
                     >
                       {highlightAuthors(paper.authors, clubMembers)}
@@ -130,8 +130,8 @@ export default function ResearchList({
                           className="inline-block px-2 py-1 text-sm font-semibold"
                           style={{
                             backgroundColor: "#EDE9FE",
-                            color: "#6B46C1",
-                            borderRadius: "4px",
+                            color: "var(--text-heading)",
+                            borderRadius: "8px",
                           }}
                         >
                           {paper.conference}
@@ -141,7 +141,7 @@ export default function ResearchList({
                     <div
                       className="mt-1"
                       style={{
-                        color: "#2D2A26",
+                        color: "var(--text-primary)",
                       }}
                     >
                       {paper.date}
@@ -151,11 +151,7 @@ export default function ResearchList({
 
                 {index < research.length - 1 && (
                   <tr>
-                    <td
-                      colSpan={4}
-                      className="border-b"
-                      style={{ borderColor: "#E8DCC8" }}
-                    ></td>
+                    <td colSpan={4} className="py-1"></td>
                   </tr>
                 )}
               </React.Fragment>
@@ -180,7 +176,7 @@ function highlightAuthors(authors: string, clubMembers: Set<string>) {
   return authors.split(", ").map((name, i, arr) => (
     <React.Fragment key={i}>
       {clubMembers.has(name.trim()) ? (
-        <strong className="font-bold" style={{ color: "#6B46C1" }}>
+        <strong className="font-bold" style={{ color: "var(--text-heading)" }}>
           {name}
         </strong>
       ) : (

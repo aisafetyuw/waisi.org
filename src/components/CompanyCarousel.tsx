@@ -140,7 +140,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
   return (
     <div
       style={{
-        backgroundColor: "#FFF9F0",
+        backgroundColor: "var(--bg-page)",
         width: "100vw",
         maxWidth: "100vw",
         paddingTop: "64px",
@@ -149,7 +149,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
     >
       <h2
         className="text-3xl font-semibold text-center mb-8 px-8"
-        style={{ color: "#6B46C1" }}
+        style={{ color: "var(--text-heading)" }}
       >
         Our Members Have Collaborated With
       </h2>
@@ -159,13 +159,13 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
         <div
           className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
           style={{
-            background: "linear-gradient(to right, #FFF9F0, transparent)",
+            background: "linear-gradient(to right, var(--bg-page), transparent)",
           }}
         />
         <div
           className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
           style={{
-            background: "linear-gradient(to left, #FFF9F0, transparent)",
+            background: "linear-gradient(to left, var(--bg-page), transparent)",
           }}
         />
 
@@ -194,7 +194,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
                 <span
                   className="text-xs font-semibold text-center line-clamp-2 transition-colors duration-300"
                   style={{
-                    color: "#2D2A26",
+                    color: "var(--text-primary)",
                   }}
                 >
                   {company.name}
@@ -239,17 +239,17 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
             className={`h-2 rounded-full transition-all duration-300`}
             style={{
               backgroundColor:
-                Math.floor(scrollPosition / 432) === i ? "#6B46C1" : "#E8DCC8",
+                Math.floor(scrollPosition / 432) === i ? "var(--text-heading)" : "var(--border-subtle)",
               width: Math.floor(scrollPosition / 432) === i ? "32px" : "8px",
             }}
             onMouseEnter={(e) => {
               if (Math.floor(scrollPosition / 432) !== i) {
-                e.currentTarget.style.backgroundColor = "#C4B5FD";
+                e.currentTarget.style.backgroundColor = "var(--text-link)";
               }
             }}
             onMouseLeave={(e) => {
               if (Math.floor(scrollPosition / 432) !== i) {
-                e.currentTarget.style.backgroundColor = "#E8DCC8";
+                e.currentTarget.style.backgroundColor = "var(--border-subtle)";
               }
             }}
             aria-label={`Go to slide ${i + 1}`}

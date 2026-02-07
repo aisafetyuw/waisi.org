@@ -4,7 +4,7 @@ export default function Professor({ name, link, focus, extra }: ProfProps) {
   return (
     <div
       className="transform transition-transform hover:scale-105 member p-4 h-full"
-      style={{ backgroundColor: "#F7F0E6" }}
+      style={{ backgroundColor: "var(--bg-card)", borderRadius: "12px", boxShadow: "var(--shadow-card)" }}
     >
       <div className="">
         <div className="text-lg font-semibold">
@@ -12,7 +12,7 @@ export default function Professor({ name, link, focus, extra }: ProfProps) {
             href={link}
             target="_blank"
             className="hover:underline"
-            style={{ color: "#8B5CF6", textDecoration: "none" }}
+            style={{ color: "var(--text-link)", textDecoration: "none" }}
           >
             {name}
           </a>
@@ -21,13 +21,13 @@ export default function Professor({ name, link, focus, extra }: ProfProps) {
           <div
             className="mt-1 text-sm font-light"
             style={{
-              color: "#2D2A26",
+              color: "var(--text-primary)",
             }}
           >
             {extra}
           </div>
         )}
-        <div className="mt-1 font-semibold" style={{ color: "#2D2A26" }}>
+        <div className="mt-1 font-semibold" style={{ color: "var(--text-primary)" }}>
           {focus}
         </div>
       </div>

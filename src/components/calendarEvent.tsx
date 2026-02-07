@@ -30,20 +30,20 @@ export default function CalendarEvent({ event }: { event: CalendarEventData }) {
   }
 
   return (
-    <div className="bg-gray-50 shadow-lg rounded-lg my-4 p-4 h-full transform transition-transform hover:scale-105">
+    <div className="shadow-lg rounded-lg my-4 p-4 h-full transform transition-transform hover:scale-105" style={{ backgroundColor: "#F9FAFB", color: "#1A1A1A" }}>
       {event.htmlLink &&
-        <h3 className="mb-1 text-gray-500 hover:text-gray-700">
-          <a href={event.htmlLink} title="View in Google Calendar" target="_blank">
+        <h3 className="mb-1" style={{ color: "#6B7280" }}>
+          <a href={event.htmlLink} title="View in Google Calendar" target="_blank" className="hover:opacity-80">
             <i className="fa-regular fa-calendar mb-3"></i>
             &nbsp;&nbsp;
-            <span className="text-gray-800">{event.summary}</span>
+            <span style={{ color: "#1F2937" }}>{event.summary}</span>
           </a>
         </h3>
       }
       <hr className="mb-1" />
       {event.start &&
-        <span className="text-sm">
-          <i className="fa-regular fa-clock text-sm text-gray-500 mb-3"></i>
+        <span className="text-sm" style={{ color: "#1A1A1A" }}>
+          <i className="fa-regular fa-clock text-sm mb-3" style={{ color: "#6B7280" }}></i>
           &nbsp;
           <span className="text-sm">
             {event.start.date ? formatDate(event.start.date, true) : formatDate(event.start.dateTime!, false)}
@@ -61,7 +61,7 @@ export default function CalendarEvent({ event }: { event: CalendarEventData }) {
       {event.location &&
         <span className="text-sm">
           <br />
-          <a className="text-sm text-gray-500 hover:text-gray-700" href={generateGoogleMapsURL(event.location)}>
+          <a className="text-sm hover:opacity-80" style={{ color: "#6B7280" }} href={generateGoogleMapsURL(event.location)}>
             <i className="fa-solid text-sm fa-location-dot"></i>
             &nbsp;
             <span className="location">{event.location}</span>
@@ -71,7 +71,7 @@ export default function CalendarEvent({ event }: { event: CalendarEventData }) {
       {event.description &&
         <span>
           <hr className="mb-1" />
-          <div className="text-md event-description" dangerouslySetInnerHTML={{ __html: formatDescription(event.description) }} />
+          <div className="text-md event-description" style={{ color: "#1A1A1A" }} dangerouslySetInnerHTML={{ __html: formatDescription(event.description) }} />
         </span>
       }
     </div>

@@ -110,7 +110,7 @@ export default function PhotoCarousel() {
   return (
     <div
       className="relative w-full flex flex-col justify-center"
-      style={{backgroundColor: '#FFF9F0'}}
+      style={{backgroundColor: 'var(--bg-page)'}}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={handleMouseLeave}
     >
@@ -145,26 +145,26 @@ export default function PhotoCarousel() {
         {/* Navigation Arrows */}
         <button
           onClick={goToPrevious}
-          className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 transition-all"
-          style={{backgroundColor: 'rgba(255, 249, 240, 0.8)'}}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FFF9F0'}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 249, 240, 0.8)'}
+          className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full transition-all"
+          style={{backgroundColor: 'var(--bg-card)'}}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-card-alt)'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-card)'}
           aria-label="Previous image"
         >
-          <svg className="w-5 h-5" fill="none" stroke="#6B46C1" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="var(--text-heading)" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
         <button
           onClick={goToNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 transition-all"
-          style={{backgroundColor: 'rgba(255, 249, 240, 0.8)'}}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FFF9F0'}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 249, 240, 0.8)'}
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full transition-all"
+          style={{backgroundColor: 'var(--bg-card)'}}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-card-alt)'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-card)'}
           aria-label="Next image"
         >
-          <svg className="w-5 h-5" fill="none" stroke="#6B46C1" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="var(--text-heading)" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
@@ -175,22 +175,22 @@ export default function PhotoCarousel() {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`h-2 transition-all ${
+              className={`h-2 rounded-full transition-all ${
                 index === currentIndex
                   ? 'w-6'
                   : 'w-2'
               }`}
               style={{
-                backgroundColor: index === currentIndex ? '#6B46C1' : '#E8DCC8'
+                backgroundColor: index === currentIndex ? 'var(--text-heading)' : 'var(--border-subtle)'
               }}
               onMouseEnter={(e) => {
                 if (index !== currentIndex) {
-                  e.currentTarget.style.backgroundColor = '#C4B5FD';
+                  e.currentTarget.style.backgroundColor = 'var(--text-link)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (index !== currentIndex) {
-                  e.currentTarget.style.backgroundColor = '#E8DCC8';
+                  e.currentTarget.style.backgroundColor = 'var(--border-subtle)';
                 }
               }}
               aria-label={`Go to slide ${index + 1}`}

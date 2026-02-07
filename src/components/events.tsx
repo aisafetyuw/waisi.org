@@ -28,7 +28,6 @@ export default function Events() {
     return (
       <div id="events">
         <div>
-          <h2 className="font-bold">Upcoming Events</h2>
           <p className='text-xl'>Loading events...</p>
         </div>
       </div>
@@ -37,10 +36,9 @@ export default function Events() {
 
   return (
     <div id="events">
-      <div>
-        <h2 className="font-bold">Upcoming Events</h2>
+      <div className="text-center">
         {events && events.length > 0 ?
-          <ul className="md:w-5/6">
+          <ul className="md:w-5/6 mx-auto text-left">
             {events.map((event, index) => (
               <li key={index}>
                 <CalendarEvent event={event} />

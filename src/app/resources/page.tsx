@@ -24,7 +24,7 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
       <h2
         className="text-2xl font-semibold mb-4"
         style={{
-          color: "#6B46C1",
+          color: "var(--text-heading)",
         }}
       >
         Blogs & Articles
@@ -46,7 +46,7 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
           style={{
             maxHeight: "400px",
             scrollbarWidth: "thin",
-            scrollbarColor: "#C4B5FD #F7F0E6",
+            scrollbarColor: "#C4B5FD var(--bg-card)",
           }}
         >
           {blogs.map((blog, index) => (
@@ -61,7 +61,7 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
                 rel="noopener noreferrer"
                 className="text-lg font-semibold hover:underline"
                 style={{
-                  color: "#8B5CF6",
+                  color: "var(--text-link)",
                   textDecoration: "none",
                 }}
               >
@@ -70,7 +70,7 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
               <p
                 className="text-base"
                 style={{
-                  color: "#2D2A26",
+                  color: "var(--text-primary)",
                 }}
               >
                 {blog.description}
@@ -209,15 +209,14 @@ export default function Resources() {
       style={{
         marginLeft: "-40px",
         marginRight: "-40px",
-        backgroundColor: "#FFF9F0",
+        backgroundColor: "var(--bg-page)",
       }}
     >
       <div className="px-4 sm:px-8 md:px-16 pt-8 pb-16">
         <h1
           className="text-4xl font-semibold mb-8"
           style={{
-            color: "#6B46C1",
-            borderBottom: "2px solid #E8DCC8",
+            color: "var(--text-heading)",
             paddingBottom: "8px",
           }}
         >
@@ -231,7 +230,7 @@ export default function Resources() {
               <h2
                 className="text-2xl font-semibold mb-4"
                 style={{
-                  color: "#6B46C1",
+                  color: "var(--text-heading)",
                 }}
               >
                 Videos
@@ -249,7 +248,7 @@ export default function Resources() {
                       rel="noopener noreferrer"
                       className="text-lg font-semibold hover:underline"
                       style={{
-                        color: "#8B5CF6",
+                        color: "var(--text-link)",
                         textDecoration: "none",
                       }}
                     >
@@ -258,7 +257,7 @@ export default function Resources() {
                     <p
                       className="text-base"
                       style={{
-                        color: "#2D2A26",
+                        color: "var(--text-primary)",
                       }}
                     >
                       {video.description}
@@ -277,7 +276,7 @@ export default function Resources() {
               <h2
                 className="text-2xl font-semibold mb-4"
                 style={{
-                  color: "#6B46C1",
+                  color: "var(--text-heading)",
                 }}
               >
                 Podcasts
@@ -295,7 +294,7 @@ export default function Resources() {
                       rel="noopener noreferrer"
                       className="text-lg font-semibold hover:underline"
                       style={{
-                        color: "#8B5CF6",
+                        color: "var(--text-link)",
                         textDecoration: "none",
                       }}
                     >
@@ -304,7 +303,7 @@ export default function Resources() {
                     <p
                       className="text-base"
                       style={{
-                        color: "#2D2A26",
+                        color: "var(--text-primary)",
                       }}
                     >
                       {podcast.description}
@@ -318,7 +317,7 @@ export default function Resources() {
               <h2
                 className="text-2xl font-semibold mb-4"
                 style={{
-                  color: "#6B46C1",
+                  color: "var(--text-heading)",
                 }}
               >
                 Exploratory Websites
@@ -336,7 +335,7 @@ export default function Resources() {
                       rel="noopener noreferrer"
                       className="text-lg font-semibold hover:underline"
                       style={{
-                        color: "#8B5CF6",
+                        color: "var(--text-link)",
                         textDecoration: "none",
                       }}
                     >
@@ -345,7 +344,7 @@ export default function Resources() {
                     <p
                       className="text-base"
                       style={{
-                        color: "#2D2A26",
+                        color: "var(--text-primary)",
                       }}
                     >
                       {site.description}

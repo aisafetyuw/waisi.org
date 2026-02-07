@@ -4,7 +4,7 @@ import { MemberProps } from "@/types";
 
 export default function Member({ member }: MemberProps) {
   return (
-    <div className="member p-4 h-full" style={{ backgroundColor: "#F7F0E6" }}>
+    <div className="member p-4" style={{ backgroundColor: "var(--bg-card)", borderRadius: "12px", boxShadow: "var(--shadow-card)" }}>
       <div className="flex space-x-4 items-start">
         <div className="flex-shrink-0">
           <Image
@@ -19,14 +19,14 @@ export default function Member({ member }: MemberProps) {
           <div
             className="text-lg font-semibold"
             style={{
-              color: "#6B46C1",
+              color: "var(--text-heading)",
             }}
           >
             {member.name}
           </div>
           <div
             style={{
-              color: "#2D2A26",
+              color: "var(--text-primary)",
               opacity: 0.7,
             }}
           >
@@ -35,7 +35,7 @@ export default function Member({ member }: MemberProps) {
           <div
             className="font-semibold"
             style={{
-              color: "#2D2A26",
+              color: "var(--text-primary)",
             }}
           >
             {member.role}
@@ -44,7 +44,7 @@ export default function Member({ member }: MemberProps) {
             <a href={`mailto:${member.email}`}>
               <i
                 className="fa-solid fa-envelope hover:opacity-80"
-                style={{ color: "#8B5CF6" }}
+                style={{ color: "var(--text-link)" }}
               ></i>
             </a>
             {member.linkedin && (
@@ -55,7 +55,7 @@ export default function Member({ member }: MemberProps) {
               >
                 <i
                   className="fa-brands fa-linkedin hover:opacity-80"
-                  style={{ color: "#8B5CF6" }}
+                  style={{ color: "var(--text-link)" }}
                 ></i>
               </a>
             )}

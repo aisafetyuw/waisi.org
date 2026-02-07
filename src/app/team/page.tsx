@@ -11,15 +11,14 @@ export default async function Team() {
       style={{
         marginLeft: "-40px",
         marginRight: "-40px",
-        backgroundColor: "#FFF9F0",
+        backgroundColor: "var(--bg-page)",
       }}
     >
-      <div className="px-16 pt-8 pb-16">
+      <div className="px-8 pt-8 pb-16 mx-auto" style={{ maxWidth: "1200px" }}>
         <h2
           className="text-3xl font-semibold mb-6"
           style={{
-            color: "#6B46C1",
-            borderBottom: "2px solid #E8DCC8",
+            color: "var(--text-heading)",
             paddingBottom: "8px",
           }}
         >
@@ -27,72 +26,76 @@ export default async function Team() {
         </h2>
         <h3
           className="text-2xl font-semibold mb-4"
-          style={{ color: "#6B46C1" }}
+          style={{ color: "var(--text-heading)" }}
         >
           Community Builders
         </h3>
         <ul
           id="team-list"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1 mb-8"
+          className="grid gap-4 m-1 mb-8"
+          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}
         >
           {members
             .filter((member) => member.team == "0")
             .map((member, index) => (
-              <li key={index} className="col-span-1 h-full">
+              <li key={index} className="">
                 <Member member={member} />
               </li>
             ))}
         </ul>
         <h3
           className="text-2xl font-semibold mb-4"
-          style={{ color: "#6B46C1" }}
+          style={{ color: "var(--text-heading)" }}
         >
           Research Team
         </h3>
         <ul
           id="team-list"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1 mb-8"
+          className="grid gap-4 m-1 mb-8"
+          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}
         >
           {members
             .filter((member) => member.team === "3")
             .map((member, index) => (
-              <li key={index} className="col-span-1 h-full">
+              <li key={index} className="">
                 <Member member={member} />
               </li>
             ))}
         </ul>
         <h3
           className="text-2xl font-semibold mb-4"
-          style={{ color: "#6B46C1" }}
+          style={{ color: "var(--text-heading)" }}
         >
           Technical Team
         </h3>
         <ul
           id="team-list"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1 mb-8"
+          className="grid gap-4 m-1 mb-8"
+          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}
         >
           {members
             .filter((member) => member.team == "1")
             .map((member, index) => (
-              <li key={index} className="col-span-1 h-full">
+              <li key={index} className="">
                 <Member member={member} />
               </li>
             ))}
         </ul>
         <h3
           className="text-2xl font-semibold mb-4"
-          style={{ color: "#6B46C1" }}
+          style={{ color: "var(--text-heading)" }}
         >
           Policy Team
         </h3>
         <ul
           id="team-list"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1"
+          className="grid gap-4 m-1"
+          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}
         >
           {members
             .filter((member) => member.team == "2")
             .map((member, index) => (
-              <li key={index} className="col-span-1 h-full">
+              <li key={index} className="">
                 <Member member={member} />
               </li>
             ))}
