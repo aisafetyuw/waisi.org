@@ -152,7 +152,7 @@ export default async function Programs() {
                           color: "var(--text-primary)",
                         }}
                       >
-                        Applications are due by February 19th, 2026.{" "}
+                        Applications are due by February 23rd, 2026.{" "}
                         <a
                           href="https://docs.google.com/forms/d/e/1FAIpQLSdJ5rgafADd1JlnpmVoCd323XMUGOGzGreGWsmaLGF_3OvMMg/viewform?usp=header"
                           target="_blank"
@@ -218,7 +218,7 @@ export default async function Programs() {
                           color: "var(--text-primary)",
                         }}
                       >
-                        Applications are due by February 19th, 2026.{" "}
+                        Applications are due by February 23rd, 2026.{" "}
                         <a
                           href="https://forms.gle/4fBTy2cFxuQECqz17"
                           target="_blank"
