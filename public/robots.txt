@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /qrcode/
+Disallow: /discord/
+Disallow: /twitter/
+Disallow: /instagram/
+Disallow: /interest/
+
+Sitemap: https://waisi.org/sitemap.xml
