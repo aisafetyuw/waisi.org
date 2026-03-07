@@ -3,7 +3,13 @@
     "allow": [
       "Bash(npm run dev:*)",
       "Bash(npm install:*)",
-      "Bash(open:*)"
+      "Bash(open:*)",
+      "Bash(nvm ls-remote --lts)",
+      "Bash(command -v nvm)",
+      "Read(//Users/kaustubhkislay/.nvm/**)",
+      "Bash(brew list node)",
+      "Bash(brew info node)",
+      "Bash(brew outdated node)"
     ]
   }
 }
