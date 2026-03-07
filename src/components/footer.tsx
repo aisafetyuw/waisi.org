@@ -23,14 +23,14 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col space-y-2">
               <Link
-                href="/about"
+                href="/team"
                 className="hover:underline"
                 style={{
                   color: "#FFF9F0",
                   opacity: 0.9,
                 }}
               >
-                About
+                Our Team
               </Link>
               <Link
                 href="/programs"
