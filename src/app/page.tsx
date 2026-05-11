@@ -131,13 +131,16 @@ export default function Home() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
           {/* Left Column - Photo */}
-          <div className="flex flex-col" style={{ backgroundColor: "var(--bg-page)" }}>
+          <div
+            className="relative h-full min-h-0"
+            style={{ backgroundColor: "var(--bg-page)" }}
+          >
             <Image
               src="/about/CAIP_2.JPG"
               alt="Nine WAISI members in front of the US Capitol"
               width={792}
               height={891}
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
 
@@ -169,9 +172,9 @@ export default function Home() {
                   color: "var(--text-primary)",
                 }}
               >
-                The Wisconsin AI Safety Initiative advances understanding and
-                mitigation of advanced AI risks through strategic collaboration
-                and rigorous inquiry.
+                We believe that AI presents a magnitude of risks and benefits
+                unmatched by any past technology. In order to reap any benefits,
+                we must address these risks.
               </p>
               <p
                 className="text-lg font-semibold"
@@ -179,9 +182,9 @@ export default function Home() {
                   color: "var(--text-heading)",
                 }}
               >
-                We pursue this mission through three integrated pillars:
+                We contribute to mitigating risk by:
               </p>
-              <div className="space-y-4 ml-4 flex-grow">
+              <div className="space-y-4 ml-4">
                 <p
                   className="text-lg flex items-start"
                   style={{
@@ -192,18 +195,8 @@ export default function Home() {
                     •
                   </span>
                   <span>
-                    <span
-                      className="font-semibold"
-                      style={{
-                        color: "var(--text-heading)",
-                      }}
-                    >
-                      Advancing Public Discourse.
-                    </span>{" "}
-                    We leverage our platform at a leading research institution
-                    to shape informed perspectives on AI futures, catalyze
-                    substantive debate, and engage decision-makers across
-                    sectors.
+                    Building and supporting a community of AI Safety
+                    specialists.
                   </span>
                 </p>
                 <p
@@ -216,18 +209,7 @@ export default function Home() {
                     •
                   </span>
                   <span>
-                    <span
-                      className="font-semibold"
-                      style={{
-                        color: "var(--text-heading)",
-                      }}
-                    >
-                      Driving Research and Innovation.
-                    </span>{" "}
-                    We conduct meaningful research projects that address
-                    critical questions in AI safety, bridging technical analysis
-                    with policy implications and fostering collaboration across
-                    disciplines.
+                    Producing impactful research across disciplines.
                   </span>
                 </p>
                 <p
@@ -240,17 +222,7 @@ export default function Home() {
                     •
                   </span>
                   <span>
-                    <span
-                      className="font-semibold"
-                      style={{
-                        color: "var(--text-heading)",
-                      }}
-                    >
-                      Strengthening Community.
-                    </span>{" "}
-                    We cultivate an enduring intellectual culture where
-                    collaborative rigor, critical analysis, and shared purpose
-                    drive collective excellence.
+                    Informing discourse on the risks associated with AI.
                   </span>
                 </p>
               </div>
@@ -260,10 +232,13 @@ export default function Home() {
                   color: "var(--text-primary)",
                 }}
               >
-                Addressing AI safety demands expertise spanning technical
-                research, policy, and ethics. As AI reshapes our technological
-                landscape, we are committed to ensuring its responsible
-                development and deployment.
+                <span
+                  className="font-semibold"
+                  style={{ color: "var(--text-heading)" }}
+                >
+                  Our goal:
+                </span>{" "}
+                help humanity navigate the transition to advanced AI wisely.
               </p>
             </div>
           </div>
