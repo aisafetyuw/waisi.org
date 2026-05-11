@@ -173,8 +173,8 @@ export default function Home() {
                 }}
               >
                 We believe that AI presents a magnitude of risks and benefits
-                unmatched by any past technology. In order to reap any benefits,
-                we must address these risks.
+                unmatched by any previous technology. To realize the benefits,
+                we must address the risks.
               </p>
               <p
                 className="text-lg font-semibold"
@@ -182,7 +182,7 @@ export default function Home() {
                   color: "var(--text-heading)",
                 }}
               >
-                We contribute to mitigating risk by:
+                We contribute by:
               </p>
               <div className="space-y-4 ml-4">
                 <p
@@ -222,7 +222,7 @@ export default function Home() {
                     •
                   </span>
                   <span>
-                    Informing discourse on the risks associated with AI.
+                    Informing public discourse on transformative AI.
                   </span>
                 </p>
               </div>
