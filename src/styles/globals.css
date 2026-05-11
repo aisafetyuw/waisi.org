@@ -15,18 +15,6 @@
   --border-subtle: #E0E0E0;
 }
 
-[data-theme="dark"] {
-  --bg-page: #000000;
-  --bg-card: #1A1A1A;
-  --bg-card-alt: #111111;
-  --text-primary: #FFFFFF;
-  --text-heading: #6B46C1;
-  --text-link: #8B5CF6;
-  --shadow-card: 0 2px 20px rgba(255, 255, 255, 0.3);
-  --line-color: rgba(255, 255, 255, 0.08);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-}
-
 body {
   font-family: "SF Pro Rounded", "SF Pro", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, sans-serif;
   font-weight: 300;
