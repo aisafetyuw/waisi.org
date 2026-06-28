@@ -22,13 +22,20 @@ client.authorize((err) => {
 const calendar = google.calendar({ version: 'v3', auth: client });
 
 export default async function getEvents() {
-    const response = await calendar.events.list({
-        calendarId: 'ef5131b341f5487d64d28b938ebf9bf59f14e27704bbe3f6a9459abbec74753b@group.calendar.google.com',
-        timeMin: (new Date()).toISOString(),
-        maxResults: 10,
-        singleEvents: true,
-        orderBy: 'startTime',
-    });
+    try {
+        const response = await calendar.events.list({
+            calendarId: 'ef5131b341f5487d64d28b938ebf9bf59f14e27704bbe3f6a9459abbec74753b@group.calendar.google.com',
+            timeMin: (new Date()).toISOString(),
+            maxResults: 10,
+            singleEvents: true,
+            orderBy: 'startTime',
+        });
 
-    return response.data.items;
+        return response.data.items ?? [];
+    } catch (error) {
+        // Degrade gracefully instead of throwing if Google auth or the Calendar
+        // API is unavailable (e.g. an expired or rotated service-account key).
+        console.error('Failed to fetch events from Google Calendar:', error);
+        return [];
+    }
 };
