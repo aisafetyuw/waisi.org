@@ -4,6 +4,33 @@ import getMembers from "@/app/team/getMembers";
 export default async function Team() {
   const members = await getMembers();
 
+  if (members === null) {
+    return (
+      <div
+        id="team"
+        className="-mx-10"
+        style={{
+          marginLeft: "-40px",
+          marginRight: "-40px",
+          backgroundColor: "var(--bg-page)",
+        }}
+      >
+        <div className="px-8 pt-8 pb-16 mx-auto" style={{ maxWidth: "1200px" }}>
+          <h2
+            className="text-3xl font-semibold mb-6"
+            style={{ color: "var(--text-heading)", paddingBottom: "8px" }}
+          >
+            Leadership Team
+          </h2>
+          <p className="text-lg" style={{ color: "var(--text-primary)" }}>
+            We couldn&apos;t load the team list right now &#8212; please check
+            back soon.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       id="team"

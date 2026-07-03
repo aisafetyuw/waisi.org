@@ -1,28 +1,16 @@
 import { google } from 'googleapis';
-import credentials from '@/credentials.json';
+import { getGoogleClient } from '@/lib/google';
 
 const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 
-const client = new google.auth.JWT(
-    credentials.client_email,
-    undefined,
-    credentials.private_key,
-    SCOPES,
-);
-
-client.authorize((err) => {
-    if (err) {
-        console.error(err);
-        return;
-    } else {
-        console.log("Successfully connected to Google Calendar!");
-    }
-});
-
-const calendar = google.calendar({ version: 'v3', auth: client });
-
+// Returns the upcoming events, [] if there are genuinely none, or null if the
+// fetch failed (missing credentials, revoked key, API outage) so callers can
+// show an error state instead of silently rendering nothing.
 export default async function getEvents() {
     try {
+        const client = getGoogleClient(SCOPES);
+        const calendar = google.calendar({ version: 'v3', auth: client });
+
         const response = await calendar.events.list({
             calendarId: 'ef5131b341f5487d64d28b938ebf9bf59f14e27704bbe3f6a9459abbec74753b@group.calendar.google.com',
             timeMin: (new Date()).toISOString(),
@@ -33,9 +21,7 @@ export default async function getEvents() {
 
         return response.data.items ?? [];
     } catch (error) {
-        // Degrade gracefully instead of throwing if Google auth or the Calendar
-        // API is unavailable (e.g. an expired or rotated service-account key).
         console.error('Failed to fetch events from Google Calendar:', error);
-        return [];
+        return null;
     }
-};
+}

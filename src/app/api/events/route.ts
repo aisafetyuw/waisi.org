@@ -1,33 +1,15 @@
-import { google } from 'googleapis';
-import credentials from '@/credentials.json';
 import { NextResponse } from 'next/server';
-
-const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
-
-const client = new google.auth.JWT(
-    credentials.client_email,
-    undefined,
-    credentials.private_key,
-    SCOPES,
-);
-
-const calendar = google.calendar({ version: 'v3', auth: client });
+import getEvents from '@/app/events/getEvents';
 
 export async function GET() {
-    try {
-        await client.authorize();
+    const events = await getEvents();
 
-        const response = await calendar.events.list({
-            calendarId: 'ef5131b341f5487d64d28b938ebf9bf59f14e27704bbe3f6a9459abbec74753b@group.calendar.google.com',
-            timeMin: (new Date()).toISOString(),
-            maxResults: 10,
-            singleEvents: true,
-            orderBy: 'startTime',
-        });
-
-        return NextResponse.json(response.data.items || []);
-    } catch (error) {
-        console.error('Error fetching calendar events:', error);
-        return NextResponse.json([], { status: 500 });
+    if (events === null) {
+        return NextResponse.json(
+            { error: 'Failed to fetch calendar events' },
+            { status: 500 },
+        );
     }
+
+    return NextResponse.json(events);
 }

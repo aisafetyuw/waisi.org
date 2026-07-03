@@ -5,7 +5,9 @@ import { ProfProps } from "@/types";
 
 export default async function ResearchPage() {
   const research = await getResearch();
-  const clubMembers = new Set(research.map((paper) => paper.author.trim()));
+  const clubMembers = new Set(
+    (research ?? []).map((paper) => paper.author.trim()),
+  );
 
   const profs: ProfProps[] = [
     {
@@ -178,7 +180,17 @@ export default async function ResearchPage() {
             Our Research Catalog
           </h1>
         </div>
-        <ResearchList research={research} clubMembers={clubMembers} />
+        {research === null ? (
+          <p
+            className="text-lg text-center mb-12"
+            style={{ color: "var(--text-primary)" }}
+          >
+            We couldn&apos;t load the research catalog right now &#8212; please
+            check back soon.
+          </p>
+        ) : (
+          <ResearchList research={research} clubMembers={clubMembers} />
+        )}
         <div className="mt-12 pb-16">
           <h2
             className="text-3xl font-semibold mb-6"

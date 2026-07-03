@@ -1,34 +1,22 @@
 import { ResearchData } from '@/types';
 import { google } from 'googleapis';
-import credentials from '@/credentials.json';
+import { getGoogleClient } from '@/lib/google';
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
-const client = new google.auth.JWT(
-    credentials.client_email,
-    undefined,
-    credentials.private_key,
-    SCOPES,
-);
-
-client.authorize((err, tokens) => {
-    if (err) {
-        console.error(err);
-        return;
-    } else {
-        console.log("Successfully connected to Research!");
-    }
-});
-
-const sheets = google.sheets({ version: 'v4', auth: client });
-
-export default async function getResearch(): Promise<ResearchData[]> {
+// Returns the research catalog, or null if the fetch failed (missing
+// credentials, revoked key, API outage) so the page can show an error state
+// instead of silently rendering an empty list.
+export default async function getResearch(): Promise<ResearchData[] | null> {
     const request = {
         spreadsheetId: '1OGoGF4GnfSnaO6LFdpgtVtF4JagANq5zAErhqp10goE',
         range: 'Research!A:F',
     };
 
     try {
+        const client = getGoogleClient(SCOPES);
+        const sheets = google.sheets({ version: 'v4', auth: client });
+
         const response = await sheets.spreadsheets.values.get(request);
         const rows = response.data.values ?? [];
 
@@ -45,10 +33,7 @@ export default async function getResearch(): Promise<ResearchData[]> {
 
         return research;
     } catch (error) {
-        // Don't fail the production build/prerender if Google auth or the
-        // Sheets API is unavailable (e.g. an expired or rotated service-account
-        // key). Degrade to an empty catalog instead of crashing the page.
         console.error('Failed to fetch research from Google Sheets:', error);
-        return [];
+        return null;
     }
 }

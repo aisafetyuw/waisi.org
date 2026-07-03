@@ -11,7 +11,7 @@ export default async function Programs() {
       <h2>Programs</h2>
       <div id="program-container">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 lg:w-2/3 gap-4 m-1 mb-8">
-          {programs
+          {(programs ?? [])
             .filter((program) =>
               ["governance", "alignment"].includes(program.type),
             )
