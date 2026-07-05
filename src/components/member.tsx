@@ -1,6 +1,8 @@
-import "@fortawesome/fontawesome-svg-core/styles.css";
 import Image from "next/image";
 import { MemberProps } from "@/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function Member({ member }: MemberProps) {
   return (
@@ -42,10 +44,10 @@ export default function Member({ member }: MemberProps) {
           </div>
           <div className="mt-1 flex items-center space-x-2">
             <a href={`mailto:${member.email}`}>
-              <i
-                className="fa-solid fa-envelope hover:opacity-80"
-                style={{ color: "var(--text-link)" }}
-              ></i>
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="hover:opacity-80 text-link"
+              />
             </a>
             {member.linkedin && (
               <a
@@ -53,10 +55,10 @@ export default function Member({ member }: MemberProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i
-                  className="fa-brands fa-linkedin hover:opacity-80"
-                  style={{ color: "var(--text-link)" }}
-                ></i>
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  className="hover:opacity-80 text-link"
+                />
               </a>
             )}
           </div>

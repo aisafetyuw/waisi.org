@@ -10,7 +10,7 @@ export default function Professor({ name, link, focus, extra }: ProfProps) {
         <div className="text-lg font-semibold">
           <a
             href={link}
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             className="hover:underline"
             style={{ color: "var(--text-link)", textDecoration: "none" }}
           >

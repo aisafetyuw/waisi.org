@@ -2,6 +2,12 @@ import "../styles/globals.css";
 import { Suspense } from "react";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+// Icons are tree-shaken React components; inject their CSS here once
+// instead of letting each icon add a <style> tag at runtime.
+config.autoAddCss = false;
 
 import type { Metadata } from "next";
 
@@ -32,12 +38,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <script
-          src="https://kit.fontawesome.com/8a0618493f.js"
-          crossOrigin="anonymous"
-        ></script>
-      </head>
       <body>
         <Suspense
           fallback={

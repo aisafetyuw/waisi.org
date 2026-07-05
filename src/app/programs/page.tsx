@@ -63,7 +63,7 @@ export default async function Programs() {
                           Full details available in{" "}
                           <a
                             href="https://docs.google.com/document/d/1nlA0I7yGo7e7tC6xS8kBQUuyil88xrYji5KPeyUPRwA/edit?usp=sharing"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             style={{ color: "var(--text-link)", textDecoration: "none" }}
                             className="hover:underline"
                           >
@@ -142,7 +142,7 @@ export default async function Programs() {
                           Curriculum based on the{" "}
                           <a
                             href="https://course.aisafetyfundamentals.com/alignment"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             style={{ color: "var(--text-link)", textDecoration: "none" }}
                             className="hover:underline"
                           >
@@ -208,7 +208,7 @@ export default async function Programs() {
                           Curriculum based on the{" "}
                           <a
                             href="https://course.aisafetyfundamentals.com/governance"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             style={{ color: "var(--text-link)", textDecoration: "none" }}
                             className="hover:underline"
                           >
@@ -292,7 +292,7 @@ export default async function Programs() {
                           >
                             <a
                               href="https://docs.google.com/document/d/16UH2uN-9Bu8DMiBNqYc1LYbkBIhVF0R_dvN9nC-3qIo/edit?usp=sharing"
-                              target="_blank"
+                              target="_blank" rel="noopener noreferrer"
                               style={{ color: "var(--text-link)", textDecoration: "none" }}
                               className="hover:underline"
                             >
@@ -319,7 +319,7 @@ export default async function Programs() {
                           >
                             <a
                               href="https://forms.gle/ZB9855GZi6aZ4obh9"
-                              target="_blank"
+                              target="_blank" rel="noopener noreferrer"
                               style={{ color: "var(--text-link)", textDecoration: "none" }}
                               className="hover:underline"
                             >
@@ -466,7 +466,7 @@ export default async function Programs() {
                           Learn more about the program by{" "}
                           <a
                             href="https://docs.google.com/document/d/1npT_7Svl_Gp10-BV8yusx6A90OokOflWFgCagKKU0G8/edit?usp=sharing"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             style={{ color: "var(--text-link)", textDecoration: "none" }}
                             className="hover:underline"
                           >

@@ -1,4 +1,3 @@
-import "@fortawesome/fontawesome-svg-core/styles.css";
 import { ProgramProps } from "@/types";
 
 export default function Program({ program }: ProgramProps) {
@@ -19,13 +18,13 @@ export default function Program({ program }: ProgramProps) {
       {program.applicationLink && (
         program.closed
           ? <a
-            target="_blank" 
+            target="_blank" rel="noopener noreferrer" 
             className="waisi-button closed bg-red-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
           >
             <b>Applications closed!</b>
           </a>
           : <a
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             href={program.applicationLink}
             className="waisi-button bg-red-400 bg-opacity-50 hover:bg-opacity-70 rounded-md text-center p-1 m-4 shadow-lg"
           >
@@ -50,7 +49,7 @@ export default function Program({ program }: ProgramProps) {
             {program.curriculumSimilarTo
               ? "Curriculum similar to: "
               : "Curriculum: "}
-            <a target="_blank" href={program.curriculumLink}>{program.curriculumLink}</a>
+            <a target="_blank" rel="noopener noreferrer" href={program.curriculumLink}>{program.curriculumLink}</a>
           </p>
         </div>
       )} */}

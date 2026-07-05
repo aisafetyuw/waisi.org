@@ -6,6 +6,13 @@ import {
   LINKEDIN_URL,
 } from "@/constants";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDiscord,
+  faInstagram,
+  faTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
@@ -85,7 +92,7 @@ export default function Footer() {
                   opacity: 0.9,
                 }}
               >
-                <i className="fab fa-discord mr-2" aria-hidden="true"></i>Discord
+                <FontAwesomeIcon icon={faDiscord} className="mr-2" aria-hidden="true" />Discord
               </a>
               <a
                 href={INSTAGRAM_URL}
@@ -97,7 +104,7 @@ export default function Footer() {
                   opacity: 0.9,
                 }}
               >
-                <i className="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram
+                <FontAwesomeIcon icon={faInstagram} className="mr-2" aria-hidden="true" />Instagram
               </a>
               <a
                 href={TWITTER_URL}
@@ -109,7 +116,7 @@ export default function Footer() {
                   opacity: 0.9,
                 }}
               >
-                <i className="fab fa-twitter mr-2" aria-hidden="true"></i>Twitter
+                <FontAwesomeIcon icon={faTwitter} className="mr-2" aria-hidden="true" />Twitter
               </a>
               <a
                 href={LINKEDIN_URL}
@@ -121,7 +128,7 @@ export default function Footer() {
                   opacity: 0.9,
                 }}
               >
-                <i className="fab fa-linkedin mr-2" aria-hidden="true"></i>LinkedIn
+                <FontAwesomeIcon icon={faLinkedin} className="mr-2" aria-hidden="true" />LinkedIn
               </a>
             </div>
           </div>

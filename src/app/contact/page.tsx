@@ -1,6 +1,8 @@
 import { DISCORD_URL, INSTAGRAM_URL, INTEREST_URL } from "@/constants";
 import Button from "@/components/button";
 import type { Metadata } from "next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -86,7 +88,7 @@ export default function Contact() {
                   textDecoration: "none",
                 }}
               >
-                <i className="fas fa-envelope" aria-hidden="true"></i>
+                <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
                 aisafetyuw@gmail.com
               </a>
             </div>
