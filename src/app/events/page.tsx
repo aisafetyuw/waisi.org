@@ -1,5 +1,12 @@
 import CalendarEvent from "@/components/calendarEvent";
 import getEvents from "@/app/events/getEvents";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Events",
+  description:
+    "Upcoming Wisconsin AI Safety Initiative events at UW–Madison — talks, socials, and special programming.",
+};
 
 // Events are more time-sensitive than the sheet-backed pages: re-fetch the
 // calendar in the background at most every 15 minutes.

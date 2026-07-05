@@ -1,5 +1,12 @@
 import { DISCORD_URL, INSTAGRAM_URL, INTEREST_URL } from "@/constants";
 import Button from "@/components/button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with the Wisconsin AI Safety Initiative — Discord, Instagram, email, and interest form.",
+};
 
 export default function Contact() {
   return (

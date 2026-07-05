@@ -3,10 +3,26 @@ import { Suspense } from "react";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 
-export const metadata = {
-  title: "Wisconsin AI Safety Initiative",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://waisi.org"),
+  title: {
+    default: "Wisconsin AI Safety Initiative",
+    template: "%s | Wisconsin AI Safety Initiative",
+  },
   description:
-    "A community of students building skills to reduce risk from advanced AI",
+    "A community at UW–Madison dedicated to making AI safe and beneficial for all.",
+  openGraph: {
+    type: "website",
+    siteName: "Wisconsin AI Safety Initiative",
+    url: "https://waisi.org",
+    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@aisafetyuw",
+  },
 };
 
 export default function RootLayout({

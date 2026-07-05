@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Programs",
+  description:
+    "WAISI's semester programs: Technical Fundamentals, Policy Fundamentals, Technical Upskilling, and the Safety Scholars program.",
+};
+
 export default async function Programs() {
   return (
     <div

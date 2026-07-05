@@ -2,6 +2,13 @@ import getResearch from "@/app/research/getResearch";
 import Professor from "@/components/prof";
 import ResearchList from "@/components/ResearchList";
 import { ProfProps } from "@/types";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Research",
+  description:
+    "AI safety research by WAISI members — 20+ papers, current projects, and faculty collaborators at UW–Madison.",
+};
 
 // Re-fetch the research sheet in the background at most once an hour, so
 // spreadsheet edits go live without a redeploy.

@@ -1,5 +1,12 @@
 import Member from "@/components/member";
 import getMembers from "@/app/team/getMembers";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Team",
+  description:
+    "Meet the leadership team of the Wisconsin AI Safety Initiative at UW–Madison.",
+};
 
 // Re-fetch the members sheet in the background at most once an hour, so
 // spreadsheet edits go live without a redeploy.
