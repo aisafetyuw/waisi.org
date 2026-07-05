@@ -1,78 +1,26 @@
-"use client";
-
-import {
-  INTEREST_URL,
-  DISCORD_URL,
-  INSTAGRAM_URL,
-  TWITTER_URL,
-  LINKEDIN_URL,
-} from "@/constants";
-import Button from "@/components/button";
+import Image from "next/image";
 import CompanyCarousel from "@/components/CompanyCarousel";
 import NumbersCarousel from "@/components/NumbersCarousel";
 import PhotoCarousel from "@/components/PhotoCarousel";
-import Image from "next/image";
-import { useState, useEffect } from "react";
+import ScrollArrow from "@/components/ScrollArrow";
+import OpportunityCard from "@/components/OpportunityCard";
+import PaperCard from "@/components/PaperCard";
+import {
+  OPPORTUNITIES,
+  FEATURED_OPPORTUNITY,
+  CURRENT_PROJECTS,
+  RESEARCH_HIGHLIGHTS,
+  COLLABORATORS,
+  SPONSORS,
+} from "@/content/home";
 
 export default function Home() {
-  const [showArrow, setShowArrow] = useState(true);
-
-  useEffect(() => {
-    // Store original scroll restoration behavior
-    const originalScrollRestoration =
-      "scrollRestoration" in window.history
-        ? window.history.scrollRestoration
-        : "auto";
-
-    // Disable browser scroll restoration for Firefox compatibility
-    // Only affects this page - will be restored when navigating away
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-
-    let rafId: number | null = null;
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        rafId = requestAnimationFrame(() => {
-          // Hide arrow when scrolled down more than 100px
-          const shouldShow = window.scrollY < 100;
-          setShowArrow((prev) => (prev === shouldShow ? prev : shouldShow));
-          ticking = false;
-        });
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-      }
-      // Restore original scroll restoration behavior when leaving homepage
-      if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = originalScrollRestoration;
-      }
-    };
-  }, []);
-
   return (
-    <div
-      id="home"
-      style={{ marginLeft: "-40px", marginRight: "-40px", width: "100%" }}
-    >
+    <div id="home" className="-mx-10">
       {/* Full Screen Hero Banner */}
       <div
         className="relative"
-        style={{
-          height: "100vh",
-          width: "100vw",
-          marginTop: "-80px",
-          paddingTop: "80px",
-        }}
+        style={{ height: "100vh", marginTop: "-80px", paddingTop: "80px" }}
       >
         <Image
           src="/capital_landscape.webp"
@@ -86,55 +34,19 @@ export default function Home() {
           className="absolute inset-0 flex flex-col items-center justify-center"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", zIndex: 1 }}
         >
-          <h1
-            className="text-4xl md:text-6xl text-center px-8 font-semibold max-w-5xl"
-            style={{
-              color: "#FFFFFF",
-            }}
-          >
+          <h1 className="text-4xl md:text-6xl text-center px-8 font-semibold max-w-5xl text-white">
             A community at UW–Madison dedicated to making AI safe and beneficial
             for all.
           </h1>
-
-          {/* Scroll Down Arrow */}
-          <div
-            className="absolute bottom-8 animate-bounce transition-opacity duration-300"
-            style={{
-              opacity: showArrow ? 0.6 : 0,
-              pointerEvents: showArrow ? "auto" : "none",
-            }}
-          >
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#FFF9F0"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 5v14M19 12l-7 7-7-7" />
-            </svg>
-          </div>
+          <ScrollArrow />
         </div>
       </div>
 
       {/* About Section Content */}
-      <div
-        id="about"
-        style={{
-          backgroundColor: "var(--bg-page)",
-          width: "100vw",
-          maxWidth: "100vw",
-        }}
-      >
+      <div id="about" className="bg-page w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
           {/* Left Column - Photo */}
-          <div
-            className="relative h-full min-h-0"
-            style={{ backgroundColor: "var(--bg-page)" }}
-          >
+          <div className="relative h-full min-h-0 bg-page">
             <Image
               src="/about/CAIP_2.JPG"
               alt="Nine WAISI members in front of the US Capitol"
@@ -145,99 +57,33 @@ export default function Home() {
           </div>
 
           {/* Right Column - Our Mission Text */}
-          <div
-            className="flex flex-col py-8 h-full"
-            style={{
-              backgroundColor: "var(--bg-page)",
-              paddingLeft: "32px",
-              paddingRight: "0px",
-            }}
-          >
-            <div
-              className="flex flex-col gap-4 h-full"
-              style={{ paddingRight: "32px" }}
-            >
-              <h2
-                className="text-3xl font-semibold"
-                style={{
-                  color: "var(--text-heading)",
-                  paddingBottom: "8px",
-                }}
-              >
+          <div className="flex flex-col py-8 h-full bg-page pl-8">
+            <div className="flex flex-col gap-4 h-full pr-8">
+              <h2 className="text-3xl font-semibold pb-2 text-heading">
                 Our Mission
               </h2>
-              <p
-                className="text-lg"
-                style={{
-                  color: "var(--text-primary)",
-                }}
-              >
+              <p className="text-lg text-primary">
                 We believe that AI presents a magnitude of risks and benefits
                 unmatched by any previous technology. To realize the benefits,
                 we must address the risks.
               </p>
-              <p
-                className="text-lg font-semibold"
-                style={{
-                  color: "var(--text-heading)",
-                }}
-              >
+              <p className="text-lg font-semibold text-heading">
                 We contribute by:
               </p>
               <div className="space-y-4 ml-4">
-                <p
-                  className="text-lg flex items-start"
-                  style={{
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  <span style={{ color: "var(--text-heading)", marginRight: "8px" }}>
-                    •
-                  </span>
-                  <span>
-                    Building and supporting a community of AI Safety
-                    specialists.
-                  </span>
-                </p>
-                <p
-                  className="text-lg flex items-start"
-                  style={{
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  <span style={{ color: "var(--text-heading)", marginRight: "8px" }}>
-                    •
-                  </span>
-                  <span>
-                    Producing impactful research across disciplines.
-                  </span>
-                </p>
-                <p
-                  className="text-lg flex items-start"
-                  style={{
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  <span style={{ color: "var(--text-heading)", marginRight: "8px" }}>
-                    •
-                  </span>
-                  <span>
-                    Informing public discourse on transformative AI.
-                  </span>
-                </p>
+                {[
+                  "Building and supporting a community of AI Safety specialists.",
+                  "Producing impactful research across disciplines.",
+                  "Informing public discourse on transformative AI.",
+                ].map((item) => (
+                  <p key={item} className="text-lg flex items-start text-primary">
+                    <span className="text-heading mr-2">•</span>
+                    <span>{item}</span>
+                  </p>
+                ))}
               </div>
-              <p
-                className="text-lg"
-                style={{
-                  color: "var(--text-primary)",
-                }}
-              >
-                <span
-                  className="font-semibold"
-                  style={{ color: "var(--text-heading)" }}
-                >
-                  Our goal:
-                </span>{" "}
+              <p className="text-lg text-primary">
+                <span className="font-semibold text-heading">Our goal:</span>{" "}
                 help humanity navigate the transition to advanced AI wisely.
               </p>
             </div>
@@ -247,49 +93,32 @@ export default function Home() {
         {/* By The Numbers - Full Width Section */}
         <NumbersCarousel />
 
-        <div
-          className="grid grid-cols-1 lg:grid-cols-2"
-          style={{ width: "100vw", maxWidth: "100vw" }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
           {/* Left Column - Involvement and Impact */}
-          <div
-            className="flex flex-col gap-6 px-8 py-8"
-            style={{ backgroundColor: "var(--bg-page)" }}
-          >
+          <div className="flex flex-col gap-6 px-8 py-8 bg-page">
             <div className="flex flex-col gap-2">
-              <h2
-                className="text-3xl font-semibold"
-                style={{
-                  color: "var(--text-heading)",
-                  paddingBottom: "8px",
-                }}
-              >
+              <h2 className="text-3xl font-semibold pb-2 text-heading">
                 Involvement and Impact
               </h2>
-              <ul
-                className="list-disc pl-5 text-lg space-y-2 mt-4"
-                style={{
-                  color: "var(--text-primary)",
-                }}
-              >
+              <ul className="list-disc pl-5 text-lg space-y-2 mt-4 text-primary">
                 <li>
                   9 WAISI members were flown out to DC to{" "}
                   <a
                     href="https://www.cs.wisc.edu/2025/03/13/waisi-presents-caip-advanced-ai-expo/"
                     target="_blank"
-                    style={{ color: "var(--text-link)", textDecoration: "none" }}
-                    className="hover:underline"
+                    rel="noopener noreferrer"
+                    className="text-link no-underline hover:underline"
                   >
                     participate in a Congressional Exhibition on Advanced AI.
                   </a>
                 </li>
                 <li>
-                  Contributed to Wisconsin's{" "}
+                  Contributed to Wisconsin&apos;s{" "}
                   <a
                     href="https://docs.legis.wisconsin.gov/2023/proposals/reg/asm/bill/ab664"
                     target="_blank"
-                    style={{ color: "var(--text-link)", textDecoration: "none" }}
-                    className="hover:underline"
+                    rel="noopener noreferrer"
+                    className="text-link no-underline hover:underline"
                   >
                     2023 Assembly Bill 664
                   </a>
@@ -301,8 +130,8 @@ export default function Home() {
                   <a
                     href="https://deepmind.google/"
                     target="_blank"
-                    style={{ color: "var(--text-link)", textDecoration: "none" }}
-                    className="hover:underline"
+                    rel="noopener noreferrer"
+                    className="text-link no-underline hover:underline"
                   >
                     Google DeepMind
                   </a>
@@ -310,8 +139,8 @@ export default function Home() {
                   <a
                     href="https://www.anthropic.com/"
                     target="_blank"
-                    style={{ color: "var(--text-link)", textDecoration: "none" }}
-                    className="hover:underline"
+                    rel="noopener noreferrer"
+                    className="text-link no-underline hover:underline"
                   >
                     Anthropic
                   </a>
@@ -319,8 +148,8 @@ export default function Home() {
                   <a
                     href="https://www.metr.org/"
                     target="_blank"
-                    style={{ color: "var(--text-link)", textDecoration: "none" }}
-                    className="hover:underline"
+                    rel="noopener noreferrer"
+                    className="text-link no-underline hover:underline"
                   >
                     Model Evaluation and Threat Research (METR)
                   </a>
@@ -328,8 +157,8 @@ export default function Home() {
                   <a
                     href="https://www.cnas.org/"
                     target="_blank"
-                    style={{ color: "var(--text-link)", textDecoration: "none" }}
-                    className="hover:underline"
+                    rel="noopener noreferrer"
+                    className="text-link no-underline hover:underline"
                   >
                     Center for a New American Security (CNAS)
                   </a>
@@ -337,8 +166,8 @@ export default function Home() {
                   <a
                     href="https://horizonpublicservice.org/"
                     target="_blank"
-                    style={{ color: "var(--text-link)", textDecoration: "none" }}
-                    className="hover:underline"
+                    rel="noopener noreferrer"
+                    className="text-link no-underline hover:underline"
                   >
                     Horizon Institute for Public Service
                   </a>
@@ -348,8 +177,7 @@ export default function Home() {
                   Members in 12+ research labs on campus.{" "}
                   <a
                     href="/research"
-                    style={{ color: "var(--text-link)", textDecoration: "none" }}
-                    className="hover:underline"
+                    className="text-link no-underline hover:underline"
                   >
                     See our research page.
                   </a>
@@ -368,199 +196,35 @@ export default function Home() {
         </div>
 
         {/* Opportunities Section */}
-        <div
-          className="px-8 py-16"
-          style={{
-            backgroundColor: "var(--bg-page)",
-            width: "100vw",
-            maxWidth: "100vw",
-          }}
-        >
+        <div className="px-8 py-16 bg-page w-full">
           <h2
-            className="text-3xl font-semibold text-center mb-8"
-            style={{
-              color: "var(--text-heading)",
-                            paddingBottom: "8px",
-              maxWidth: "800px",
-              margin: "0 auto 2rem",
-            }}
+            className="text-3xl font-semibold text-center mb-8 pb-2 text-heading"
+            style={{ maxWidth: "800px", margin: "0 auto 2rem" }}
           >
             Opportunities
           </h2>
 
           <div className="max-w-6xl mx-auto mb-8 relative">
-            {/* Top Row - Technical Fundamentals, Policy Fundamentals, Technical Upskilling */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              {/* Technical Fundamentals */}
-              <a
-                href="/programs"
-                className="flex flex-col gap-2 p-6 relative cursor-pointer"
-                style={{
-                  backgroundColor: "var(--bg-card-alt)",
-                  borderRadius: "12px",
-                  boxShadow: "var(--shadow-card)",
-                  textDecoration: "none",
-                }}
-              >
-                <h3
-                  className="text-2xl font-semibold"
-                  style={{
-                    color: "var(--text-heading)",
-                  }}
-                >
-                  Technical Fundamentals
-                </h3>
-                <p
-                  className="text-lg"
-                  style={{
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  An eight-week research-oriented reading group on technical AI
-                  safety. Topics include reward specification, generalization,
-                  interpretability...
-                </p>
-                <p
-                  className="text-lg font-semibold mt-2"
-                  style={{
-                    color: "var(--text-link)",
-                  }}
-                >
-                  Click to learn more
-                </p>
-              </a>
-
-              {/* Policy Fundamentals */}
-              <a
-                href="/programs"
-                className="flex flex-col gap-2 p-6 relative cursor-pointer"
-                style={{
-                  backgroundColor: "var(--bg-card-alt)",
-                  borderRadius: "12px",
-                  boxShadow: "var(--shadow-card)",
-                  textDecoration: "none",
-                }}
-              >
-                <h3
-                  className="text-2xl font-semibold"
-                  style={{
-                    color: "var(--text-heading)",
-                  }}
-                >
-                  Policy Fundamentals
-                </h3>
-                <p
-                  className="text-lg"
-                  style={{
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  An eight-week reading group on the foundational governance and
-                  policy challenges posed by advanced AI systems. Topics include
-                  AI harms...
-                </p>
-                <p
-                  className="text-lg font-semibold mt-2"
-                  style={{
-                    color: "var(--text-link)",
-                  }}
-                >
-                  Click to learn more
-                </p>
-              </a>
-
-              {/* Technical Upskilling */}
-              <a
-                href="/programs"
-                className="flex flex-col gap-2 p-6 relative cursor-pointer"
-                style={{
-                  backgroundColor: "var(--bg-card-alt)",
-                  borderRadius: "12px",
-                  boxShadow: "var(--shadow-card)",
-                  textDecoration: "none",
-                }}
-              >
-                <h3
-                  className="text-2xl font-semibold"
-                  style={{
-                    color: "var(--text-heading)",
-                  }}
-                >
-                  Technical Upskilling
-                </h3>
-                <p
-                  className="text-lg"
-                  style={{
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  Build foundational machine learning knowledge and get an
-                  overview of major AI safety topics. Receive a certificate of
-                  completion after finishing the program...
-                </p>
-                <p
-                  className="text-lg font-semibold mt-2"
-                  style={{
-                    color: "var(--text-link)",
-                  }}
-                >
-                  Click to learn more
-                </p>
-              </a>
+              {OPPORTUNITIES.map((opportunity) => (
+                <OpportunityCard
+                  key={opportunity.title}
+                  opportunity={opportunity}
+                />
+              ))}
             </div>
 
-            {/* Bottom Row - Safety Scholars (Centered) */}
             <div className="flex justify-center">
-              <a
-                href="/programs"
-                className="flex flex-col gap-2 p-6 w-full md:w-1/2 relative z-10 cursor-pointer"
-                style={{
-                  backgroundColor: "var(--bg-card-alt)",
-                  borderRadius: "12px",
-                  boxShadow: "var(--shadow-card)",
-                  textDecoration: "none",
-                }}
-              >
-                <h3
-                  className="text-2xl font-semibold"
-                  style={{
-                    color: "var(--text-heading)",
-                  }}
-                >
-                  Safety Scholars Program
-                </h3>
-                <p
-                  className="text-lg"
-                  style={{
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  Safety Scholars are our core groups of members engaged in AI
-                  safety work. Members meet weekly to discuss topics in either
-                  technical AI safety or AI policy over a provided meal...
-                </p>
-                <p
-                  className="text-lg font-semibold mt-2"
-                  style={{
-                    color: "var(--text-link)",
-                  }}
-                >
-                  Click to learn more
-                </p>
-              </a>
+              <OpportunityCard
+                opportunity={FEATURED_OPPORTUNITY}
+                className="w-full md:w-1/2 z-10"
+              />
             </div>
           </div>
         </div>
 
         {/* Highlighted Research Section */}
-        <div
-          className="grid grid-cols-1 lg:grid-cols-2"
-          style={{
-            backgroundColor: "var(--bg-page)",
-            width: "100vw",
-            maxWidth: "100vw",
-          }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 bg-page w-full">
           {/* Left Column - Image with Title Overlay */}
           <div className="flex items-center justify-center relative">
             <Image
@@ -571,16 +235,8 @@ export default function Home() {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div
-                className="bg-opacity-90 p-4"
-                style={{ backgroundColor: "var(--bg-card-alt)", borderRadius: "12px" }}
-              >
-                <h2
-                  className="text-3xl font-semibold"
-                  style={{
-                    color: "var(--text-heading)",
-                  }}
-                >
+              <div className="bg-opacity-90 p-4 bg-card-alt rounded-card">
+                <h2 className="text-3xl font-semibold text-heading">
                   Current Projects
                 </h2>
               </div>
@@ -589,250 +245,48 @@ export default function Home() {
 
           {/* Right Column - Research Excerpts */}
           <div className="flex flex-col gap-6 px-8 py-8">
-            {/* Project 1 */}
-            <div
-              className="p-6"
-              style={{
-                backgroundColor: "var(--bg-card)",
-                borderRadius: "12px",
-                  boxShadow: "var(--shadow-card)",
-              }}
-            >
-              <h3
-                className="text-xl font-semibold mb-3"
-                style={{
-                  color: "var(--text-heading)",
-                }}
+            {CURRENT_PROJECTS.map((project) => (
+              <div
+                key={project.title}
+                className="p-6 bg-card rounded-card shadow-card"
               >
-                WAISI Technical AI Safety Workshop Program
-              </h3>
-              <p
-                className="leading-relaxed"
-                style={{
-                  color: "var(--text-primary)",
-                }}
-              >
-                Most AI Safety communities introduce members who are interested
-                in technical AI safety through the pipeline of Intro Technical
-                Fellowship → Paper Reading Sessions → Alignment Research
-                Engineer Accelerator program (ARENA)...
-              </p>
-              <a
-                href="/research"
-                className="text-lg font-semibold mt-2 inline-block"
-                style={{
-                  color: "var(--text-link)",
-                }}
-              >
-                Learn more →
-              </a>
-            </div>
-
-            {/* Project 2 */}
-            <div
-              className="p-6"
-              style={{
-                backgroundColor: "var(--bg-card)",
-                borderRadius: "12px",
-                  boxShadow: "var(--shadow-card)",
-              }}
-            >
-              <h3
-                className="text-xl font-semibold mb-3"
-                style={{
-                  color: "var(--text-heading)",
-                }}
-              >
-                Transferable Adversarial Materials (TAM)
-              </h3>
-              <p
-                className="leading-relaxed"
-                style={{
-                  color: "var(--text-primary)",
-                }}
-              >
-                Within the past decade, small portable Unmanned Aerial Systems
-                (UASs) operated by individual infantry units have been
-                demonstrated to be vital assets on the battlefield in
-                intelligence, surveillance...
-              </p>
-              <a
-                href="/research"
-                className="text-lg font-semibold mt-2 inline-block"
-                style={{
-                  color: "var(--text-link)",
-                }}
-              >
-                Learn more →
-              </a>
-            </div>
+                <h3 className="text-xl font-semibold mb-3 text-heading">
+                  {project.title}
+                </h3>
+                <p className="leading-relaxed text-primary">
+                  {project.description}
+                </p>
+                <a
+                  href="/research"
+                  className="text-lg font-semibold mt-2 inline-block text-link no-underline"
+                >
+                  Learn more →
+                </a>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Research Highlights Section */}
-        <div
-          className="px-8 py-16"
-          style={{
-            backgroundColor: "var(--bg-page)",
-            width: "100vw",
-            maxWidth: "100vw",
-          }}
-        >
+        <div className="px-8 py-16 bg-page w-full">
           <h2
-            className="text-3xl font-semibold text-center mb-8"
-            style={{
-              color: "var(--text-heading)",
-                            paddingBottom: "8px",
-              maxWidth: "800px",
-              margin: "0 auto 2rem",
-            }}
+            className="text-3xl font-semibold text-center mb-8 pb-2 text-heading"
+            style={{ maxWidth: "800px", margin: "0 auto 2rem" }}
           >
             Research Highlights
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* Paper 1 */}
-            <div
-              className="flex flex-col overflow-hidden rounded-xl"
-              style={{
-                backgroundColor: "var(--bg-card)",
-                borderRadius: "12px",
-                  boxShadow: "var(--shadow-card)",
-              }}
-            >
-              <div className="relative w-full" style={{ height: "200px" }}>
-                <Image
-                  src="/towards_interp.png"
-                  alt="Towards Interpretability Without Sacrifice"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <h3
-                  className="text-lg font-semibold mb-3"
-                  style={{
-                    color: "var(--text-heading)",
-                  }}
-                >
-                  Towards Interpretability Without Sacrifice: Faithful Dense
-                  Layer Decomposition with Mixture of Decoders
-                </h3>
-                <div className="mt-auto">
-                  <a
-                    href="https://arxiv.org/pdf/2505.21364"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-base font-semibold inline-block hover:underline"
-                    style={{
-                      color: "var(--text-link)",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Read paper →
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Paper 2 */}
-            <div
-              className="flex flex-col overflow-hidden rounded-xl"
-              style={{
-                backgroundColor: "var(--bg-card)",
-                borderRadius: "12px",
-                  boxShadow: "var(--shadow-card)",
-              }}
-            >
-              <div className="relative w-full" style={{ height: "200px" }}>
-                <Image
-                  src="/Debate_or_Vote.webp"
-                  alt="Debate or Vote"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <h3
-                  className="text-lg font-semibold mb-3"
-                  style={{
-                    color: "var(--text-heading)",
-                  }}
-                >
-                  Debate or Vote: Which Yields Better Decisions in Multi-Agent
-                  Large Language Models?
-                </h3>
-                <div className="mt-auto">
-                  <a
-                    href="https://arxiv.org/pdf/2508.17536"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-base font-semibold inline-block hover:underline"
-                    style={{
-                      color: "var(--text-link)",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Read paper →
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Paper 3 */}
-            <div
-              className="flex flex-col overflow-hidden rounded-xl"
-              style={{
-                backgroundColor: "var(--bg-card)",
-                borderRadius: "12px",
-                  boxShadow: "var(--shadow-card)",
-              }}
-            >
-              <div className="relative w-full" style={{ height: "200px" }}>
-                <Image
-                  src="/Everything_Everywhere.png"
-                  alt="Everything Everywhere All at Once"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <h3
-                  className="text-lg font-semibold mb-3"
-                  style={{
-                    color: "var(--text-heading)",
-                  }}
-                >
-                  Everything Everywhere All at Once: LLMs can In-Context Learn
-                  Multiple Tasks in Superposition
-                </h3>
-                <div className="mt-auto">
-                  <a
-                    href="https://arxiv.org/pdf/2410.05603"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-base font-semibold inline-block hover:underline"
-                    style={{
-                      color: "var(--text-link)",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Read paper →
-                  </a>
-                </div>
-              </div>
-            </div>
+            {RESEARCH_HIGHLIGHTS.map((paper) => (
+              <PaperCard key={paper.link} paper={paper} />
+            ))}
           </div>
 
           {/* See More Papers Button */}
           <div className="flex justify-center mt-8">
             <a
               href="/research"
-              className="px-6 py-3 font-semibold transition-opacity hover:opacity-80"
-              style={{
-                backgroundColor: "#8B5CF6",
-                color: "#FFFFFF",
-                borderRadius: "12px",
-              }}
+              className="px-6 py-3 font-semibold transition-opacity hover:opacity-80 text-white rounded-card"
+              style={{ backgroundColor: "#8B5CF6" }}
             >
               See our 20+ Papers
             </a>
@@ -841,186 +295,39 @@ export default function Home() {
       </div>
 
       {/* Collaborations Section */}
-      <CompanyCarousel
-        companies={[
-          {
-            name: "UChicago XLab",
-            logo: "/xlab_logo.jpeg",
-            bgColor: "bg-red-50",
-            website: "https://xrisk.uchicago.edu/",
-          },
-          {
-            name: "Center for AI Safety",
-            logo: "/cais_logo.jpeg",
-            bgColor: "bg-blue-50",
-            website: "https://www.safe.ai/",
-          },
-          {
-            name: "Americans for Responsible Innovation",
-            logo: "/americans_for_responsible_innovation_logo.jpeg",
-            bgColor: "bg-green-50",
-            website: "https://responsibleinnovation.org/",
-          },
-          {
-            name: "MATS",
-            logo: "/mats_logo.jpeg",
-            bgColor: "bg-purple-50",
-            website: "https://www.matsprogram.org/",
-          },
-          {
-            name: "NYU Alignment Group",
-            logo: "/nyu_logo.png",
-            bgColor: "bg-purple-50",
-            website: "https://wp.nyu.edu/arg/",
-          },
-          {
-            name: "Stanford SAIL",
-            logo: "/sail_logo.jpg",
-            bgColor: "bg-red-50",
-            website: "https://ai.stanford.edu/",
-          },
-          {
-            name: "OpenNLP Labs",
-            logo: "/opennlplabs_logo.jpeg",
-            bgColor: "bg-indigo-50",
-            website: "http://opennlplabs.org/",
-          },
-          {
-            name: "EleutherAI",
-            logo: "/eleuther_logo.png",
-            bgColor: "bg-gray-50",
-            website: "https://www.eleuther.ai/",
-          },
-          {
-            name: "Meta",
-            logo: "/meta_logo.jpeg",
-            bgColor: "bg-blue-50",
-            website: "https://about.meta.com/",
-          },
-          {
-            name: "DeepSeek",
-            logo: "/deepseek_logo.jpeg",
-            bgColor: "bg-teal-50",
-            website: "https://www.deepseek.com/",
-          },
-          {
-            name: "Cooperative AI Foundation",
-            logo: "/cooperative_ai.jpeg",
-            bgColor: "bg-green-50",
-            website: "https://www.cooperativeai.com/",
-          },
-          {
-            name: "Anthropic",
-            logo: "/labs/anthropic.webp",
-            bgColor: "bg-orange-50",
-            website: "https://www.anthropic.com/",
-          },
-          {
-            name: "FAR.AI",
-            logo: "/far_ai_logo.jpeg",
-            bgColor: "bg-purple-50",
-            website: "https://far.ai/",
-          },
-          {
-            name: "Google",
-            logo: "/google_logo.jpeg",
-            bgColor: "bg-blue-50",
-            website: "https://www.google.com/",
-          },
-          {
-            name: "Microsoft",
-            logo: "/microsoft_logo.jpeg",
-            bgColor: "bg-gray-50",
-            website: "https://www.microsoft.com/",
-          },
-          {
-            name: "Apple",
-            logo: "/apple_logo.jpeg",
-            bgColor: "bg-gray-50",
-            website: "https://www.apple.com/",
-          },
-          {
-            name: "Amazon",
-            logo: "/amazon_logo.jpeg",
-            bgColor: "bg-yellow-50",
-            website: "https://www.amazon.com/",
-          },
-        ]}
-      />
+      <CompanyCarousel companies={COLLABORATORS} />
 
       {/* Our Sponsors Section */}
-      <div
-        className="px-8 py-16"
-        style={{
-          backgroundColor: "var(--bg-page)",
-          width: "100vw",
-          maxWidth: "100vw",
-        }}
-      >
+      <div className="px-8 py-16 bg-page w-full">
         <h2
-          className="text-3xl font-semibold text-center mb-12"
-          style={{
-            color: "var(--text-heading)",
-                        paddingBottom: "8px",
-            maxWidth: "800px",
-            margin: "0 auto 3rem",
-          }}
+          className="text-3xl font-semibold text-center mb-12 pb-2 text-heading"
+          style={{ maxWidth: "800px", margin: "0 auto 3rem" }}
         >
           Our Sponsors
         </h2>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto">
-          {/* KAIROS */}
-          <div className="flex flex-col items-center gap-4">
-            <a
-              href="https://kairos-project.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-opacity hover:opacity-80"
-            >
-              <Image
-                src="/kairos_logo.jpeg"
-                alt="KAIROS Logo"
-                width={200}
-                height={100}
-                className="object-contain"
-              />
-            </a>
-            <p
-              className="text-lg font-semibold text-center"
-              style={{
-                color: "var(--text-primary)",
-              }}
-            >
-              Kairos
-            </p>
-          </div>
-
-          {/* UW Madison CS */}
-          <div className="flex flex-col items-center gap-4">
-            <a
-              href="https://www.cs.wisc.edu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-opacity hover:opacity-80"
-            >
-              <Image
-                src="/uw_madison_computer_sciences_logo.jpeg"
-                alt="UW Madison Computer Sciences Logo"
-                width={200}
-                height={100}
-                className="object-contain"
-              />
-            </a>
-            <p
-              className="text-lg font-semibold text-center"
-              style={{
-                color: "var(--text-primary)",
-              }}
-            >
-              UW-Madison Computer Sciences
-            </p>
-          </div>
+          {SPONSORS.map((sponsor) => (
+            <div key={sponsor.name} className="flex flex-col items-center gap-4">
+              <a
+                href={sponsor.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-opacity hover:opacity-80"
+              >
+                <Image
+                  src={sponsor.logo}
+                  alt={sponsor.alt}
+                  width={200}
+                  height={100}
+                  className="object-contain"
+                />
+              </a>
+              <p className="text-lg font-semibold text-center text-primary">
+                {sponsor.name}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

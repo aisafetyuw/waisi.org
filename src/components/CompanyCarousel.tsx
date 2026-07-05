@@ -138,15 +138,7 @@ export default function CompanyCarousel({ companies }: CompanyCarouselProps) {
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "var(--bg-page)",
-        width: "100vw",
-        maxWidth: "100vw",
-        paddingTop: "64px",
-        paddingBottom: "32px",
-      }}
-    >
+    <div className="bg-page w-full pt-16 pb-8">
       <h2
         className="text-3xl font-semibold text-center mb-8 px-8"
         style={{ color: "var(--text-heading)" }}

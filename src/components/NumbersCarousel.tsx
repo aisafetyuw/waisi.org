@@ -17,10 +17,7 @@ export default function NumbersCarousel() {
   ];
 
   return (
-    <div
-      className="py-16"
-      style={{ backgroundColor: "var(--bg-page)", width: "100vw", maxWidth: "100vw" }}
-    >
+    <div className="py-16 bg-page w-full">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-8 lg:px-16">
         {/* Left Column - Quote */}
         <div className="flex flex-col justify-center items-center lg:items-end lg:pr-8">
