@@ -3,6 +3,10 @@ import Professor from "@/components/prof";
 import ResearchList from "@/components/ResearchList";
 import { ProfProps } from "@/types";
 
+// Re-fetch the research sheet in the background at most once an hour, so
+// spreadsheet edits go live without a redeploy.
+export const revalidate = 3600;
+
 export default async function ResearchPage() {
   const research = await getResearch();
   const clubMembers = new Set(

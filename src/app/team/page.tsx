@@ -1,6 +1,10 @@
 import Member from "@/components/member";
 import getMembers from "@/app/team/getMembers";
 
+// Re-fetch the members sheet in the background at most once an hour, so
+// spreadsheet edits go live without a redeploy.
+export const revalidate = 3600;
+
 export default async function Team() {
   const members = await getMembers();
 

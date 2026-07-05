@@ -1,19 +1,26 @@
 import { CalendarEventData } from "@/types";
 
+// Events happen in Madison, so format dates/times in Central time explicitly.
+// This also keeps rendering deterministic now that this runs on the server,
+// where the machine timezone would otherwise be UTC.
+const TIME_ZONE = 'America/Chicago';
+
 export default function CalendarEvent({ event }: { event: CalendarEventData }) {
   function formatDate(dateString: string, isAllDay: boolean): string {
     const date = new Date(dateString);
 
-    if (isAllDay) {
-        date.setDate(date.getDate() + 1);
-    }
-
-    return `${date.toLocaleString('default', { month: 'short' })}. ${date.getDate()}`;
+    // All-day events come as bare dates ("2026-07-05"), which parse as UTC
+    // midnight — format those in UTC so the calendar date is preserved.
+    // Timed events carry a real instant — format those in Central time.
+    const timeZone = isAllDay ? 'UTC' : TIME_ZONE;
+    const month = date.toLocaleString('en-US', { month: 'short', timeZone });
+    const day = date.toLocaleString('en-US', { day: 'numeric', timeZone });
+    return `${month}. ${day}`;
   }
 
   function formatTime(dateString: string): string {
     const date = new Date(dateString);
-    return date.toLocaleTimeString('default', { hour: '2-digit', minute: '2-digit' }).replace(/^0+/, '');
+    return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZone: TIME_ZONE }).replace(/^0+/, '');
   }
 
   function generateGoogleMapsURL(location: string): string {
