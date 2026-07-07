@@ -1,4 +1,5 @@
 import Image from "next/image";
+import heroImg from "../../public/capital_landscape.webp";
 import CompanyCarousel from "@/components/CompanyCarousel";
 import NumbersCarousel from "@/components/NumbersCarousel";
 import PhotoCarousel from "@/components/PhotoCarousel";
@@ -23,11 +24,14 @@ export default function Home() {
         style={{ height: "100vh", marginTop: "-80px", paddingTop: "80px" }}
       >
         <Image
-          src="/capital_landscape.webp"
+          src={heroImg}
           alt="WAISI at the Capitol"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
+          placeholder="blur"
+          quality={60}
           style={{ zIndex: 0 }}
         />
         <div
