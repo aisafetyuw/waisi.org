@@ -21,12 +21,7 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
 
   return (
     <div>
-      <h2
-        className="text-2xl font-semibold mb-4"
-        style={{
-          color: "var(--text-heading)",
-        }}
-      >
+      <h2 className="text-2xl font-semibold mb-4 text-heading">
         Blogs & Articles
       </h2>
       <div className="relative">
@@ -59,20 +54,11 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
                 href={blog.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg font-semibold hover:underline"
-                style={{
-                  color: "var(--text-link)",
-                  textDecoration: "none",
-                }}
+                className="text-lg font-semibold hover:underline text-link no-underline"
               >
                 {blog.title}
               </a>
-              <p
-                className="text-base"
-                style={{
-                  color: "var(--text-primary)",
-                }}
-              >
+              <p className="text-base text-primary">
                 {blog.description}
               </p>
             </div>
@@ -205,18 +191,16 @@ export default function Resources() {
   return (
     <div
       id="resources"
-      className="-mx-10"
+      className="-mx-10 bg-page"
       style={{
         marginLeft: "-40px",
         marginRight: "-40px",
-        backgroundColor: "var(--bg-page)",
       }}
     >
       <div className="px-4 sm:px-8 md:px-16 pt-8 pb-16">
         <h1
-          className="text-4xl font-semibold mb-8"
+          className="text-4xl font-semibold mb-8 text-heading"
           style={{
-            color: "var(--text-heading)",
             paddingBottom: "8px",
           }}
         >
@@ -227,12 +211,7 @@ export default function Resources() {
           {/* Top row: Videos and Blogs side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h2
-                className="text-2xl font-semibold mb-4"
-                style={{
-                  color: "var(--text-heading)",
-                }}
-              >
+              <h2 className="text-2xl font-semibold mb-4 text-heading">
                 Videos
               </h2>
               <div className="flex flex-col gap-4">
@@ -246,20 +225,11 @@ export default function Resources() {
                       href={video.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg font-semibold hover:underline"
-                      style={{
-                        color: "var(--text-link)",
-                        textDecoration: "none",
-                      }}
+                      className="text-lg font-semibold hover:underline text-link no-underline"
                     >
                       {video.title}
                     </a>
-                    <p
-                      className="text-base"
-                      style={{
-                        color: "var(--text-primary)",
-                      }}
-                    >
+                    <p className="text-base text-primary">
                       {video.description}
                     </p>
                   </div>
@@ -273,12 +243,7 @@ export default function Resources() {
           {/* Bottom row: Podcasts and Websites side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h2
-                className="text-2xl font-semibold mb-4"
-                style={{
-                  color: "var(--text-heading)",
-                }}
-              >
+              <h2 className="text-2xl font-semibold mb-4 text-heading">
                 Podcasts
               </h2>
               <div className="flex flex-col gap-4">
@@ -292,20 +257,11 @@ export default function Resources() {
                       href={podcast.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg font-semibold hover:underline"
-                      style={{
-                        color: "var(--text-link)",
-                        textDecoration: "none",
-                      }}
+                      className="text-lg font-semibold hover:underline text-link no-underline"
                     >
                       {podcast.title}
                     </a>
-                    <p
-                      className="text-base"
-                      style={{
-                        color: "var(--text-primary)",
-                      }}
-                    >
+                    <p className="text-base text-primary">
                       {podcast.description}
                     </p>
                   </div>
@@ -314,12 +270,7 @@ export default function Resources() {
             </div>
 
             <div>
-              <h2
-                className="text-2xl font-semibold mb-4"
-                style={{
-                  color: "var(--text-heading)",
-                }}
-              >
+              <h2 className="text-2xl font-semibold mb-4 text-heading">
                 Exploratory Websites
               </h2>
               <div className="flex flex-col gap-4">
@@ -333,20 +284,11 @@ export default function Resources() {
                       href={site.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg font-semibold hover:underline"
-                      style={{
-                        color: "var(--text-link)",
-                        textDecoration: "none",
-                      }}
+                      className="text-lg font-semibold hover:underline text-link no-underline"
                     >
                       {site.title}
                     </a>
-                    <p
-                      className="text-base"
-                      style={{
-                        color: "var(--text-primary)",
-                      }}
-                    >
+                    <p className="text-base text-primary">
                       {site.description}
                     </p>
                   </div>

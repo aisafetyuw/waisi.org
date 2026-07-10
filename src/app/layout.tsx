@@ -41,20 +41,16 @@ export default function RootLayout({
       <body>
         <Suspense
           fallback={
-            <div
-              className="fixed top-0 left-0 right-0 z-50 h-20"
-              style={{ backgroundColor: "var(--bg-page)" }}
-            />
+            <div className="fixed top-0 left-0 right-0 z-50 h-20 bg-page" />
           }
         >
           <Nav />
         </Suspense>
         <div
           id="content"
-          className="flex flex-col min-h-screen pt-20"
+          className="flex flex-col min-h-screen pt-20 bg-page"
           style={{
             minHeight: "calc(100vh - 210px)",
-            backgroundColor: "var(--bg-page)",
           }}
         >
           {children}

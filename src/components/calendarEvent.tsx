@@ -40,9 +40,9 @@ export default function CalendarEvent({ event }: { event: CalendarEventData }) {
   }
 
   return (
-    <div className="shadow-lg rounded-lg my-4 p-4 h-full transform transition-transform hover:scale-105" style={{ backgroundColor: "#F9FAFB", color: "#1A1A1A" }}>
+    <div className="shadow-lg rounded-lg my-4 p-4 h-full transform transition-transform hover:scale-105 bg-card-alt text-primary">
       {event.htmlLink &&
-        <h3 className="mb-1" style={{ color: "#6B7280" }}>
+        <h3 className="mb-1 text-[#6B7280]">
           <a href={event.htmlLink} title="View in Google Calendar" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
             <FontAwesomeIcon icon={faCalendar} className="mb-3" />
             &nbsp;&nbsp;
@@ -52,8 +52,8 @@ export default function CalendarEvent({ event }: { event: CalendarEventData }) {
       }
       <hr className="mb-1" />
       {event.start &&
-        <span className="text-sm" style={{ color: "#1A1A1A" }}>
-          <FontAwesomeIcon icon={faClock} className="text-sm mb-3" style={{ color: "#6B7280" }} />
+        <span className="text-sm text-primary">
+          <FontAwesomeIcon icon={faClock} className="text-sm mb-3 text-[#6B7280]" />
           &nbsp;
           <span className="text-sm">
             {event.start.date ? formatDate(event.start.date, true) : formatDate(event.start.dateTime!, false)}
@@ -71,7 +71,7 @@ export default function CalendarEvent({ event }: { event: CalendarEventData }) {
       {event.location &&
         <span className="text-sm">
           <br />
-          <a className="text-sm hover:opacity-80" style={{ color: "#6B7280" }} href={generateGoogleMapsURL(event.location)}>
+          <a className="text-sm hover:opacity-80 text-[#6B7280]" href={generateGoogleMapsURL(event.location)}>
             <FontAwesomeIcon icon={faLocationDot} className="text-sm" />
             &nbsp;
             <span className="location">{event.location}</span>
@@ -81,7 +81,7 @@ export default function CalendarEvent({ event }: { event: CalendarEventData }) {
       {event.description &&
         <span>
           <hr className="mb-1" />
-          <div className="text-md event-description" style={{ color: "#1A1A1A" }} dangerouslySetInnerHTML={{ __html: formatDescription(event.description) }} />
+          <div className="text-md event-description text-primary" dangerouslySetInnerHTML={{ __html: formatDescription(event.description) }} />
         </span>
       }
     </div>

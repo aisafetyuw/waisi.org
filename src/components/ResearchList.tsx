@@ -42,8 +42,7 @@ export default function ResearchList({
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="overflow-x-auto max-h-96 overflow-y-auto p-4"
-        style={{ backgroundColor: "var(--bg-card)", borderRadius: "12px", boxShadow: "var(--shadow-card)" }}
+        className="overflow-x-auto max-h-96 overflow-y-auto p-4 bg-card rounded-card shadow-card"
       >
         <table className="w-full border-collapse">
           <tbody>
@@ -53,37 +52,26 @@ export default function ResearchList({
                   <td className="px-4 py-2 w-1/4">
                     <a
                       href={paper.link}
-                      className="font-bold hover:underline"
+                      className="font-bold hover:underline text-link no-underline"
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{
-                        color: "var(--text-link)",
-                        textDecoration: "none",
-                      }}
                     >
                       {paper.name}
                     </a>
                   </td>
                   <td
-                    className="px-4 py-2 w-2/5"
-                    style={{
-                      color: "var(--text-primary)",
-                    }}
+                    className="px-4 py-2 w-2/5 text-primary"
                   >
                     {highlightAuthors(paper.authors, clubMembers)}
                   </td>
                   <td
-                    className="px-4 py-2 w-1/6"
-                    style={{
-                      color: "var(--text-primary)",
-                    }}
+                    className="px-4 py-2 w-1/6 text-primary"
                   >
                     {paper.conference && (
                       <span
-                        className="inline-block px-2 py-1 text-sm font-semibold"
+                        className="inline-block px-2 py-1 text-sm font-semibold text-heading"
                         style={{
                           backgroundColor: "#EDE9FE",
-                          color: "var(--text-heading)",
                           borderRadius: "8px",
                         }}
                       >
@@ -92,10 +80,7 @@ export default function ResearchList({
                     )}
                   </td>
                   <td
-                    className="px-4 py-2 w-1/6 text-right pl-2"
-                    style={{
-                      color: "var(--text-primary)",
-                    }}
+                    className="px-4 py-2 w-1/6 text-right pl-2 text-primary"
                   >
                     {paper.date}
                   </td>
@@ -106,31 +91,21 @@ export default function ResearchList({
                   <td className="px-4 py-2">
                     <a
                       href={paper.link}
-                      className="font-bold hover:underline"
+                      className="font-bold hover:underline text-link no-underline"
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{
-                        color: "var(--text-link)",
-                        textDecoration: "none",
-                      }}
                     >
                       {paper.name}
                     </a>
-                    <div
-                      className="mt-1"
-                      style={{
-                        color: "var(--text-primary)",
-                      }}
-                    >
+                    <div className="mt-1 text-primary">
                       {highlightAuthors(paper.authors, clubMembers)}
                     </div>
                     {paper.conference && (
                       <div className="mt-1">
                         <span
-                          className="inline-block px-2 py-1 text-sm font-semibold"
+                          className="inline-block px-2 py-1 text-sm font-semibold text-heading"
                           style={{
                             backgroundColor: "#EDE9FE",
-                            color: "var(--text-heading)",
                             borderRadius: "8px",
                           }}
                         >
@@ -138,12 +113,7 @@ export default function ResearchList({
                         </span>
                       </div>
                     )}
-                    <div
-                      className="mt-1"
-                      style={{
-                        color: "var(--text-primary)",
-                      }}
-                    >
+                    <div className="mt-1 text-primary">
                       {paper.date}
                     </div>
                   </td>
@@ -176,7 +146,7 @@ function highlightAuthors(authors: string, clubMembers: Set<string>) {
   return authors.split(", ").map((name, i, arr) => (
     <React.Fragment key={i}>
       {clubMembers.has(name.trim()) ? (
-        <strong className="font-bold" style={{ color: "var(--text-heading)" }}>
+        <strong className="font-bold text-heading">
           {name}
         </strong>
       ) : (

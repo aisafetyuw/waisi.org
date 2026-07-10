@@ -289,8 +289,7 @@ export default function Home() {
           <div className="flex justify-center mt-8">
             <a
               href="/research"
-              className="px-6 py-3 font-semibold transition-opacity hover:opacity-80 text-white rounded-card"
-              style={{ backgroundColor: "#8B5CF6" }}
+              className="px-6 py-3 font-semibold transition-opacity hover:opacity-80 text-white rounded-card bg-link"
             >
               See our 20+ Papers
             </a>
