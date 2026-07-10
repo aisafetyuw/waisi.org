@@ -16,56 +16,35 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bottom-0 w-full" style={{ backgroundColor: "#6B46C1" }}>
+    <footer className="bottom-0 w-full bg-brand">
       <div className="max-w-6xl mx-auto px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3
-              className="font-semibold text-lg mb-3"
-              style={{
-                color: "#FFF9F0",
-              }}
-            >
+            <h3 className="font-semibold text-lg mb-3 text-cream">
               Quick Links
             </h3>
             <div className="flex flex-col space-y-2">
               <Link
                 href="/team"
-                className="hover:underline"
-                style={{
-                  color: "#FFF9F0",
-                  opacity: 0.9,
-                }}
+                className="hover:underline text-cream opacity-90"
               >
                 Our Team
               </Link>
               <Link
                 href="/programs"
-                className="hover:underline"
-                style={{
-                  color: "#FFF9F0",
-                  opacity: 0.9,
-                }}
+                className="hover:underline text-cream opacity-90"
               >
                 Get Involved
               </Link>
               <Link
                 href="/research"
-                className="hover:underline"
-                style={{
-                  color: "#FFF9F0",
-                  opacity: 0.9,
-                }}
+                className="hover:underline text-cream opacity-90"
               >
                 Research
               </Link>
               <Link
                 href="/contact"
-                className="hover:underline"
-                style={{
-                  color: "#FFF9F0",
-                  opacity: 0.9,
-                }}
+                className="hover:underline text-cream opacity-90"
               >
                 Contact
               </Link>
@@ -73,12 +52,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3
-              className="font-semibold text-lg mb-3"
-              style={{
-                color: "#FFF9F0",
-              }}
-            >
+            <h3 className="font-semibold text-lg mb-3 text-cream">
               Connect With Us
             </h3>
             <div className="flex flex-col space-y-2">
@@ -86,11 +60,7 @@ export default function Footer() {
                 href={DISCORD_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
-                style={{
-                  color: "#FFF9F0",
-                  opacity: 0.9,
-                }}
+                className="hover:underline text-cream opacity-90"
               >
                 <FontAwesomeIcon icon={faDiscord} className="mr-2" aria-hidden="true" />Discord
               </a>
@@ -98,11 +68,7 @@ export default function Footer() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
-                style={{
-                  color: "#FFF9F0",
-                  opacity: 0.9,
-                }}
+                className="hover:underline text-cream opacity-90"
               >
                 <FontAwesomeIcon icon={faInstagram} className="mr-2" aria-hidden="true" />Instagram
               </a>
@@ -110,11 +76,7 @@ export default function Footer() {
                 href={TWITTER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
-                style={{
-                  color: "#FFF9F0",
-                  opacity: 0.9,
-                }}
+                className="hover:underline text-cream opacity-90"
               >
                 <FontAwesomeIcon icon={faTwitter} className="mr-2" aria-hidden="true" />Twitter
               </a>
@@ -122,11 +84,7 @@ export default function Footer() {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
-                style={{
-                  color: "#FFF9F0",
-                  opacity: 0.9,
-                }}
+                className="hover:underline text-cream opacity-90"
               >
                 <FontAwesomeIcon icon={faLinkedin} className="mr-2" aria-hidden="true" />LinkedIn
               </a>
@@ -134,21 +92,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3
-              className="font-semibold text-lg mb-3"
-              style={{
-                color: "#FFF9F0",
-              }}
-            >
+            <h3 className="font-semibold text-lg mb-3 text-cream">
               Stay Updated
             </h3>
-            <p
-              className="mb-3"
-              style={{
-                color: "#FFF9F0",
-                opacity: 0.9,
-              }}
-            >
+            <p className="mb-3 text-cream opacity-90">
               Join our mailing list for updates on programs, events, and
               research.
             </p>
@@ -156,12 +103,7 @@ export default function Footer() {
               href={INTEREST_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-4 py-2 transition-colors hover:opacity-90"
-              style={{
-                backgroundColor: "#C4B5FD",
-                color: "#6B46C1",
-                fontWeight: 600,
-              }}
+              className="inline-block px-4 py-2 transition-colors hover:opacity-90 bg-[#C4B5FD] text-heading font-semibold"
             >
               Subscribe →
             </a>
@@ -169,26 +111,12 @@ export default function Footer() {
         </div>
 
         {/* Copyright and Non-Profit Notice */}
-        <div
-          className="mt-8 pt-6 border-t text-center"
-          style={{ borderColor: "rgba(255, 249, 240, 0.2)" }}
-        >
-          <p
-            style={{
-              color: "#FFF9F0",
-              opacity: 0.9,
-            }}
-          >
+        <div className="mt-8 pt-6 border-t text-center border-cream/20">
+          <p className="text-cream opacity-90">
             © {new Date().getFullYear()} Wisconsin AI Safety Initiative. All
             rights reserved.
           </p>
-          <p
-            className="mt-2"
-            style={{
-              color: "#FFF9F0",
-              opacity: 0.9,
-            }}
-          >
+          <p className="mt-2 text-cream opacity-90">
             WAISI is a 501(c)(3) non-profit organization.
           </p>
         </div>
@@ -196,4 +124,3 @@ export default function Footer() {
     </footer>
   );
 }
-
