@@ -51,7 +51,6 @@ src/
   lib/google.ts   service-account auth helper (env vars → JWT client)
   constants.ts    static links (Discord, forms, handbooks)
   types.ts        shared types
-  archive/        old pages kept for reference (not routed)
 public/           images and static assets
 ```
 
