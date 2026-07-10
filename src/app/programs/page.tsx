@@ -10,12 +10,7 @@ export default async function Programs() {
   return (
     <div
       id="programs"
-      className="-mx-10"
-      style={{
-        marginLeft: "-40px",
-        marginRight: "-40px",
-        backgroundColor: "var(--bg-page)",
-      }}
+      className="-mx-10 bg-page"
     >
       <div className="px-16 py-8 pb-16">
         <div className="flex flex-col gap-6">
@@ -26,27 +21,15 @@ export default async function Programs() {
                   {/* Top Row - AI Safety Fundamentals Programs (Centered) */}
                   <div className="flex justify-center mb-16">
                     <div
-                      className="flex flex-col gap-2 p-6 w-full md:w-2/3 relative z-10"
-                      style={{
-                        backgroundColor: "var(--bg-page)",
-                        borderRadius: "12px",
-                        boxShadow: "var(--shadow-card)",
-                      }}
+                      className="flex flex-col gap-2 p-6 w-full md:w-2/3 relative z-10 bg-page rounded-card shadow-card"
                     >
                       <h2
-                        className="text-3xl font-semibold"
-                        style={{
-                          color: "var(--text-heading)",
-                          paddingBottom: "8px",
-                        }}
+                        className="text-3xl font-semibold text-heading pb-2"
                       >
                         AI Safety Fundamentals Programs
                       </h2>
                       <ul
-                        className="list-disc pl-5 text-lg space-y-2 mt-2"
-                        style={{
-                          color: "var(--text-primary)",
-                        }}
+                        className="list-disc pl-5 text-lg space-y-2 mt-2 text-primary"
                       >
                         <li>8-week reading group on AI safety fundamentals</li>
                         <li>
@@ -64,8 +47,7 @@ export default async function Programs() {
                           <a
                             href="https://docs.google.com/document/d/1nlA0I7yGo7e7tC6xS8kBQUuyil88xrYji5KPeyUPRwA/edit?usp=sharing"
                             target="_blank" rel="noopener noreferrer"
-                            style={{ color: "var(--text-link)", textDecoration: "none" }}
-                            className="hover:underline"
+                            className="hover:underline text-link"
                           >
                             program handbook
                           </a>
@@ -76,15 +58,7 @@ export default async function Programs() {
 
                   {/* Connection Lines */}
                   <svg
-                    className="absolute hidden md:block"
-                    style={{
-                      top: "280px",
-                      left: "0",
-                      width: "100%",
-                      height: "140px",
-                      pointerEvents: "none",
-                      zIndex: 0,
-                    }}
+                    className="absolute hidden md:block top-[280px] left-0 w-full h-[140px] pointer-events-none z-0"
                   >
                     {/* Line from AI Safety Fundamentals to Technical */}
                     <line
@@ -110,30 +84,18 @@ export default async function Programs() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Technical Fundamentals */}
                     <div
-                      className="flex flex-col gap-2 p-6 relative"
-                      style={{
-                        backgroundColor: "var(--bg-card)",
-                        borderRadius: "12px",
-                        boxShadow: "var(--shadow-card)",
-                      }}
+                      className="flex flex-col gap-2 p-6 relative bg-card rounded-card shadow-card"
                     >
                       <h3
-                        className="text-2xl font-semibold"
-                        style={{
-                          color: "var(--text-heading)",
-                          paddingBottom: "8px",
-                        }}
+                        className="text-2xl font-semibold text-heading pb-2"
                       >
                         Technical Fundamentals
                       </h3>
                       <ul
-                        className="list-disc pl-5 text-lg space-y-2 mt-2"
-                        style={{
-                          color: "var(--text-primary)",
-                        }}
+                        className="list-disc pl-5 text-lg space-y-2 mt-2 text-primary"
                       >
                         <li>
-                          <b style={{ color: "var(--text-heading)" }}>Topics include:</b>{" "}
+                          <b className="text-heading">Topics include:</b>{" "}
                           reward specification, generalization,
                           interpretability, unlearning, career explorations, and
                           more
@@ -143,8 +105,7 @@ export default async function Programs() {
                           <a
                             href="https://course.aisafetyfundamentals.com/alignment"
                             target="_blank" rel="noopener noreferrer"
-                            style={{ color: "var(--text-link)", textDecoration: "none" }}
-                            className="hover:underline"
+                            className="hover:underline text-link"
                           >
                             Bluedot Alignment Course
                           </a>
@@ -155,18 +116,14 @@ export default async function Programs() {
                         </li>
                       </ul>
                       <p
-                        className="text-lg mt-2"
-                        style={{
-                          color: "var(--text-primary)",
-                        }}
+                        className="text-lg mt-2 text-primary"
                       >
                         Applications are due by February 23rd, 2026.{" "}
                         <a
                           href="https://docs.google.com/forms/d/e/1FAIpQLSdJ5rgafADd1JlnpmVoCd323XMUGOGzGreGWsmaLGF_3OvMMg/viewform?usp=header"
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ color: "var(--text-link)", textDecoration: "none" }}
-                          className="hover:underline"
+                          className="hover:underline text-link"
                         >
                           Apply here
                         </a>
@@ -176,30 +133,18 @@ export default async function Programs() {
 
                     {/* Policy Fundamentals */}
                     <div
-                      className="flex flex-col gap-2 p-6 relative"
-                      style={{
-                        backgroundColor: "var(--bg-card)",
-                        borderRadius: "12px",
-                        boxShadow: "var(--shadow-card)",
-                      }}
+                      className="flex flex-col gap-2 p-6 relative bg-card rounded-card shadow-card"
                     >
                       <h3
-                        className="text-2xl font-semibold"
-                        style={{
-                          color: "var(--text-heading)",
-                          paddingBottom: "8px",
-                        }}
+                        className="text-2xl font-semibold text-heading pb-2"
                       >
                         Policy Fundamentals
                       </h3>
                       <ul
-                        className="list-disc pl-5 text-lg space-y-2 mt-2"
-                        style={{
-                          color: "var(--text-primary)",
-                        }}
+                        className="list-disc pl-5 text-lg space-y-2 mt-2 text-primary"
                       >
                         <li>
-                          <b style={{ color: "var(--text-heading)" }}>Topics include:</b> AI
+                          <b className="text-heading">Topics include:</b> AI
                           harms, economic and social impacts, responsible
                           scaling policies, open vs. closed source AI, career
                           explorations, and more
@@ -209,8 +154,7 @@ export default async function Programs() {
                           <a
                             href="https://course.aisafetyfundamentals.com/governance"
                             target="_blank" rel="noopener noreferrer"
-                            style={{ color: "var(--text-link)", textDecoration: "none" }}
-                            className="hover:underline"
+                            className="hover:underline text-link"
                           >
                             Bluedot Governance Course
                           </a>
@@ -221,18 +165,14 @@ export default async function Programs() {
                         </li>
                       </ul>
                       <p
-                        className="text-lg mt-2"
-                        style={{
-                          color: "var(--text-primary)",
-                        }}
+                        className="text-lg mt-2 text-primary"
                       >
                         Applications are due by February 23rd, 2026.{" "}
                         <a
                           href="https://forms.gle/4fBTy2cFxuQECqz17"
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ color: "var(--text-link)", textDecoration: "none" }}
-                          className="hover:underline"
+                          className="hover:underline text-link"
                         >
                           Apply here
                         </a>
@@ -244,29 +184,17 @@ export default async function Programs() {
                   {/* Technical Upskilling Program (Centered) */}
                   <div className="flex justify-center mt-16">
                     <div
-                      className="flex flex-col gap-2 p-6 w-full md:w-2/3 relative z-10"
-                      style={{
-                        backgroundColor: "var(--bg-card)",
-                        borderRadius: "12px",
-                        boxShadow: "var(--shadow-card)",
-                      }}
+                      className="flex flex-col gap-2 p-6 w-full md:w-2/3 relative z-10 bg-card rounded-card shadow-card"
                     >
                       <h2
-                        className="text-3xl font-semibold"
-                        style={{
-                          color: "var(--text-heading)",
-                          paddingBottom: "8px",
-                        }}
+                        className="text-3xl font-semibold text-heading pb-2"
                       >
                         Technical Upskilling Program
                       </h2>
 
                       <div className="flex flex-col gap-3 mt-4">
                         <ul
-                          className="list-disc pl-5 text-lg space-y-2"
-                          style={{
-                            color: "var(--text-primary)",
-                          }}
+                          className="list-disc pl-5 text-lg space-y-2 text-primary"
                         >
                           <li>Build a strong foundational knowledge of machine learning</li>
                           <li>Receive a general overview of the major topics covered in AI Safety</li>
@@ -276,25 +204,17 @@ export default async function Programs() {
 
                         <div>
                           <p
-                            className="text-lg mb-2"
-                            style={{
-                              color: "var(--text-heading)",
-                              fontWeight: "bold",
-                            }}
+                            className="text-lg mb-2 text-heading font-bold"
                           >
                             Additional info:
                           </p>
                           <p
-                            className="text-lg"
-                            style={{
-                              color: "var(--text-primary)",
-                            }}
+                            className="text-lg text-primary"
                           >
                             <a
                               href="https://docs.google.com/document/d/16UH2uN-9Bu8DMiBNqYc1LYbkBIhVF0R_dvN9nC-3qIo/edit?usp=sharing"
                               target="_blank" rel="noopener noreferrer"
-                              style={{ color: "var(--text-link)", textDecoration: "none" }}
-                              className="hover:underline"
+                              className="hover:underline text-link"
                             >
                               View the program details document
                             </a>
@@ -303,25 +223,17 @@ export default async function Programs() {
 
                         <div>
                           <p
-                            className="text-lg mb-2"
-                            style={{
-                              color: "var(--text-heading)",
-                              fontWeight: "bold",
-                            }}
+                            className="text-lg mb-2 text-heading font-bold"
                           >
                             Interest:
                           </p>
                           <p
-                            className="text-lg"
-                            style={{
-                              color: "var(--text-primary)",
-                            }}
+                            className="text-lg text-primary"
                           >
                             <a
                               href="https://forms.gle/ZB9855GZi6aZ4obh9"
                               target="_blank" rel="noopener noreferrer"
-                              style={{ color: "var(--text-link)", textDecoration: "none" }}
-                              className="hover:underline"
+                              className="hover:underline text-link"
                             >
                               Fill out the interest form
                             </a>{" "}
@@ -335,50 +247,31 @@ export default async function Programs() {
                   {/* Bottom Row - Safety Scholars Programs (Centered) */}
                   <div className="flex justify-center mt-16">
                     <div
-                      className="flex flex-col gap-2 p-6 w-full md:w-2/3 relative z-10"
-                      style={{
-                        backgroundColor: "var(--bg-card)",
-                        borderRadius: "12px",
-                        boxShadow: "var(--shadow-card)",
-                      }}
+                      className="flex flex-col gap-2 p-6 w-full md:w-2/3 relative z-10 bg-card rounded-card shadow-card"
                     >
                       <h2
-                        className="text-3xl font-semibold"
-                        style={{
-                          color: "var(--text-heading)",
-                          paddingBottom: "8px",
-                        }}
+                        className="text-3xl font-semibold text-heading pb-2"
                       >
                         Safety Scholars Programs
                       </h2>
 
                       <div className="flex flex-col gap-3 mt-4">
                         <p
-                          className="text-lg"
-                          style={{
-                            color: "var(--text-primary)",
-                          }}
+                          className="text-lg text-primary"
                         >
-                          <b style={{ color: "var(--text-heading)" }}>Core structure:</b>{" "}
+                          <b className="text-heading">Core structure:</b>{" "}
                           Weekly meetings to discuss either Technical or Policy
                           based AI Safety topics
                         </p>
 
                         <div>
                           <p
-                            className="text-lg mb-2"
-                            style={{
-                              color: "var(--text-heading)",
-                              fontWeight: "bold",
-                            }}
+                            className="text-lg mb-2 text-heading font-bold"
                           >
                             Member benefits:
                           </p>
                           <ul
-                            className="list-disc pl-5 text-lg space-y-2"
-                            style={{
-                              color: "var(--text-primary)",
-                            }}
+                            className="list-disc pl-5 text-lg space-y-2 text-primary"
                           >
                             <li>
                               Office hours and co-working sessions with
@@ -394,28 +287,17 @@ export default async function Programs() {
 
                         <div>
                           <p
-                            className="text-lg mb-2"
-                            style={{
-                              color: "var(--text-heading)",
-                              fontWeight: "bold",
-                            }}
+                            className="text-lg mb-2 text-heading font-bold"
                           >
                             Graduate students:
                           </p>
                           <p
-                            className="text-lg"
-                            style={{
-                              color: "var(--text-primary)",
-                            }}
+                            className="text-lg text-primary"
                           >
                             Email{" "}
                             <a
                               href="mailto:aisafetyuw@gmail.com"
-                              style={{
-                                color: "var(--text-link)",
-                                textDecoration: "none",
-                              }}
-                              className="hover:underline"
+                              className="hover:underline text-link"
                             >
                               aisafetyuw@gmail.com
                             </a>{" "}
@@ -426,19 +308,12 @@ export default async function Programs() {
 
                         <div>
                           <p
-                            className="text-lg mb-2"
-                            style={{
-                              color: "var(--text-heading)",
-                              fontWeight: "bold",
-                            }}
+                            className="text-lg mb-2 text-heading font-bold"
                           >
                             Undergraduates:
                           </p>
                           <p
-                            className="text-lg"
-                            style={{
-                              color: "var(--text-primary)",
-                            }}
+                            className="text-lg text-primary"
                           >
                             Applications open at the end of each semester.
                             Priority is given to standout intro program
@@ -448,27 +323,20 @@ export default async function Programs() {
                         </div>
 
                         <p
-                          className="text-lg"
-                          style={{
-                            color: "var(--text-primary)",
-                          }}
+                          className="text-lg text-primary"
                         >
                           Strong applicants encouraged to reach out directly via
                           email.
                         </p>
 
                         <p
-                          className="text-lg"
-                          style={{
-                            color: "var(--text-primary)",
-                          }}
+                          className="text-lg text-primary"
                         >
                           Learn more about the program by{" "}
                           <a
                             href="https://docs.google.com/document/d/1npT_7Svl_Gp10-BV8yusx6A90OokOflWFgCagKKU0G8/edit?usp=sharing"
                             target="_blank" rel="noopener noreferrer"
-                            style={{ color: "var(--text-link)", textDecoration: "none" }}
-                            className="hover:underline"
+                            className="hover:underline text-link"
                           >
                             reading the handbook.
                           </a>
