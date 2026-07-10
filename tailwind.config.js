@@ -20,6 +20,11 @@ module.exports = {
         heading: "var(--text-heading)",
         link: "var(--text-link)",
         subtle: "var(--border-subtle)",
+        // Aliases: the brand violet doubles as a background (footer, nav
+        // hamburger); cream is the legacy palette's off-white, kept only for
+        // text/icons over the violet footer and the homepage hero photo.
+        brand: "var(--text-heading)",
+        cream: "#FFF9F0",
       },
       boxShadow: {
         card: "var(--shadow-card)",

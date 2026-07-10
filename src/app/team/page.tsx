@@ -17,23 +17,12 @@ export default async function Team() {
 
   if (members === null) {
     return (
-      <div
-        id="team"
-        className="-mx-10"
-        style={{
-          marginLeft: "-40px",
-          marginRight: "-40px",
-          backgroundColor: "var(--bg-page)",
-        }}
-      >
-        <div className="px-8 pt-8 pb-16 mx-auto" style={{ maxWidth: "1200px" }}>
-          <h2
-            className="text-3xl font-semibold mb-6"
-            style={{ color: "var(--text-heading)", paddingBottom: "8px" }}
-          >
+      <div id="team" className="-mx-10 bg-page">
+        <div className="px-8 pt-8 pb-16 mx-auto max-w-[1200px]">
+          <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
             Leadership Team
           </h2>
-          <p className="text-lg" style={{ color: "var(--text-primary)" }}>
+          <p className="text-lg text-primary">
             We couldn&apos;t load the team list right now &#8212; please check
             back soon.
           </p>
@@ -43,35 +32,17 @@ export default async function Team() {
   }
 
   return (
-    <div
-      id="team"
-      className="-mx-10"
-      style={{
-        marginLeft: "-40px",
-        marginRight: "-40px",
-        backgroundColor: "var(--bg-page)",
-      }}
-    >
-      <div className="px-8 pt-8 pb-16 mx-auto" style={{ maxWidth: "1200px" }}>
-        <h2
-          className="text-3xl font-semibold mb-6"
-          style={{
-            color: "var(--text-heading)",
-            paddingBottom: "8px",
-          }}
-        >
+    <div id="team" className="-mx-10 bg-page">
+      <div className="px-8 pt-8 pb-16 mx-auto max-w-[1200px]">
+        <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
           Leadership Team
         </h2>
-        <h3
-          className="text-2xl font-semibold mb-4"
-          style={{ color: "var(--text-heading)" }}
-        >
+        <h3 className="text-2xl font-semibold mb-4 text-heading">
           Community Builders
         </h3>
         <ul
           id="team-list"
-          className="grid gap-4 m-1 mb-8"
-          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}
+          className="grid gap-4 m-1 mb-8 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]"
         >
           {members
             .filter((member) => member.team == "0")
@@ -81,16 +52,12 @@ export default async function Team() {
               </li>
             ))}
         </ul>
-        <h3
-          className="text-2xl font-semibold mb-4"
-          style={{ color: "var(--text-heading)" }}
-        >
+        <h3 className="text-2xl font-semibold mb-4 text-heading">
           Research Team
         </h3>
         <ul
           id="team-list"
-          className="grid gap-4 m-1 mb-8"
-          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}
+          className="grid gap-4 m-1 mb-8 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]"
         >
           {members
             .filter((member) => member.team === "3")
@@ -100,16 +67,12 @@ export default async function Team() {
               </li>
             ))}
         </ul>
-        <h3
-          className="text-2xl font-semibold mb-4"
-          style={{ color: "var(--text-heading)" }}
-        >
+        <h3 className="text-2xl font-semibold mb-4 text-heading">
           Technical Team
         </h3>
         <ul
           id="team-list"
-          className="grid gap-4 m-1 mb-8"
-          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}
+          className="grid gap-4 m-1 mb-8 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]"
         >
           {members
             .filter((member) => member.team == "1")
@@ -119,16 +82,12 @@ export default async function Team() {
               </li>
             ))}
         </ul>
-        <h3
-          className="text-2xl font-semibold mb-4"
-          style={{ color: "var(--text-heading)" }}
-        >
+        <h3 className="text-2xl font-semibold mb-4 text-heading">
           Policy Team
         </h3>
         <ul
           id="team-list"
-          className="grid gap-4 m-1"
-          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}
+          className="grid gap-4 m-1 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]"
         >
           {members
             .filter((member) => member.team == "2")

@@ -12,22 +12,9 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <div
-      id="contact"
-      className="-mx-10"
-      style={{
-        marginLeft: "-40px",
-        marginRight: "-40px",
-      }}
-    >
+    <div id="contact" className="-mx-10">
       <div className="px-16 py-8 pb-16">
-        <h1
-          className="text-4xl font-semibold mb-8"
-          style={{
-            color: "var(--text-heading)",
-            paddingBottom: "8px",
-          }}
-        >
+        <h1 className="text-4xl font-semibold mb-8 text-heading pb-2">
           Contact Us
         </h1>
 
@@ -35,12 +22,7 @@ export default function Contact() {
           {/* Left Column */}
           <div className="flex flex-col gap-8">
             <div>
-              <h2
-                className="text-3xl font-semibold mb-4"
-                style={{
-                  color: "var(--text-heading)",
-                }}
-              >
+              <h2 className="text-3xl font-semibold mb-4 text-heading">
                 Get Connected
               </h2>
 
@@ -63,30 +45,16 @@ export default function Contact() {
             </div>
 
             <div>
-              <h2
-                className="text-3xl font-semibold mb-4"
-                style={{
-                  color: "var(--text-heading)",
-                }}
-              >
+              <h2 className="text-3xl font-semibold mb-4 text-heading">
                 Direct Inquiries
               </h2>
-              <p
-                className="text-lg mb-4"
-                style={{
-                  color: "var(--text-primary)",
-                }}
-              >
+              <p className="text-lg mb-4 text-primary">
                 For general questions, partnerships, or other inquiries, please
                 reach out to us directly:
               </p>
               <a
                 href="mailto:aisafetyuw@gmail.com"
-                className="inline-flex items-center gap-2 text-lg font-semibold hover:underline"
-                style={{
-                  color: "var(--text-link)",
-                  textDecoration: "none",
-                }}
+                className="inline-flex items-center gap-2 text-lg font-semibold hover:underline text-link"
               >
                 <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
                 aisafetyuw@gmail.com
@@ -94,20 +62,10 @@ export default function Contact() {
             </div>
 
             <div>
-              <h2
-                className="text-3xl font-semibold mb-4"
-                style={{
-                  color: "var(--text-heading)",
-                }}
-              >
+              <h2 className="text-3xl font-semibold mb-4 text-heading">
                 Office Hours
               </h2>
-              <p
-                className="text-lg"
-                style={{
-                  color: "var(--text-primary)",
-                }}
-              >
+              <p className="text-lg text-primary">
                 Our team members hold regular office hours for students
                 interested in learning more about AI safety. Check our Discord
                 for the latest schedule and announcements.
@@ -124,7 +82,7 @@ export default function Contact() {
               frameBorder="0"
               marginHeight={0}
               marginWidth={0}
-              style={{ borderRadius: "12px", boxShadow: "var(--shadow-card)" }}
+              className="rounded-card shadow-card"
             >
               Loading…
             </iframe>
