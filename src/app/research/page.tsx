@@ -22,42 +22,19 @@ export default async function ResearchPage() {
 
 
   return (
-    <div
-      id="research"
-      style={{
-        backgroundColor: "var(--bg-page)",
-        marginLeft: "-40px",
-        marginRight: "-40px",
-      }}
-    >
-      <div className="mx-auto pt-8" style={{ width: "75%" }}>
-        <h2
-          className="text-3xl font-semibold mb-6"
-          style={{
-            color: "var(--text-heading)",
-            paddingBottom: "8px",
-          }}
-        >
-          <span style={{ color: "var(--text-heading)" }}>WAISI</span>{" "}
-          <span style={{ color: "var(--text-primary)" }}>&</span>{" "}
-          <span style={{ color: "#800000" }}>XLab</span>
+    <div id="research" className="bg-page -mx-10">
+      <div className="mx-auto pt-8 w-3/4">
+        <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
+          <span className="text-heading">WAISI</span>{" "}
+          <span className="text-primary">&</span>{" "}
+          <span className="text-[#800000]">XLab</span>
         </h2>
         <div className="space-y-6 mb-12">
-          <div className="p-6" style={{ backgroundColor: "var(--bg-card)", borderRadius: "12px", boxShadow: "var(--shadow-card)" }}>
-            <h3
-              className="text-xl font-semibold mb-3"
-              style={{
-                color: "var(--text-heading)",
-              }}
-            >
+          <div className="p-6 bg-card rounded-card shadow-card">
+            <h3 className="text-xl font-semibold mb-3 text-heading">
               WAISI Technical AI Safety Workshop Program
             </h3>
-            <p
-              className="leading-relaxed"
-              style={{
-                color: "var(--text-primary)",
-              }}
-            >
+            <p className="leading-relaxed text-primary">
               Most AI Safety communities introduce members who are interested in
               technical AI safety through the pipeline of Intro Technical
               Fellowship → Paper Reading Sessions → Alignment Research Engineer
@@ -72,22 +49,12 @@ export default async function ResearchPage() {
             </p>
           </div>
 
-          <div className="p-6" style={{ backgroundColor: "var(--bg-card)", borderRadius: "12px", boxShadow: "var(--shadow-card)" }}>
-            <h3
-              className="text-xl font-semibold mb-3"
-              style={{
-                color: "var(--text-heading)",
-              }}
-            >
+          <div className="p-6 bg-card rounded-card shadow-card">
+            <h3 className="text-xl font-semibold mb-3 text-heading">
               Transferable Adversarial Materials (TAM): Defeating ISR AUASs and
               LAWSs via Disruptive and Adversarial Material
             </h3>
-            <p
-              className="leading-relaxed"
-              style={{
-                color: "var(--text-primary)",
-              }}
-            >
+            <p className="leading-relaxed text-primary">
               Within the past decade, small portable Unmanned Aerial Systems
               (UASs) operated by individual infantry units have been
               demonstrated to be vital assets on the battlefield in
@@ -104,20 +71,12 @@ export default async function ResearchPage() {
           </div>
         </div>
         <div className="flex align-center justify-center mb-6">
-          <h1
-            className="text-4xl font-semibold"
-            style={{
-              color: "var(--text-heading)",
-            }}
-          >
+          <h1 className="text-4xl font-semibold text-heading">
             Our Research Catalog
           </h1>
         </div>
         {research === null ? (
-          <p
-            className="text-lg text-center mb-12"
-            style={{ color: "var(--text-primary)" }}
-          >
+          <p className="text-lg text-center mb-12 text-primary">
             We couldn&apos;t load the research catalog right now &#8212; please
             check back soon.
           </p>
@@ -125,13 +84,7 @@ export default async function ResearchPage() {
           <ResearchList research={research} clubMembers={clubMembers} />
         )}
         <div className="mt-12 pb-16">
-          <h2
-            className="text-3xl font-semibold mb-6"
-            style={{
-              color: "var(--text-heading)",
-              paddingBottom: "8px",
-            }}
-          >
+          <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
             Faculty Collaborators
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-1">
