@@ -7,74 +7,50 @@ import { useState, useEffect } from "react";
 import { MobileNavProps } from "@/types";
 
 function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
-  const linkColor = "#1A1A1A";
-
   return (
     <div
-      className={`md:hidden absolute top-0 left-0 h-screen w-screen transition-all duration-500 ease-in-out filter ${open ? "z-50 opacity-100 translate-y-2" : "opacity-0 -translate-y-2 pointer-events-none"}`}
-      style={{ backgroundColor: "#FFFFFF" }}
+      className={`md:hidden absolute top-0 left-0 h-screen w-screen transition-all duration-500 ease-in-out filter bg-page ${open ? "z-50 opacity-100 translate-y-2" : "opacity-0 -translate-y-2 pointer-events-none"}`}
     >
       <div className="flex flex-col justify-center items-center mt-28">
         <Link
           href="/"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/" ? "underline" : ""}`}
-          style={{
-            color: pathname == "/" ? "#6B46C1" : linkColor,
-          }}
+          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/" ? "underline text-heading" : "text-primary"}`}
         >
           Home
         </Link>
         <Link
           href="/programs"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/programs" ? "underline" : ""}`}
-          style={{
-            color: pathname == "/programs" ? "#6B46C1" : linkColor,
-          }}
+          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/programs" ? "underline text-heading" : "text-primary"}`}
         >
           Get Involved
         </Link>
         <Link
           href="/events"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/events" ? "underline" : ""}`}
-          style={{
-            color: pathname == "/events" ? "#6B46C1" : linkColor,
-          }}
+          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/events" ? "underline text-heading" : "text-primary"}`}
         >
           Events
         </Link>
         <Link
           href="/research"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/research" ? "underline" : ""}`}
-          style={{
-            color: pathname == "/research" ? "#6B46C1" : linkColor,
-          }}
+          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/research" ? "underline text-heading" : "text-primary"}`}
         >
           Research
         </Link>
         <Link
           href="/resources"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/resources" ? "underline" : ""}`}
-          style={{
-            color: pathname == "/resources" ? "#6B46C1" : linkColor,
-          }}
+          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/resources" ? "underline text-heading" : "text-primary"}`}
         >
           Resources
         </Link>
         <Link
           href="/team"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/team" ? "underline" : ""}`}
-          style={{
-            color: pathname == "/team" ? "#6B46C1" : linkColor,
-          }}
+          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/team" ? "underline text-heading" : "text-primary"}`}
         >
           Team
         </Link>
         <Link
           href="/contact"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/contact" ? "underline" : ""}`}
-          style={{
-            color: pathname == "/contact" ? "#6B46C1" : linkColor,
-          }}
+          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/contact" ? "underline text-heading" : "text-primary"}`}
         >
           Contact
         </Link>
@@ -137,19 +113,10 @@ export default function Nav() {
   }, [isHomePage]);
 
   const isTransparent = isHomePage && !scrolled;
-  const navBackground = isTransparent ? "transparent" : "#FFFFFF";
 
   return (
     <nav
-      className="fixed top-4 left-4 right-4 z-50 transition-all duration-300"
-      style={{
-        backgroundColor: navBackground,
-        borderRadius: "16px",
-        maxWidth: "1200px",
-        marginLeft: "auto",
-        marginRight: "auto",
-        boxShadow: isTransparent ? "none" : "0 2px 16px rgba(0, 0, 0, 0.08)",
-      }}
+      className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 rounded-2xl max-w-[1200px] mx-auto ${isTransparent ? "bg-transparent shadow-none" : "bg-page shadow-card"}`}
     >
       <MobileNav open={open} setOpen={setOpen} pathname={pathname} />
 
@@ -168,85 +135,37 @@ export default function Nav() {
         <div className="flex items-center justify-end space-x-4 p-4 text-lg font-semibold underline-offset-8 z-50 md:flex hidden">
           <Link
             href="/programs"
-            className={`p-2 hover:underline ${pathname == "/programs" ? "underline" : ""}`}
-            style={{
-              color:
-                pathname == "/programs"
-                  ? "#6B46C1"
-                  : isTransparent
-                    ? "#FFF9F0"
-                    : "#1A1A1A",
-            }}
+            className={`p-2 hover:underline ${pathname == "/programs" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
           >
             Get Involved
           </Link>
           <Link
             href="/events"
-            className={`p-2 hover:underline ${pathname == "/events" ? "underline" : ""}`}
-            style={{
-              color:
-                pathname == "/events"
-                  ? "#6B46C1"
-                  : isTransparent
-                    ? "#FFF9F0"
-                    : "#1A1A1A",
-            }}
+            className={`p-2 hover:underline ${pathname == "/events" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
           >
             Events
           </Link>
           <Link
             href="/research"
-            className={`p-2 hover:underline ${pathname == "/research" ? "underline" : ""}`}
-            style={{
-              color:
-                pathname == "/research"
-                  ? "#6B46C1"
-                  : isTransparent
-                    ? "#FFF9F0"
-                    : "#1A1A1A",
-            }}
+            className={`p-2 hover:underline ${pathname == "/research" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
           >
             Research
           </Link>
           <Link
             href="/resources"
-            className={`p-2 hover:underline ${pathname == "/resources" ? "underline" : ""}`}
-            style={{
-              color:
-                pathname == "/resources"
-                  ? "#6B46C1"
-                  : isTransparent
-                    ? "#FFF9F0"
-                    : "#1A1A1A",
-            }}
+            className={`p-2 hover:underline ${pathname == "/resources" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
           >
             Resources
           </Link>
           <Link
             href="/team"
-            className={`p-2 hover:underline ${pathname == "/team" ? "underline" : ""}`}
-            style={{
-              color:
-                pathname == "/team"
-                  ? "#6B46C1"
-                  : isTransparent
-                    ? "#FFF9F0"
-                    : "#1A1A1A",
-            }}
+            className={`p-2 hover:underline ${pathname == "/team" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
           >
             Team
           </Link>
           <Link
             href="/contact"
-            className={`p-2 hover:underline ${pathname == "/contact" ? "underline" : ""}`}
-            style={{
-              color:
-                pathname == "/contact"
-                  ? "#6B46C1"
-                  : isTransparent
-                    ? "#FFF9F0"
-                    : "#1A1A1A",
-            }}
+            className={`p-2 hover:underline ${pathname == "/contact" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
           >
             Contact
           </Link>
@@ -260,22 +179,13 @@ export default function Nav() {
             }}
           >
             <span
-              className={`h-1 w-full rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-2.5" : ""}`}
-              style={{
-                backgroundColor: isTransparent ? "#FFF9F0" : "#6B46C1",
-              }}
+              className={`h-1 w-full rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-2.5" : ""} ${isTransparent ? "bg-cream" : "bg-brand"}`}
             />
             <span
-              className={`h-1 w-full rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${open ? "w-px" : "w-full"}`}
-              style={{
-                backgroundColor: isTransparent ? "#FFF9F0" : "#6B46C1",
-              }}
+              className={`h-1 w-full rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${open ? "w-px" : "w-full"} ${isTransparent ? "bg-cream" : "bg-brand"}`}
             />
             <span
-              className={`h-1 w-full rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-2.5" : ""}`}
-              style={{
-                backgroundColor: isTransparent ? "#FFF9F0" : "#6B46C1",
-              }}
+              className={`h-1 w-full rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-2.5" : ""} ${isTransparent ? "bg-cream" : "bg-brand"}`}
             />
           </div>
         </div>
