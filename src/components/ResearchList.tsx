@@ -42,7 +42,7 @@ export default function ResearchList({
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="overflow-x-auto max-h-96 overflow-y-auto p-4 bg-card rounded-card shadow-card"
+        className="overflow-x-auto max-h-96 overflow-y-auto p-4 bg-card border border-subtle rounded-card"
       >
         <table className="w-full border-collapse">
           <tbody>

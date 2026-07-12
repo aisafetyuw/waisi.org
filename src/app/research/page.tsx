@@ -27,10 +27,10 @@ export default async function ResearchPage() {
         <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
           <span className="text-heading">WAISI</span>{" "}
           <span className="text-primary">&</span>{" "}
-          <span className="text-[#800000]">XLab</span>
+          <span className="text-primary">XLab</span>
         </h2>
         <div className="space-y-6 mb-12">
-          <div className="p-6 bg-card rounded-card shadow-card">
+          <div className="p-6 bg-card border border-subtle rounded-card">
             <h3 className="text-xl font-semibold mb-3 text-heading">
               WAISI Technical AI Safety Workshop Program
             </h3>
@@ -49,7 +49,7 @@ export default async function ResearchPage() {
             </p>
           </div>
 
-          <div className="p-6 bg-card rounded-card shadow-card">
+          <div className="p-6 bg-card border border-subtle rounded-card">
             <h3 className="text-xl font-semibold mb-3 text-heading">
               Transferable Adversarial Materials (TAM): Defeating ISR AUASs and
               LAWSs via Disruptive and Adversarial Material

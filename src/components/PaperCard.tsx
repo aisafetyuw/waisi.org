@@ -3,7 +3,7 @@ import { PaperHighlight } from "@/content/home";
 
 export default function PaperCard({ paper }: { paper: PaperHighlight }) {
   return (
-    <div className="flex flex-col overflow-hidden bg-card rounded-card shadow-card">
+    <div className="flex flex-col overflow-hidden bg-card border border-subtle rounded-card">
       <div className="relative w-full" style={{ height: "200px" }}>
         <Image src={paper.image} alt={paper.alt} fill className="object-cover" />
       </div>
