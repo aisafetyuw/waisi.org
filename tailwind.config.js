@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["'system-ui'", "sans-serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       // Design tokens — defined once as CSS variables in globals.css.
       // Use these classes (text-heading, bg-page, shadow-card, ...) instead
@@ -20,17 +21,17 @@ module.exports = {
         heading: "var(--text-heading)",
         link: "var(--text-link)",
         subtle: "var(--border-subtle)",
-        // Aliases: the brand violet doubles as a background (footer, nav
-        // hamburger); cream is the legacy palette's off-white, kept only for
-        // text/icons over the violet footer and the homepage hero photo.
-        brand: "var(--text-heading)",
-        cream: "#FFF9F0",
+        // ink = dark surfaces (footer); brand violet is the CTA accent only;
+        // cream = paper off-white for text/icons over dark ink and the hero photo.
+        ink: "var(--bg-ink)",
+        brand: "var(--text-link)",
+        cream: "#FAF9F7",
       },
       boxShadow: {
         card: "var(--shadow-card)",
       },
       borderRadius: {
-        card: "12px",
+        card: "4px",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
