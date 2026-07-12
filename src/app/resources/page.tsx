@@ -30,7 +30,7 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
             className="absolute top-0 left-0 right-0 h-4 pointer-events-none z-10"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(107, 70, 193, 0.1), transparent)",
+                "linear-gradient(to bottom, rgba(28, 27, 26, 0.08), transparent)",
             }}
           ></div>
         )}
@@ -41,14 +41,14 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
           style={{
             maxHeight: "400px",
             scrollbarWidth: "thin",
-            scrollbarColor: "#C4B5FD var(--bg-card)",
+            scrollbarColor: "var(--border-subtle) var(--bg-page)",
           }}
         >
           {blogs.map((blog, index) => (
             <div
               key={index}
               className="pl-4 flex flex-col justify-start pb-2"
-              style={{ borderLeft: "4px solid #C4B5FD" }}
+              style={{ borderLeft: "2px solid var(--border-subtle)" }}
             >
               <a
                 href={blog.url}
@@ -69,7 +69,7 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
             className="absolute bottom-0 left-0 right-0 h-4 pointer-events-none z-10"
             style={{
               background:
-                "linear-gradient(to top, rgba(107, 70, 193, 0.1), transparent)",
+                "linear-gradient(to top, rgba(28, 27, 26, 0.08), transparent)",
             }}
           ></div>
         )}
@@ -219,7 +219,7 @@ export default function Resources() {
                   <div
                     key={index}
                     className="pl-4 flex flex-col justify-start pb-2"
-                    style={{ borderLeft: "4px solid #C4B5FD" }}
+                    style={{ borderLeft: "2px solid var(--border-subtle)" }}
                   >
                     <a
                       href={video.url}
@@ -251,7 +251,7 @@ export default function Resources() {
                   <div
                     key={index}
                     className="pl-4 flex flex-col justify-start pb-2"
-                    style={{ borderLeft: "4px solid #C4B5FD" }}
+                    style={{ borderLeft: "2px solid var(--border-subtle)" }}
                   >
                     <a
                       href={podcast.url}
@@ -278,7 +278,7 @@ export default function Resources() {
                   <div
                     key={index}
                     className="pl-4 flex flex-col justify-start pb-2"
-                    style={{ borderLeft: "4px solid #C4B5FD" }}
+                    style={{ borderLeft: "2px solid var(--border-subtle)" }}
                   >
                     <a
                       href={site.url}
