@@ -1,24 +1,25 @@
 import Image from "next/image";
+import Link from "next/link";
 import heroImg from "../../public/capital_landscape.webp";
 import CompanyCarousel from "@/components/CompanyCarousel";
 import NumbersCarousel from "@/components/NumbersCarousel";
 import PhotoCarousel from "@/components/PhotoCarousel";
 import ScrollArrow from "@/components/ScrollArrow";
-import OpportunityCard from "@/components/OpportunityCard";
 import PaperCard from "@/components/PaperCard";
+import { primaryCta } from "@/constants";
 import {
-  OPPORTUNITIES,
-  FEATURED_OPPORTUNITY,
-  CURRENT_PROJECTS,
+  IMPACT_HIGHLIGHTS,
+  PROGRAM_TEASERS,
   RESEARCH_HIGHLIGHTS,
   COLLABORATORS,
   SPONSORS,
 } from "@/content/home";
 
 export default function Home() {
+  const cta = primaryCta();
   return (
     <div id="home" className="-mx-10">
-      {/* Full Screen Hero Banner */}
+      {/* 1 — Hero */}
       <div
         className="relative"
         style={{ height: "100vh", marginTop: "-80px", paddingTop: "80px" }}
@@ -35,21 +36,40 @@ export default function Home() {
           style={{ zIndex: 0 }}
         />
         <div
-          className="absolute inset-0 flex flex-col items-center justify-center"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", zIndex: 1 }}
+          className="absolute inset-0 flex flex-col items-center justify-center bg-black/45"
+          style={{ zIndex: 1 }}
         >
-          <h1 className="text-4xl md:text-6xl text-center px-8 font-semibold max-w-5xl text-white">
-            A community at UW–Madison dedicated to making AI safe and beneficial
-            for all.
+          <h1 className="font-serif text-4xl md:text-6xl text-center px-8 max-w-4xl text-white">
+            Making AI safe and beneficial for all.
           </h1>
+          <p className="text-lg md:text-xl text-center px-8 mt-4 max-w-2xl text-cream/90">
+            The Wisconsin AI Safety Initiative is UW–Madison&apos;s community
+            for AI safety research, policy, and education.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mt-8 px-8">
+            <a
+              href={cta.href}
+              {...(cta.href.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className="waisi-button"
+            >
+              {cta.label}
+            </a>
+            <Link
+              href="/programs"
+              className="px-6 py-3 border border-cream text-cream rounded-card font-semibold hover:bg-white/10 transition-colors"
+            >
+              Explore programs →
+            </Link>
+          </div>
           <ScrollArrow />
         </div>
       </div>
 
-      {/* About Section Content */}
+      {/* 2 — Mission */}
       <div id="about" className="bg-page w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
-          {/* Left Column - Photo */}
           <div className="relative h-full min-h-0 bg-page">
             <Image
               src="/about/CAIP_2.JPG"
@@ -60,33 +80,30 @@ export default function Home() {
             />
           </div>
 
-          {/* Right Column - Our Mission Text */}
-          <div className="flex flex-col py-8 h-full bg-page pl-8">
-            <div className="flex flex-col gap-4 h-full pr-8">
-              <h2 className="text-3xl font-semibold pb-2 text-heading">
-                Our Mission
-              </h2>
-              <p className="text-lg text-primary">
+          <div className="flex flex-col justify-center py-12 h-full bg-page px-8 lg:px-12">
+            <div className="flex flex-col gap-4 max-w-prose">
+              <h2 className="text-heading">Our Mission</h2>
+              <p className="text-base text-primary">
                 We believe that AI presents a magnitude of risks and benefits
                 unmatched by any previous technology. To realize the benefits,
                 we must address the risks.
               </p>
-              <p className="text-lg font-semibold text-heading">
+              <p className="text-base font-semibold text-heading">
                 We contribute by:
               </p>
-              <div className="space-y-4 ml-4">
+              <ul className="space-y-2 ml-1 list-none">
                 {[
                   "Building and supporting a community of AI Safety specialists.",
                   "Producing impactful research across disciplines.",
                   "Informing public discourse on transformative AI.",
                 ].map((item) => (
-                  <p key={item} className="text-lg flex items-start text-primary">
-                    <span className="text-heading mr-2">•</span>
+                  <li key={item} className="text-base flex items-start text-primary">
+                    <span className="text-link mr-3">—</span>
                     <span>{item}</span>
-                  </p>
+                  </li>
                 ))}
-              </div>
-              <p className="text-lg text-primary">
+              </ul>
+              <p className="text-base text-primary">
                 <span className="font-semibold text-heading">Our goal:</span>{" "}
                 help humanity navigate the transition to advanced AI wisely.
               </p>
@@ -94,221 +111,100 @@ export default function Home() {
           </div>
         </div>
 
-        {/* By The Numbers - Full Width Section */}
-        <NumbersCarousel />
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
-          {/* Left Column - Involvement and Impact */}
-          <div className="flex flex-col gap-6 px-8 py-8 bg-page">
-            <div className="flex flex-col gap-2">
-              <h2 className="text-3xl font-semibold pb-2 text-heading">
-                Involvement and Impact
-              </h2>
-              <ul className="list-disc pl-5 text-lg space-y-2 mt-4 text-primary">
-                <li>
-                  9 WAISI members were flown out to DC to{" "}
-                  <a
-                    href="https://www.cs.wisc.edu/2025/03/13/waisi-presents-caip-advanced-ai-expo/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link no-underline hover:underline"
-                  >
-                    participate in a Congressional Exhibition on Advanced AI.
-                  </a>
-                </li>
-                <li>
-                  Contributed to Wisconsin&apos;s{" "}
-                  <a
-                    href="https://docs.legis.wisconsin.gov/2023/proposals/reg/asm/bill/ab664"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link no-underline hover:underline"
-                  >
-                    2023 Assembly Bill 664
-                  </a>
-                  , which requires disclosing AI-generated material in political
-                  ads.
-                </li>
-                <li>
-                  Hosted speakers from{" "}
-                  <a
-                    href="https://deepmind.google/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link no-underline hover:underline"
-                  >
-                    Google DeepMind
-                  </a>
-                  ,{" "}
-                  <a
-                    href="https://www.anthropic.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link no-underline hover:underline"
-                  >
-                    Anthropic
-                  </a>
-                  ,{" "}
-                  <a
-                    href="https://www.metr.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link no-underline hover:underline"
-                  >
-                    Model Evaluation and Threat Research (METR)
-                  </a>
-                  , the{" "}
-                  <a
-                    href="https://www.cnas.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link no-underline hover:underline"
-                  >
-                    Center for a New American Security (CNAS)
-                  </a>
-                  , and the{" "}
-                  <a
-                    href="https://horizonpublicservice.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link no-underline hover:underline"
-                  >
-                    Horizon Institute for Public Service
-                  </a>
-                  .
-                </li>
-                <li>
-                  Members in 12+ research labs on campus.{" "}
-                  <a
-                    href="/research"
-                    className="text-link no-underline hover:underline"
-                  >
-                    See our research page.
-                  </a>
-                </li>
-                <li>
-                  Collaborated with professors from the School of Computer,
-                  Data, and Information Sciences, the School of Education, the
-                  School of Business, and the Department of Philosophy.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Right Column - Photo Carousel */}
-          <PhotoCarousel />
-        </div>
-
-        {/* Opportunities Section */}
-        <div className="px-8 py-16 bg-page w-full">
-          <h2
-            className="text-3xl font-semibold text-center mb-8 pb-2 text-heading"
-            style={{ maxWidth: "800px", margin: "0 auto 2rem" }}
-          >
-            Opportunities
-          </h2>
-
-          <div className="max-w-6xl mx-auto mb-8 relative">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              {OPPORTUNITIES.map((opportunity) => (
-                <OpportunityCard
-                  key={opportunity.title}
-                  opportunity={opportunity}
-                />
-              ))}
-            </div>
-
-            <div className="flex justify-center">
-              <OpportunityCard
-                opportunity={FEATURED_OPPORTUNITY}
-                className="w-full md:w-1/2 z-10"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Highlighted Research Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 bg-page w-full">
-          {/* Left Column - Image with Title Overlay */}
-          <div className="flex items-center justify-center relative">
-            <Image
-              src="/waisi_writing.webp"
-              alt="WAISI members working on research"
-              width={600}
-              height={800}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-opacity-90 p-4 bg-card-alt rounded-card">
-                <h2 className="text-3xl font-semibold text-heading">
-                  Current Projects
-                </h2>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Research Excerpts */}
-          <div className="flex flex-col gap-6 px-8 py-8">
-            {CURRENT_PROJECTS.map((project) => (
+        {/* 3 — Proof band: numbers + impact highlights + photos */}
+        <div className="border-t border-b border-subtle">
+          <NumbersCarousel />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8 lg:px-16 pb-12 max-w-6xl mx-auto">
+            {IMPACT_HIGHLIGHTS.map((item) => (
               <div
-                key={project.title}
-                className="p-6 bg-card rounded-card shadow-card"
+                key={item.text}
+                className="p-6 bg-card border border-subtle rounded-card"
               >
-                <h3 className="text-xl font-semibold mb-3 text-heading">
-                  {project.title}
-                </h3>
-                <p className="leading-relaxed text-primary">
-                  {project.description}
+                <p className="text-base text-primary">
+                  {item.text}
+                  {item.href && item.linkText && (
+                    <>
+                      {" "}
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-link no-underline hover:underline"
+                      >
+                        {item.linkText}
+                      </a>
+                      .
+                    </>
+                  )}
                 </p>
-                <a
-                  href="/research"
-                  className="text-lg font-semibold mt-2 inline-block text-link no-underline"
-                >
-                  Learn more →
-                </a>
               </div>
             ))}
           </div>
+          <PhotoCarousel />
         </div>
 
-        {/* Research Highlights Section */}
+        {/* 4 — Programs teaser */}
         <div className="px-8 py-16 bg-page w-full">
-          <h2
-            className="text-3xl font-semibold text-center mb-8 pb-2 text-heading"
-            style={{ maxWidth: "800px", margin: "0 auto 2rem" }}
-          >
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-heading mb-2">Get involved</h2>
+            <p className="text-base text-primary mb-8 max-w-prose">
+              Four programs, from first exposure to core membership. Most
+              require no prior experience.
+            </p>
+            <div className="border-t border-subtle">
+              {PROGRAM_TEASERS.map((program) => (
+                <Link
+                  key={program.title}
+                  href="/programs"
+                  className="group grid grid-cols-1 md:grid-cols-[220px_1fr_auto] gap-x-6 gap-y-1 items-baseline py-5 border-b border-subtle"
+                >
+                  <span className="font-serif text-lg text-heading">
+                    {program.title}
+                  </span>
+                  <span className="text-base text-primary">
+                    {program.blurb}
+                  </span>
+                  <span className="text-link opacity-0 group-hover:opacity-100 transition-opacity hidden md:inline">
+                    →
+                  </span>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-8">
+              <Link href="/programs" className="waisi-button">
+                See all programs
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* 5 — Research highlights */}
+        <div className="px-8 py-16 bg-page w-full border-t border-subtle">
+          <h2 className="text-heading text-center mb-2">
             Research Highlights
           </h2>
+          <p className="text-base text-primary text-center mb-10 max-w-prose mx-auto">
+            WAISI members publish across interpretability, multi-agent systems,
+            and more — with members in 12+ research labs on campus.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {RESEARCH_HIGHLIGHTS.map((paper) => (
               <PaperCard key={paper.link} paper={paper} />
             ))}
           </div>
-
-          {/* See More Papers Button */}
-          <div className="flex justify-center mt-8">
-            <a
-              href="/research"
-              className="px-6 py-3 font-semibold transition-opacity hover:opacity-80 text-white rounded-card bg-link"
-            >
-              See our 20+ Papers
-            </a>
+          <div className="flex justify-center mt-10">
+            <Link href="/research" className="waisi-button">
+              See our 20+ papers
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Collaborations Section */}
+      {/* Partners + sponsors */}
       <CompanyCarousel companies={COLLABORATORS} />
 
-      {/* Our Sponsors Section */}
       <div className="px-8 py-16 bg-page w-full">
-        <h2
-          className="text-3xl font-semibold text-center mb-12 pb-2 text-heading"
-          style={{ maxWidth: "800px", margin: "0 auto 3rem" }}
-        >
-          Our Sponsors
-        </h2>
-
+        <h2 className="text-heading text-center mb-12">Our Sponsors</h2>
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto">
           {SPONSORS.map((sponsor) => (
             <div key={sponsor.name} className="flex flex-col items-center gap-4">
@@ -326,7 +222,7 @@ export default function Home() {
                   className="object-contain"
                 />
               </a>
-              <p className="text-lg font-semibold text-center text-primary">
+              <p className="text-base font-medium text-center text-primary">
                 {sponsor.name}
               </p>
             </div>

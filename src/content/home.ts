@@ -1,50 +1,52 @@
 // Homepage content — edit copy here, not in the page components.
 
-export type Opportunity = {
-  title: string;
-  description: string;
+export type ImpactHighlight = {
+  text: string;
+  href?: string;
+  linkText?: string;
 };
 
-export const OPPORTUNITIES: Opportunity[] = [
+export const IMPACT_HIGHLIGHTS: ImpactHighlight[] = [
   {
-    title: "Technical Fundamentals",
-    description:
-      "An eight-week research-oriented reading group on technical AI safety. Topics include reward specification, generalization, interpretability...",
+    text: "Nine members flown to Washington, DC to present at a",
+    href: "https://www.cs.wisc.edu/2025/03/13/waisi-presents-caip-advanced-ai-expo/",
+    linkText: "Congressional Exhibition on Advanced AI",
   },
   {
-    title: "Policy Fundamentals",
-    description:
-      "An eight-week reading group on the foundational governance and policy challenges posed by advanced AI systems. Topics include AI harms...",
+    text: "Contributed to Wisconsin's",
+    href: "https://docs.legis.wisconsin.gov/2023/proposals/reg/asm/bill/ab664",
+    linkText: "2023 Assembly Bill 664 on AI disclosure in political ads",
   },
   {
-    title: "Technical Upskilling",
-    description:
-      "Build foundational machine learning knowledge and get an overview of major AI safety topics. Receive a certificate of completion after finishing the program...",
+    text: "Hosted speakers from Google DeepMind, Anthropic, METR, CNAS, and the Horizon Institute for Public Service",
   },
 ];
 
-// Rendered wider, centered below the grid.
-export const FEATURED_OPPORTUNITY: Opportunity = {
-  title: "Safety Scholars Program",
-  description:
-    "Safety Scholars are our core groups of members engaged in AI safety work. Members meet weekly to discuss topics in either technical AI safety or AI policy over a provided meal...",
-};
-
-export type Project = {
+export type ProgramTeaser = {
   title: string;
-  description: string;
+  blurb: string;
 };
 
-export const CURRENT_PROJECTS: Project[] = [
+export const PROGRAM_TEASERS: ProgramTeaser[] = [
   {
-    title: "WAISI Technical AI Safety Workshop Program",
-    description:
-      "Most AI Safety communities introduce members who are interested in technical AI safety through the pipeline of Intro Technical Fellowship → Paper Reading Sessions → Alignment Research Engineer Accelerator program (ARENA)...",
+    title: "Technical Fundamentals",
+    blurb:
+      "An eight-week reading group on technical AI safety — interpretability, reward specification, generalization.",
   },
   {
-    title: "Transferable Adversarial Materials (TAM)",
-    description:
-      "Within the past decade, small portable Unmanned Aerial Systems (UASs) operated by individual infantry units have been demonstrated to be vital assets on the battlefield in intelligence, surveillance...",
+    title: "Policy Fundamentals",
+    blurb:
+      "An eight-week reading group on the governance challenges posed by advanced AI systems.",
+  },
+  {
+    title: "Technical Upskilling",
+    blurb:
+      "Build foundational machine learning knowledge with a certificate on completion.",
+  },
+  {
+    title: "Safety Scholars",
+    blurb:
+      "Our core member group — weekly technical or policy discussions, office hours, and priority project access.",
   },
 ];
 

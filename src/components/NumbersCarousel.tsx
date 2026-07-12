@@ -17,7 +17,7 @@ export default function NumbersCarousel() {
   ];
 
   return (
-    <div className="py-16 bg-page w-full">
+    <div className="py-12 bg-page w-full">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-8 lg:px-16">
         {/* Left Column - Quote */}
         <div className="flex flex-col justify-center items-center lg:items-end lg:pr-8">
@@ -47,11 +47,11 @@ export default function NumbersCarousel() {
         <div className="flex flex-col gap-2 items-center text-center relative px-8">
           <div
             className="absolute left-0 top-0 bottom-0 w-px hidden lg:block"
-            style={{ backgroundColor: "var(--line-color)" }}
+            style={{ backgroundColor: "var(--border-subtle)" }}
           ></div>
           <div
             className="absolute right-0 top-0 bottom-0 w-px hidden lg:block"
-            style={{ backgroundColor: "var(--line-color)" }}
+            style={{ backgroundColor: "var(--border-subtle)" }}
           ></div>
           <h2
             className="text-3xl font-semibold mb-2"
