@@ -16,11 +16,11 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bottom-0 w-full bg-brand">
+    <footer className="bottom-0 w-full bg-ink">
       <div className="max-w-6xl mx-auto px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-semibold text-lg mb-3 text-cream">
+            <h3 className="font-serif font-medium text-lg mb-3 text-cream">
               Quick Links
             </h3>
             <div className="flex flex-col space-y-2">
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-3 text-cream">
+            <h3 className="font-serif font-medium text-lg mb-3 text-cream">
               Connect With Us
             </h3>
             <div className="flex flex-col space-y-2">
@@ -92,7 +92,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-3 text-cream">
+            <h3 className="font-serif font-medium text-lg mb-3 text-cream">
               Stay Updated
             </h3>
             <p className="mb-3 text-cream opacity-90">
@@ -103,7 +103,7 @@ export default function Footer() {
               href={INTEREST_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-4 py-2 transition-colors hover:opacity-90 bg-[#C4B5FD] text-heading font-semibold"
+              className="inline-block px-4 py-2 rounded-card bg-brand text-white font-semibold hover:opacity-90 transition-opacity"
             >
               Subscribe →
             </a>
