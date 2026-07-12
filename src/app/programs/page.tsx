@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Programs() {
   return (
-    <div id="programs" className="-mx-10 bg-page">
+    <div id="programs" className="-mx-10">
       <div className="px-8 py-12 pb-20 max-w-5xl mx-auto">
         <div className="max-w-prose mb-10">
           <h1 className="text-heading">Get involved</h1>

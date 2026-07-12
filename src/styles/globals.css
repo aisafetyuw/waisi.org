@@ -21,6 +21,24 @@ body {
   color: var(--text-primary);
 }
 
+/* GPT-1 weights background texture (WeightsBackground.tsx). Small tile
+   scaled up for a blocky, pixelated read; ultra-slow pan. */
+.weights-bg {
+  background-size: auto 100vh;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  animation: weightsPan 300s linear infinite;
+}
+
+@keyframes weightsPan {
+  from { background-position-x: 0; }
+  to { background-position-x: -2000px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weights-bg { animation: none; }
+}
+
 @keyframes enter {
   0% {
     opacity: 0;

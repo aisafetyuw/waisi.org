@@ -22,7 +22,7 @@ export default async function ResearchPage() {
 
 
   return (
-    <div id="research" className="bg-page -mx-10">
+    <div id="research" className="-mx-10">
       <div className="mx-auto pt-8 w-3/4">
         <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
           <span className="text-heading">WAISI</span>{" "}

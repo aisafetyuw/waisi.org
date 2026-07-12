@@ -17,7 +17,7 @@ export default async function Team() {
 
   if (members === null) {
     return (
-      <div id="team" className="-mx-10 bg-page">
+      <div id="team" className="-mx-10">
         <div className="px-8 pt-8 pb-16 mx-auto max-w-[1200px]">
           <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
             Leadership Team
@@ -32,7 +32,7 @@ export default async function Team() {
   }
 
   return (
-    <div id="team" className="-mx-10 bg-page">
+    <div id="team" className="-mx-10">
       <div className="px-8 pt-8 pb-16 mx-auto max-w-[1200px]">
         <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
           Leadership Team

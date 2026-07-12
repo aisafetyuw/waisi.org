@@ -191,7 +191,7 @@ export default function Resources() {
   return (
     <div
       id="resources"
-      className="-mx-10 bg-page"
+      className="-mx-10"
       style={{
         marginLeft: "-40px",
         marginRight: "-40px",

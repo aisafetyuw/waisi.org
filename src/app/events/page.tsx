@@ -16,7 +16,7 @@ export default async function Calendar() {
   const events = await getEvents();
 
   return (
-    <div id="calendar" className="page bg-page">
+    <div id="calendar" className="page">
       <div id="events">
         <div className="text-center">
           {events === null ? (

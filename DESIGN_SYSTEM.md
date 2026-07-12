@@ -25,6 +25,13 @@ and CTAs.
 There are no card shadows: elevation is retired in favor of flat surfaces with
 hairline borders (`bg-card border border-subtle rounded-card`).
 
+**Page background texture:** `components/WeightsBackground.tsx` renders a
+fixed, ultra-low-contrast heatmap of simulated GPT-1 weight magnitudes behind
+all pages (tile generated on a canvas, deterministic seed, slow CSS pan,
+disabled under `prefers-reduced-motion`). Page containers are transparent so
+it shows through; nav, footer, cards, and carousels stay opaque. Keep it
+non-impeding — peak tint values live in the component's `COLORMAP`.
+
 ## Typography
 
 - **Headings:** Newsreader (serif), weights 500/600, loaded via `next/font`

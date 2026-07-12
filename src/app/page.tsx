@@ -68,9 +68,9 @@ export default function Home() {
       </div>
 
       {/* 2 — Mission */}
-      <div id="about" className="bg-page w-full">
+      <div id="about" className="w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
-          <div className="relative h-full min-h-0 bg-page">
+          <div className="relative h-full min-h-0">
             <Image
               src="/about/CAIP_2.JPG"
               alt="Nine WAISI members in front of the US Capitol"
@@ -80,7 +80,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex flex-col justify-center py-12 h-full bg-page px-8 lg:px-12">
+          <div className="flex flex-col justify-center py-12 h-full px-8 lg:px-12">
             <div className="flex flex-col gap-4 max-w-prose">
               <h2 className="text-heading">Our Mission</h2>
               <p className="text-base text-primary">
@@ -144,7 +144,7 @@ export default function Home() {
         </div>
 
         {/* 4 — Programs teaser */}
-        <div className="px-8 py-16 bg-page w-full">
+        <div className="px-8 py-16 w-full">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-heading mb-2">Get involved</h2>
             <p className="text-base text-primary mb-8 max-w-prose">
@@ -179,7 +179,7 @@ export default function Home() {
         </div>
 
         {/* 5 — Research highlights */}
-        <div className="px-8 py-16 bg-page w-full border-t border-subtle">
+        <div className="px-8 py-16 w-full border-t border-subtle">
           <h2 className="text-heading text-center mb-2">
             Research Highlights
           </h2>
@@ -203,7 +203,7 @@ export default function Home() {
       {/* Partners + sponsors */}
       <CompanyCarousel companies={COLLABORATORS} />
 
-      <div className="px-8 py-16 bg-page w-full">
+      <div className="px-8 py-16 w-full">
         <h2 className="text-heading text-center mb-12">Our Sponsors</h2>
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto">
           {SPONSORS.map((sponsor) => (
