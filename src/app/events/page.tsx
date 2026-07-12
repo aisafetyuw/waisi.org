@@ -25,7 +25,7 @@ export default async function Calendar() {
               check back soon!
             </p>
           ) : events.length > 0 ? (
-            <ul className="md:w-5/6 mx-auto text-left">
+            <ul className="md:w-5/6 max-w-3xl mx-auto text-left">
               {events.map((event, index) => (
                 <li key={index}>
                   <CalendarEvent event={event} />

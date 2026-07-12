@@ -40,13 +40,13 @@ export default function CalendarEvent({ event }: { event: CalendarEventData }) {
   }
 
   return (
-    <div className="shadow-lg rounded-lg my-4 p-4 h-full transform transition-transform hover:scale-105 bg-card-alt text-primary">
+    <div className="border border-subtle rounded-card my-4 p-4 h-full bg-card text-primary">
       {event.htmlLink &&
         <h3 className="mb-1 text-[#6B7280]">
           <a href={event.htmlLink} title="View in Google Calendar" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
             <FontAwesomeIcon icon={faCalendar} className="mb-3" />
             &nbsp;&nbsp;
-            <span style={{ color: "#1F2937" }}>{event.summary}</span>
+            <span className="text-heading font-medium">{event.summary}</span>
           </a>
         </h3>
       }
