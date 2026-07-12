@@ -71,7 +71,8 @@ function generateHeatmapDataURL(
   const mags = new Float32Array(bx * by);
   const magRng = mulberry32(seed + 777);
   for (let i = 0; i < mags.length; i++) {
-    mags[i] = 0.01 + magRng() * magRng() * 0.25;
+    // Floor keeps every block visibly textured — no blank squares.
+    mags[i] = 0.06 + magRng() * 0.2;
   }
 
   const rng = mulberry32(seed);
