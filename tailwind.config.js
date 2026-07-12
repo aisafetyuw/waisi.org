@@ -11,7 +11,7 @@ module.exports = {
         serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       // Design tokens — defined once as CSS variables in globals.css.
-      // Use these classes (text-heading, bg-page, shadow-card, ...) instead
+      // Use these classes (text-heading, bg-page, border-subtle, ...) instead
       // of inline style={{}} color values.
       colors: {
         page: "var(--bg-page)",
@@ -26,9 +26,6 @@ module.exports = {
         ink: "var(--bg-ink)",
         brand: "var(--text-link)",
         cream: "#FAF9F7",
-      },
-      boxShadow: {
-        card: "var(--shadow-card)",
       },
       borderRadius: {
         card: "4px",

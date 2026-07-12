@@ -60,7 +60,7 @@ export default function ScrollArrow() {
         height="32"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#FFF9F0"
+        stroke="#FAF9F7"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
