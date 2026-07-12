@@ -82,7 +82,7 @@ export default function Contact() {
               frameBorder="0"
               marginHeight={0}
               marginWidth={0}
-              className="rounded-card shadow-card"
+              className="rounded-card border border-subtle"
             >
               Loading…
             </iframe>
