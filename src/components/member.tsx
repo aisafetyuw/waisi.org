@@ -6,7 +6,7 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function Member({ member }: MemberProps) {
   return (
-    <div className="member p-4 bg-card rounded-card shadow-card">
+    <div className="member p-4 bg-card border border-subtle rounded-card">
       <div className="flex space-x-4 items-start">
         <div className="flex-shrink-0">
           <Image
@@ -21,14 +21,7 @@ export default function Member({ member }: MemberProps) {
           <div className="text-lg font-semibold text-heading">
             {member.name}
           </div>
-          <div
-            className="text-primary"
-            style={{
-              opacity: 0.7,
-            }}
-          >
-            {member.pronouns}
-          </div>
+          <div className="text-primary opacity-70">{member.pronouns}</div>
           <div className="font-semibold text-primary">
             {member.role}
           </div>

@@ -3,7 +3,7 @@ import { ProfProps } from "@/types";
 export default function Professor({ name, link, focus, extra }: ProfProps) {
   return (
     <div
-      className="transform transition-transform hover:scale-105 member p-4 h-full bg-card rounded-card shadow-card"
+      className="member p-4 h-full bg-card border border-subtle rounded-card"
     >
       <div className="">
         <div className="text-lg font-semibold">
