@@ -125,7 +125,7 @@ export default function CapabilitiesHero() {
     >
       <defs>
         {/* wispy ends: strokes fade out at both extremes */}
-        <linearGradient id="axis-fade" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="545" y2="0">
+        <linearGradient id="axis-fade" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="435" y2="0">
           <stop offset="0" stopColor="var(--text-primary)" stopOpacity="0.9" />
           <stop offset="0.8" stopColor="var(--text-primary)" stopOpacity="0.9" />
           <stop offset="1" stopColor="var(--text-primary)" stopOpacity="0" />
@@ -138,7 +138,7 @@ export default function CapabilitiesHero() {
       </defs>
 
       {/* x axis */}
-      <line x1="40" y1="388" x2="545" y2="388" stroke="url(#axis-fade)" strokeWidth="1" />
+      <line x1="40" y1="388" x2="435" y2="388" stroke="url(#axis-fade)" strokeWidth="1" />
       {X_TICKS.map(({ x, label }) => (
         <text key={x} x={x} y="408" textAnchor="middle" fontSize="11" fontFamily="ui-monospace, monospace" fill="var(--text-primary)" opacity="0.55">
           {label}
