@@ -7,6 +7,9 @@ import {
 } from "./src/constants";
 
 const nextConfig: NextConfig = {
+  // Dev uses its own dist dir (.next-dev) so `npm run build` (which wipes
+  // .next) can never clobber a running dev server.
+  distDir: process.env.NEXT_DIST_DIR ?? ".next",
   images: {
     // Prefer AVIF (30-50% smaller than WebP for photos); WebP as fallback.
     formats: ["image/avif", "image/webp"],

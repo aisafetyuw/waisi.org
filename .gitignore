@@ -20,6 +20,7 @@ src/credentials.json
 
 # next.js
 /.next/
+/.next-dev/
 /out/
 
 # production
