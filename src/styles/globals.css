@@ -21,6 +21,17 @@ body {
   color: var(--text-primary);
 }
 
+/* Hero chart tooltips (CapabilitiesHero.tsx): CSS-only hover reveal. */
+.hero-dot .hero-tip {
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+
+.hero-dot:hover .hero-tip {
+  opacity: 1;
+}
+
 /* GPT-1 weights background texture (WeightsBackground.tsx). Small tile
    scaled up for a blocky, pixelated read; ultra-slow pan. */
 .weights-bg {

@@ -18,8 +18,8 @@ export default function Home() {
   return (
     <div id="home" className="-mx-10">
       {/* 1 — Hero: METR capabilities chart, full stage */}
-      <section className="relative min-h-[86vh] flex items-center justify-center px-6 lg:px-12">
-        <div className="w-full max-w-[1050px] mx-auto">
+      <section className="relative min-h-[86vh] flex items-center px-6 lg:px-12">
+        <div className="w-full max-w-[1050px] mr-auto">
           <CapabilitiesHero />
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
