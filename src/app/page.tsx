@@ -22,8 +22,8 @@ export default function Home() {
       {/* 1 — Hero: full-stage METR capabilities chart, headline nested in
           its empty upper-left region */}
       <section className="relative min-h-[86vh] flex items-center justify-center px-4 lg:px-10">
-        <div className="relative w-full max-w-[1150px] mx-auto">
-          <div className="lg:absolute lg:left-[6%] lg:top-[22%] flex flex-col gap-5 mb-8 lg:mb-0 max-w-md">
+        <div className="relative w-full max-w-[900px] mx-auto">
+          <div className="lg:absolute lg:left-[7%] lg:top-[36%] flex flex-col gap-5 mb-8 lg:mb-0 max-w-md">
             <h1 className="text-4xl md:text-5xl text-heading">
               Conquer capabilities.
               <br />

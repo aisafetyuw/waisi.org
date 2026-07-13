@@ -35,7 +35,7 @@ const POINTS: Pt[] = [
 
 const LABELS: { x: number; y: number; text: string; anchor: "start" | "end" | "middle" }[] = [
   { x: 36, y: 374, text: "GPT-4", anchor: "start" },
-  { x: 378, y: 181, text: "Mythos (early)", anchor: "end" },
+  { x: 378, y: 181, text: "Mythos", anchor: "end" },
 ];
 
 // Line of best fit through the shown points, drawn to the maximum extent of
@@ -73,8 +73,9 @@ function tipWidth(p: Pt): number {
 // topmost layer of the SVG so tooltips always paint above dots and lines.
 function TipTarget({ p }: { p: Pt }) {
   const w = tipWidth(p);
-  const flip = p.x + 12 + w > 590;
-  const tx = flip ? p.x - w - 12 : p.x + 12;
+  // Tooltips open to the right of the dot, sliding left just enough to stay
+  // inside the chart bounds.
+  const tx = Math.min(p.x + 12, 545 - w);
   const ty = Math.max(10, p.y - TIP_H - 8);
   return (
     <g className="hero-dot">
@@ -98,16 +99,17 @@ function TipTarget({ p }: { p: Pt }) {
 export default function CapabilitiesHero() {
   return (
     <svg
-      viewBox="0 0 600 430"
+      viewBox="0 0 545 430"
+      overflow="visible"
       role="img"
       aria-label="METR Horizon v1.1 results from 2023 onward: the task duration AI can complete at 50% success grows exponentially with model release date. Hover a point for the model, its horizon, and an equivalent software engineering task."
       className="w-full h-auto"
     >
       <defs>
         {/* wispy ends: strokes fade out at both extremes */}
-        <linearGradient id="axis-fade" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="560" y2="0">
+        <linearGradient id="axis-fade" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="545" y2="0">
           <stop offset="0" stopColor="var(--text-primary)" stopOpacity="0.9" />
-          <stop offset="0.82" stopColor="var(--text-primary)" stopOpacity="0.9" />
+          <stop offset="0.8" stopColor="var(--text-primary)" stopOpacity="0.9" />
           <stop offset="1" stopColor="var(--text-primary)" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="fit-fade" gradientUnits="userSpaceOnUse" x1="40" y1="388" x2="426" y2="67">
@@ -118,7 +120,7 @@ export default function CapabilitiesHero() {
       </defs>
 
       {/* x axis */}
-      <line x1="40" y1="388" x2="560" y2="388" stroke="url(#axis-fade)" strokeWidth="1" />
+      <line x1="40" y1="388" x2="545" y2="388" stroke="url(#axis-fade)" strokeWidth="1" />
       {X_TICKS.map(({ x, label }) => (
         <text key={x} x={x} y="408" textAnchor="middle" fontSize="11" fontFamily="ui-monospace, monospace" fill="var(--text-primary)" opacity="0.55">
           {label}
