@@ -22,10 +22,6 @@ export default function Contact() {
           {/* Left Column */}
           <div className="flex flex-col gap-8">
             <div>
-              <h2 className="text-3xl font-semibold mb-4 text-heading">
-                Get Connected
-              </h2>
-
               <div className="flex flex-col gap-3 max-w-md">
                 <Button
                   url={DISCORD_URL}
