@@ -109,15 +109,15 @@ export default function PhotoCarousel() {
 
   return (
     <div
-      className="relative w-full flex flex-col justify-center"
+      className="relative w-full h-full flex flex-col justify-center"
       style={{backgroundColor: 'var(--bg-page)'}}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={handleMouseLeave}
     >
       {/* Main Image Container */}
       <div
-        className="relative w-full overflow-hidden"
-        style={{height: '400px', cursor: isDragging ? 'grabbing' : 'grab'}}
+        className="relative w-full h-full min-h-[320px] overflow-hidden"
+        style={{cursor: isDragging ? 'grabbing' : 'grab'}}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}

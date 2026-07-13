@@ -95,11 +95,12 @@ export default function Home() {
         {/* 3 — Proof band: numbers + impact highlights + photos */}
         <div className="border-b border-subtle">
           <NumbersCarousel />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8 lg:px-16 pb-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-8 lg:px-16 pb-12 max-w-6xl mx-auto">
+            <div className="flex flex-col gap-6">
             {IMPACT_HIGHLIGHTS.map((item) => (
               <div
                 key={item.text}
-                className="p-6 bg-card border border-subtle rounded-card"
+                className="p-6 bg-card border border-subtle rounded-card flex-1 flex items-center"
               >
                 <p className="text-base text-primary">
                   {item.text}
@@ -120,8 +121,11 @@ export default function Home() {
                 </p>
               </div>
             ))}
+            </div>
+            <div className="rounded-card border border-subtle overflow-hidden">
+              <PhotoCarousel />
+            </div>
           </div>
-          <PhotoCarousel />
         </div>
 
         {/* 4 — Programs teaser */}
