@@ -26,6 +26,11 @@ export default function Home() {
               <br />
               Make AI safe.
             </h1>
+            <div className="mt-2">
+              <Link href="/programs" className="waisi-button">
+                Get involved
+              </Link>
+            </div>
           </div>
           <CapabilitiesHero />
         </div>
