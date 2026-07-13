@@ -191,11 +191,7 @@ export default function Resources() {
   return (
     <div
       id="resources"
-      className="-mx-10"
-      style={{
-        marginLeft: "-40px",
-        marginRight: "-40px",
-      }}
+      className="max-w-6xl mx-auto"
     >
       <div className="px-4 sm:px-8 md:px-16 pt-8 pb-16">
         <div className="flex flex-col gap-8">

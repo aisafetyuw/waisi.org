@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <div id="contact" className="-mx-10">
+    <div id="contact" className="max-w-6xl mx-auto">
       <div className="px-16 py-8 pb-16">
         <h1 className="text-4xl font-semibold mb-8 text-heading pb-2">
           Contact Us

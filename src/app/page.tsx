@@ -49,7 +49,7 @@ export default function Home() {
       </section>
 
       {/* 2 — Mission */}
-      <div id="about" className="w-full">
+      <div id="about" className="w-full max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
           <div className="relative h-full min-h-0">
             <Image
@@ -176,9 +176,11 @@ export default function Home() {
       </div>
 
       {/* Partners + sponsors */}
-      <CompanyCarousel companies={COLLABORATORS} />
+      <div className="max-w-6xl mx-auto px-6">
+        <CompanyCarousel companies={COLLABORATORS} />
+      </div>
 
-      <div className="px-8 py-16 w-full">
+      <div className="px-8 py-16 w-full max-w-6xl mx-auto">
         <h2 className="text-heading text-center mb-12">Our Sponsors</h2>
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto">
           {SPONSORS.map((sponsor) => (
