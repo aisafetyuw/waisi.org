@@ -70,8 +70,8 @@ export default function Nav() {
     <nav className="relative w-full z-50 bg-page">
       <MobileNav open={open} setOpen={setOpen} pathname={pathname} />
 
-      <div className="flex justify-between items-center mx-auto max-w-[1200px]">
-        <div className="flex items-center p-3">
+      <div className="flex justify-between items-center mx-auto max-w-6xl px-6">
+        <div className="flex items-center py-3">
           <Link href="/" className="z-10 flex items-center gap-3">
             <Image
               src={isTransparent ? "/waisi_white_full.png" : "/waisi_black_full.png"}
@@ -82,7 +82,7 @@ export default function Nav() {
           </Link>
         </div>
 
-        <div className="flex items-center justify-end space-x-4 p-4 text-lg font-medium underline-offset-8 z-50 md:flex hidden">
+        <div className="flex items-center justify-end space-x-4 py-4 -mr-2 text-lg font-medium underline-offset-8 z-50 md:flex hidden">
           <Link
             href="/programs"
             className={`p-2 hover:underline ${pathname == "/programs" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
