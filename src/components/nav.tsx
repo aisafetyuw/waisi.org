@@ -72,57 +72,15 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
 export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const isHomePage = pathname === "/";
 
   // Close mobile menu on navigation (Firefox fix)
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  useEffect(() => {
-    if (!isHomePage) {
-      setScrolled(false);
-      return;
-    }
-
-    let rafId: number | null = null;
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        rafId = requestAnimationFrame(() => {
-          const aboutSection = document.getElementById("about");
-          if (aboutSection) {
-            const aboutTop = aboutSection.getBoundingClientRect().top;
-            const shouldBeScrolled = aboutTop <= 0;
-            setScrolled((prev) =>
-              prev === shouldBeScrolled ? prev : shouldBeScrolled,
-            );
-          } else {
-            setScrolled(false);
-          }
-          ticking = false;
-        });
-      }
-    };
-
-    const timeoutId = setTimeout(() => {
-      handleScroll();
-    }, 0);
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener("scroll", handleScroll);
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-      }
-    };
-  }, [isHomePage]);
-
-  const isTransparent = isHomePage && !scrolled;
+  // The nav is always a solid paper shell; the old transparent-over-photo
+  // hero state went away with the photo hero.
+  const isTransparent = false;
 
   return (
     <nav

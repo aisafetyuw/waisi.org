@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import heroImg from "../../public/capital_landscape.webp";
+import CapabilitiesHero from "@/components/CapabilitiesHero";
 import CompanyCarousel from "@/components/CompanyCarousel";
 import NumbersCarousel from "@/components/NumbersCarousel";
 import PhotoCarousel from "@/components/PhotoCarousel";
@@ -19,53 +19,45 @@ export default function Home() {
   const cta = primaryCta();
   return (
     <div id="home" className="-mx-10">
-      {/* 1 — Hero */}
-      <div
-        className="relative"
-        style={{ height: "100vh", marginTop: "-80px", paddingTop: "80px" }}
-      >
-        <Image
-          src={heroImg}
-          alt="WAISI at the Capitol"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-          placeholder="blur"
-          quality={60}
-          style={{ zIndex: 0 }}
-        />
-        <div
-          className="absolute inset-0 flex flex-col items-center justify-center bg-black/45"
-          style={{ zIndex: 1 }}
-        >
-          <h1 className="font-serif text-4xl md:text-6xl text-center px-8 max-w-4xl text-white">
-            Making AI safe and beneficial for all.
-          </h1>
-          <p className="text-lg md:text-xl text-center px-8 mt-4 max-w-2xl text-cream/90">
-            The Wisconsin AI Safety Initiative is UW–Madison&apos;s community
-            for AI safety research, policy, and education.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-8 px-8">
-            <a
-              href={cta.href}
-              {...(cta.href.startsWith("http")
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-              className="waisi-button"
-            >
-              {cta.label}
-            </a>
-            <Link
-              href="/programs"
-              className="px-6 py-3 border border-cream text-cream rounded-card font-semibold hover:bg-white/10 transition-colors"
-            >
-              Explore programs →
-            </Link>
+      {/* 1 — Hero: METR-style capabilities curve with climber */}
+      <section className="relative min-h-[86vh] flex items-center px-8 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center max-w-6xl mx-auto w-full">
+          <div className="order-2 lg:order-1">
+            <CapabilitiesHero />
           </div>
+          <div className="order-1 lg:order-2 flex flex-col gap-5">
+            <h1 className="text-4xl md:text-5xl xl:text-6xl text-heading">
+              Conquering capabilities.
+              <br />
+              Making AI go well.
+            </h1>
+            <p className="text-lg text-primary max-w-prose">
+              The Wisconsin AI Safety Initiative is UW–Madison&apos;s community
+              for AI safety research, policy, and education.
+            </p>
+            <div className="flex flex-wrap gap-4 mt-2">
+              <a
+                href={cta.href}
+                {...(cta.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="waisi-button"
+              >
+                {cta.label}
+              </a>
+              <Link
+                href="/programs"
+                className="px-6 py-3 border border-subtle text-primary rounded-card font-semibold hover:bg-card-alt transition-colors"
+              >
+                Explore programs →
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
           <ScrollArrow />
         </div>
-      </div>
+      </section>
 
       {/* 2 — Mission */}
       <div id="about" className="w-full">
