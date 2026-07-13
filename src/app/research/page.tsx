@@ -24,52 +24,6 @@ export default async function ResearchPage() {
   return (
     <div id="research" className="-mx-10">
       <div className="mx-auto pt-8 w-3/4">
-        <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
-          <span className="text-heading">WAISI</span>{" "}
-          <span className="text-primary">&</span>{" "}
-          <span className="text-primary">XLab</span>
-        </h2>
-        <div className="space-y-6 mb-12">
-          <div className="p-6 bg-card border border-subtle rounded-card">
-            <h3 className="text-xl font-semibold mb-3 text-heading">
-              WAISI Technical AI Safety Workshop Program
-            </h3>
-            <p className="leading-relaxed text-primary">
-              Most AI Safety communities introduce members who are interested in
-              technical AI safety through the pipeline of Intro Technical
-              Fellowship → Paper Reading Sessions → Alignment Research Engineer
-              Accelerator program (ARENA) → Research Programs (SPAR, XLab SRF,
-              MATS). However, most university groups have struggled with ARENA
-              sessions for a few key reasons: the steep learning curve,
-              significant time commitment, and lack of experienced TA's. The
-              technical workshop program aims to address these issues by
-              creating ARENA-styled workshops on AI Safety topics that focus on
-              shorter, more manageable exercises, while still preserving the
-              rigor of research-style work.
-            </p>
-          </div>
-
-          <div className="p-6 bg-card border border-subtle rounded-card">
-            <h3 className="text-xl font-semibold mb-3 text-heading">
-              Transferable Adversarial Materials (TAM): Defeating ISR AUASs and
-              LAWSs via Disruptive and Adversarial Material
-            </h3>
-            <p className="leading-relaxed text-primary">
-              Within the past decade, small portable Unmanned Aerial Systems
-              (UASs) operated by individual infantry units have been
-              demonstrated to be vital assets on the battlefield in
-              intelligence, surveillance, and reconnaissance (ISR) roles as well
-              as in one-way suicide attacks (loitering munition) and reusable
-              bomb-dropping UASs. Many countries are attempting to integrate AI
-              vision models into these systems to automate navigation and target
-              identification and reduce vulnerability to jamming. We aim to
-              demonstrate the effectiveness of a Transferable Adversarial
-              Material (TAM), a deformable material which could be deployed in a
-              variety of settings and deceive military-purpose computer vision
-              models analogous to those being deployed in AUASs.
-            </p>
-          </div>
-        </div>
         <div className="flex align-center justify-center mb-6">
           <h1 className="text-4xl font-semibold text-heading">
             Our Research Catalog
