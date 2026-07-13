@@ -96,32 +96,33 @@ export default function Home() {
         <div className="border-b border-subtle">
           <NumbersCarousel />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-8 lg:px-16 pb-12 max-w-6xl mx-auto">
-            <div className="flex flex-col gap-6">
-            {IMPACT_HIGHLIGHTS.map((item) => (
-              <div
-                key={item.text}
-                className="p-6 bg-card border border-subtle rounded-card flex-1 flex items-center"
-              >
-                <p className="text-base text-primary">
-                  {item.text}
-                  {item.href && item.linkText && (
-                    <>
-                      {" "}
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-link no-underline hover:underline"
-                      >
-                        {item.linkText}
-                      </a>
-                      .
-                    </>
-                  )}
-                </p>
-              </div>
-            ))}
-            </div>
+            <ul className="flex flex-col justify-center gap-6 list-none">
+              {IMPACT_HIGHLIGHTS.map((item) => (
+                <li
+                  key={item.text}
+                  className="text-base flex items-start text-primary"
+                >
+                  <span className="text-link mr-3">—</span>
+                  <span>
+                    {item.text}
+                    {item.href && item.linkText && (
+                      <>
+                        {" "}
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-link no-underline hover:underline"
+                        >
+                          {item.linkText}
+                        </a>
+                        .
+                      </>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
             <div className="rounded-card border border-subtle overflow-hidden">
               <PhotoCarousel />
             </div>
