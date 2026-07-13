@@ -132,7 +132,7 @@ export default function Home() {
         {/* 4 — Programs teaser */}
         <div className="px-8 py-16 w-full">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-heading mb-8">Get involved</h2>
+            <h2 className="text-heading mb-8 text-center">Get involved</h2>
             <div>
               {PROGRAM_TEASERS.map((program) => (
                 <Link
@@ -149,7 +149,7 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-            <div className="mt-8">
+            <div className="mt-8 flex justify-center">
               <Link href="/programs" className="waisi-button">
                 See all programs
               </Link>
@@ -158,7 +158,7 @@ export default function Home() {
         </div>
 
         {/* 5 — Research highlights */}
-        <div className="px-8 py-16 w-full border-t border-subtle">
+        <div className="px-8 py-16 w-full">
           <h2 className="text-heading text-center mb-2">
             Research Highlights
           </h2>

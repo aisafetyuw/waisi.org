@@ -69,7 +69,7 @@ export default function NumbersCarousel() {
                     color: "var(--text-primary)",
                   }}
                 >
-                  <span className="font-black">{stat.number}</span>{" "}
+                  <span className="font-black text-link">{stat.number}</span>{" "}
                   <span>{stat.label}</span>
                 </li>
               ))}
