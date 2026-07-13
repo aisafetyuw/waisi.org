@@ -127,11 +127,7 @@ export default function Home() {
         {/* 4 — Programs teaser */}
         <div className="px-8 py-16 w-full">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-heading mb-2">Get involved</h2>
-            <p className="text-base text-primary mb-8 max-w-prose">
-              Four programs, from first exposure to core membership. Most
-              require no prior experience.
-            </p>
+            <h2 className="text-heading mb-8">Get involved</h2>
             <div className="border-t border-subtle">
               {PROGRAM_TEASERS.map((program) => (
                 <Link
