@@ -117,7 +117,7 @@ function TipTarget({ p }: { p: Pt }) {
 export default function CapabilitiesHero() {
   return (
     <svg
-      viewBox="0 30 545 400"
+      viewBox="0 30 460 400"
       overflow="visible"
       role="img"
       aria-label="METR Horizon v1.1 results from 2023 onward: the task duration AI can complete at 50% success grows exponentially with model release date. Hover a point for the model, its horizon, and an equivalent software engineering task."

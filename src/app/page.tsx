@@ -19,7 +19,7 @@ export default function Home() {
       {/* 1 — Hero: full-stage METR capabilities chart, headline nested in
           its empty upper-left region */}
       <section className="relative min-h-[calc(100vh-5rem)] flex items-start justify-center pt-2 px-4 lg:px-10">
-        <div className="relative w-full max-w-[calc((100vh-9rem)*1.267)] mx-auto">
+        <div className="relative w-full max-w-[calc((100vh-9rem)*1.15)] mx-auto lg:translate-x-[4rem]">
           <div className="lg:absolute lg:left-[7%] lg:top-[36%] flex flex-col gap-5 mb-8 lg:mb-0 max-w-2xl">
             <h1 className="text-4xl md:text-5xl text-heading">
               Capabilities are climbing.
