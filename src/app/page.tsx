@@ -19,13 +19,11 @@ export default function Home() {
   const cta = primaryCta();
   return (
     <div id="home" className="-mx-10">
-      {/* 1 — Hero: METR capabilities chart with headline + CTAs */}
-      <section className="relative min-h-[86vh] flex items-center px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 items-center max-w-7xl mx-auto w-full">
-          <div className="order-2 lg:order-1">
-            <CapabilitiesHero />
-          </div>
-          <div className="order-1 lg:order-2 flex flex-col gap-5">
+      {/* 1 — Hero: full-stage METR capabilities chart, headline nested in
+          its empty upper-left region */}
+      <section className="relative min-h-[86vh] flex items-center justify-center px-4 lg:px-10">
+        <div className="relative w-full max-w-[1150px] mx-auto">
+          <div className="lg:absolute lg:left-[6%] lg:top-[22%] flex flex-col gap-5 mb-8 lg:mb-0 max-w-md">
             <h1 className="text-4xl md:text-5xl text-heading">
               Conquer capabilities.
               <br />
@@ -49,6 +47,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
+          <CapabilitiesHero />
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
           <ScrollArrow />
