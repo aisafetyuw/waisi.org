@@ -20,11 +20,11 @@ export default function Home() {
           its empty upper-left region */}
       <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center px-4 lg:px-10">
         <div className="relative w-full max-w-[calc((100vh-9rem)*1.267)] mx-auto">
-          <div className="lg:absolute lg:left-[7%] lg:top-[36%] flex flex-col gap-5 mb-8 lg:mb-0 max-w-md">
+          <div className="lg:absolute lg:left-[7%] lg:top-[36%] flex flex-col gap-5 mb-8 lg:mb-0 max-w-2xl">
             <h1 className="text-4xl md:text-5xl text-heading">
-              Conquer capabilities.
+              Capabilities are climbing.
               <br />
-              Make AI safe.
+              Safety must keep pace.
             </h1>
             <div className="mt-2">
               <Link href="/programs" className="waisi-button">
