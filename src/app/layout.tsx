@@ -3,7 +3,6 @@ import { Suspense } from "react";
 import { Inter, Newsreader } from "next/font/google";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
-import WeightsBackground from "../components/WeightsBackground";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -53,7 +52,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
       <body className="font-sans">
-        <WeightsBackground />
         <Suspense
           fallback={
             <div className="fixed top-0 left-0 right-0 z-50 h-20 bg-page" />
