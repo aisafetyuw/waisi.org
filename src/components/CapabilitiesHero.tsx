@@ -47,17 +47,10 @@ const FIT_PATH =
   "L 356 287.2 L 367.7 265.8 L 379.4 239.7 L 391.1 208.2 L 402.8 169.9 " +
   "L 414.5 123.4 L 426.2 67";
 
-// Frontier line stitched through the points in release order.
-const SOTA_LINE =
-  "M 40 387.2 L 113.7 386.6 L 128.6 385.8 L 161.3 384.1 L 176.9 384 " +
-  "L 194.1 380.5 L 225.7 376.3 L 245.6 364.9 L 289.7 348.8 L 329.8 344.6 " +
-  "L 332.2 331.4 L 338.8 319.9 L 360.7 249 L 384.5 186";
-
 const X_TICKS = [
   { x: 61.8, label: "2024" },
   { x: 204.6, label: "2025" },
   { x: 347.0, label: "2026" },
-  { x: 489.4, label: "2027" },
 ];
 
 const TIP_H = 56;
@@ -110,19 +103,32 @@ export default function CapabilitiesHero() {
       aria-label="METR Horizon v1.1 results from 2023 onward: the task duration AI can complete at 50% success grows exponentially with model release date. Hover a point for the model, its horizon, and an equivalent software engineering task."
       className="w-full h-auto"
     >
+      <defs>
+        {/* wispy ends: strokes fade out at both extremes */}
+        <linearGradient id="axis-fade" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="560" y2="0">
+          <stop offset="0" stopColor="var(--text-primary)" stopOpacity="0" />
+          <stop offset="0.12" stopColor="var(--text-primary)" stopOpacity="0.9" />
+          <stop offset="0.82" stopColor="var(--text-primary)" stopOpacity="0.9" />
+          <stop offset="1" stopColor="var(--text-primary)" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="fit-fade" gradientUnits="userSpaceOnUse" x1="40" y1="388" x2="426" y2="67">
+          <stop offset="0" stopColor="var(--text-heading)" stopOpacity="0" />
+          <stop offset="0.14" stopColor="var(--text-heading)" stopOpacity="1" />
+          <stop offset="0.86" stopColor="var(--text-heading)" stopOpacity="1" />
+          <stop offset="1" stopColor="var(--text-heading)" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+
       {/* x axis */}
-      <line x1="40" y1="388" x2="560" y2="388" stroke="var(--text-primary)" strokeWidth="1" />
+      <line x1="40" y1="388" x2="560" y2="388" stroke="url(#axis-fade)" strokeWidth="1" />
       {X_TICKS.map(({ x, label }) => (
         <text key={x} x={x} y="408" textAnchor="middle" fontSize="11" fontFamily="ui-monospace, monospace" fill="var(--text-primary)" opacity="0.55">
           {label}
         </text>
       ))}
 
-      {/* line of best fit — solid, full extent of the chart */}
-      <path d={FIT_PATH} fill="none" stroke="var(--text-link)" strokeWidth="2" strokeLinecap="round" />
-
-      {/* frontier line through the points */}
-      <path d={SOTA_LINE} fill="none" stroke="var(--text-link)" strokeWidth="1.2" opacity="0.45" strokeLinejoin="round" />
+      {/* line of best fit — solid ink, wispy at both ends */}
+      <path d={FIT_PATH} fill="none" stroke="url(#fit-fade)" strokeWidth="2" strokeLinecap="round" />
 
       {/* milestone labels */}
       {LABELS.map(({ x, y, text, anchor }) => (
@@ -135,11 +141,11 @@ export default function CapabilitiesHero() {
           the flat left edge of the cutout rests against the curve) */}
       <image
         href="/climber.png"
-        x="392"
+        x="388"
         y="176"
         width="54"
         height="45.4"
-        transform="rotate(9 392 199)"
+        transform="rotate(28 388 202)"
       />
 
       {/* data points */}
