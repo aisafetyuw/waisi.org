@@ -53,12 +53,6 @@ export default function NumbersCarousel() {
             className="absolute right-0 top-0 bottom-0 w-px hidden lg:block"
             style={{ backgroundColor: "var(--border-subtle)" }}
           ></div>
-          <h2
-            className="text-3xl font-semibold mb-2"
-            style={{ color: "var(--text-heading)" }}
-          >
-            Numbers and Beyond
-          </h2>
           <div className="relative flex items-center justify-center">
             <ul className="flex flex-col items-center justify-center gap-3">
               {stats.map((stat, index) => (
