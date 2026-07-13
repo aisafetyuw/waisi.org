@@ -5,7 +5,6 @@ import { primaryCta } from "@/constants";
 import CompanyCarousel from "@/components/CompanyCarousel";
 import NumbersCarousel from "@/components/NumbersCarousel";
 import PhotoCarousel from "@/components/PhotoCarousel";
-import ScrollArrow from "@/components/ScrollArrow";
 import PaperCard from "@/components/PaperCard";
 import {
   IMPACT_HIGHLIGHTS,
@@ -21,8 +20,8 @@ export default function Home() {
     <div id="home" className="-mx-10">
       {/* 1 — Hero: full-stage METR capabilities chart, headline nested in
           its empty upper-left region */}
-      <section className="relative min-h-[86vh] flex items-center justify-center px-4 lg:px-10">
-        <div className="relative w-full max-w-[900px] mx-auto">
+      <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center px-4 lg:px-10">
+        <div className="relative w-full max-w-[calc((100vh-9rem)*1.267)] mx-auto">
           <div className="lg:absolute lg:left-[7%] lg:top-[36%] flex flex-col gap-5 mb-8 lg:mb-0 max-w-md">
             <h1 className="text-4xl md:text-5xl text-heading">
               Conquer capabilities.
@@ -48,9 +47,6 @@ export default function Home() {
             </div>
           </div>
           <CapabilitiesHero />
-        </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-          <ScrollArrow />
         </div>
       </section>
 
