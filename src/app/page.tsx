@@ -24,7 +24,7 @@ export default function Home() {
             <h1 className="text-4xl md:text-5xl text-heading">
               Capabilities are climbing.
               <br />
-              Safety will summit.
+              <span className="text-link">Safety will summit.</span>
             </h1>
             <div className="mt-2">
               <Link href="/programs" className="waisi-button">
