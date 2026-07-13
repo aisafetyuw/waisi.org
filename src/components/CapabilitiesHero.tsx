@@ -131,6 +131,17 @@ export default function CapabilitiesHero() {
         </text>
       ))}
 
+      {/* the climber, scaling the best-fit line (extracted silhouette;
+          the flat left edge of the cutout rests against the curve) */}
+      <image
+        href="/climber.png"
+        x="392"
+        y="176"
+        width="54"
+        height="45.4"
+        transform="rotate(9 392 199)"
+      />
+
       {/* data points */}
       {POINTS.map((p) => (
         <circle key={p.name} cx={p.x} cy={p.y} r="3.2" fill="var(--text-link)" />
