@@ -79,6 +79,21 @@ function BlogsSection({ blogs }: { blogs: Array<{ title: string; description: st
 }
 
 export default function Resources() {
+  const featured = [
+    {
+      title: "AI Safety Opportunities",
+      description:
+        "A live directory of AI safety programs, fellowships, and openings.",
+      url: "https://aisopportunities.com",
+    },
+    {
+      title: "Situational Awareness",
+      description:
+        "Leopold Aschenbrenner's essay series on the decade ahead in AI.",
+      url: "https://situational-awareness.ai/",
+    },
+  ];
+
   const videos = [
     {
       title: "AI Ruined My Year",
@@ -91,12 +106,6 @@ export default function Resources() {
       description:
         "Exploring economic implications of advanced AI and automation",
       url: "https://www.youtube.com/watch?v=eD5GlCIS0sA",
-    },
-    {
-      title: "We Are Not Ready for Superintelligence",
-      description:
-        "Why humanity needs better preparation for advanced AI systems",
-      url: "https://www.youtube.com/watch?v=5KVDDfAkRgc",
     },
   ];
 
@@ -162,126 +171,111 @@ export default function Resources() {
     },
   ];
 
-  const websites = [
-    {
-      title: "AI Safety",
-      description:
-        "Comprehensive resource hub for AI safety information and research",
-      url: "https://aisafety.com/",
-    },
-    {
-      title: "AI Impacts",
-      description: "Research and analysis on the likely impacts of AI",
-      url: "https://aiimpacts.org/",
-    },
-    {
-      title: "Future of Humanity Institute",
-      description:
-        "Oxford research center studying existential risks and AI safety",
-      url: "https://www.futureofhumanityinstitute.org",
-    },
-    {
-      title: "AI Now Institute",
-      description:
-        "NYU research institute studying AI's social implications, focusing on labor, power, and accountability.",
-      url: "https://ainowinstitute.org",
-    },
-  ];
-
   return (
     <div
       id="resources"
       className="max-w-6xl mx-auto"
     >
       <div className="px-4 sm:px-8 md:px-16 pt-8 pb-16">
-        <div className="flex flex-col gap-8">
-          {/* Top row: Videos and Blogs side by side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h2 className="text-2xl font-semibold mb-4 text-heading">
-                Videos
-              </h2>
-              <div className="flex flex-col gap-4">
-                {videos.map((video, index) => (
-                  <div
-                    key={index}
-                    className="pl-4 flex flex-col justify-start pb-2"
-                    style={{ borderLeft: "2px solid var(--border-subtle)" }}
-                  >
-                    <a
-                      href={video.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-lg font-semibold hover:underline text-link no-underline"
-                    >
-                      {video.title}
-                    </a>
-                    <p className="text-base text-primary">
-                      {video.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <BlogsSection blogs={blogs} />
+        <div className="flex flex-col gap-12 max-w-3xl mx-auto">
+          {/* Featured video */}
+          <div className="relative w-full aspect-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/5KVDDfAkRgc"
+              title="We Are Not Ready for Superintelligence"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full rounded-card border border-subtle"
+            />
           </div>
 
-          {/* Bottom row: Podcasts and Websites side by side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h2 className="text-2xl font-semibold mb-4 text-heading">
-                Podcasts
-              </h2>
-              <div className="flex flex-col gap-4">
-                {podcasts.map((podcast, index) => (
-                  <div
-                    key={index}
-                    className="pl-4 flex flex-col justify-start pb-2"
-                    style={{ borderLeft: "2px solid var(--border-subtle)" }}
-                  >
-                    <a
-                      href={podcast.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-lg font-semibold hover:underline text-link no-underline"
-                    >
-                      {podcast.title}
-                    </a>
-                    <p className="text-base text-primary">
-                      {podcast.description}
-                    </p>
-                  </div>
-                ))}
+          {/* Featured links */}
+          <div className="flex flex-col gap-4">
+            {featured.map((item, index) => (
+              <div
+                key={index}
+                className="pl-4 flex flex-col justify-start pb-2"
+                style={{ borderLeft: "2px solid var(--text-link)" }}
+              >
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl font-semibold hover:underline text-link no-underline"
+                >
+                  {item.title}
+                </a>
+                <p className="text-base text-primary">{item.description}</p>
               </div>
-            </div>
+            ))}
+          </div>
 
-            <div>
-              <h2 className="text-2xl font-semibold mb-4 text-heading">
-                Exploratory Websites
-              </h2>
-              <div className="flex flex-col gap-4">
-                {websites.map((site, index) => (
-                  <div
-                    key={index}
-                    className="pl-4 flex flex-col justify-start pb-2"
-                    style={{ borderLeft: "2px solid var(--border-subtle)" }}
+          <BlogsSection blogs={blogs} />
+
+          <div>
+            <h2 className="text-2xl font-semibold mb-4 text-heading">
+              Videos
+            </h2>
+            <div className="flex flex-col gap-4">
+              {videos.map((video, index) => (
+                <div
+                  key={index}
+                  className="pl-4 flex flex-col justify-start pb-2"
+                  style={{ borderLeft: "2px solid var(--border-subtle)" }}
+                >
+                  <a
+                    href={video.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-semibold hover:underline text-link no-underline"
                   >
-                    <a
-                      href={site.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-lg font-semibold hover:underline text-link no-underline"
-                    >
-                      {site.title}
-                    </a>
-                    <p className="text-base text-primary">
-                      {site.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                    {video.title}
+                  </a>
+                  <p className="text-base text-primary">
+                    {video.description}
+                  </p>
+                </div>
+              ))}
             </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold mb-4 text-heading">
+              Podcasts
+            </h2>
+            <div className="flex flex-col gap-4">
+              {podcasts.map((podcast, index) => (
+                <div
+                  key={index}
+                  className="pl-4 flex flex-col justify-start pb-2"
+                  style={{ borderLeft: "2px solid var(--border-subtle)" }}
+                >
+                  <a
+                    href={podcast.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-semibold hover:underline text-link no-underline"
+                  >
+                    {podcast.title}
+                  </a>
+                  <p className="text-base text-primary">
+                    {podcast.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Full resource doc */}
+          <div className="flex justify-center">
+            <a
+              href="https://docs.google.com/document/d/1j6AtnSjsnOmRXsqEjLK5GVrd8ItL47UR4gJpCzawM04/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="waisi-button"
+            >
+              See our full resource list
+            </a>
           </div>
         </div>
       </div>
