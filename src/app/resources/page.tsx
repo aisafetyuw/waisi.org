@@ -94,21 +94,6 @@ export default function Resources() {
     },
   ];
 
-  const videos = [
-    {
-      title: "AI Ruined My Year",
-      description:
-        "A reflection on the rapid advancement of AI and its implications for safety",
-      url: "https://www.youtube.com/watch?v=2ziuPUeewK0",
-    },
-    {
-      title: "Post Labor Economics",
-      description:
-        "Exploring economic implications of advanced AI and automation",
-      url: "https://www.youtube.com/watch?v=eD5GlCIS0sA",
-    },
-  ];
-
   const blogs = [
     {
       title: "The Alignment Forum",
@@ -211,33 +196,6 @@ export default function Resources() {
           </div>
 
           <BlogsSection blogs={blogs} />
-
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-heading">
-              Videos
-            </h2>
-            <div className="flex flex-col gap-4">
-              {videos.map((video, index) => (
-                <div
-                  key={index}
-                  className="pl-4 flex flex-col justify-start pb-2"
-                  style={{ borderLeft: "2px solid var(--border-subtle)" }}
-                >
-                  <a
-                    href={video.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg font-semibold hover:underline text-link no-underline"
-                  >
-                    {video.title}
-                  </a>
-                  <p className="text-base text-primary">
-                    {video.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
 
           <div>
             <h2 className="text-2xl font-semibold mb-4 text-heading">
