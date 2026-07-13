@@ -51,13 +51,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
-      <body className="font-sans">
+      <body className="font-sans flex flex-col min-h-screen">
         <Suspense fallback={<div className="w-full h-20 bg-page" />}>
           <Nav />
         </Suspense>
         <div
           id="content"
-          className="flex flex-col min-h-screen"
+          className="flex flex-col flex-1"
         >
           {children}
         </div>

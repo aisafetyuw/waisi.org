@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <div id="contact" className="max-w-6xl mx-auto">
-      <div className="px-16 py-8 pb-16">
+      <div className="px-16 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column */}
           <div className="flex flex-col gap-8">
