@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CapabilitiesHero from "@/components/CapabilitiesHero";
+import { primaryCta } from "@/constants";
 import CompanyCarousel from "@/components/CompanyCarousel";
 import NumbersCarousel from "@/components/NumbersCarousel";
 import PhotoCarousel from "@/components/PhotoCarousel";
@@ -15,12 +16,39 @@ import {
 } from "@/content/home";
 
 export default function Home() {
+  const cta = primaryCta();
   return (
     <div id="home" className="-mx-10">
-      {/* 1 — Hero: METR capabilities chart, full stage */}
+      {/* 1 — Hero: METR capabilities chart with headline + CTAs */}
       <section className="relative min-h-[86vh] flex items-center px-6 lg:px-12">
-        <div className="w-full max-w-[1050px] mr-auto">
-          <CapabilitiesHero />
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 items-center max-w-7xl mx-auto w-full">
+          <div className="order-2 lg:order-1">
+            <CapabilitiesHero />
+          </div>
+          <div className="order-1 lg:order-2 flex flex-col gap-5">
+            <h1 className="text-4xl md:text-5xl text-heading">
+              Conquer capabilities.
+              <br />
+              Make AI safe.
+            </h1>
+            <div className="flex flex-wrap gap-4 mt-2">
+              <a
+                href={cta.href}
+                {...(cta.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="waisi-button"
+              >
+                {cta.label}
+              </a>
+              <Link
+                href="/programs"
+                className="px-6 py-3 border border-subtle text-primary rounded-card font-semibold hover:bg-card-alt transition-colors"
+              >
+                Explore programs →
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
           <ScrollArrow />
