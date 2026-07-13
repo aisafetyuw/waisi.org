@@ -198,15 +198,6 @@ export default function Resources() {
       }}
     >
       <div className="px-4 sm:px-8 md:px-16 pt-8 pb-16">
-        <h1
-          className="text-4xl font-semibold mb-8 text-heading"
-          style={{
-            paddingBottom: "8px",
-          }}
-        >
-          AI Safety Resources
-        </h1>
-
         <div className="flex flex-col gap-8">
           {/* Top row: Videos and Blogs side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
