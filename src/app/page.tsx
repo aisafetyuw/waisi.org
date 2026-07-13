@@ -164,10 +164,6 @@ export default function Home() {
           <h2 className="text-heading text-center mb-2">
             Research Highlights
           </h2>
-          <p className="text-base text-primary text-center mb-10 max-w-prose mx-auto">
-            WAISI members publish across interpretability, multi-agent systems,
-            and more — with members in 12+ research labs on campus.
-          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {RESEARCH_HIGHLIGHTS.map((paper) => (
               <PaperCard key={paper.link} paper={paper} />
