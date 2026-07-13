@@ -106,14 +106,12 @@ export default function CapabilitiesHero() {
       <defs>
         {/* wispy ends: strokes fade out at both extremes */}
         <linearGradient id="axis-fade" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="560" y2="0">
-          <stop offset="0" stopColor="var(--text-primary)" stopOpacity="0" />
-          <stop offset="0.12" stopColor="var(--text-primary)" stopOpacity="0.9" />
+          <stop offset="0" stopColor="var(--text-primary)" stopOpacity="0.9" />
           <stop offset="0.82" stopColor="var(--text-primary)" stopOpacity="0.9" />
           <stop offset="1" stopColor="var(--text-primary)" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="fit-fade" gradientUnits="userSpaceOnUse" x1="40" y1="388" x2="426" y2="67">
-          <stop offset="0" stopColor="var(--text-heading)" stopOpacity="0" />
-          <stop offset="0.14" stopColor="var(--text-heading)" stopOpacity="1" />
+          <stop offset="0" stopColor="var(--text-heading)" stopOpacity="1" />
           <stop offset="0.86" stopColor="var(--text-heading)" stopOpacity="1" />
           <stop offset="1" stopColor="var(--text-heading)" stopOpacity="0" />
         </linearGradient>
@@ -138,14 +136,13 @@ export default function CapabilitiesHero() {
       ))}
 
       {/* the climber, scaling the best-fit line (extracted silhouette;
-          the flat left edge of the cutout rests against the curve) */}
+          the raised hand and left knee rest against the curve) */}
       <image
         href="/climber.png"
-        x="388"
-        y="176"
-        width="54"
-        height="45.4"
-        transform="rotate(28 388 202)"
+        x="383"
+        y="181"
+        width="40"
+        height="63.7"
       />
 
       {/* data points */}
