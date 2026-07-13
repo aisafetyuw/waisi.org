@@ -18,13 +18,13 @@ export default function Home() {
     <div id="home" className="-mx-10">
       {/* 1 — Hero: full-stage METR capabilities chart, headline nested in
           its empty upper-left region */}
-      <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center px-4 lg:px-10">
+      <section className="relative min-h-[calc(100vh-5rem)] flex items-start justify-center pt-2 px-4 lg:px-10">
         <div className="relative w-full max-w-[calc((100vh-9rem)*1.267)] mx-auto">
           <div className="lg:absolute lg:left-[7%] lg:top-[36%] flex flex-col gap-5 mb-8 lg:mb-0 max-w-2xl">
             <h1 className="text-4xl md:text-5xl text-heading">
               Capabilities are climbing.
               <br />
-              <span className="text-link">Safety will summit.</span>
+              <span className="text-link">Safety must summit.</span>
             </h1>
             <div className="mt-2">
               <Link href="/programs" className="waisi-button">
