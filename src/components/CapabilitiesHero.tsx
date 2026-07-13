@@ -139,10 +139,10 @@ export default function CapabilitiesHero() {
           the raised hand and left knee rest against the curve) */}
       <image
         href="/climber.png"
-        x="383"
+        x="391"
         y="181"
-        width="40"
-        height="63.7"
+        width="22"
+        height="35"
       />
 
       {/* data points */}
