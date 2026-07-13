@@ -93,7 +93,7 @@ export default function Home() {
         </div>
 
         {/* 3 — Proof band: numbers + impact highlights + photos */}
-        <div className="border-t border-b border-subtle">
+        <div className="border-b border-subtle">
           <NumbersCarousel />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8 lg:px-16 pb-12 max-w-6xl mx-auto">
             {IMPACT_HIGHLIGHTS.map((item) => (
@@ -128,7 +128,7 @@ export default function Home() {
         <div className="px-8 py-16 w-full">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-heading mb-8">Get involved</h2>
-            <div className="border-t border-subtle">
+            <div>
               {PROGRAM_TEASERS.map((program) => (
                 <Link
                   key={program.title}
@@ -140,9 +140,6 @@ export default function Home() {
                   </span>
                   <span className="text-base text-primary">
                     {program.blurb}
-                  </span>
-                  <span className="text-link opacity-0 group-hover:opacity-100 transition-opacity hidden md:inline">
-                    →
                   </span>
                 </Link>
               ))}

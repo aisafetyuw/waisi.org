@@ -105,7 +105,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-block px-4 py-2 rounded-card bg-brand text-white font-semibold hover:opacity-90 transition-opacity"
             >
-              Subscribe →
+              Subscribe
             </a>
           </div>
         </div>

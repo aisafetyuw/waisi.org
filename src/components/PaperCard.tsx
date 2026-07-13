@@ -18,7 +18,7 @@ export default function PaperCard({ paper }: { paper: PaperHighlight }) {
             rel="noopener noreferrer"
             className="text-base font-semibold inline-block hover:underline text-link no-underline"
           >
-            Read paper →
+            Read paper
           </a>
         </div>
       </div>

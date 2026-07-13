@@ -142,33 +142,6 @@ export default function PhotoCarousel() {
           ))}
         </div>
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={goToPrevious}
-          className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full transition-all"
-          style={{backgroundColor: 'var(--bg-card)'}}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-card-alt)'}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-card)'}
-          aria-label="Previous image"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="var(--text-heading)" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-
-        <button
-          onClick={goToNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full transition-all"
-          style={{backgroundColor: 'var(--bg-card)'}}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-card-alt)'}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-card)'}
-          aria-label="Next image"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="var(--text-heading)" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-
         {/* Dot Indicators */}
         <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
           {photos.map((_, index) => (

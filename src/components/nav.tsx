@@ -67,12 +67,10 @@ export default function Nav() {
   const isTransparent = false;
 
   return (
-    <nav
-      className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 rounded-2xl max-w-[1200px] mx-auto border ${isTransparent ? "bg-transparent border-transparent" : "bg-page border-subtle"}`}
-    >
+    <nav className="relative w-full z-50 bg-page border-b border-subtle">
       <MobileNav open={open} setOpen={setOpen} pathname={pathname} />
 
-      <div className="flex justify-between items-center mx-auto">
+      <div className="flex justify-between items-center mx-auto max-w-[1200px]">
         <div className="flex items-center p-3">
           <Link href="/" className="z-10 flex items-center gap-3">
             <Image
