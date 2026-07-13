@@ -33,6 +33,18 @@ export default function Home() {
             </div>
           </div>
           <CapabilitiesHero />
+          <p className="mt-3 text-xs font-mono text-primary opacity-50">
+            Data:{" "}
+            <a
+              href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:opacity-80"
+            >
+              METR, Measuring AI Ability to Complete Long Tasks
+            </a>{" "}
+            — Time Horizon v1.1, p50 task-completion horizons
+          </p>
         </div>
       </section>
 
