@@ -1,8 +1,9 @@
 // Hero illustration: minimal static visualizer of METR-Horizon-v1.1
 // benchmark results (p50 horizon length vs. LLM release date, 2023 onward)
-// on a LINEAR y-axis, with the log-linear regression fit drawn to the full
-// extent of the chart. Data: benchmark_results_1_1.yaml. Fit: ln(minutes) =
-// -4.5703 + 0.003888·days since 2019-01-01 (doubling ~178 days, R² = 0.92).
+// on a LINEAR y-axis, with the line of best fit through the shown data drawn
+// to the full extent of the chart. Data: benchmark_results_1_1.yaml.
+// Fit (2023+ points, log-linear least squares): ln(minutes) = -0.4040 +
+// 0.005665·days since 2023-01-01 → doubling ~122 days, R² = 0.935.
 // Coordinates precomputed; y spans 0-30 hours linearly, x spans 2023 →
 // mid-2027.
 
@@ -40,13 +41,13 @@ const LABELS: { x: number; y: number; text: string; anchor: "start" | "end" | "m
   { x: 411, y: 181, text: "Mythos (early)", anchor: "end" },
 ];
 
-// The regression fit, drawn to the maximum extent of the chart (2023 → the
-// top-right edge at ~mid-2027).
+// Line of best fit through the 2023+ points, drawn to the maximum extent of
+// the chart.
 const FIT_PATH =
-  "M 40 387.4 L 68.5 387.2 L 97 386.8 L 125.5 386.3 L 154 385.6 L 182.5 384.6 " +
-  "L 211 383.2 L 239.5 381.2 L 268 378.4 L 296.5 374.3 L 325 368.6 " +
-  "L 353.5 360.5 L 382 348.9 L 401 338.6 L 420 325.7 L 439 309.3 " +
-  "L 458 288.6 L 477 262.5 L 496 229.5 L 515 187.9 L 534 135.3 L 553 69";
+  "M 40 387.9 L 68.5 387.8 L 97 387.6 L 125.5 387.4 L 154 387 L 182.5 386.3 " +
+  "L 211 385.3 L 239.5 383.4 L 268 380.4 L 296.5 375.3 L 315.5 370.2 " +
+  "L 334.5 363 L 353.5 352.8 L 372.5 338.6 L 391.5 318.6 L 410.5 290.5 " +
+  "L 429.5 251 L 448.5 195.5 L 467.5 117.6 L 477 67.5";
 
 const X_TICKS = [
   { x: 40, label: "2023" },
@@ -62,7 +63,7 @@ export default function CapabilitiesHero() {
       viewBox="0 0 600 430"
       role="img"
       aria-label="METR Horizon v1.1 results from 2023 onward: the task duration AI can complete at 50% success grows exponentially with model release date."
-      className="w-full h-auto max-w-[620px]"
+      className="w-full h-auto"
     >
       {/* x axis */}
       <line x1="40" y1="388" x2="560" y2="388" stroke="var(--text-primary)" strokeWidth="1" />
