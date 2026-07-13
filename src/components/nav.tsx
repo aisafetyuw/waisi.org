@@ -67,7 +67,7 @@ export default function Nav() {
   const isTransparent = false;
 
   return (
-    <nav className="relative w-full z-50 bg-page border-b border-subtle">
+    <nav className="relative w-full z-50 bg-page">
       <MobileNav open={open} setOpen={setOpen} pathname={pathname} />
 
       <div className="flex justify-between items-center mx-auto max-w-[1200px]">
