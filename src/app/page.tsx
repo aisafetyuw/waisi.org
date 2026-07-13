@@ -50,7 +50,7 @@ export default function Home() {
 
       {/* 2 — Mission */}
       <div id="about" className="w-full max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch lg:min-h-[36rem]">
           <div className="relative h-full min-h-0">
             <Image
               src="/about/CAIP_2.JPG"
@@ -61,7 +61,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex flex-col justify-center py-12 h-full px-8 lg:px-12">
+          <div className="flex flex-col justify-center py-16 h-full px-8 lg:px-12">
             <div className="flex flex-col gap-4 max-w-prose">
               <h2 className="text-heading">Our Mission</h2>
               <p className="text-base text-primary">
@@ -95,12 +95,12 @@ export default function Home() {
         {/* 3 — Proof band: numbers + impact highlights + photos */}
         <div>
           <NumbersCarousel />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-8 lg:px-16 pb-12 max-w-6xl mx-auto">
-            <ul className="flex flex-col justify-center gap-6 list-none">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-8 pb-16 max-w-6xl mx-auto">
+            <ul className="flex flex-col justify-center gap-8 list-none">
               {IMPACT_HIGHLIGHTS.map((item) => (
                 <li
                   key={item.text}
-                  className="text-base flex items-start text-primary"
+                  className="text-lg flex items-start text-primary"
                 >
                   <span className="text-link mr-3">—</span>
                   <span>

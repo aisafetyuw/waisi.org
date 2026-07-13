@@ -116,7 +116,7 @@ export default function PhotoCarousel() {
     >
       {/* Main Image Container */}
       <div
-        className="relative w-full h-full min-h-[320px] overflow-hidden"
+        className="relative w-full h-full min-h-[360px] lg:min-h-[480px] overflow-hidden"
         style={{cursor: isDragging ? 'grabbing' : 'grab'}}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
