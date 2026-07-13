@@ -93,7 +93,7 @@ export default function Home() {
         </div>
 
         {/* 3 — Proof band: numbers + impact highlights + photos */}
-        <div className="border-b border-subtle">
+        <div>
           <NumbersCarousel />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-8 lg:px-16 pb-12 max-w-6xl mx-auto">
             <ul className="flex flex-col justify-center gap-6 list-none">
