@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import CapabilitiesHero from "@/components/CapabilitiesHero";
-import { primaryCta } from "@/constants";
 import CompanyCarousel from "@/components/CompanyCarousel";
 import NumbersCarousel from "@/components/NumbersCarousel";
 import PhotoCarousel from "@/components/PhotoCarousel";
@@ -15,7 +14,6 @@ import {
 } from "@/content/home";
 
 export default function Home() {
-  const cta = primaryCta();
   return (
     <div id="home" className="-mx-10">
       {/* 1 — Hero: full-stage METR capabilities chart, headline nested in
@@ -28,23 +26,6 @@ export default function Home() {
               <br />
               Make AI safe.
             </h1>
-            <div className="flex flex-wrap gap-4 mt-2">
-              <a
-                href={cta.href}
-                {...(cta.href.startsWith("http")
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className="waisi-button"
-              >
-                {cta.label}
-              </a>
-              <Link
-                href="/programs"
-                className="px-6 py-3 border border-subtle text-primary rounded-card font-semibold hover:bg-card-alt transition-colors"
-              >
-                Explore programs →
-              </Link>
-            </div>
           </div>
           <CapabilitiesHero />
         </div>
