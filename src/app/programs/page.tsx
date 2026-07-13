@@ -19,22 +19,11 @@ export default async function Programs() {
   return (
     <div id="programs" className="-mx-10">
       <div className="px-8 py-12 pb-20 max-w-5xl mx-auto">
-        <div className="max-w-prose mb-10">
-          <h1 className="text-heading">Get involved</h1>
-          <p className="text-base text-primary mt-3">
-            Four programs, from first exposure to core membership. Applications
-            open at the start of each semester; most programs require no prior
-            experience.
-            {APPLICATION_CYCLE.deadline && (
-              <>
-                {" "}
-                <span className="font-semibold text-heading">
-                  Applications are due by {APPLICATION_CYCLE.deadline}.
-                </span>
-              </>
-            )}
+        {APPLICATION_CYCLE.deadline && (
+          <p className="text-base max-w-prose mb-10 font-semibold text-heading">
+            Applications are due by {APPLICATION_CYCLE.deadline}.
           </p>
-        </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {PROGRAMS.map((program) => (
