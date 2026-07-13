@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { MobileNavProps } from "@/types";
-import { primaryCta } from "@/constants";
 
 function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
   return (
@@ -24,12 +23,6 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
           className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/programs" ? "underline text-heading" : "text-primary"}`}
         >
           Get Involved
-        </Link>
-        <Link
-          href="/events"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/events" ? "underline text-heading" : "text-primary"}`}
-        >
-          Events
         </Link>
         <Link
           href="/research"
@@ -55,15 +48,6 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
         >
           Contact
         </Link>
-        <a
-          href={primaryCta().href}
-          {...(primaryCta().href.startsWith("http")
-            ? { target: "_blank", rel: "noopener noreferrer" }
-            : {})}
-          className="text-2xl my-4 px-6 py-3 rounded-card font-semibold text-white bg-brand hover:opacity-90 transition-opacity"
-        >
-          {primaryCta().label}
-        </a>
       </div>
     </div>
   );
@@ -108,12 +92,6 @@ export default function Nav() {
             Get Involved
           </Link>
           <Link
-            href="/events"
-            className={`p-2 hover:underline ${pathname == "/events" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
-          >
-            Events
-          </Link>
-          <Link
             href="/research"
             className={`p-2 hover:underline ${pathname == "/research" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
           >
@@ -137,15 +115,6 @@ export default function Nav() {
           >
             Contact
           </Link>
-          <a
-            href={primaryCta().href}
-            {...(primaryCta().href.startsWith("http")
-              ? { target: "_blank", rel: "noopener noreferrer" }
-              : {})}
-            className="ml-2 px-4 py-2 rounded-card font-semibold text-white bg-brand hover:opacity-90 transition-opacity"
-          >
-            {primaryCta().label}
-          </a>
         </div>
 
         <div className="w-4/5 md:hidden flex justify-end p-4 items-center gap-3">

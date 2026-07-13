@@ -9,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/programs", priority: 0.9 },
     { path: "/team", priority: 0.8 },
     { path: "/research", priority: 0.8 },
-    { path: "/events", priority: 0.7 },
     { path: "/resources", priority: 0.6 },
     { path: "/contact", priority: 0.6 },
   ];

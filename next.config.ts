@@ -23,6 +23,8 @@ const nextConfig: NextConfig = {
       { source: "/twitter", destination: TWITTER_URL, permanent: false },
       { source: "/instagram", destination: INSTAGRAM_URL, permanent: false },
       { source: "/qrcode", destination: DISCORD_URL, permanent: false },
+      // Events now live on the Get Involved page.
+      { source: "/events", destination: "/programs", permanent: false },
     ];
   },
 };

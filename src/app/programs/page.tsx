@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
 import { APPLICATION_CYCLE, Handbooks } from "@/constants";
 import { PROGRAMS } from "@/content/programs";
+import CalendarEvent from "@/components/calendarEvent";
+import getEvents from "@/app/programs/getEvents";
 
 export const metadata: Metadata = {
   title: "Get Involved",
   description:
-    "WAISI's semester programs: Technical Fundamentals, Policy Fundamentals, Technical Upskilling, and the Safety Scholars program.",
+    "WAISI's semester programs and upcoming events: Technical Fundamentals, Policy Fundamentals, Technical Upskilling, and the Safety Scholars program.",
 };
 
-export default function Programs() {
+// Events are time-sensitive: re-fetch the calendar in the background at most
+// every 15 minutes.
+export const revalidate = 900;
+
+export default async function Programs() {
+  const events = await getEvents();
   return (
     <div id="programs" className="-mx-10">
       <div className="px-8 py-12 pb-20 max-w-5xl mx-auto">
@@ -106,6 +113,31 @@ export default function Programs() {
               </a>
               .
             </p>
+          </div>
+        </div>
+
+        <div className="mt-14">
+          <h2 className="text-heading">Upcoming Events</h2>
+          <div className="mt-4 max-w-3xl">
+            {events === null ? (
+              <p className="text-base text-primary">
+                We couldn&apos;t load upcoming events right now &#8212; please
+                check back soon!
+              </p>
+            ) : events.length > 0 ? (
+              <ul>
+                {events.map((event, index) => (
+                  <li key={index}>
+                    <CalendarEvent event={event} />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-base text-primary">
+                Nothing outside of our usual programming happening soon &#8212;
+                check back later!
+              </p>
+            )}
           </div>
         </div>
       </div>
