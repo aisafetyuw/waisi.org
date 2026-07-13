@@ -49,7 +49,7 @@ export default function ScrollArrow() {
 
   return (
     <div
-      className="absolute bottom-8 animate-bounce transition-opacity duration-300"
+      className="absolute bottom-0 animate-bounce transition-opacity duration-300"
       style={{
         opacity: showArrow ? 0.6 : 0,
         pointerEvents: showArrow ? "auto" : "none",

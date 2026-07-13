@@ -1,12 +1,11 @@
 // Hero: static visualizer of METR-Horizon-v1.1 results (p50 horizon length
-// vs. LLM release date, 2023 onward, SOTA models only) on a LINEAR y-axis.
-// Solid line of best fit through the shown data (log-linear least squares on
-// the 2023+ points: doubling ~122 days, R² = 0.935), a frontier line stitched
-// through the points, and CSS-only hover tooltips (model · horizon ·
-// equivalent software task). Tooltips live in their own top layer so they
-// always paint above the chart. Data: benchmark_results_1_1.yaml;
-// coordinates precomputed. y spans 0-30 hours linearly, x spans 2023 →
-// mid-2027.
+// vs. LLM release date, SOTA models from GPT-4 (Nov '23) onward) on a LINEAR
+// y-axis. Solid line of best fit through the shown data (log-linear least
+// squares: doubling ~108 days, R² = 0.980), a frontier line stitched through
+// the points, and CSS-only hover tooltips (model · horizon · equivalent
+// software task). Tooltips live in their own top layer so they always paint
+// above the chart. Data: benchmark_results_1_1.yaml; coordinates
+// precomputed. y spans 0-30 hours linearly, x spans Nov 2023 → mid-2027.
 
 type Pt = {
   x: number;
@@ -16,50 +15,49 @@ type Pt = {
   task: string;
 };
 
-// SOTA models released 2023 onward.
+// SOTA models from GPT-4 (Nov '23) onward.
 const POINTS: Pt[] = [
-  { x: 62.8, y: 387.2, name: "GPT-4", time: "4 min", task: "Fix a one-line bug" },
-  { x: 137.9, y: 387.2, name: "GPT-4 (Nov '23)", time: "4 min", task: "Fix a one-line bug" },
-  { x: 197.7, y: 386.6, name: "GPT-4o", time: "7 min", task: "Fix a one-line bug" },
-  { x: 209.7, y: 385.8, name: "Claude 3.5 Sonnet (Jun)", time: "11 min", task: "Fix bugs in a small Python library" },
-  { x: 236.3, y: 384.1, name: "o1-preview", time: "20 min", task: "Fix bugs in a small Python library" },
-  { x: 249.0, y: 384.0, name: "Claude 3.5 Sonnet (Oct)", time: "21 min", task: "Fix bugs in a small Python library" },
-  { x: 262.9, y: 380.5, name: "o1", time: "39 min", task: "Fix bugs in a small Python library" },
-  { x: 288.6, y: 376.3, name: "Claude 3.7 Sonnet", time: "1.0 hrs", task: "Exploit a buffer overflow" },
-  { x: 304.8, y: 364.9, name: "o3", time: "2.0 hrs", task: "Exploit a buffer overflow" },
-  { x: 340.5, y: 348.8, name: "GPT-5", time: "3.4 hrs", task: "Train an adversarially robust image model" },
-  { x: 373.2, y: 344.6, name: "Gemini 3 Pro", time: "3.7 hrs", task: "Train an adversarially robust image model" },
-  { x: 375.1, y: 331.4, name: "Claude Opus 4.5", time: "4.9 hrs", task: "Train an adversarially robust image model" },
-  { x: 380.4, y: 319.9, name: "GPT-5.2", time: "5.9 hrs", task: "Train an adversarially robust image model" },
-  { x: 398.2, y: 249.0, name: "Claude Opus 4.6", time: "12.0 hrs", task: "Exploit a vulnerable smart contract" },
-  { x: 417.5, y: 186.0, name: "Claude Mythos Preview (early)", time: "17.4 hrs", task: "Fix a complex bug in an ML research codebase" },
+  { x: 40.0, y: 387.2, name: "GPT-4 (Nov '23)", time: "4 min", task: "Fix a one-line bug" },
+  { x: 113.7, y: 386.6, name: "GPT-4o", time: "7 min", task: "Fix a one-line bug" },
+  { x: 128.6, y: 385.8, name: "Claude 3.5 Sonnet (Jun)", time: "11 min", task: "Fix bugs in a small Python library" },
+  { x: 161.3, y: 384.1, name: "o1-preview", time: "20 min", task: "Fix bugs in a small Python library" },
+  { x: 176.9, y: 384.0, name: "Claude 3.5 Sonnet (Oct)", time: "21 min", task: "Fix bugs in a small Python library" },
+  { x: 194.1, y: 380.5, name: "o1", time: "39 min", task: "Fix bugs in a small Python library" },
+  { x: 225.7, y: 376.3, name: "Claude 3.7 Sonnet", time: "1.0 hrs", task: "Exploit a buffer overflow" },
+  { x: 245.6, y: 364.9, name: "o3", time: "2.0 hrs", task: "Exploit a buffer overflow" },
+  { x: 289.7, y: 348.8, name: "GPT-5", time: "3.4 hrs", task: "Train an adversarially robust image model" },
+  { x: 329.8, y: 344.6, name: "Gemini 3 Pro", time: "3.7 hrs", task: "Train an adversarially robust image model" },
+  { x: 332.2, y: 331.4, name: "Claude Opus 4.5", time: "4.9 hrs", task: "Train an adversarially robust image model" },
+  { x: 338.8, y: 319.9, name: "GPT-5.2", time: "5.9 hrs", task: "Train an adversarially robust image model" },
+  { x: 360.7, y: 249.0, name: "Claude Opus 4.6", time: "12.0 hrs", task: "Exploit a vulnerable smart contract" },
+  { x: 384.5, y: 186.0, name: "Claude Mythos Preview (early)", time: "17.4 hrs", task: "Fix a complex bug in an ML research codebase" },
 ];
 
 const LABELS: { x: number; y: number; text: string; anchor: "start" | "end" | "middle" }[] = [
-  { x: 62.8, y: 374, text: "GPT-4", anchor: "middle" },
-  { x: 411, y: 181, text: "Mythos (early)", anchor: "end" },
+  { x: 36, y: 374, text: "GPT-4", anchor: "start" },
+  { x: 378, y: 181, text: "Mythos (early)", anchor: "end" },
 ];
 
-// Line of best fit through the 2023+ points, drawn to the maximum extent of
+// Line of best fit through the shown points, drawn to the maximum extent of
 // the chart.
 const FIT_PATH =
-  "M 40 387.9 L 68.5 387.8 L 97 387.6 L 125.5 387.4 L 154 387 L 182.5 386.3 " +
-  "L 211 385.3 L 239.5 383.4 L 268 380.4 L 296.5 375.3 L 315.5 370.2 " +
-  "L 334.5 363 L 353.5 352.8 L 372.5 338.6 L 391.5 318.6 L 410.5 290.5 " +
-  "L 429.5 251 L 448.5 195.5 L 467.5 117.6 L 477 67.5";
+  "M 40 387.5 L 63.4 387.2 L 86.8 386.8 L 110.2 386.3 L 133.6 385.4 " +
+  "L 157 384.2 L 180.4 382.4 L 203.8 379.8 L 227.2 376 L 250.7 370.3 " +
+  "L 274.1 361.9 L 297.5 349.6 L 320.9 331.6 L 332.6 319.5 L 344.3 304.9 " +
+  "L 356 287.2 L 367.7 265.8 L 379.4 239.7 L 391.1 208.2 L 402.8 169.9 " +
+  "L 414.5 123.4 L 426.2 67";
 
 // Frontier line stitched through the points in release order.
 const SOTA_LINE =
-  "M 62.8 387.2 L 137.9 387.2 L 197.7 386.6 L 209.7 385.8 L 236.3 384.1 " +
-  "L 249 384 L 262.9 380.5 L 288.6 376.3 L 304.8 364.9 L 340.5 348.8 " +
-  "L 373.2 344.6 L 375.1 331.4 L 380.4 319.9 L 398.2 249 L 417.5 186";
+  "M 40 387.2 L 113.7 386.6 L 128.6 385.8 L 161.3 384.1 L 176.9 384 " +
+  "L 194.1 380.5 L 225.7 376.3 L 245.6 364.9 L 289.7 348.8 L 329.8 344.6 " +
+  "L 332.2 331.4 L 338.8 319.9 L 360.7 249 L 384.5 186";
 
 const X_TICKS = [
-  { x: 40, label: "2023" },
-  { x: 155.6, label: "2024" },
-  { x: 271.5, label: "2025" },
-  { x: 387.1, label: "2026" },
-  { x: 502.7, label: "2027" },
+  { x: 61.8, label: "2024" },
+  { x: 204.6, label: "2025" },
+  { x: 347.0, label: "2026" },
+  { x: 489.4, label: "2027" },
 ];
 
 const TIP_H = 56;
