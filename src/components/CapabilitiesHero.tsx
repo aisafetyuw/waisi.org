@@ -1,44 +1,38 @@
 // Hero: static visualizer of METR-Horizon-v1.1 results (p50 horizon length
-// vs. LLM release date, 2023 onward) on a LINEAR y-axis. Solid line of best
-// fit through the shown data (log-linear least squares on the 2023+ points:
-// doubling ~122 days, R² = 0.935), a frontier line stitched through the SOTA
-// points, and CSS-only hover tooltips (model · horizon · equivalent software
-// task). Data: benchmark_results_1_1.yaml; coordinates precomputed. y spans
-// 0-30 hours linearly, x spans 2023 → mid-2027.
+// vs. LLM release date, 2023 onward, SOTA models only) on a LINEAR y-axis.
+// Solid line of best fit through the shown data (log-linear least squares on
+// the 2023+ points: doubling ~122 days, R² = 0.935), a frontier line stitched
+// through the points, and CSS-only hover tooltips (model · horizon ·
+// equivalent software task). Tooltips live in their own top layer so they
+// always paint above the chart. Data: benchmark_results_1_1.yaml;
+// coordinates precomputed. y spans 0-30 hours linearly, x spans 2023 →
+// mid-2027.
 
 type Pt = {
   x: number;
   y: number;
-  sota: boolean;
   name: string;
   time: string;
   task: string;
 };
 
+// SOTA models released 2023 onward.
 const POINTS: Pt[] = [
-  { x: 62.8, y: 387.2, sota: true, name: "GPT-4", time: "4 min", task: "Fix a one-line bug" },
-  { x: 137.9, y: 387.2, sota: true, name: "GPT-4 (Nov '23)", time: "4 min", task: "Fix a one-line bug" },
-  { x: 175.5, y: 387.2, sota: false, name: "Claude 3 Opus", time: "4 min", task: "Fix a one-line bug" },
-  { x: 186.9, y: 387.3, sota: false, name: "GPT-4 Turbo", time: "4 min", task: "Fix a one-line bug" },
-  { x: 197.7, y: 386.6, sota: true, name: "GPT-4o", time: "7 min", task: "Fix a one-line bug" },
-  { x: 209.7, y: 385.8, sota: true, name: "Claude 3.5 Sonnet (Jun)", time: "11 min", task: "Fix bugs in a small Python library" },
-  { x: 236.3, y: 384.1, sota: true, name: "o1-preview", time: "20 min", task: "Fix bugs in a small Python library" },
-  { x: 249.0, y: 384.0, sota: true, name: "Claude 3.5 Sonnet (Oct)", time: "21 min", task: "Fix bugs in a small Python library" },
-  { x: 262.9, y: 380.5, sota: true, name: "o1", time: "39 min", task: "Fix bugs in a small Python library" },
-  { x: 288.6, y: 376.3, sota: true, name: "Claude 3.7 Sonnet", time: "1.0 hrs", task: "Exploit a buffer overflow" },
-  { x: 304.8, y: 364.9, sota: true, name: "o3", time: "2.0 hrs", task: "Exploit a buffer overflow" },
-  { x: 316.2, y: 368.6, sota: false, name: "Claude Opus 4", time: "1.7 hrs", task: "Exploit a buffer overflow" },
-  { x: 339.9, y: 368.6, sota: false, name: "Claude Opus 4.1", time: "1.7 hrs", task: "Exploit a buffer overflow" },
-  { x: 340.5, y: 348.8, sota: true, name: "GPT-5", time: "3.4 hrs", task: "Train an adversarially robust image model" },
-  { x: 373.2, y: 344.6, sota: true, name: "Gemini 3 Pro", time: "3.7 hrs", task: "Train an adversarially robust image model" },
-  { x: 373.5, y: 344.7, sota: false, name: "GPT-5.1 Codex Max", time: "3.7 hrs", task: "Train an adversarially robust image model" },
-  { x: 375.1, y: 331.4, sota: true, name: "Claude Opus 4.5", time: "4.9 hrs", task: "Train an adversarially robust image model" },
-  { x: 380.4, y: 319.9, sota: true, name: "GPT-5.2", time: "5.9 hrs", task: "Train an adversarially robust image model" },
-  { x: 398.2, y: 249.0, sota: true, name: "Claude Opus 4.6", time: "12.0 hrs", task: "Exploit a vulnerable smart contract" },
-  { x: 398.2, y: 320.4, sota: false, name: "GPT-5.3 Codex", time: "5.8 hrs", task: "Train an adversarially robust image model" },
-  { x: 402.6, y: 313.7, sota: false, name: "Gemini 3.1 Pro", time: "6.4 hrs", task: "Exploit a vulnerable smart contract" },
-  { x: 407.0, y: 321.9, sota: false, name: "GPT-5.4", time: "5.7 hrs", task: "Train an adversarially robust image model" },
-  { x: 417.5, y: 186.0, sota: true, name: "Claude Mythos Preview (early)", time: "17.4 hrs", task: "Fix a complex bug in an ML research codebase" },
+  { x: 62.8, y: 387.2, name: "GPT-4", time: "4 min", task: "Fix a one-line bug" },
+  { x: 137.9, y: 387.2, name: "GPT-4 (Nov '23)", time: "4 min", task: "Fix a one-line bug" },
+  { x: 197.7, y: 386.6, name: "GPT-4o", time: "7 min", task: "Fix a one-line bug" },
+  { x: 209.7, y: 385.8, name: "Claude 3.5 Sonnet (Jun)", time: "11 min", task: "Fix bugs in a small Python library" },
+  { x: 236.3, y: 384.1, name: "o1-preview", time: "20 min", task: "Fix bugs in a small Python library" },
+  { x: 249.0, y: 384.0, name: "Claude 3.5 Sonnet (Oct)", time: "21 min", task: "Fix bugs in a small Python library" },
+  { x: 262.9, y: 380.5, name: "o1", time: "39 min", task: "Fix bugs in a small Python library" },
+  { x: 288.6, y: 376.3, name: "Claude 3.7 Sonnet", time: "1.0 hrs", task: "Exploit a buffer overflow" },
+  { x: 304.8, y: 364.9, name: "o3", time: "2.0 hrs", task: "Exploit a buffer overflow" },
+  { x: 340.5, y: 348.8, name: "GPT-5", time: "3.4 hrs", task: "Train an adversarially robust image model" },
+  { x: 373.2, y: 344.6, name: "Gemini 3 Pro", time: "3.7 hrs", task: "Train an adversarially robust image model" },
+  { x: 375.1, y: 331.4, name: "Claude Opus 4.5", time: "4.9 hrs", task: "Train an adversarially robust image model" },
+  { x: 380.4, y: 319.9, name: "GPT-5.2", time: "5.9 hrs", task: "Train an adversarially robust image model" },
+  { x: 398.2, y: 249.0, name: "Claude Opus 4.6", time: "12.0 hrs", task: "Exploit a vulnerable smart contract" },
+  { x: 417.5, y: 186.0, name: "Claude Mythos Preview (early)", time: "17.4 hrs", task: "Fix a complex bug in an ML research codebase" },
 ];
 
 const LABELS: { x: number; y: number; text: string; anchor: "start" | "end" | "middle" }[] = [
@@ -54,7 +48,7 @@ const FIT_PATH =
   "L 334.5 363 L 353.5 352.8 L 372.5 338.6 L 391.5 318.6 L 410.5 290.5 " +
   "L 429.5 251 L 448.5 195.5 L 467.5 117.6 L 477 67.5";
 
-// Frontier line stitched through the SOTA (solid) points in release order.
+// Frontier line stitched through the points in release order.
 const SOTA_LINE =
   "M 62.8 387.2 L 137.9 387.2 L 197.7 386.6 L 209.7 385.8 L 236.3 384.1 " +
   "L 249 384 L 262.9 380.5 L 288.6 376.3 L 304.8 364.9 L 340.5 348.8 " +
@@ -68,35 +62,44 @@ const X_TICKS = [
   { x: 502.7, label: "2027" },
 ];
 
-const TIP_W = 236;
 const TIP_H = 56;
+// Approximate mono glyph widths (px per char) at each line's font size.
+const CH_NAME = 6.7; // 11px
+const CH_TIME = 6.4; // 10.5px
+const CH_TASK = 5.8; // 9.5px
+const TIP_PAD = 10;
 
-function Tooltip({ p }: { p: Pt }) {
-  // Flip the tooltip to the left of dots on the right half; keep it inside
-  // the top edge for high points.
-  const flip = p.x > 330;
-  const tx = flip ? p.x - TIP_W - 12 : p.x + 12;
+function tipWidth(p: Pt): number {
+  const w = Math.max(
+    p.name.length * CH_NAME,
+    ("p50 horizon: " + p.time).length * CH_TIME,
+    ("≈ " + p.task).length * CH_TASK,
+  );
+  return Math.ceil(w + TIP_PAD * 2);
+}
+
+// A transparent hover target plus the tooltip itself. These live in the
+// topmost layer of the SVG so tooltips always paint above dots and lines.
+function TipTarget({ p }: { p: Pt }) {
+  const w = tipWidth(p);
+  const flip = p.x + 12 + w > 590;
+  const tx = flip ? p.x - w - 12 : p.x + 12;
   const ty = Math.max(10, p.y - TIP_H - 8);
   return (
-    <g className="hero-tip">
-      <rect
-        x={tx}
-        y={ty}
-        width={TIP_W}
-        height={TIP_H}
-        rx="4"
-        fill="var(--bg-card)"
-        stroke="var(--border-subtle)"
-      />
-      <text x={tx + 10} y={ty + 17} fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="600" fill="var(--text-heading)">
-        {p.name}
-      </text>
-      <text x={tx + 10} y={ty + 32} fontSize="10.5" fontFamily="ui-monospace, monospace" fill="var(--text-link)">
-        p50 horizon: {p.time}
-      </text>
-      <text x={tx + 10} y={ty + 47} fontSize="9.5" fontFamily="ui-monospace, monospace" fill="var(--text-primary)" opacity="0.75">
-        ≈ {p.task}
-      </text>
+    <g className="hero-dot">
+      <circle cx={p.x} cy={p.y} r="12" fill="transparent" />
+      <g className="hero-tip">
+        <rect x={tx} y={ty} width={w} height={TIP_H} rx="4" fill="var(--bg-card)" stroke="var(--border-subtle)" />
+        <text x={tx + TIP_PAD} y={ty + 17} fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="600" fill="var(--text-heading)">
+          {p.name}
+        </text>
+        <text x={tx + TIP_PAD} y={ty + 32} fontSize="10.5" fontFamily="ui-monospace, monospace" fill="var(--text-link)">
+          p50 horizon: {p.time}
+        </text>
+        <text x={tx + TIP_PAD} y={ty + 47} fontSize="9.5" fontFamily="ui-monospace, monospace" fill="var(--text-primary)" opacity="0.75">
+          ≈ {p.task}
+        </text>
+      </g>
     </g>
   );
 }
@@ -120,7 +123,7 @@ export default function CapabilitiesHero() {
       {/* line of best fit — solid, full extent of the chart */}
       <path d={FIT_PATH} fill="none" stroke="var(--text-link)" strokeWidth="2" strokeLinecap="round" />
 
-      {/* frontier line through the SOTA points */}
+      {/* frontier line through the points */}
       <path d={SOTA_LINE} fill="none" stroke="var(--text-link)" strokeWidth="1.2" opacity="0.45" strokeLinejoin="round" />
 
       {/* milestone labels */}
@@ -130,19 +133,14 @@ export default function CapabilitiesHero() {
         </text>
       ))}
 
-      {/* data points with hover tooltips (SOTA solid, non-SOTA faded) */}
+      {/* data points */}
       {POINTS.map((p) => (
-        <g key={p.name} className="hero-dot">
-          <circle cx={p.x} cy={p.y} r="12" fill="transparent" />
-          <circle
-            cx={p.x}
-            cy={p.y}
-            r={p.sota ? 3.2 : 2.4}
-            fill="var(--text-link)"
-            opacity={p.sota ? 1 : 0.3}
-          />
-          <Tooltip p={p} />
-        </g>
+        <circle key={p.name} cx={p.x} cy={p.y} r="3.2" fill="var(--text-link)" />
+      ))}
+
+      {/* top layer: hover targets + tooltips (always in front) */}
+      {POINTS.map((p) => (
+        <TipTarget key={p.name} p={p} />
       ))}
     </svg>
   );
