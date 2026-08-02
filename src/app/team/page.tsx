@@ -95,7 +95,7 @@ export default async function Team() {
         )}
 
         {/* Static list — renders even when the members sheet is unavailable. */}
-        <section className="mt-16 pt-10 border-t border-subtle">
+        <section className="mt-16">
           <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
             Notable Alumni
           </h2>
