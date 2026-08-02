@@ -60,6 +60,17 @@ export type MemberProps = {
     member: MemberData,
 };
 
+export type AlumnusData = {
+    name: string,
+    role: string,
+    previously?: string,
+    photo: string,          // filename in /public/alumni, without the extension
+};
+
+export type AlumnusProps = {
+    alumnus: AlumnusData,
+};
+
 export type EventProps = {
     event: calendar_v3.Schema$Event,
 };
