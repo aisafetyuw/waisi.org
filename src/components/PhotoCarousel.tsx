@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 interface Photo {
   src: string;
@@ -68,6 +70,19 @@ export default function PhotoCarousel() {
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
+  };
+
+  // Arrow clicks must not start a drag, and on touch (no hover-pause) they
+  // pause auto-rotation briefly, matching the drag-release pattern above.
+  const handleArrowClick = (e: React.MouseEvent, direction: 'prev' | 'next') => {
+    e.stopPropagation();
+    setIsPaused(true);
+    if (direction === 'prev') {
+      goToPrevious();
+    } else {
+      goToNext();
+    }
+    setTimeout(() => setIsPaused(false), 1000);
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -141,6 +156,24 @@ export default function PhotoCarousel() {
             </div>
           ))}
         </div>
+
+        {/* Arrow Controls */}
+        <button
+          onClick={(e) => handleArrowClick(e, 'prev')}
+          onMouseDown={(e) => e.stopPropagation()}
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/35 text-cream transition-colors hover:bg-black/55"
+          aria-label="Previous photo"
+        >
+          <FontAwesomeIcon icon={faChevronLeft} className="h-4 w-4" />
+        </button>
+        <button
+          onClick={(e) => handleArrowClick(e, 'next')}
+          onMouseDown={(e) => e.stopPropagation()}
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/35 text-cream transition-colors hover:bg-black/55"
+          aria-label="Next photo"
+        >
+          <FontAwesomeIcon icon={faChevronRight} className="h-4 w-4" />
+        </button>
 
         {/* Dot Indicators */}
         <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
