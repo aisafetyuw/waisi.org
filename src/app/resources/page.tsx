@@ -87,10 +87,10 @@ export default function Resources() {
       url: "https://aisopportunities.com",
     },
     {
-      title: "Situational Awareness",
+      title: "The Problem",
       description:
-        "Leopold Aschenbrenner's essay series on the decade ahead in AI.",
-      url: "https://situational-awareness.ai/",
+        "MIRI's introduction to why smarter-than-human AI could be an existential risk.",
+      url: "https://www.lesswrong.com/posts/kgb58RL88YChkkBNf/the-problem",
     },
   ];
 
