@@ -32,7 +32,7 @@ export default async function Team() {
         ) : (
           <>
             <h3 className="text-2xl font-semibold mb-4 text-heading">
-              Community Builders
+              Operations Team
             </h3>
             <ul
               id="team-list"
