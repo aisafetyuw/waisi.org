@@ -19,21 +19,20 @@ export const SPAR_PROJECTS: SparProject[] = [
     waisiMentorLink: "https://kaustubhais.com",
     coMentors: "Christine Corry",
     description:
-      "Produces short, accessible content on AI safety — written explainers, videos, and interactive demos on topics like sleeper agents and AI control — built for distribution across academic and policy channels.",
+      "Produces short, accessible content on AI safety — explainers, videos, and interactive demos on topics like sleeper agents and AI control — for academic and policy audiences.",
   },
   {
-    title:
-      "Studying Catastrophic AI Misuse: Harm Uplift Measurement and Red-Teaming for Dangerous Knowledge",
+    // Display title shortened for the card; the full title lives on the SPAR page.
+    title: "Red-Teaming Catastrophic AI Misuse",
     link: "https://sparai.org/projects/f26/recs0II21LeSn5B7F",
     waisiMentor: "Max Kamachee",
     waisiMentorLink: "https://www.maxkamachee.com/",
     coMentors: "John Kitaoka",
     description:
-      "Studies how task-decomposition attacks can extract dangerous dual-use knowledge from frontier models, and builds measurement techniques and detection tools that help AI providers harden their defenses.",
+      "Studies how task-decomposition attacks extract dangerous dual-use knowledge from frontier models, and builds measurement and detection tools that help AI providers harden their defenses.",
   },
   {
-    title:
-      "Automated Evaluations and Behavioral Discovery for Multi-Agent Systems",
+    title: "Multi-Agent Evaluations and Behavioral Discovery",
     link: "https://sparai.org/projects/f26/recs4Td7KwmajVB09",
     waisiMentor: "William Anderson",
     waisiMentorLink: "https://www.wlanderson.com/",
