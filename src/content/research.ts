@@ -1,5 +1,48 @@
 import { ProfProps } from "@/types";
 
+export type SparProject = {
+  title: string;
+  link: string;
+  waisiMentor: string; // the WAISI member/alum to highlight
+  waisiMentorLink: string;
+  coMentors?: string;
+  description: string;
+};
+
+// SPAR projects mentored by WAISI members and alumni, shown at the top of
+// /research — edit here, not in the page.
+export const SPAR_PROJECTS: SparProject[] = [
+  {
+    title: "AI Safety Said Simply",
+    link: "https://sparai.org/projects/f26/recK4NKaFBvAEznFB/",
+    waisiMentor: "Kaustubh Kislay",
+    waisiMentorLink: "https://kaustubhais.com",
+    coMentors: "Christine Corry",
+    description:
+      "Produces short, accessible content on AI safety — written explainers, videos, and interactive demos on topics like sleeper agents and AI control — built for distribution across academic and policy channels.",
+  },
+  {
+    title:
+      "Studying Catastrophic AI Misuse: Harm Uplift Measurement and Red-Teaming for Dangerous Knowledge",
+    link: "https://sparai.org/projects/f26/recs0II21LeSn5B7F",
+    waisiMentor: "Max Kamachee",
+    waisiMentorLink: "https://www.maxkamachee.com/",
+    coMentors: "John Kitaoka",
+    description:
+      "Studies how task-decomposition attacks can extract dangerous dual-use knowledge from frontier models, and builds measurement techniques and detection tools that help AI providers harden their defenses.",
+  },
+  {
+    title:
+      "Automated Evaluations and Behavioral Discovery for Multi-Agent Systems",
+    link: "https://sparai.org/projects/f26/recs4Td7KwmajVB09",
+    waisiMentor: "William Anderson",
+    waisiMentorLink: "https://www.wlanderson.com/",
+    coMentors: "Joss Oliver",
+    description:
+      "Extends safety-auditing tools like Petri, Bloom, and Prism to multi-agent systems, enabling discovery of safety-relevant emergent behavior and measurement of propensities like collusion and coercion.",
+  },
+];
+
 // Faculty collaborators shown on /research — edit here, not in the page.
 export const FACULTY_COLLABORATORS: ProfProps[] = [
   {
