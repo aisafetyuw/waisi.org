@@ -7,6 +7,7 @@ export type SparProject = {
   waisiMentorLink: string;
   coMentors?: string;
   description: string;
+  tags: string[]; // topic tags as shown on the SPAR project page
 };
 
 // SPAR projects mentored by WAISI members and alumni, shown at the top of
@@ -20,6 +21,7 @@ export const SPAR_PROJECTS: SparProject[] = [
     coMentors: "Christine Corry",
     description:
       "Produces short, accessible content on AI safety — explainers, videos, and interactive demos on topics like sleeper agents and AI control — for academic and policy audiences.",
+    tags: ["Generalist", "Communications"],
   },
   {
     // Display title shortened for the card; the full title lives on the SPAR page.
@@ -30,6 +32,7 @@ export const SPAR_PROJECTS: SparProject[] = [
     coMentors: "John Kitaoka",
     description:
       "Studies how task-decomposition attacks extract dangerous dual-use knowledge from frontier models, and builds measurement and detection tools that help AI providers harden their defenses.",
+    tags: ["Misuse risk", "Evaluations", "Behavioral evaluation of LLMs"],
   },
   {
     title: "Multi-Agent Evaluations and Behavioral Discovery",
@@ -39,6 +42,7 @@ export const SPAR_PROJECTS: SparProject[] = [
     coMentors: "Joss Oliver",
     description:
       "Extends safety-auditing tools like Petri, Bloom, and Prism to multi-agent systems, enabling discovery of safety-relevant emergent behavior and measurement of propensities like collusion and coercion.",
+    tags: ["Multi-agent systems", "Evaluations", "Behavioral evaluation of LLMs"],
   },
 ];
 

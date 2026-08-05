@@ -37,7 +37,7 @@ export default async function ResearchPage() {
             {SPAR_PROJECTS.map((project) => (
               <div
                 key={project.link}
-                className="flex flex-col p-4 h-full bg-card border border-subtle rounded-card md:grid md:grid-rows-subgrid md:row-span-4 md:gap-y-0"
+                className="flex flex-col p-4 h-full bg-card border border-subtle rounded-card md:grid md:grid-rows-subgrid md:row-span-5 md:gap-y-0"
               >
                 <h3 className="text-lg font-semibold text-heading">
                   {project.title}
@@ -57,6 +57,16 @@ export default async function ResearchPage() {
                 <p className="mt-2 text-sm text-primary">
                   {project.description}
                 </p>
+                <div className="mt-3 flex flex-wrap content-start gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs text-primary bg-card-alt border border-subtle rounded-card px-2 py-0.5"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
                 <div className="mt-auto pt-3">
                   <a
                     href={project.link}
