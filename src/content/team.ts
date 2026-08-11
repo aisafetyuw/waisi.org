@@ -1,9 +1,20 @@
-import { AlumnusData } from "@/types";
+import { AdvisorData, AlumnusData } from "@/types";
 
 // Former WAISI members and where they've gone — edit here, not in the page.
 // The leadership roster is sheet-backed (see src/app/team/getMembers.ts); this
 // list is static, so add a headshot to /public/alumni when you add a person.
 // `previously` runs most-recent-first and ends with the person's WAISI role.
+// The club's faculty advisor(s) — rendered as a centered card on the team
+// page. Add a 400×400 headshot to /public/advisors when you add a person.
+export const FACULTY_ADVISORS: AdvisorData[] = [
+  {
+    name: "Junjie Hu",
+    link: "https://junjiehu.github.io/",
+    position: "Assistant Professor in the Department of Computer Sciences",
+    photo: "junjie_hu",
+  },
+];
+
 export const NOTABLE_ALUMNI: AlumnusData[] = [
   {
     name: "Jeremy Kintana",

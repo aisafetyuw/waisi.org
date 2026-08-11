@@ -1,7 +1,8 @@
+import Image from "next/image";
 import Member from "@/components/member";
 import Alumnus from "@/components/alumnus";
 import getMembers from "@/app/team/getMembers";
-import { NOTABLE_ALUMNI } from "@/content/team";
+import { FACULTY_ADVISORS, NOTABLE_ALUMNI } from "@/content/team";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -94,6 +95,42 @@ export default async function Team() {
           </>
         )}
 
+        {/* Static — renders even when the members sheet is unavailable. */}
+        <section className="mt-16">
+          <h2 className="text-3xl font-semibold mb-6 text-heading pb-2 text-center">
+            Faculty Advisor
+          </h2>
+          <div className="flex justify-center m-1">
+            {FACULTY_ADVISORS.map((advisor) => (
+              <div
+                key={advisor.name}
+                className="flex flex-col items-center text-center p-6 w-full max-w-xs bg-card border border-subtle rounded-card"
+              >
+                <Image
+                  src={`/advisors/${advisor.photo}.webp`}
+                  alt={advisor.name}
+                  width={140}
+                  height={140}
+                  className="rounded-card"
+                />
+                <div className="mt-4 text-lg font-semibold">
+                  <a
+                    href={advisor.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline text-link no-underline"
+                  >
+                    {advisor.name}
+                  </a>
+                </div>
+                <div className="mt-1 text-sm font-semibold text-primary">
+                  {advisor.position}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Static list — renders even when the members sheet is unavailable. */}
         <section className="mt-16">
           <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
@@ -107,6 +144,7 @@ export default async function Team() {
             ))}
           </ul>
         </section>
+
       </div>
     </div>
   );

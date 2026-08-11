@@ -105,6 +105,13 @@ export type ProfProps = {
     extra?: string,
 };
 
+export type AdvisorData = {
+    name: string,
+    link: string,
+    position: string,
+    photo: string,          // filename in /public/advisors, without the extension
+};
+
 export type LabProps = {
     name: string,
     filename: string,
