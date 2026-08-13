@@ -48,11 +48,4 @@ export const NOTABLE_ALUMNI: AlumnusData[] = [
     previously: "Founding Leadership Team @ WAISI",
     photo: "satya_srinath_namburi",
   },
-  {
-    name: "Max Gehred",
-    role: "Legislative Aide @ U.S. House of Representatives",
-    previously:
-      "Technology Policy Fellow, Legislative Intern @ U.S. House of Representatives, Founding Leadership Team @ WAISI",
-    photo: "max_gehred",
-  },
 ];
