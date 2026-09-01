@@ -43,7 +43,8 @@ export default async function Programs() {
             </p>
             <p>
               <span className="font-medium text-heading">Undergraduates:</span>{" "}
-              Safety Scholars applications open at the end of each semester.
+              Safety Scholars applications open at the beginning and end of
+              each semester.
               Priority goes to standout intro-program participants and students
               with a strong AI safety background; strong applicants are
               encouraged to reach out directly.
