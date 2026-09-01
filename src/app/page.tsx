@@ -33,11 +33,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 px-8 lg:px-20">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white max-w-2xl text-center lg:text-left">
-            A community at UW–Madison dedicated to mitigating the
+            A community at the University of Wisconsin–Madison dedicated to
+            mitigating the
             <br />
-            {/* violet-400, not --text-link: the brand violet is too dark to
+            {/* violet-300, not --text-link: the brand violet is too dark to
                 read over the dimmed photo */}
-            <span className="text-violet-400">risks of transformative AI.</span>
+            <span className="text-violet-300">risks of transformative AI.</span>
           </h1>
           <div className="flex flex-col items-center gap-4 shrink-0">
             <Link href="/programs" className="waisi-button text-lg">
