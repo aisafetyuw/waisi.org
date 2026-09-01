@@ -8,8 +8,10 @@ import Link from "next/link";
 // the page background showing through.
 const FUNNEL_CLIP = "polygon(0% 0%, 100% 0%, 73% 100%, 27% 100%)";
 
+// No flex-1 here: in the column stack it would override each layer's fixed
+// height. The two top halves get their own flex-1 to split the row.
 const layerLink =
-  "flex-1 flex items-center justify-center transition-colors text-center";
+  "flex items-center justify-center transition-colors text-center";
 const layerLabel = "font-serif text-base md:text-xl text-heading";
 
 export default function ProgramFunnel() {
@@ -21,14 +23,14 @@ export default function ProgramFunnel() {
       <div className="flex h-20 md:h-24">
         <Link
           href="/programs"
-          className={`${layerLink} bg-violet-100 hover:bg-violet-200 pl-[11%] pr-2`}
+          className={`${layerLink} flex-1 bg-violet-100 hover:bg-violet-200 pl-[11%] pr-2`}
         >
           <span className={layerLabel}>Policy Fundamentals</span>
         </Link>
         <div className="w-1 bg-page shrink-0" />
         <Link
           href="/programs"
-          className={`${layerLink} bg-violet-100 hover:bg-violet-200 pr-[11%] pl-2`}
+          className={`${layerLink} flex-1 bg-violet-100 hover:bg-violet-200 pr-[11%] pl-2`}
         >
           <span className={layerLabel}>Technical Fundamentals</span>
         </Link>
