@@ -31,8 +31,8 @@ export default function Home() {
           quality={60}
         />
         <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 px-8 lg:px-20">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white max-w-4xl text-center lg:text-left">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-10 px-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white max-w-4xl text-center">
             A community at the University of Wisconsin dedicated to mitigating
             the{" "}
             {/* violet-300, not --text-link: the brand violet is too dark to
@@ -42,7 +42,7 @@ export default function Home() {
               risks of transformative AI.
             </span>
           </h1>
-          <div className="flex flex-col items-center gap-4 shrink-0">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             <Link href="/programs" className="waisi-button text-lg">
               Get involved
             </Link>
