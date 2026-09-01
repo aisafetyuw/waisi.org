@@ -6,9 +6,9 @@ import CompanyCarousel from "@/components/CompanyCarousel";
 import NumbersCarousel from "@/components/NumbersCarousel";
 import PhotoCarousel from "@/components/PhotoCarousel";
 import PaperCard from "@/components/PaperCard";
+import ProgramFunnel from "@/components/ProgramFunnel";
 import {
   IMPACT_HIGHLIGHTS,
-  PROGRAM_TEASERS,
   RESEARCH_HIGHLIGHTS,
   COLLABORATORS,
   SPONSORS,
@@ -142,26 +142,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 4 — Programs teaser */}
+        {/* 4 — Programs funnel */}
         <div className="px-8 py-16 w-full">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-heading mb-8 text-center">Get involved</h2>
-            <div>
-              {PROGRAM_TEASERS.map((program) => (
-                <Link
-                  key={program.title}
-                  href="/programs"
-                  className="group grid grid-cols-1 md:grid-cols-[220px_1fr_auto] gap-x-6 gap-y-1 items-baseline py-5 border-b border-subtle"
-                >
-                  <span className="font-serif text-lg text-heading">
-                    {program.title}
-                  </span>
-                  <span className="text-base text-primary">
-                    {program.blurb}
-                  </span>
-                </Link>
-              ))}
-            </div>
+            <ProgramFunnel />
             <div className="mt-8 flex justify-center">
               <Link href="/programs" className="waisi-button">
                 See all programs
