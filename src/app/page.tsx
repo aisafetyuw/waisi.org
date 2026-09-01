@@ -30,7 +30,7 @@ export default function Home() {
           placeholder="blur"
           quality={60}
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-10 px-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white max-w-4xl text-center">
             A community at the University of Wisconsin dedicated to mitigating
