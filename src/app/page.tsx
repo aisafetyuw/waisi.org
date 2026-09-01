@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import CapabilitiesHero from "@/components/CapabilitiesHero";
+import heroImg from "../../public/capital_landscape.webp";
+import { DISCORD_URL } from "@/constants";
 import CompanyCarousel from "@/components/CompanyCarousel";
 import NumbersCarousel from "@/components/NumbersCarousel";
 import PhotoCarousel from "@/components/PhotoCarousel";
@@ -16,35 +17,37 @@ import {
 export default function Home() {
   return (
     <div id="home" className="-mx-10">
-      {/* 1 — Hero: full-stage METR capabilities chart, headline nested in
-          its empty upper-left region */}
-      <section className="relative min-h-[calc(100vh-5rem)] flex items-start justify-center pt-2 px-4 lg:px-10">
-        <div className="relative w-full max-w-[calc((100vh-9rem)*1.0125)] mx-auto">
-          <div className="lg:absolute lg:left-[7%] lg:top-[36%] flex flex-col gap-5 mb-8 lg:mb-0 max-w-2xl">
-            <h1 className="text-4xl md:text-5xl text-heading">
-              Capabilities are climbing.
-              <br />
-              <span className="text-link">Safety must summit.</span>
-            </h1>
-            <div className="mt-2">
-              <Link href="/programs" className="waisi-button">
-                Get involved
-              </Link>
-            </div>
-          </div>
-          <CapabilitiesHero />
-          <p className="mt-3 text-xs font-mono text-primary opacity-50">
-            Data:{" "}
+      {/* 1 — Hero: full-screen Capitol photo, headline left, CTAs right */}
+      <section className="relative h-[calc(100vh-5rem)]">
+        <Image
+          src={heroImg}
+          alt="WAISI at the Capitol"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          placeholder="blur"
+          quality={60}
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 px-8 lg:px-20">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white max-w-2xl text-center lg:text-left">
+            A community at UW–Madison dedicated to mitigating the risks of
+            advanced AI.
+          </h1>
+          <div className="flex flex-col items-center gap-4 shrink-0">
+            <Link href="/programs" className="waisi-button text-lg">
+              Get involved
+            </Link>
             <a
-              href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/"
+              href={DISCORD_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:opacity-80"
+              className="inline-block px-6 py-3 text-lg font-semibold text-white border-2 border-white rounded transition-colors hover:bg-white/15"
             >
-              METR, Measuring AI Ability to Complete Long Tasks
-            </a>{" "}
-            — Time Horizon v1.1, p50 task-completion horizons
-          </p>
+              Chat with us
+            </a>
+          </div>
         </div>
       </section>
 
