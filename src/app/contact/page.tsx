@@ -2,7 +2,7 @@ import {
   DISCORD_URL,
   INSTAGRAM_URL,
   INTEREST_URL,
-  OFFICE_HOURS,
+  CALL_BOOKINGS,
 } from "@/constants";
 import Button from "@/components/button";
 import type { Metadata } from "next";
@@ -60,19 +60,17 @@ export default function Contact() {
 
             <div>
               <h2 className="text-3xl font-semibold mb-4 text-heading">
-                Office Hours
+                Book a Call
               </h2>
               <p className="text-lg text-primary">
-                Our team members hold regular office hours for students
-                interested in learning more about AI safety. Book a time
-                directly, or check our Discord for the latest schedule and
-                announcements.
+                Want to talk about AI safety, our programs, or how to get
+                involved? Grab a time with one of us directly:
               </p>
               <ul className="mt-4 flex flex-col gap-2">
-                {OFFICE_HOURS.map((slot) => (
-                  <li key={slot.name}>
+                {CALL_BOOKINGS.map((person) => (
+                  <li key={person.name}>
                     <a
-                      href={slot.url}
+                      href={person.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-lg font-semibold hover:underline text-link"
@@ -81,11 +79,22 @@ export default function Contact() {
                         icon={faCalendarDays}
                         aria-hidden="true"
                       />
-                      Book office hours with {slot.name}
+                      Book a call with {person.name.split(" ")[0]}
                     </a>
                   </li>
                 ))}
               </ul>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-semibold mb-4 text-heading">
+                Office Hours
+              </h2>
+              <p className="text-lg text-primary">
+                Our team members hold regular office hours for students
+                interested in learning more about AI safety. Check our Discord
+                for the latest schedule and announcements.
+              </p>
             </div>
           </div>
 

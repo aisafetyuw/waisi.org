@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { MemberProps } from "@/types";
+import { CALL_BOOKINGS } from "@/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function Member({ member }: MemberProps) {
+  const booking = CALL_BOOKINGS.find((p) => p.name === member.name);
   return (
     <div className="member p-4 bg-card border border-subtle rounded-card">
       <div className="flex space-x-4 items-start">
@@ -40,6 +42,19 @@ export default function Member({ member }: MemberProps) {
               >
                 <FontAwesomeIcon
                   icon={faLinkedin}
+                  className="hover:opacity-80 text-link"
+                />
+              </a>
+            )}
+            {booking && (
+              <a
+                href={booking.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Book a call with ${member.name.split(" ")[0]}`}
+              >
+                <FontAwesomeIcon
+                  icon={faCalendarDays}
                   className="hover:opacity-80 text-link"
                 />
               </a>
