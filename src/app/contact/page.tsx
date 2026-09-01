@@ -1,8 +1,13 @@
-import { DISCORD_URL, INSTAGRAM_URL, INTEREST_URL } from "@/constants";
+import {
+  DISCORD_URL,
+  INSTAGRAM_URL,
+  INTEREST_URL,
+  OFFICE_HOURS,
+} from "@/constants";
 import Button from "@/components/button";
 import type { Metadata } from "next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -59,9 +64,28 @@ export default function Contact() {
               </h2>
               <p className="text-lg text-primary">
                 Our team members hold regular office hours for students
-                interested in learning more about AI safety. Check our Discord
-                for the latest schedule and announcements.
+                interested in learning more about AI safety. Book a time
+                directly, or check our Discord for the latest schedule and
+                announcements.
               </p>
+              <ul className="mt-4 flex flex-col gap-2">
+                {OFFICE_HOURS.map((slot) => (
+                  <li key={slot.name}>
+                    <a
+                      href={slot.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-lg font-semibold hover:underline text-link"
+                    >
+                      <FontAwesomeIcon
+                        icon={faCalendarDays}
+                        aria-hidden="true"
+                      />
+                      Book office hours with {slot.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 

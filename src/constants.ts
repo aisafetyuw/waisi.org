@@ -4,6 +4,13 @@ export const INSTAGRAM_URL = 'https://www.instagram.com/waisi_uw/';
 export const LINKEDIN_URL = 'https://www.linkedin.com/company/waisi/';
 export const CULTURE_STATEMENT = 'https://docs.google.com/document/d/1KUVD7c-ZM0uijD0RvYYk6yBl0Oe09AAgIvYyoVUj4h8/edit?usp=sharing';
 export const INTEREST_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdWum58p_SbQdSp3XouCpi3zwPQOf3Pm_rRobxRlorr0Dn2Ag/viewform';
+// Google Calendar appointment-booking pages shown under Office Hours on the
+// contact page.
+export const OFFICE_HOURS: { name: string; url: string }[] = [
+    { name: 'Kaustubh', url: 'https://calendar.app.google/NkBQ5FZ3iF5vtLPN8' },
+    { name: 'Anaya', url: 'https://calendar.app.google/3tiab6mZCPfRuut68' },
+];
+
 export const Handbooks = {
     AT_A_GLANCE: 'https://docs.google.com/document/d/18wiWtYgUxwXKSxChBOuQAittTNzXxSUaagsz-43Nt14/edit?usp=sharing',
     FELLOWSHIP: 'https://docs.google.com/document/d/1nlA0I7yGo7e7tC6xS8kBQUuyil88xrYji5KPeyUPRwA/edit?usp=sharing',
