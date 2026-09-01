@@ -32,12 +32,15 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 px-8 lg:px-20">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white max-w-2xl text-center lg:text-left">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white max-w-4xl text-center lg:text-left">
             A community at the University of Wisconsin dedicated to mitigating
             the{" "}
             {/* violet-300, not --text-link: the brand violet is too dark to
-                read over the dimmed photo */}
-            <span className="text-violet-300">risks of transformative AI.</span>
+                read over the dimmed photo. whitespace-nowrap keeps the phrase
+                on one line as the headline wraps. */}
+            <span className="text-violet-300 whitespace-nowrap">
+              risks of transformative AI.
+            </span>
           </h1>
           <div className="flex flex-col items-center gap-4 shrink-0">
             <Link href="/programs" className="waisi-button text-lg">
