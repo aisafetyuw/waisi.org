@@ -149,7 +149,7 @@ export default function Home() {
             <ProgramFunnel />
             <div className="mt-8 flex justify-center">
               <Link href="/programs" className="waisi-button">
-                See all programs
+                See full programming
               </Link>
             </div>
           </div>
