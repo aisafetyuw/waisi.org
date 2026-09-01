@@ -62,12 +62,28 @@ export default function Nav() {
     setOpen(false);
   }, [pathname]);
 
-  // The nav is always a solid paper shell; the old transparent-over-photo
-  // hero state went away with the photo hero.
-  const isTransparent = false;
+  // On the home page the nav floats transparent over the full-screen photo
+  // hero and turns solid once its bottom edge scrolls past the hero. The
+  // 80px matches the nav's own height (hero is h-screen, nav overlays it).
+  const isHome = pathname === "/";
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    if (!isHome) return;
+    const onScroll = () =>
+      setScrolled(window.scrollY > window.innerHeight - 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
+
+  const isTransparent = isHome && !scrolled && !open;
 
   return (
-    <nav className="relative w-full z-50 bg-page">
+    <nav
+      className={`w-full z-50 transition-colors duration-300 ${
+        isHome ? "fixed top-0" : "relative"
+      } ${isTransparent ? "bg-transparent" : "bg-page"}`}
+    >
       <MobileNav open={open} setOpen={setOpen} pathname={pathname} />
 
       <div className="flex justify-between items-center mx-auto max-w-6xl px-6">

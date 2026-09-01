@@ -17,8 +17,9 @@ import {
 export default function Home() {
   return (
     <div id="home" className="-mx-10">
-      {/* 1 — Hero: full-screen Capitol photo, headline left, CTAs right */}
-      <section className="relative h-[calc(100vh-5rem)]">
+      {/* 1 — Hero: full-screen Capitol photo under the fixed transparent
+          nav, headline left, CTAs right */}
+      <section className="relative h-screen">
         <Image
           src={heroImg}
           alt="WAISI at the Capitol"
