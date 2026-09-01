@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { APPLICATION_CYCLE, Handbooks } from "@/constants";
-import { PROGRAMS } from "@/content/programs";
+import ProgramsFunnel from "@/components/ProgramsFunnel";
 import CalendarEvent from "@/components/calendarEvent";
 import getEvents from "@/app/programs/getEvents";
 
@@ -25,49 +25,7 @@ export default async function Programs() {
           </p>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {PROGRAMS.map((program) => (
-            <div
-              key={program.title}
-              className="flex flex-col p-6 bg-card border border-subtle rounded-card"
-            >
-              <h2 className="text-2xl text-heading">{program.title}</h2>
-              <p className="text-base text-primary mt-3">{program.what}</p>
-              <dl className="mt-4 space-y-1 text-base text-primary">
-                <div>
-                  <dt className="inline font-medium text-heading">
-                    Commitment:{" "}
-                  </dt>
-                  <dd className="inline">{program.commitment}</dd>
-                </div>
-                <div>
-                  <dt className="inline font-medium text-heading">For: </dt>
-                  <dd className="inline">{program.audience}</dd>
-                </div>
-              </dl>
-              <div className="flex items-center gap-5 mt-auto pt-6">
-                <a
-                  href={program.cta.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="waisi-button"
-                >
-                  {program.cta.label}
-                </a>
-                {program.handbookUrl && (
-                  <a
-                    href={program.handbookUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link hover:underline font-medium"
-                  >
-                    Handbook →
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+        <ProgramsFunnel />
 
         <div className="mt-14 max-w-prose">
           <h2 className="text-heading">Details</h2>
