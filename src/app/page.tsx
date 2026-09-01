@@ -43,17 +43,20 @@ export default function Home() {
             </span>
           </h1>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-            <Link href="/programs" className="waisi-button text-lg">
-              Get involved
-            </Link>
             <a
               href={DISCORD_URL}
               target="_blank"
               rel="noopener noreferrer"
+              className="waisi-button text-lg"
+            >
+              Join our community
+            </a>
+            <Link
+              href="/contact"
               className="inline-block px-6 py-3 text-lg font-semibold text-white border-2 border-white rounded transition-colors hover:bg-white/15"
             >
               Chat with us
-            </a>
+            </Link>
           </div>
         </div>
       </section>
