@@ -13,11 +13,16 @@ export type Program = {
   handbookUrl?: string;
 };
 
-const open = APPLICATION_CYCLE.status === "open";
+// Fellowship applications (both fundamentals tracks) now run through the
+// on-site /apply page — a Fillout embed — regardless of cycle state, so the
+// old cycle-aware `open` switch is no longer referenced here. Kept commented
+// for an easy revert.
+// const open = APPLICATION_CYCLE.status === "open";
 const notify = {
   label: "Get notified",
   href: APPLICATION_CYCLE.interestFormUrl,
 };
+const applyToFellowship = { label: "Apply", href: "/apply" };
 
 export const PROGRAMS: Program[] = [
   {
@@ -26,9 +31,12 @@ export const PROGRAMS: Program[] = [
     commitment: "2 hr/week sessions + ≤1 hr prep, 8 weeks",
     audience:
       "Anyone curious about technical AI safety; ML experience encouraged but not required",
-    cta: open
-      ? { label: "Apply", href: APPLICATION_CYCLE.techFormUrl }
-      : notify,
+    // Was a cycle-aware CTA ("Get notified" → interest form while closed,
+    // "Apply" → Google Form while open). Now always the on-site embed:
+    // cta: open
+    //   ? { label: "Apply", href: APPLICATION_CYCLE.techFormUrl }
+    //   : notify,
+    cta: applyToFellowship,
     handbookUrl: Handbooks.FELLOWSHIP,
   },
   {
@@ -37,9 +45,12 @@ export const PROGRAMS: Program[] = [
     commitment: "2 hr/week sessions + ≤1 hr prep, 8 weeks",
     audience:
       "Anyone interested in AI policy; a public-policy background is encouraged but not required",
-    cta: open
-      ? { label: "Apply", href: APPLICATION_CYCLE.policyFormUrl }
-      : notify,
+    // Was a cycle-aware CTA ("Get notified" → interest form while closed,
+    // "Apply" → Google Form while open). Now always the on-site embed:
+    // cta: open
+    //   ? { label: "Apply", href: APPLICATION_CYCLE.policyFormUrl }
+    //   : notify,
+    cta: applyToFellowship,
     handbookUrl: Handbooks.FELLOWSHIP,
   },
   {

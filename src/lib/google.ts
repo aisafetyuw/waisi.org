@@ -14,5 +14,16 @@ export function getGoogleClient(scopes: string[]) {
         );
     }
 
+    // A service-account key is a PEM block. If the env var holds something else
+    // (e.g. the JSON's private_key_id, or a mangled paste), googleapis fails
+    // deep in OpenSSL with an opaque "DECODER routines::unsupported" — catch it
+    // here with an actionable message instead.
+    if (!privateKey.includes('-----BEGIN') || !privateKey.includes('PRIVATE KEY-----')) {
+        throw new Error(
+            'GOOGLE_PRIVATE_KEY is not a PEM private key — copy the full "private_key" ' +
+            'field from the service-account JSON (it starts with "-----BEGIN PRIVATE KEY-----").',
+        );
+    }
+
     return new google.auth.JWT(clientEmail, undefined, privateKey, scopes);
 }

@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Inter, Newsreader } from "next/font/google";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
+import FloatingApplyButton from "../components/FloatingApplyButton";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -62,6 +63,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <FloatingApplyButton />
       </body>
     </html>
   );

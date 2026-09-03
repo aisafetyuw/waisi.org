@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { PROGRAMS, Program } from "@/content/programs";
 
 // Interactive version of the landing-page funnel for the Get Involved page:
@@ -19,6 +20,9 @@ function byTitle(title: string): Program {
 }
 
 function ProgramCard({ program }: { program: Program }) {
+  // Internal CTAs (e.g. the Fellowship /apply page) route client-side and must
+  // not open in a new tab; external form links keep the blank-target treatment.
+  const ctaIsExternal = /^https?:\/\//.test(program.cta.href);
   return (
     <div className="flex flex-col p-6 bg-card border border-subtle rounded-card max-w-2xl mx-auto">
       <h2 className="text-2xl text-heading">{program.title}</h2>
@@ -34,14 +38,20 @@ function ProgramCard({ program }: { program: Program }) {
         </div>
       </dl>
       <div className="flex items-center gap-5 mt-auto pt-6">
-        <a
-          href={program.cta.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="waisi-button"
-        >
-          {program.cta.label}
-        </a>
+        {ctaIsExternal ? (
+          <a
+            href={program.cta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="waisi-button"
+          >
+            {program.cta.label}
+          </a>
+        ) : (
+          <Link href={program.cta.href} className="waisi-button">
+            {program.cta.label}
+          </Link>
+        )}
         {program.handbookUrl && (
           <a
             href={program.handbookUrl}

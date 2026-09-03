@@ -70,6 +70,13 @@ body {
   color: var(--text-primary);
 }
 
+#apply {
+  animation: enter 0.8s forwards;
+  align-self: center;
+  width: 100%;
+  color: var(--text-primary);
+}
+
 .page {
   animation: enter 0.8s forwards;
   padding-top: 15px;
