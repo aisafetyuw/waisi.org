@@ -4,6 +4,13 @@ export const INSTAGRAM_URL = 'https://www.instagram.com/waisi_uw/';
 export const LINKEDIN_URL = 'https://www.linkedin.com/company/waisi/';
 export const CULTURE_STATEMENT = 'https://docs.google.com/document/d/1KUVD7c-ZM0uijD0RvYYk6yBl0Oe09AAgIvYyoVUj4h8/edit?usp=sharing';
 export const INTEREST_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdWum58p_SbQdSp3XouCpi3zwPQOf3Pm_rRobxRlorr0Dn2Ag/viewform';
+
+// Published-to-web CSV of the WAISI ops calendar (in Sheets: File → Share →
+// Publish to web → pick the sheet → CSV). Parsed by src/lib/calendarEvents.ts
+// and shared by the /events page and the Get Involved summary. If the ops team
+// republishes to a new URL, swap it here.
+export const EVENTS_CALENDAR_CSV_URL =
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vRqUFmx3TxWyvCZPF3AbsAh-V_Cr1lA758cLbGansw0UtC2WSiv9hEQvR566JCJHbannVBO2v898pGC/pub?output=csv';
 // Google Calendar appointment-booking pages for one-on-one calls. Keyed by
 // full name as it appears in the team sheet: the contact page lists them and
 // the team page matches member cards against them to show a booking icon.
