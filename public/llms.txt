@@ -24,7 +24,7 @@ To build a community of students, researchers, and professionals committed to en
 
 ### Main Content Categories
 1. **Educational Programs**
-   - AI Safety Fellowship: 8-week introductory curriculum
+   - AI Safety Fellowship: 6-week introductory curriculum
    - AI Safety Scholars: Advanced research-focused program
    - Application deadlines and requirements
    - Curriculum materials and resources

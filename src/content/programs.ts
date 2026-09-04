@@ -27,8 +27,8 @@ const applyToFellowship = { label: "Apply", href: "/apply" };
 export const PROGRAMS: Program[] = [
   {
     title: "Technical Fellowship",
-    what: "An eight-week reading group on technical AI safety — reward specification, generalization, interpretability, unlearning, and career explorations — based on the BlueDot Alignment course.",
-    commitment: "2 hr/week sessions + ≤1 hr prep, 8 weeks",
+    what: "A six-week reading group on technical AI safety — reward specification, generalization, interpretability, unlearning, and career explorations — based on the BlueDot Alignment course.",
+    commitment: "2 hr/week sessions + ≤1 hr prep, 6 weeks",
     audience:
       "Anyone curious about technical AI safety; ML experience encouraged but not required",
     // Was a cycle-aware CTA ("Get notified" → interest form while closed,
@@ -41,8 +41,8 @@ export const PROGRAMS: Program[] = [
   },
   {
     title: "Policy Fellowship",
-    what: "An eight-week reading group on AI governance — AI harms, economic and social impacts, responsible scaling, open vs. closed source — based on the BlueDot Governance course.",
-    commitment: "2 hr/week sessions + ≤1 hr prep, 8 weeks",
+    what: "A six-week reading group on AI governance — AI harms, economic and social impacts, responsible scaling, open vs. closed source — based on the BlueDot Governance course.",
+    commitment: "2 hr/week sessions + ≤1 hr prep, 6 weeks",
     audience:
       "Anyone interested in AI policy; a public-policy background is encouraged but not required",
     // Was a cycle-aware CTA ("Get notified" → interest form while closed,

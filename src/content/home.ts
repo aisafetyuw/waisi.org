@@ -31,12 +31,12 @@ export const PROGRAM_TEASERS: ProgramTeaser[] = [
   {
     title: "Technical Fellowship",
     blurb:
-      "An eight-week reading group on technical AI safety — interpretability, reward specification, generalization.",
+      "A six-week reading group on technical AI safety — interpretability, reward specification, generalization.",
   },
   {
     title: "Policy Fellowship",
     blurb:
-      "An eight-week reading group on the governance challenges posed by advanced AI systems.",
+      "A six-week reading group on the governance challenges posed by advanced AI systems.",
   },
   {
     title: "Technical Upskilling",
