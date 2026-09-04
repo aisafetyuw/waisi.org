@@ -10,8 +10,10 @@ import { PROGRAMS, Program } from "@/content/programs";
 const FUNNEL_CLIP = "polygon(0% 0%, 100% 0%, 73% 100%, 27% 100%)";
 
 const tileBase =
-  "flex items-center justify-center transition-colors text-center cursor-pointer";
-const tileLabel = "font-serif text-lg md:text-2xl text-heading";
+  "group flex items-center justify-center transition-colors text-center cursor-pointer";
+// Label recolours on the tile's hover/press; a selected tile holds brand violet.
+const tileLabel =
+  "font-serif text-lg md:text-2xl text-heading transition-colors group-hover:text-brand group-active:text-link-hover";
 
 function byTitle(title: string): Program {
   const program = PROGRAMS.find((p) => p.title === title);

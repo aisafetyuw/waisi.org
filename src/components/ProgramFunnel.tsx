@@ -10,9 +10,12 @@ const FUNNEL_CLIP = "polygon(0% 0%, 100% 0%, 73% 100%, 27% 100%)";
 
 // No flex-1 here: in the column stack it would override each layer's fixed
 // height. The two top halves get their own flex-1 to split the row.
+// `group` lets the label recolour on the layer's hover/press, matching the
+// site-wide rule for clickable text (colour change, never an underline).
 const layerLink =
-  "flex items-center justify-center transition-colors text-center";
-const layerLabel = "font-serif text-base md:text-xl text-heading";
+  "group flex items-center justify-center transition-colors text-center";
+const layerLabel =
+  "font-serif text-base md:text-xl text-heading transition-colors group-hover:text-brand group-active:text-link-hover";
 
 export default function ProgramFunnel() {
   return (
