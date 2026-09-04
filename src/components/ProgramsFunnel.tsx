@@ -93,8 +93,14 @@ export default function ProgramsFunnel() {
 
   return (
     <div>
+      {/* Fixed width: #programs is a shrink-to-fit flex item, so without an
+          explicit width the funnel would size to its labels and grow when a
+          selected label goes bold. 41rem is its natural desktop width. The
+          cap is viewport-based because a percentage of a shrink-to-fit parent
+          is circular: 100vw minus the page's px-8 gutters (4rem) and the
+          35px padding-right on #programs in globals.css. */}
       <div
-        className="flex flex-col gap-1 max-w-4xl mx-auto"
+        className="flex flex-col gap-1 w-[41rem] max-w-[calc(100vw-4rem-35px)] mx-auto"
         style={{ clipPath: FUNNEL_CLIP }}
       >
         <div className="flex h-28 md:h-32 [&>button]:flex-1 [&>button:first-child]:pl-[11%] [&>button:first-child]:pr-2 [&>button:last-child]:pr-[11%] [&>button:last-child]:pl-2">
