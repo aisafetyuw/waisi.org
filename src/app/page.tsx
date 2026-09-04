@@ -76,14 +76,14 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col justify-center py-16 h-full px-8 lg:px-12">
-            <div className="flex flex-col gap-4 max-w-prose">
+            <div className="flex flex-col gap-5 max-w-prose">
               <h2 className="text-heading">Our Mission</h2>
-              <p className="text-base text-primary">
+              <p className="text-lg text-primary">
                 We believe that AI presents a magnitude of risks and benefits
                 unmatched by any previous technology. To realize the benefits,
                 we must address the risks.
               </p>
-              <p className="text-base font-semibold text-heading">
+              <p className="text-lg font-semibold text-heading">
                 We contribute by:
               </p>
               <ul className="space-y-2 ml-1 list-none">
@@ -92,13 +92,13 @@ export default function Home() {
                   "Producing impactful research across disciplines.",
                   "Informing public discourse on transformative AI.",
                 ].map((item) => (
-                  <li key={item} className="text-base flex items-start text-primary">
+                  <li key={item} className="text-lg flex items-start text-primary">
                     <span className="text-link mr-3">—</span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-base text-primary">
+              <p className="text-lg text-primary">
                 <span className="font-semibold text-heading">Our goal:</span>{" "}
                 help humanity navigate the transition to advanced AI wisely.
               </p>
@@ -110,11 +110,13 @@ export default function Home() {
         <div>
           <NumbersCarousel />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-8 pb-16 max-w-6xl mx-auto">
-            <ul className="flex flex-col justify-center gap-8 list-none">
+            {/* Sized to fill the carousel's height (min 480px on lg) rather
+                than float in the middle of it. */}
+            <ul className="flex flex-col justify-center gap-10 list-none">
               {IMPACT_HIGHLIGHTS.map((item) => (
                 <li
                   key={item.text}
-                  className="text-lg flex items-start text-primary"
+                  className="text-xl lg:text-2xl leading-snug flex items-start text-primary"
                 >
                   <span className="text-link mr-3">—</span>
                   <span>
