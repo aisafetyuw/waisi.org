@@ -12,8 +12,8 @@ export default function NumbersCarousel() {
     { number: "10", label: "PhD Safety Scholars" },
     { number: "6", label: "Masters Safety Scholars" },
     { number: "50+", label: "Undergraduate Safety Scholars" },
-    { number: "30", label: "Current AI Safety Fundamentals participants" },
-    { number: "130+", label: "AI Safety Fundamentals graduates" },
+    { number: "30", label: "Current AI Safety Fellowship participants" },
+    { number: "130+", label: "AI Safety Fellowship graduates" },
   ];
 
   return (

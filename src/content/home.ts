@@ -29,12 +29,12 @@ export type ProgramTeaser = {
 
 export const PROGRAM_TEASERS: ProgramTeaser[] = [
   {
-    title: "Technical Fundamentals",
+    title: "Technical Fellowship",
     blurb:
       "An eight-week reading group on technical AI safety — interpretability, reward specification, generalization.",
   },
   {
-    title: "Policy Fundamentals",
+    title: "Policy Fellowship",
     blurb:
       "An eight-week reading group on the governance challenges posed by advanced AI systems.",
   },

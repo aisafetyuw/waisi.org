@@ -94,9 +94,9 @@ export default function ProgramsFunnel() {
         style={{ clipPath: FUNNEL_CLIP }}
       >
         <div className="flex h-28 md:h-32 [&>button]:flex-1 [&>button:first-child]:pl-[11%] [&>button:first-child]:pr-2 [&>button:last-child]:pr-[11%] [&>button:last-child]:pl-2">
-          {tile("Policy Fundamentals", "bg-violet-100 hover:bg-violet-200", "bg-violet-200")}
+          {tile("Policy Fellowship", "bg-violet-100 hover:bg-violet-200", "bg-violet-200")}
           <div className="w-1 bg-page shrink-0" />
-          {tile("Technical Fundamentals", "bg-violet-100 hover:bg-violet-200", "bg-violet-200")}
+          {tile("Technical Fellowship", "bg-violet-100 hover:bg-violet-200", "bg-violet-200")}
         </div>
         <div className="flex h-28 md:h-32 [&>button]:w-full [&>button]:px-[20%]">
           {tile("Technical Upskilling", "bg-violet-200 hover:bg-violet-300", "bg-violet-300")}

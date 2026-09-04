@@ -5,7 +5,7 @@ import ProgramsFunnel from "@/components/ProgramsFunnel";
 export const metadata: Metadata = {
   title: "Get Involved",
   description:
-    "WAISI's semester programs: Technical Fundamentals, Policy Fundamentals, Technical Upskilling, and the Safety Scholars program.",
+    "WAISI's semester programs: Technical Fellowship, Policy Fellowship, Technical Upskilling, and the Safety Scholars program.",
 };
 
 export default function Programs() {

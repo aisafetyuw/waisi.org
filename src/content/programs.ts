@@ -13,7 +13,7 @@ export type Program = {
   handbookUrl?: string;
 };
 
-// Fellowship applications (both fundamentals tracks) now run through the
+// Fellowship applications (both fellowship tracks) now run through the
 // on-site /apply page — a Fillout embed — regardless of cycle state, so the
 // old cycle-aware `open` switch is no longer referenced here. Kept commented
 // for an easy revert.
@@ -26,7 +26,7 @@ const applyToFellowship = { label: "Apply", href: "/apply" };
 
 export const PROGRAMS: Program[] = [
   {
-    title: "Technical Fundamentals",
+    title: "Technical Fellowship",
     what: "An eight-week reading group on technical AI safety — reward specification, generalization, interpretability, unlearning, and career explorations — based on the BlueDot Alignment course.",
     commitment: "2 hr/week sessions + ≤1 hr prep, 8 weeks",
     audience:
@@ -40,7 +40,7 @@ export const PROGRAMS: Program[] = [
     handbookUrl: Handbooks.FELLOWSHIP,
   },
   {
-    title: "Policy Fundamentals",
+    title: "Policy Fellowship",
     what: "An eight-week reading group on AI governance — AI harms, economic and social impacts, responsible scaling, open vs. closed source — based on the BlueDot Governance course.",
     commitment: "2 hr/week sessions + ≤1 hr prep, 8 weeks",
     audience:

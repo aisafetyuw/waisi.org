@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 // Upside-down trapezoid "funnel" for the Get involved section: the two
-// fundamentals tracks form the wide mouth, Technical Upskilling the middle,
+// fellowship tracks form the wide mouth, Technical Upskilling the middle,
 // Safety Scholars the narrow end. One clip-path on the wrapper cuts the whole
 // stack, so the outline is a single four-sided trapezoid; the thin gaps
 // between full-width layers and the divider between the two top tracks are
@@ -25,14 +25,14 @@ export default function ProgramFunnel() {
           href="/programs"
           className={`${layerLink} flex-1 bg-violet-100 hover:bg-violet-200 pl-[11%] pr-2`}
         >
-          <span className={layerLabel}>Policy Fundamentals</span>
+          <span className={layerLabel}>Policy Fellowship</span>
         </Link>
         <div className="w-1 bg-page shrink-0" />
         <Link
           href="/programs"
           className={`${layerLink} flex-1 bg-violet-100 hover:bg-violet-200 pr-[11%] pl-2`}
         >
-          <span className={layerLabel}>Technical Fundamentals</span>
+          <span className={layerLabel}>Technical Fellowship</span>
         </Link>
       </div>
 
