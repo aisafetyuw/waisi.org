@@ -19,7 +19,9 @@ export default function Home() {
     <div id="home" className="-mx-10">
       {/* 1 — Hero: full-screen Capitol photo under the fixed transparent
           nav, headline left, CTAs right */}
-      <section className="relative h-screen">
+      {/* bg-ink: a flat dark ground while the photo loads, so the hero never
+          flashes white or a blurred placeholder under the overlay. */}
+      <section className="relative h-screen bg-ink">
         <Image
           src={heroImg}
           alt="WAISI at the Capitol"
@@ -27,7 +29,6 @@ export default function Home() {
           sizes="100vw"
           className="object-cover"
           priority
-          placeholder="blur"
           quality={60}
         />
         <div className="absolute inset-0 bg-black/55" />
