@@ -9,9 +9,11 @@ import { PROGRAMS, Program } from "@/content/programs";
 // tiles, and clicking a tile opens that program's description card below.
 const FUNNEL_CLIP = "polygon(0% 0%, 100% 0%, 73% 100%, 27% 100%)";
 
+// select-none + no tap highlight: a click must only recolour the label, never
+// select text or flash the mobile tap overlay. Sizes are fixed per row below.
 const tileBase =
-  "group flex items-center justify-center transition-colors text-center cursor-pointer";
-// Label recolours on the tile's hover/press; a selected tile holds brand violet.
+  "group flex items-center justify-center transition-colors text-center cursor-pointer select-none [-webkit-tap-highlight-color:transparent] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset";
+// Label recolours on the tile's hover/press; a selected tile is bold + violet.
 const tileLabel =
   "font-serif text-lg md:text-2xl text-heading transition-colors group-hover:text-brand group-active:text-link-hover";
 
@@ -82,7 +84,7 @@ export default function ProgramsFunnel() {
       className={`${tileBase} ${selected === title ? active : resting}`}
     >
       <span
-        className={`${tileLabel} ${selected === title ? "text-brand" : ""}`}
+        className={`${tileLabel} ${selected === title ? "font-semibold text-brand" : ""}`}
       >
         {title}
       </span>
