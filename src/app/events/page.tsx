@@ -30,9 +30,12 @@ export const metadata: Metadata = {
         "Upcoming WAISI events — talks, socials, and outreach — alongside the UW–Madison academic dates we plan around.",
 };
 
-// Events are time-sensitive; re-fetch the published calendar CSV in the
-// background at most every 15 minutes.
-export const revalidate = 900;
+// Events are time-sensitive: re-fetch the published calendar CSV in the
+// background at most every 5 minutes, so spreadsheet edits go live without a
+// redeploy. The page itself is always served from cache, so this never slows
+// a request down. 5 min also matches Google's own cache on the published CSV,
+// so a shorter window would just re-fetch identical data.
+export const revalidate = 300;
 
 export default async function EventsPage() {
     const all = await fetchCalendarEvents();

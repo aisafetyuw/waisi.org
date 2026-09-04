@@ -39,7 +39,9 @@ export type CalendarEvent = {
 };
 
 const DAY_MS = 86_400_000;
-const REVALIDATE_SECONDS = 900; // 15 min, matches the pages' ISR window
+// Matches the /events page ISR window. Also Google's own cache floor on the
+// published CSV, so a shorter value would just re-fetch identical data.
+const REVALIDATE_SECONDS = 300;
 
 // ---------------------------------------------------------------------------
 // Fetch
