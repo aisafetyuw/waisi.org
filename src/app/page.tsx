@@ -128,7 +128,7 @@ export default function Home() {
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-link no-underline hover:underline"
+                          className="text-link no-underline hover:text-link-hover active:text-link-hover transition-colors"
                         >
                           {item.linkText}
                         </a>

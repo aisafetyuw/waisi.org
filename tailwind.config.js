@@ -20,6 +20,8 @@ module.exports = {
         primary: "var(--text-primary)",
         heading: "var(--text-heading)",
         link: "var(--text-link)",
+        "link-hover": "var(--text-link-hover)",
+        "link-on-dark": "var(--text-link-on-dark)",
         subtle: "var(--border-subtle)",
         // ink = dark surfaces (footer); brand violet is the CTA accent only;
         // cream = paper off-white for text/icons over dark ink and the hero photo.

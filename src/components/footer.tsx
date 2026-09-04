@@ -26,25 +26,25 @@ export default function Footer() {
             <div className="flex flex-col space-y-2">
               <Link
                 href="/team"
-                className="hover:underline text-cream opacity-90"
+                className="text-cream opacity-90 hover:text-link-on-dark hover:opacity-100 active:text-link-on-dark transition-colors"
               >
                 Our Team
               </Link>
               <Link
                 href="/programs"
-                className="hover:underline text-cream opacity-90"
+                className="text-cream opacity-90 hover:text-link-on-dark hover:opacity-100 active:text-link-on-dark transition-colors"
               >
                 Get Involved
               </Link>
               <Link
                 href="/research"
-                className="hover:underline text-cream opacity-90"
+                className="text-cream opacity-90 hover:text-link-on-dark hover:opacity-100 active:text-link-on-dark transition-colors"
               >
                 Research
               </Link>
               <Link
                 href="/contact"
-                className="hover:underline text-cream opacity-90"
+                className="text-cream opacity-90 hover:text-link-on-dark hover:opacity-100 active:text-link-on-dark transition-colors"
               >
                 Contact
               </Link>
@@ -60,7 +60,7 @@ export default function Footer() {
                 href={DISCORD_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline text-cream opacity-90"
+                className="text-cream opacity-90 hover:text-link-on-dark hover:opacity-100 active:text-link-on-dark transition-colors"
               >
                 <FontAwesomeIcon icon={faDiscord} className="mr-2" aria-hidden="true" />Discord
               </a>
@@ -68,7 +68,7 @@ export default function Footer() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline text-cream opacity-90"
+                className="text-cream opacity-90 hover:text-link-on-dark hover:opacity-100 active:text-link-on-dark transition-colors"
               >
                 <FontAwesomeIcon icon={faInstagram} className="mr-2" aria-hidden="true" />Instagram
               </a>
@@ -76,7 +76,7 @@ export default function Footer() {
                 href={TWITTER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline text-cream opacity-90"
+                className="text-cream opacity-90 hover:text-link-on-dark hover:opacity-100 active:text-link-on-dark transition-colors"
               >
                 <FontAwesomeIcon icon={faTwitter} className="mr-2" aria-hidden="true" />Twitter
               </a>
@@ -84,7 +84,7 @@ export default function Footer() {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline text-cream opacity-90"
+                className="text-cream opacity-90 hover:text-link-on-dark hover:opacity-100 active:text-link-on-dark transition-colors"
               >
                 <FontAwesomeIcon icon={faLinkedin} className="mr-2" aria-hidden="true" />LinkedIn
               </a>

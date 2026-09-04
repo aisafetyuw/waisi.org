@@ -48,7 +48,7 @@ export default async function ResearchPage() {
                     href={project.waisiMentorLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold text-link no-underline hover:underline"
+                    className="font-semibold text-link no-underline hover:text-link-hover active:text-link-hover transition-colors"
                   >
                     {project.waisiMentor}
                   </a>
@@ -72,7 +72,7 @@ export default async function ResearchPage() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base font-semibold inline-block hover:underline text-link no-underline"
+                    className="text-base font-semibold inline-block hover:text-link-hover active:text-link-hover transition-colors text-link no-underline"
                   >
                     View on SPAR
                   </a>

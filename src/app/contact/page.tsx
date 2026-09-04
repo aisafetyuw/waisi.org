@@ -51,7 +51,7 @@ export default function Contact() {
               </p>
               <a
                 href="mailto:aisafetyuw@gmail.com"
-                className="inline-flex items-center gap-2 text-lg font-semibold hover:underline text-link"
+                className="inline-flex items-center gap-2 text-lg font-semibold hover:text-link-hover active:text-link-hover transition-colors text-link"
               >
                 <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
                 aisafetyuw@gmail.com
@@ -73,7 +73,7 @@ export default function Contact() {
                       href={person.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-lg font-semibold hover:underline text-link"
+                      className="inline-flex items-center gap-2 text-lg font-semibold hover:text-link-hover active:text-link-hover transition-colors text-link"
                     >
                       <FontAwesomeIcon
                         icon={faCalendarDays}

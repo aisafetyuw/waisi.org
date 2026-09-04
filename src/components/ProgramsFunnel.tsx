@@ -57,7 +57,7 @@ function ProgramCard({ program }: { program: Program }) {
             href={program.handbookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-link hover:underline font-medium"
+            className="text-link hover:text-link-hover active:text-link-hover transition-colors font-medium"
           >
             Handbook &rarr;
           </a>
@@ -80,7 +80,7 @@ export default function ProgramsFunnel() {
       className={`${tileBase} ${selected === title ? active : resting}`}
     >
       <span
-        className={`${tileLabel} ${selected === title ? "underline underline-offset-8" : ""}`}
+        className={`${tileLabel} ${selected === title ? "text-brand" : ""}`}
       >
         {title}
       </span>

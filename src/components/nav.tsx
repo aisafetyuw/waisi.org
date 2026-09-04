@@ -14,43 +14,43 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
       <div className="flex flex-col justify-center items-center mt-28">
         <Link
           href="/"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/" ? "underline text-heading" : "text-primary"}`}
+          className={`text-2xl font-semibold my-4 transition-colors ${pathname == "/" ? "text-brand" : "text-primary hover:text-brand active:text-link-hover"}`}
         >
           Home
         </Link>
         <Link
           href="/programs"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/programs" ? "underline text-heading" : "text-primary"}`}
+          className={`text-2xl font-semibold my-4 transition-colors ${pathname == "/programs" ? "text-brand" : "text-primary hover:text-brand active:text-link-hover"}`}
         >
           Get Involved
         </Link>
         <Link
           href="/events"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/events" ? "underline text-heading" : "text-primary"}`}
+          className={`text-2xl font-semibold my-4 transition-colors ${pathname == "/events" ? "text-brand" : "text-primary hover:text-brand active:text-link-hover"}`}
         >
           Events
         </Link>
         <Link
           href="/research"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/research" ? "underline text-heading" : "text-primary"}`}
+          className={`text-2xl font-semibold my-4 transition-colors ${pathname == "/research" ? "text-brand" : "text-primary hover:text-brand active:text-link-hover"}`}
         >
           Research
         </Link>
         <Link
           href="/resources"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/resources" ? "underline text-heading" : "text-primary"}`}
+          className={`text-2xl font-semibold my-4 transition-colors ${pathname == "/resources" ? "text-brand" : "text-primary hover:text-brand active:text-link-hover"}`}
         >
           Resources
         </Link>
         <Link
           href="/team"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/team" ? "underline text-heading" : "text-primary"}`}
+          className={`text-2xl font-semibold my-4 transition-colors ${pathname == "/team" ? "text-brand" : "text-primary hover:text-brand active:text-link-hover"}`}
         >
           Team
         </Link>
         <Link
           href="/contact"
-          className={`text-2xl font-semibold my-4 hover:underline ${pathname == "/contact" ? "underline text-heading" : "text-primary"}`}
+          className={`text-2xl font-semibold my-4 transition-colors ${pathname == "/contact" ? "text-brand" : "text-primary hover:text-brand active:text-link-hover"}`}
         >
           Contact
         </Link>
@@ -104,40 +104,40 @@ export default function Nav() {
           </Link>
         </div>
 
-        <div className="flex items-center justify-end space-x-4 py-4 -mr-2 text-lg font-medium underline-offset-8 z-50 md:flex hidden">
+        <div className="flex items-center justify-end space-x-4 py-4 -mr-2 text-lg font-medium z-50 md:flex hidden">
           <Link
             href="/programs"
-            className={`p-2 hover:underline ${pathname == "/programs" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
+            className={`p-2 transition-colors ${pathname == "/programs" ? "text-brand" : isTransparent ? "text-cream hover:text-link-on-dark active:text-link-on-dark" : "text-primary hover:text-brand active:text-link-hover"}`}
           >
             Get Involved
           </Link>
           <Link
             href="/events"
-            className={`p-2 hover:underline ${pathname == "/events" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
+            className={`p-2 transition-colors ${pathname == "/events" ? "text-brand" : isTransparent ? "text-cream hover:text-link-on-dark active:text-link-on-dark" : "text-primary hover:text-brand active:text-link-hover"}`}
           >
             Events
           </Link>
           <Link
             href="/research"
-            className={`p-2 hover:underline ${pathname == "/research" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
+            className={`p-2 transition-colors ${pathname == "/research" ? "text-brand" : isTransparent ? "text-cream hover:text-link-on-dark active:text-link-on-dark" : "text-primary hover:text-brand active:text-link-hover"}`}
           >
             Research
           </Link>
           <Link
             href="/resources"
-            className={`p-2 hover:underline ${pathname == "/resources" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
+            className={`p-2 transition-colors ${pathname == "/resources" ? "text-brand" : isTransparent ? "text-cream hover:text-link-on-dark active:text-link-on-dark" : "text-primary hover:text-brand active:text-link-hover"}`}
           >
             Resources
           </Link>
           <Link
             href="/team"
-            className={`p-2 hover:underline ${pathname == "/team" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
+            className={`p-2 transition-colors ${pathname == "/team" ? "text-brand" : isTransparent ? "text-cream hover:text-link-on-dark active:text-link-on-dark" : "text-primary hover:text-brand active:text-link-hover"}`}
           >
             Team
           </Link>
           <Link
             href="/contact"
-            className={`p-2 hover:underline ${pathname == "/contact" ? "underline text-heading" : isTransparent ? "text-cream" : "text-primary"}`}
+            className={`p-2 transition-colors ${pathname == "/contact" ? "text-brand" : isTransparent ? "text-cream hover:text-link-on-dark active:text-link-on-dark" : "text-primary hover:text-brand active:text-link-hover"}`}
           >
             Contact
           </Link>

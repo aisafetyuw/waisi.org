@@ -19,6 +19,8 @@ and CTAs.
 | `--text-primary` | `#26241F` | `text-primary` | Body text |
 | `--text-heading` | `#1C1B1A` | `text-heading` | Headings (ink, not violet) |
 | `--text-link` | `#6D28D9` | `text-link`, `bg-brand` | Links; violet as background ONLY for CTA buttons |
+| `--text-link-hover` | `#5B21B6` | `text-link-hover` | Hover/active colour for clickable text on light ground |
+| `--text-link-on-dark` | `#C4B5FD` | `text-link-on-dark` | Hover/active colour for clickable text on ink or the hero photo |
 | `--border-subtle` | `#E4E1DA` | `border-subtle` | Hairline borders |
 | (alias) | `#FAF9F7` | `text-cream`, `bg-cream` | Text/icons over dark ink and the hero photo |
 
@@ -69,6 +71,7 @@ apply CTAs fall back to the interest form.
   Sheets/Calendar via `src/lib/google.ts` with ISR (1 h / 1 h / 15 min) and
   render an explicit error state when the fetch fails — never silently empty.
 - External links: `target="_blank" rel="noopener noreferrer"`.
+- Clickable text signals hover and press with a colour change (`hover:text-link-hover` / `active:` on light ground, `hover:text-link-on-dark` on dark), never an underline. The current nav item is `text-brand`.
 - Shared external URLs live in `src/constants.ts`; redirects in `next.config.ts`
   import from it.
 

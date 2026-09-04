@@ -118,7 +118,7 @@ export default async function Team() {
                     href={advisor.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline text-link no-underline"
+                    className="hover:text-link-hover active:text-link-hover transition-colors text-link no-underline"
                   >
                     {advisor.name}
                   </a>
