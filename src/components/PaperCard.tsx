@@ -4,11 +4,11 @@ import { PaperHighlight } from "@/content/home";
 export default function PaperCard({ paper }: { paper: PaperHighlight }) {
   return (
     <div className="flex flex-col overflow-hidden bg-card border border-subtle rounded-card">
-      <div className="relative w-full" style={{ height: "200px" }}>
+      <div className="relative w-full h-36 sm:h-52">
         <Image src={paper.image} alt={paper.alt} fill className="object-cover" />
       </div>
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-lg font-semibold mb-3 text-heading">
+        <h3 className="text-base sm:text-lg font-semibold mb-3 text-heading">
           {paper.title}
         </h3>
         <div className="mt-auto">

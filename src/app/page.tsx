@@ -37,9 +37,10 @@ export default function Home() {
             A community at the University of Wisconsin dedicated to mitigating
             the{" "}
             {/* violet-300, not --text-link: the brand violet is too dark to
-                read over the dimmed photo. whitespace-nowrap keeps the phrase
-                on one line as the headline wraps. */}
-            <span className="text-violet-300 whitespace-nowrap">
+                read over the dimmed photo. From sm up, whitespace-nowrap keeps
+                the phrase on one line; on phones it must wrap or it overflows
+                the viewport and the page scrolls sideways. */}
+            <span className="text-violet-300 sm:whitespace-nowrap">
               risks of transformative AI.
             </span>
           </h1>
@@ -63,9 +64,9 @@ export default function Home() {
       </section>
 
       {/* 2 — Mission */}
-      <div id="about" className="w-full max-w-6xl mx-auto px-6">
+      <div id="about" className="w-full max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch lg:min-h-[36rem]">
-          <div className="relative h-full min-h-0">
+          <div className="relative h-64 sm:h-80 lg:h-full lg:min-h-0">
             <Image
               src="/about/CAIP_2.JPG"
               alt="Nine WAISI members in front of the US Capitol"
@@ -75,7 +76,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex flex-col justify-center py-16 h-full px-8 lg:px-12">
+          <div className="flex flex-col justify-center py-10 lg:py-16 h-full px-4 sm:px-8 lg:px-12">
             <div className="flex flex-col gap-5 max-w-prose">
               <h2 className="text-heading">Our Mission</h2>
               <p className="text-lg text-primary">
@@ -109,14 +110,14 @@ export default function Home() {
         {/* 3 — Proof band: numbers + impact highlights + photos */}
         <div>
           <NumbersCarousel />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-8 pb-16 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 sm:px-8 pb-10 lg:pb-16 max-w-6xl mx-auto">
             {/* Sized to fill the carousel's height (min 480px on lg) rather
                 than float in the middle of it. */}
-            <ul className="flex flex-col justify-center gap-10 list-none">
+            <ul className="flex flex-col justify-center gap-6 lg:gap-10 list-none">
               {IMPACT_HIGHLIGHTS.map((item) => (
                 <li
                   key={item.text}
-                  className="text-xl lg:text-2xl leading-snug flex items-start text-primary"
+                  className="text-lg lg:text-2xl leading-snug flex items-start text-primary"
                 >
                   <span className="text-link mr-3">—</span>
                   <span>
@@ -146,7 +147,7 @@ export default function Home() {
         </div>
 
         {/* 4 — Programs funnel */}
-        <div className="px-8 py-16 w-full">
+        <div className="px-4 sm:px-8 py-10 lg:py-16 w-full">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-heading mb-8 text-center">Get involved</h2>
             <ProgramFunnel />
@@ -159,7 +160,7 @@ export default function Home() {
         </div>
 
         {/* 5 — Research highlights */}
-        <div className="px-8 py-16 w-full">
+        <div className="px-4 sm:px-8 py-10 lg:py-16 w-full">
           <h2 className="text-heading text-center mb-2">
             Research Highlights
           </h2>
@@ -177,13 +178,13 @@ export default function Home() {
       </div>
 
       {/* Partners + sponsors */}
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <CompanyCarousel companies={COLLABORATORS} />
       </div>
 
-      <div className="px-8 py-16 w-full max-w-6xl mx-auto">
-        <h2 className="text-heading text-center mb-12">Our Sponsors</h2>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto">
+      <div className="px-4 sm:px-8 py-10 lg:py-16 w-full max-w-6xl mx-auto">
+        <h2 className="text-heading text-center mb-8 lg:mb-12">Our Sponsors</h2>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-4xl mx-auto">
           {SPONSORS.map((sponsor) => (
             <div key={sponsor.name} className="flex flex-col items-center gap-4">
               <a
@@ -197,7 +198,7 @@ export default function Home() {
                   alt={sponsor.alt}
                   width={200}
                   height={100}
-                  className="object-contain"
+                  className="object-contain h-20 md:h-24 w-auto"
                 />
               </a>
               <p className="text-base font-medium text-center text-primary">

@@ -18,12 +18,12 @@ export default function NumbersCarousel() {
 
   return (
     <div className="py-12 w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-8 lg:px-16">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 sm:px-8 lg:px-16">
         {/* Left Column - Quote */}
         <div className="flex flex-col justify-center items-center lg:items-end lg:pr-8">
           <div className="max-w-md">
             <p
-              className="text-xl italic mb-4"
+              className="text-lg lg:text-xl italic mb-4"
               style={{
                 color: "var(--text-primary)",
               }}
@@ -43,8 +43,9 @@ export default function NumbersCarousel() {
           </div>
         </div>
 
-        {/* Center Column - Numbers */}
-        <div className="flex flex-col gap-2 items-center text-center relative px-8">
+        {/* Center Column - Numbers. On phones it comes first, left-aligned with
+            the number in a fixed-width column so long labels wrap cleanly. */}
+        <div className="order-first lg:order-none flex flex-col gap-2 items-center text-center relative px-0 lg:px-8">
           <div
             className="absolute left-0 top-0 bottom-0 w-px hidden lg:block"
             style={{ backgroundColor: "var(--border-subtle)" }}
@@ -54,16 +55,18 @@ export default function NumbersCarousel() {
             style={{ backgroundColor: "var(--border-subtle)" }}
           ></div>
           <div className="relative flex items-center justify-center">
-            <ul className="flex flex-col items-center justify-center gap-3">
+            <ul className="flex flex-col items-stretch lg:items-center justify-center gap-3 w-full max-w-md">
               {stats.map((stat, index) => (
                 <li
                   key={index}
-                  className="list-none text-xl"
+                  className="list-none text-lg lg:text-xl flex items-baseline gap-3 text-left lg:block lg:text-center"
                   style={{
                     color: "var(--text-primary)",
                   }}
                 >
-                  <span className="font-black text-link">{stat.number}</span>{" "}
+                  <span className="font-black text-link shrink-0 w-14 text-right lg:w-auto lg:text-center">
+                    {stat.number}
+                  </span>{" "}
                   <span>{stat.label}</span>
                 </li>
               ))}
@@ -75,7 +78,7 @@ export default function NumbersCarousel() {
         <div className="flex flex-col justify-center items-center lg:items-start lg:pl-8">
           <div className="max-w-md">
             <p
-              className="text-xl italic mb-4"
+              className="text-lg lg:text-xl italic mb-4"
               style={{
                 color: "var(--text-primary)",
               }}
