@@ -28,7 +28,7 @@ function ProgramCard({ program }: { program: Program }) {
   // not open in a new tab; external form links keep the blank-target treatment.
   const ctaIsExternal = /^https?:\/\//.test(program.cta.href);
   return (
-    <div className="flex flex-col p-6 bg-card border border-subtle rounded-card max-w-2xl mx-auto">
+    <div className="program-card-in flex flex-col p-6 bg-card border border-subtle rounded-card max-w-2xl mx-auto">
       <h2 className="text-2xl text-heading">{program.title}</h2>
       <p className="text-base text-primary mt-3">{program.what}</p>
       <dl className="mt-4 space-y-1 text-base text-primary">
@@ -55,6 +55,16 @@ function ProgramCard({ program }: { program: Program }) {
           <Link href={program.cta.href} className="waisi-button">
             {program.cta.label}
           </Link>
+        )}
+        {program.curriculumUrl && (
+          <a
+            href={program.curriculumUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-card border border-link text-link font-semibold hover:bg-link hover:!text-white active:scale-[0.97] transition-[background-color,color,transform] duration-150 ease"
+          >
+            Curriculum &rarr;
+          </a>
         )}
         {program.handbookUrl && (
           <a
@@ -118,7 +128,7 @@ export default function ProgramsFunnel() {
 
       <div className="mt-8">
         {selected ? (
-          <ProgramCard program={byTitle(selected)} />
+          <ProgramCard key={selected} program={byTitle(selected)} />
         ) : (
           <p className="text-base text-primary text-center">
             Select a program to see the details.

@@ -26,6 +26,14 @@ export const Handbooks = {
     UPSKILLING_DETAILS: 'https://docs.google.com/document/d/16UH2uN-9Bu8DMiBNqYc1LYbkBIhVF0R_dvN9nC-3qIo/edit?usp=sharing',
 };
 
+// Reading-group curricula for the two Fundamentals fellowships — the actual
+// week-by-week content, distinct from the Handbooks above (which explain how
+// the program runs, not what's covered).
+export const Curricula = {
+    TECHNICAL_FUNDAMENTALS: 'https://docs.google.com/document/d/1hPWs7RA1wFwcSgxHeqEBwvO_-FnMSV-gyM2TldFd6do/edit?usp=sharing',
+    POLICY_FUNDAMENTALS: 'https://docs.google.com/document/d/1hR3z_hVmZRz4DhREkaMu8Ce2StFCIOTaThObKq-j_H0/edit?usp=sharing',
+};
+
 export type ApplicationCycle = {
   status: "open" | "closed";
   deadline?: string;

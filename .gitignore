@@ -3,6 +3,10 @@
 # mcp
 .serena
 
+# Claude Code skills
+/.agents
+/skills-lock.json
+
 # auth
 src/credentials.json
 

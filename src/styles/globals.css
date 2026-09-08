@@ -152,11 +152,15 @@ h3 { font-size: 1.3em; line-height: 1.3; }
   color: #ffffff;
   background-color: var(--text-link);
   border-radius: 4px;
-  transition: background-color 0.15s ease;
+  transition: background-color 150ms ease, transform 150ms ease-out;
 }
 
 .waisi-button:hover {
   background-color: #5B21B6;
+}
+
+.waisi-button:active {
+  transform: scale(0.97);
 }
 
 /* Scrollable strips that hide their scrollbar (CompanyCarousel). */
@@ -209,6 +213,45 @@ h3 { font-size: 1.3em; line-height: 1.3; }
   .event-card:hover {
     transform: none;
     box-shadow: none;
+  }
+}
+
+/* Get Involved funnel tiles (ProgramsFunnel): color deepens on hover (see
+   Tailwind's transition-colors on the tile itself) and a brief press gives
+   tactile feedback, matching the .waisi-button treatment above. */
+.funnel-tile {
+  transition: background-color 150ms ease, transform 150ms ease-out;
+}
+
+.funnel-tile:active {
+  transform: scale(0.98);
+}
+
+/* Program detail card (ProgramsFunnel): fades and lifts in when a tile is
+   selected so the reveal doesn't feel like an abrupt cut. Re-triggers on
+   every switch via a `key`'d remount, so keep it short. */
+@keyframes program-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.program-card-in {
+  animation: program-card-in 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .funnel-tile:active {
+    transform: none;
+  }
+  .program-card-in {
+    opacity: 1;
+    animation: none;
   }
 }
 

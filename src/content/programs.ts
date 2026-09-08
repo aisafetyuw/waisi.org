@@ -2,7 +2,7 @@
 // CTA hrefs derive from APPLICATION_CYCLE in constants.ts: when the cycle is
 // closed, application CTAs fall back to the interest form.
 
-import { APPLICATION_CYCLE, Handbooks } from "@/constants";
+import { APPLICATION_CYCLE, Handbooks, Curricula } from "@/constants";
 
 export type Program = {
   title: string;
@@ -11,6 +11,7 @@ export type Program = {
   audience: string;
   cta: { label: string; href: string };
   handbookUrl?: string;
+  curriculumUrl?: string;
 };
 
 // Fellowship applications (both fellowship tracks) now run through the
@@ -38,6 +39,7 @@ export const PROGRAMS: Program[] = [
     //   : notify,
     cta: applyToFellowship,
     handbookUrl: Handbooks.FELLOWSHIP,
+    curriculumUrl: Curricula.TECHNICAL_FUNDAMENTALS,
   },
   {
     title: "Policy Fellowship",
@@ -52,6 +54,7 @@ export const PROGRAMS: Program[] = [
     //   : notify,
     cta: applyToFellowship,
     handbookUrl: Handbooks.FELLOWSHIP,
+    curriculumUrl: Curricula.POLICY_FUNDAMENTALS,
   },
   {
     title: "Technical Upskilling",

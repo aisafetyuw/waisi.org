@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Curricula } from "@/constants";
 import ApplyEmbed from "./ApplyEmbed";
 
 export const metadata: Metadata = {
@@ -18,7 +19,26 @@ export default function Apply() {
         <h1 className="text-heading">Apply to the Fellowship</h1>
         <p className="mt-2 max-w-prose text-base text-primary">
           Six weeks, two hours a week — technical AI safety or AI governance.
-          Fill out the form below; it takes about ten minutes.
+          Fill out the form below; it takes about ten minutes. Want to see
+          what you&apos;d be reading first? Check out the{" "}
+          <a
+            href={Curricula.TECHNICAL_FUNDAMENTALS}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-link hover:underline"
+          >
+            Technical Fundamentals
+          </a>{" "}
+          or{" "}
+          <a
+            href={Curricula.POLICY_FUNDAMENTALS}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-link hover:underline"
+          >
+            Policy Fundamentals
+          </a>{" "}
+          curriculum.
         </p>
         <ApplyEmbed />
       </div>
