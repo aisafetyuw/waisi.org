@@ -37,7 +37,7 @@ export const NOTABLE_ALUMNI: AlumnusData[] = [
   },
   {
     name: "Andy Wang",
-    role: "ML Research Intern @ Redwood",
+    role: "Technical Governance Researcher @ Safe AI Forum",
     previously:
       "Contractor @ SAIF, Research Contractor @ METR, Research Fellow @ Astra, AI Safety Research Fellow @ SPAR, Project Lead @ UChicago XLab, Deputy Director @ WAISI",
     photo: "andy_wang",
