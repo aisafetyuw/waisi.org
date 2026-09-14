@@ -1,7 +1,7 @@
 // Leadership Roster snapshot, 2026-09-14:
 // https://docs.google.com/spreadsheets/d/1z4Hgqkmx1Wdee_aNsi6wyzKrrBf4AS7YrrivFGB-Gwg/edit
 // All semester tabs, Fall 2026 through Spring 2024. Use the latest recorded
-// role and the latest non-empty email. Preserve source uncertainty markers.
+// role and the latest non-empty email. Omit source question marks and asterisks from titles.
 // Excludes the existing leadership and notable alumni, including the
 // Zavier Naafi Rahmansyah / Zavi Rahmansyah name variant (same email).
 // Years reflect appearances in the semester tabs, not inferred tenure outside them.
@@ -37,12 +37,12 @@ export const PAST_LEADERSHIP: PastLeader[] = [
   {
     "name": "Ben Tietjen",
     "years": "2024",
-    "role": "Policy Team?"
+    "role": "Policy Team"
   },
   {
     "name": "Christian Classen",
     "years": "2025",
-    "role": "Technical Team*"
+    "role": "Technical Team"
   },
   {
     "name": "David Viggiano",
