@@ -2,7 +2,7 @@ import Image from "next/image";
 import { MemberProps } from "@/types";
 import { CALL_BOOKINGS } from "@/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function Member({ member }: MemberProps) {
@@ -28,12 +28,6 @@ export default function Member({ member }: MemberProps) {
             {member.role}
           </div>
           <div className="mt-1 flex items-center space-x-2">
-            <a href={`mailto:${member.email}`}>
-              <FontAwesomeIcon
-                icon={faEnvelope}
-                className="hover:opacity-80 text-link"
-              />
-            </a>
             {member.linkedin && (
               <a
                 href={member.linkedin}
