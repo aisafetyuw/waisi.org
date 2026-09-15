@@ -172,7 +172,15 @@ export default async function Team() {
           ) : (
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 m-1">
               {pastLeaders.map((person) => (
-                <li key={person.name} className="min-w-0 p-5 bg-card border border-subtle rounded-card">
+                <li key={person.name} className="flex items-start gap-4 min-w-0 p-5 bg-card border border-subtle rounded-card">
+                  <Image
+                    src={person.image}
+                    alt={person.name}
+                    width={100}
+                    height={100}
+                    className="h-[100px] w-[100px] shrink-0 object-cover"
+                  />
+                  <div className="min-w-0">
                   <h3 className="text-xl text-heading">{person.name}</h3>
                   <dl className="mt-2 space-y-2 text-sm text-primary">
                     <div>
@@ -184,6 +192,7 @@ export default async function Team() {
                       <dd>{person.role ?? "Not listed"}</dd>
                     </div>
                   </dl>
+                  </div>
                 </li>
               ))}
             </ul>
