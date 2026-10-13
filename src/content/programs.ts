@@ -2,7 +2,12 @@
 // CTA hrefs derive from APPLICATION_CYCLE in constants.ts: when the cycle is
 // closed, application CTAs fall back to the interest form.
 
-import { APPLICATION_CYCLE, Handbooks, Curricula } from "@/constants";
+import {
+  APPLICATION_CYCLE,
+  Handbooks,
+  Curricula,
+  PROJECTS_RFP,
+} from "@/constants";
 
 export type Program = {
   title: string;
@@ -12,6 +17,15 @@ export type Program = {
   cta: { label: string; href: string };
   handbookUrl?: string;
   curriculumUrl?: string;
+  // Optional sub-section rendered inside the card (Scholars' Projects).
+  projects?: {
+    title: string;
+    summary: string;
+    facts: { label: string; value: string }[];
+    cta?: { label: string; href: string };
+    rfpUrl: string;
+    open: boolean;
+  };
 };
 
 // Fellowship applications (both fellowship tracks) now run through the
@@ -23,7 +37,9 @@ const notify = {
   label: "Get notified",
   href: APPLICATION_CYCLE.interestFormUrl,
 };
-const applyToFellowship = { label: "Apply", href: "/apply" };
+// Fellowship apps are closed (Oct 2026), so both fellowship cards point back at
+// the interest form. Restore `cta: applyToFellowship` when they reopen.
+// const applyToFellowship = { label: "Apply", href: "/apply" };
 
 export const PROGRAMS: Program[] = [
   {
@@ -33,11 +49,12 @@ export const PROGRAMS: Program[] = [
     audience:
       "Anyone curious about technical AI safety; ML experience encouraged but not required",
     // Was a cycle-aware CTA ("Get notified" → interest form while closed,
-    // "Apply" → Google Form while open). Now always the on-site embed:
+    // "Apply" → Google Form while open). Then the on-site /apply embed;
+    // now back to the interest form while apps are closed (docs/ARCHIVE.md):
     // cta: open
     //   ? { label: "Apply", href: APPLICATION_CYCLE.techFormUrl }
     //   : notify,
-    cta: applyToFellowship,
+    cta: notify,
     handbookUrl: Handbooks.FELLOWSHIP,
     curriculumUrl: Curricula.TECHNICAL_FUNDAMENTALS,
   },
@@ -48,11 +65,12 @@ export const PROGRAMS: Program[] = [
     audience:
       "Anyone interested in AI policy; a public-policy background is encouraged but not required",
     // Was a cycle-aware CTA ("Get notified" → interest form while closed,
-    // "Apply" → Google Form while open). Now always the on-site embed:
+    // "Apply" → Google Form while open). Then the on-site /apply embed;
+    // now back to the interest form while apps are closed (docs/ARCHIVE.md):
     // cta: open
     //   ? { label: "Apply", href: APPLICATION_CYCLE.policyFormUrl }
     //   : notify,
-    cta: applyToFellowship,
+    cta: notify,
     handbookUrl: Handbooks.FELLOWSHIP,
     curriculumUrl: Curricula.POLICY_FUNDAMENTALS,
   },
@@ -76,5 +94,29 @@ export const PROGRAMS: Program[] = [
       "Standout intro-program graduates and students with strong AI safety background",
     cta: notify,
     handbookUrl: Handbooks.SAFETY_SCHOLARS,
+    // Driven by PROJECTS_RFP (status, deadline, links); see docs/ARCHIVE.md
+    // for how to close/archive the RFP.
+    projects: {
+      title: "Scholars' Projects",
+      summary:
+        "Eight-week mentored AI safety projects: small teams of mentees (fellowship and cohort graduates) work with an experienced mentor on a real project. Every project ends in a concrete output and a showcase.",
+      open: PROJECTS_RFP.status === "open",
+      facts: [
+        { label: "Length", value: "8 weeks · Oct 28 – Dec 22" },
+        { label: "Funding", value: "Up to $1,000 per project" },
+        { label: "Projects", value: "Up to 4 funded" },
+        PROJECTS_RFP.status === "open"
+          ? { label: "Proposals due", value: PROJECTS_RFP.deadline }
+          : {
+              label: "Proposers",
+              value: "Leadership, scholars, grad students",
+            },
+      ],
+      cta:
+        PROJECTS_RFP.status === "open"
+          ? { label: "Submit a proposal", href: PROJECTS_RFP.formUrl }
+          : undefined,
+      rfpUrl: PROJECTS_RFP.rfpUrl,
+    },
   },
 ];

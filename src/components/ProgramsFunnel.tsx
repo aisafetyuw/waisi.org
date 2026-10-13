@@ -23,6 +23,61 @@ function byTitle(title: string): Program {
   return program;
 }
 
+const outlineButton =
+  "px-4 py-2 rounded-card border border-link text-link font-semibold hover:bg-link hover:!text-white active:scale-[0.97] transition-[background-color,color,transform] duration-150 ease";
+
+function ProjectsBlock({
+  projects,
+}: {
+  projects: NonNullable<Program["projects"]>;
+}) {
+  return (
+    <div className="mt-6 pt-6 border-t border-subtle">
+      <div className="bg-card-alt rounded-card p-4 sm:p-5">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <h3 className="font-serif text-xl text-heading">{projects.title}</h3>
+          {projects.open && (
+            <span className="text-emerald-800 bg-emerald-50 border border-emerald-600 rounded-card px-2 py-0.5 text-xs font-semibold">
+              Proposals open
+            </span>
+          )}
+        </div>
+        <p className="text-base text-primary mt-2">{projects.summary}</p>
+        <dl className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+          {projects.facts.map((f) => (
+            <div key={f.label} className="min-w-0">
+              <dt className="text-xs uppercase tracking-wide font-medium text-heading">
+                {f.label}
+              </dt>
+              <dd className="text-base text-primary break-words">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <div className="flex flex-wrap items-center gap-3 mt-5">
+          {projects.cta && (
+            <a
+              href={projects.cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="waisi-button"
+            >
+              {projects.cta.label}
+            </a>
+          )}
+          <a
+            href={projects.rfpUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={outlineButton}
+          >
+            Read the RFP &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ProgramCard({ program }: { program: Program }) {
   // Internal CTAs (e.g. the Fellowship /apply page) route client-side and must
   // not open in a new tab; external form links keep the blank-target treatment.
@@ -77,6 +132,7 @@ function ProgramCard({ program }: { program: Program }) {
           </a>
         )}
       </div>
+      {program.projects && <ProjectsBlock projects={program.projects} />}
     </div>
   );
 }
@@ -86,7 +142,11 @@ export default function ProgramsFunnel() {
 
   // Tint deepens as the funnel narrows; a selected tile holds its hover
   // shade so the active program stays visibly marked.
-  const tile = (title: string, resting: string, active: string) => (
+  const tile = (
+    title: string,
+    resting: string,
+    active: string,
+  ) => (
     <button
       type="button"
       onClick={() => setSelected(selected === title ? null : title)}

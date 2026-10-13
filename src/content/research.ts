@@ -10,6 +10,78 @@ export type SparProject = {
   tags: string[]; // topic tags as shown on the SPAR project page
 };
 
+// Scholars' Projects section at the top of /research — edit here, not in the
+// page. Items marked openOnly are hidden once PROJECTS_RFP.status is not "open".
+export const SCHOLARS_PROJECTS_INTRO =
+  "Eight-week mentored AI safety projects for WAISI fellowship and cohort graduates. Small teams of mentees work with an experienced mentor on a real project; the priority is mentee growth, and every project ends in a concrete output plus a showcase.";
+
+export type ScholarsStat = {
+  value: string;
+  label: string;
+  openOnly?: boolean;
+};
+
+export const SCHOLARS_PROJECTS_STATS: ScholarsStat[] = [
+  { value: "8 weeks", label: "mentored project" },
+  { value: "$1,000", label: "per project" },
+  { value: "Up to 4", label: "funded projects" },
+  { value: "Due Oct 18", label: "11:59 PM CST", openOnly: true },
+];
+
+export type ScholarsProjectType = { title: string; description: string };
+
+export const SCHOLARS_PROJECT_TYPES: ScholarsProjectType[] = [
+  {
+    title: "Original research",
+    description: "A new technical or policy question.",
+  },
+  {
+    title: "Replications",
+    description: "Reproduce a published safety result, then extend it.",
+  },
+  {
+    title: "Tooling",
+    description: "Software that makes safety work easier.",
+  },
+  {
+    title: "Evaluations & datasets",
+    description: "Measure behaviors existing benchmarks miss.",
+  },
+  {
+    title: "Explainers & demos",
+    description: "Make a safety idea understandable, often interactively.",
+  },
+  {
+    title: "Memos & briefs",
+    description: "Policy analysis with recommendations.",
+  },
+];
+
+export type ScholarsMilestone = {
+  date: string; // ISO date (end of that day, Central time)
+  label: string;
+  detail?: string;
+};
+
+export const SCHOLARS_TIMELINE: ScholarsMilestone[] = [
+  { date: "2026-10-07", label: "RFP opens" },
+  { date: "2026-10-18", label: "Proposals due", detail: "11:59 PM CST" },
+  { date: "2026-10-26", label: "Interviews end" },
+  { date: "2026-10-28", label: "Projects start" },
+  { date: "2026-11-17", label: "Week 3 checkpoint" },
+  { date: "2026-12-08", label: "Week 6 checkpoint" },
+  { date: "2026-12-22", label: "Project deadline" },
+];
+
+export const SCHOLARS_PROPOSERS: string[] = [
+  "WAISI leadership",
+  "Current and past scholars",
+  "Graduate students and postgrads",
+  "Cohort members co-proposing with a leadership member",
+];
+
+export const SCHOLARS_CONTACT_EMAIL = "aisafetyuw@gmail.com";
+
 // SPAR projects mentored by WAISI members and alumni, shown at the top of
 // /research — edit here, not in the page.
 export const SPAR_PROJECTS: SparProject[] = [

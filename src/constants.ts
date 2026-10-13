@@ -59,3 +59,15 @@ export function primaryCta(): { label: string; href: string } {
     ? { label: "Apply now", href: "/programs" }
     : { label: "Join us", href: APPLICATION_CYCLE.interestFormUrl };
 }
+
+// Scholars' Projects request for proposals. Single source of truth for the
+// floating banner, the Safety Scholars card on /programs, /apply, and the
+// /research section. When the cycle ends, set status to "closed" (CTAs hide) and see
+// docs/ARCHIVE.md for what to restore.
+export const PROJECTS_RFP = {
+  status: "open" as "open" | "closed",
+  deadline: "October 18, 2026, 11:59 PM CST",
+  rfpUrl:
+    "https://docs.google.com/document/d/1O0z5kGK6K-NOElRKu__zcgfW0CsP7vCcIYsZSAHTpSc/edit?tab=t.8ni5omp9szkh",
+  formUrl: "https://airtable.com/appLKxqFeGT6WLmkN/pagtqRwex5BrO6ozg/form",
+};
