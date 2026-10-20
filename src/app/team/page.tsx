@@ -2,7 +2,7 @@ import Image from "next/image";
 import Member from "@/components/member";
 import Alumnus from "@/components/alumnus";
 import getMembers from "@/app/team/getMembers";
-import { FACULTY_ADVISORS, NOTABLE_ALUMNI } from "@/content/team";
+import { FACULTY_ADVISORS, NOTABLE_ALUMNI, OTHER_UW_ALUMNI } from "@/content/team";
 import { PAST_LEADERSHIP } from "@/content/pastLeadership";
 import type { Metadata } from "next";
 
@@ -154,6 +154,19 @@ export default async function Team() {
           </h2>
           <ul className="grid gap-4 m-1 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]">
             {NOTABLE_ALUMNI.map((alumnus) => (
+              <li key={alumnus.name}>
+                <Alumnus alumnus={alumnus} />
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
+            Other Notable UW&#8211;Madison Alumni
+          </h2>
+          <ul className="grid gap-4 m-1 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]">
+            {OTHER_UW_ALUMNI.map((alumnus) => (
               <li key={alumnus.name}>
                 <Alumnus alumnus={alumnus} />
               </li>

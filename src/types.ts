@@ -48,6 +48,8 @@ export type AlumnusData = {
     role: string,
     previously?: string,
     photo: string,          // filename in /public/alumni, without the extension
+    linkedin?: string,
+    website?: string,
 };
 
 export type AlumnusProps = {

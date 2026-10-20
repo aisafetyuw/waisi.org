@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { AlumnusProps } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function Alumnus({ alumnus }: AlumnusProps) {
   return (
@@ -20,6 +21,36 @@ export default function Alumnus({ alumnus }: AlumnusProps) {
             {alumnus.name}
           </div>
           <div className="text-primary">{alumnus.role}</div>
+          {(alumnus.linkedin || alumnus.website) && (
+            <div className="mt-1 flex items-center space-x-2">
+              {alumnus.linkedin && (
+                <a
+                  href={alumnus.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${alumnus.name} on LinkedIn`}
+                >
+                  <FontAwesomeIcon
+                    icon={faLinkedin}
+                    className="hover:opacity-80 text-link"
+                  />
+                </a>
+              )}
+              {alumnus.website && (
+                <a
+                  href={alumnus.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${alumnus.name}'s website`}
+                >
+                  <FontAwesomeIcon
+                    icon={faGlobe}
+                    className="hover:opacity-80 text-link"
+                  />
+                </a>
+              )}
+            </div>
+          )}
           {alumnus.previously && (
             // <details> keeps this a server component and works without JS.
             <details className="group mt-1">
