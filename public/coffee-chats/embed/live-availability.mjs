@@ -1,3 +1,18 @@
+export function emptyDayMessage({snapshot, feedStatus, day, today, leaders=[], onlyFreeTimes=false, personalReady=false, personalStatus}) {
+  if (!snapshot) return ['error', 'expired'].includes(feedStatus) ? 'Times unavailable' : 'Load times…';
+  if (day < snapshot.coverageStart || day >= snapshot.coverageEnd) return 'Not checked';
+  if (day < today) return 'Past date';
+  const selected = new Set(leaders);
+  const calendars = snapshot.calendars.filter(calendar => !selected.size || selected.has(calendar.leader));
+  if (!calendars.some(calendar => calendar.status === 'ready')) return 'Check booking pages';
+  const missingLeader = [...selected].some(leader => !calendars.some(calendar => calendar.leader === leader));
+  if (missingLeader || calendars.some(calendar => calendar.status !== 'ready')) return 'Some times unavailable';
+  if (onlyFreeTimes) {
+    return personalReady ? 'No shared times' : ['loading', 'connecting'].includes(personalStatus) ? 'Checking your calendar…' : 'Calendar check unavailable';
+  }
+  return 'No matching times';
+}
+
 export class AvailabilityFeed {
   constructor({fetchImpl=fetch,onChange=()=>{},now=Date.now}={}) {
     this.fetch=(...args)=>fetchImpl(...args);this.onChange=onChange;this.now=now;
