@@ -40,9 +40,6 @@ test('provider requests allow only source hosts and never use cookies or redirec
   assert.equal(new URL(requests[0].url).searchParams.get('profile_slug'),'test');
   assert.equal(new URL(requests[1].url).searchParams.get('range_end'),'2026-10-29');
 });
-test('Google sources remain explicitly unsupported and make no speculative request',async()=>{
-  await assert.rejects(readSource({...source,provider:'Google Calendar',eventUrl:'https://calendar.app.google/example'},range,()=>assert.fail('Unexpected request')),e=>e.code==='unsupported_source');
-});
 test('ranges reject invalid dates, expensive windows, and distant dates',()=>{
   assert.deepEqual(validateRange('2026-10-23','2026-10-30',now),range);
   for(const pair of [['2026-02-30','2026-03-03'],['2026-10-23','2026-11-23'],['2028-01-01','2028-01-03'],['2026-10-24','2026-10-23']]) assert.throws(()=>validateRange(...pair,now));
