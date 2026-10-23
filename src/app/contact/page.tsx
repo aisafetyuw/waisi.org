@@ -2,12 +2,11 @@ import {
   DISCORD_URL,
   INSTAGRAM_URL,
   INTEREST_URL,
-  CALL_BOOKINGS,
 } from "@/constants";
 import Button from "@/components/button";
 import type { Metadata } from "next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -56,34 +55,6 @@ export default function Contact() {
                 <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
                 aisafetyuw@gmail.com
               </a>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-semibold mb-4 text-heading">
-                Book a Call
-              </h2>
-              <p className="text-lg text-primary">
-                Want to talk about AI safety, our programs, or how to get
-                involved? Grab a time with one of us directly:
-              </p>
-              <ul className="mt-4 flex flex-col gap-2">
-                {CALL_BOOKINGS.map((person) => (
-                  <li key={person.name}>
-                    <a
-                      href={person.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-lg font-semibold hover:text-link-hover active:text-link-hover transition-colors text-link"
-                    >
-                      <FontAwesomeIcon
-                        icon={faCalendarDays}
-                        aria-hidden="true"
-                      />
-                      Book a call with {person.name.split(" ")[0]}
-                    </a>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div>
