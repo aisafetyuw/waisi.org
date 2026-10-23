@@ -17,7 +17,7 @@ Use Node.js 22. Set these variables in Netlify with both build and function acce
 | `COFFEE_CHAT_PUBLIC_ORIGIN` | `https://waisi.org` |
 | `COFFEE_CHAT_STORE` | `netlify` |
 | `GOOGLE_CALENDAR_CLIENT_ID` | Public Google web client ID, never a client secret |
-| `COFFEE_CHAT_GOOGLE_READY` | `false` until personal Google connection passes its production checks; does not block public bookings |
+| `COFFEE_CHAT_GOOGLE_READY` | `true` for an owner-authorized production connection test; retain after successful checks, or revert to `false` if it fails; does not block public bookings |
 | `NODE_VERSION` | `22` |
 
 These values were added to the existing WAISI Netlify project. Existing service-account credentials were not changed. Netlify applies updated variables to subsequent deploys.
@@ -37,10 +37,12 @@ Use the existing `waisi-org` Google Cloud project. The local token flow already 
 7. For the web client, add the exact JavaScript origin `https://waisi.org`. Add `https://www.waisi.org` only if it serves the app without redirecting to the canonical origin.
 8. Declare only `https://www.googleapis.com/auth/calendar.freebusy` for this feature. This popup token flow needs no redirect URI or client secret in the app.
 9. Configure the audience for external fellows. The owner approved consent publication, and Google now reports In production. Google classifies `calendar.freebusy` as non-sensitive and says data-access verification is not required. Branding verification governs the displayed app identity; it is not a technical prerequisite for public leader bookings. Track branding separately from production connection tests.
-10. Check sign-in, consent denial, popup closure, Refresh, expiry, Disconnect, and reconnection on the deployed origin, including a fellow account outside the test-user list.
-11. Set `COFFEE_CHAT_GOOGLE_READY=true` only after these checks pass.
+10. When the owner authorizes production connection testing, set `COFFEE_CHAT_GOOGLE_READY=true` for the Production context and redeploy. This permits a real test on the approved `https://waisi.org` origin; it does not expand the requested permission.
+11. Check sign-in, consent denial, popup closure, Refresh, expiry, Disconnect, and reconnection on the deployed origin, including a fellow account outside the test-user list. Keep the setting enabled after successful checks; set it back to `false` and redeploy if the production flow fails.
 
 The user approved adding `https://waisi.org` and `http://localhost:4180` to the existing web client. Both origins were saved. The user subsequently confirmed that the integrated page on port 4180 connects and shows free times in Chrome or Safari. This local check does not verify the production origin.
+
+The config route derives the hostname from each request's `Host` header and retains its URL protocol. Netlify initializes a warm Next.js server with its first hostname, so `request.url` alone can retain a different deployment hostname on later requests. This caused inconsistent `unconfigured` responses on the production domain. Exact comparison against `COFFEE_CHAT_PUBLIC_ORIGIN` still excludes Netlify aliases and previews, and the route ignores `Origin` and forwarded-host headers. Google independently enforces its approved JavaScript origins. Regression tests cover both hostname directions, aliases, misleading forwarded headers, HTTP, and local ports.
 
 Privacy behavior: request only primary-calendar busy periods; keep the token and periods in page memory; send neither to WAISI. Disconnect clears local memory and requests revocation. Do not add personal calendar details to logs, analytics, or error reports.
 
@@ -77,7 +79,7 @@ Netlify function logs contain source IDs and short error codes. Do not log raw p
 1. Keep production disabled while the draft change receives review.
 2. Verify the deploy preview's layout, filters, date navigation, source failure behavior, and cache writes.
 3. Confirm that all 14 source checks succeed on the deploy preview. The public Google reader now supports all eight Google leaders. Preflight rejects unknown provider names; runtime health rejects failed source checks.
-4. Keep `COFFEE_CHAT_GOOGLE_READY=false` for a public-booking-only launch. Complete the separate Google production checks before enabling personal connection.
+4. Keep `COFFEE_CHAT_GOOGLE_READY=false` for a public-booking-only launch. For personal connection, follow the owner-authorized activation, production test, and rollback procedure above.
 5. Confirm the monitor owner and notification test.
 6. Merge the reviewed change, then enable `COFFEE_CHAT_ENABLED=true` and redeploy.
 7. Verify the scheduled function, health response, and full calendar flow on `https://waisi.org/coffee-chats` before sharing the link.
