@@ -38,16 +38,16 @@ Anonymous GET requests returned Eva's public schedule page. Its published JavaSc
 
 **Interfaces:** `readGoogleBooking(source, range, fetchImpl) -> slots`; `parseGoogleSlots(payload, source, range) -> {slots, nextPageToken}`. The range uses inclusive UTC start and exclusive UTC end dates.
 
-- [ ] Write failing tests for public configuration extraction, absolute times and actual duration, empty responses, malformed data, approved redirects, cookie-free requests, pagination and late-page failure.
-- [ ] Implement strict parsing and bounded anonymous requests. Use only the observed read-only RPC.
-- [ ] Run the complete suite and check every Google source against the live public service.
+- [x] Write failing tests for public configuration extraction, absolute times and actual duration, empty responses, malformed data, approved redirects, cookie-free requests, pagination and late-page failure.
+- [x] Implement strict parsing and bounded anonymous requests. Use only the observed read-only RPC.
+- [x] Run the complete suite and check every Google source against the live public service.
 
 ### Task 2: Readiness and deployed verification
 
 **Files:** Update `operations.mjs`, operations tests, and `docs/coffee-chats/operations.md`.
 
-- [ ] Replace the unconditional Google-source blocker only after all eight live sources pass. Continue rejecting unsupported provider names and incomplete production configuration.
-- [ ] Verify the local calendar with Eva, Arya, and another Google leader, including leader selection and timezone conversion.
-- [ ] Run the production build and request a fresh code review.
-- [ ] Publish a pull request and inspect its Netlify preview. Confirm all source statuses and visible Google blocks before merging.
-- [ ] Record the actual checks and remaining consent-branding/production launch work.
+- [x] Replace the unconditional Google-source blocker only after all eight live sources pass. Continue rejecting unsupported provider names and incomplete production configuration.
+- [x] Verify the local calendar with Eva, Arya, and another Google leader, including leader selection and timezone conversion.
+- [x] Run the production build and request a fresh code review.
+- [x] Publish a pull request and inspect its Netlify preview. Confirm all source statuses and visible Google blocks before merging.
+- [x] Record the actual checks and remaining consent-branding/production launch work.
