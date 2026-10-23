@@ -208,7 +208,8 @@ main { flex: 1; min-height: 0; width: 100%; padding: 0 16px; display: grid; grid
 .exact-time summary { min-height: 38px; padding: 0 10px; gap: 8px; border: 1px solid var(--color-rule); border-radius: var(--radius); background: var(--color-paper); font-size: 11px; white-space: nowrap; }
 .exact-time[open] summary { color: var(--color-accent); border-color: var(--color-accent); }
 .exact-time form { position: absolute; top: calc(100% + 8px); right: 0; z-index: 10; width: min(320px, 100%); padding: 16px; background: var(--color-paper); border: 1px solid var(--color-rule); border-radius: var(--radius); grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.exact-time .primary-button { grid-column: 1 / -1; }
+.time-filter-actions { grid-column: 1 / -1; display: flex; gap: 8px; }
+.time-filter-actions button { flex: 1; }
 .booking-panel { display: flex; flex-direction: column; min-height: 0; overflow-y: auto; margin: 0; padding: 12px 0; }
 .booking-heading, .selection-summary { flex: 0 0 auto; }
 .slot-details { flex: 0 1 auto; min-height: 0; max-height: 45%; overflow-y: auto; overscroll-behavior: contain; margin-bottom: 12px; }

@@ -49,7 +49,7 @@
         <div class="calendar-toolbar">
           <div class="date-nav"><h2 id="range-title"></h2><div class="arrow-pair"><button id="previous" class="icon-button" aria-label="Previous week">‹</button><button id="next" class="icon-button" aria-label="Next week">›</button></div><button id="today" class="text-button">Today</button></div>
           <details id="time-filter" class="exact-time"><summary aria-label="Filter by a time window"><span>Time window</span><svg class="control-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-            <form id="time-form"><label class="field">Start<input id="start-time" type="time" value="10:00" required></label><label class="field">End<input id="end-time" type="time" value="12:00" required></label><button class="primary-button" type="submit">Apply filter</button><p id="time-error" class="error" role="alert"></p></form>
+            <form id="time-form"><label class="field">Start<input id="start-time" type="time" value="10:00" required></label><label class="field">End<input id="end-time" type="time" value="12:00" required></label><div class="time-filter-actions"><button class="text-button" type="reset">Reset</button><button class="primary-button" type="submit">Apply filter</button></div><p id="time-error" class="error" role="alert"></p></form>
           </details>
           <div class="view-switch" role="group" aria-label="Calendar view"><button id="week-view" class="active" aria-pressed="true">Week</button><button id="day-view" aria-pressed="false">Day</button></div>
         </div>
