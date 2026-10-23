@@ -1,0 +1,153 @@
+[
+  {
+    "id": "Anaya Mandal:60",
+    "leader": "Anaya Mandal",
+    "provider": "Google Calendar",
+    "eventUrl": "https://calendar.app.google/3tiab6mZCPfRuut68",
+    "durationMinutes": 60,
+    "formats": [
+      "in-person"
+    ],
+    "formatNote": "In person by arrangement; confirm with the leader."
+  },
+  {
+    "id": "Arya Pasumarthi:30",
+    "leader": "Arya Pasumarthi",
+    "provider": "Google Calendar",
+    "eventUrl": "https://calendar.app.google/3pCfXPjfFS52DH3FA",
+    "durationMinutes": 30,
+    "formats": [],
+    "formatNote": "Confirm the meeting format with the leader."
+  },
+  {
+    "id": "Celeste Li:30",
+    "leader": "Celeste Li",
+    "provider": "Google Calendar",
+    "eventUrl": "https://calendar.app.google/gjrzviL7V2bPfdsw7",
+    "durationMinutes": 30,
+    "formats": [
+      "online"
+    ],
+    "formatNote": "Online meeting"
+  },
+  {
+    "id": "Eva Skarabot:30",
+    "leader": "Eva Skarabot",
+    "provider": "Google Calendar",
+    "eventUrl": "https://calendar.app.google/ps6qZFWfYk6fB2xg6",
+    "durationMinutes": 30,
+    "formats": [
+      "online"
+    ],
+    "formatNote": "Online meeting"
+  },
+  {
+    "id": "Jigyasa Raizada:15",
+    "leader": "Jigyasa Raizada",
+    "provider": "Cal.com",
+    "eventUrl": "https://cal.com/jigyasa-raizada-ddva9y/15min",
+    "durationMinutes": 15,
+    "formats": [
+      "online"
+    ],
+    "formatNote": "Cal Video"
+  },
+  {
+    "id": "Jigyasa Raizada:30",
+    "leader": "Jigyasa Raizada",
+    "provider": "Cal.com",
+    "eventUrl": "https://cal.com/jigyasa-raizada-ddva9y/30min",
+    "durationMinutes": 30,
+    "formats": [
+      "online"
+    ],
+    "formatNote": "Cal Video"
+  },
+  {
+    "id": "Kaustubh Kislay:30",
+    "leader": "Kaustubh Kislay",
+    "provider": "Google Calendar",
+    "eventUrl": "https://calendar.app.google/NkBQ5FZ3iF5vtLPN8",
+    "durationMinutes": 30,
+    "formats": [
+      "online"
+    ],
+    "formatNote": "Online meeting"
+  },
+  {
+    "id": "Lucy Bugni:30",
+    "leader": "Lucy Bugni",
+    "provider": "Google Calendar",
+    "eventUrl": "https://calendar.app.google/b8EsYUD8GdWSjAs77",
+    "durationMinutes": 30,
+    "formats": [],
+    "formatNote": "Confirm the meeting format with the leader."
+  },
+  {
+    "id": "Maanan Purothi:30",
+    "leader": "Maanan Purothi",
+    "provider": "Google Calendar",
+    "eventUrl": "https://calendar.app.google/uhcBrTLTCXMv4inZ8",
+    "durationMinutes": 30,
+    "formats": [
+      "online"
+    ],
+    "formatNote": "Online meeting"
+  },
+  {
+    "id": "Max Kamachee:15",
+    "leader": "Max Kamachee",
+    "provider": "Calendly",
+    "eventUrl": "https://calendly.com/max-kamachee/30min",
+    "durationMinutes": 15,
+    "formats": [
+      "online"
+    ],
+    "formatNote": "Online meeting"
+  },
+  {
+    "id": "Micah Hees:30",
+    "leader": "Micah Hees",
+    "provider": "Calendly",
+    "eventUrl": "https://calendly.com/micahhees/30min",
+    "durationMinutes": 30,
+    "formats": [
+      "online"
+    ],
+    "formatNote": "Online meeting"
+  },
+  {
+    "id": "Samuel Zarr:30",
+    "leader": "Samuel Zarr",
+    "provider": "Google Calendar",
+    "eventUrl": "https://calendar.app.google/6SEBgDkDSdVrX5kY9",
+    "durationMinutes": 30,
+    "formats": [
+      "online",
+      "in-person"
+    ],
+    "formatNote": "Online; in person by arrangement."
+  },
+  {
+    "id": "Vincent Cimino:30",
+    "leader": "Vincent Cimino",
+    "provider": "Calendly",
+    "eventUrl": "https://calendly.com/vincecimino13/30min",
+    "durationMinutes": 30,
+    "formats": [
+      "online"
+    ],
+    "formatNote": "Online meeting"
+  },
+  {
+    "id": "Zavi Rahmansyah:30",
+    "leader": "Zavi Rahmansyah",
+    "provider": "Calendly",
+    "eventUrl": "https://calendly.com/rahmansyah-wisc/30min",
+    "durationMinutes": 30,
+    "formats": [
+      "online"
+    ],
+    "formatNote": "Online meeting"
+  }
+]
