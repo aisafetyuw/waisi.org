@@ -1,7 +1,7 @@
 import {dateKey, parseDate, addDays, weekStart, todayInZone, minutes, timeLabel, validRange} from './calendar-utils.mjs';
 import {filterSlots, groupStarts} from './availability.mjs';
 import {GoogleCalendarConnection, appointmentRange} from './personal-calendar.mjs';
-import {AvailabilityFeed} from './live-availability.mjs';
+import {AvailabilityFeed, emptyDayMessage} from './live-availability.mjs';
 
 const $ = id => document.getElementById(id);
 const narrow = matchMedia('(max-width: 39.99rem)');
@@ -146,11 +146,11 @@ function paintAvailability() {
     });
     if (!dayGroups.length) {
       const note = document.createElement('p'); note.className = 'empty-day';
-      const covered = state.snapshot && day >= state.snapshot.coverageStart && day < state.snapshot.coverageEnd;
-      note.textContent = !state.snapshot ? (feed.status === 'error' || feed.status === 'expired' ? 'Times unavailable' : 'Load times…') : !covered ? 'Not checked' : day < todayInZone(state.zone) ? 'Past date' : 'No matching times';
-      if (covered && state.onlyFreeTimes) {
-        note.textContent = personalCalendar?.ready ? 'No shared times' : personalCalendar?.status === 'loading' || personalCalendar?.status === 'connecting' ? 'Checking your calendar…' : 'Calendar check unavailable';
-      }
+      note.textContent = emptyDayMessage({
+        snapshot: state.snapshot, feedStatus: feed.status, day, today: todayInZone(state.zone),
+        leaders: state.selectedLeaders, onlyFreeTimes: state.onlyFreeTimes,
+        personalReady: personalCalendar?.ready, personalStatus: personalCalendar?.status,
+      });
       column.append(note);
     }
   }

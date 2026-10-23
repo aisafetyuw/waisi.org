@@ -2,7 +2,7 @@
 
 ## Current state
 
-The app is integrated at `/coffee-chats`. Production launch is disabled. Deploy previews use `COFFEE_CHAT_ENV=preview` and show current public availability; Google connection stays disabled unless the configured origin matches the preview origin.
+The app is integrated at `/coffee-chats`. PR #3 merged as `ab1805b9bc637c70f53fd9b1b63891eb3ed953e2` and Netlify published it. The calendar remains disabled in production. The public `/coffee-chats/about` and `/coffee-chats/privacy` pages return 200. Deploy previews use `COFFEE_CHAT_ENV=preview` and show current public availability; Google connection stays disabled unless the configured origin matches the preview origin.
 
 Live anonymous checks passed for all six event types on Calendly and Cal.com (five leaders). Eight Google appointment links remain unsupported. They appear as direct links, never as available blocks. There is no snapshot fallback. Public Google page inspection was blocked by automatic approval review, including after the user approved the public page. No signed-in calendar data was inspected.
 
@@ -36,11 +36,11 @@ Use the existing `waisi-org` Google Cloud project. The local token flow already 
 6. Add and verify the authorized domain `waisi.org`.
 7. For the web client, add the exact JavaScript origin `https://waisi.org`. Add `https://www.waisi.org` only if it serves the app without redirecting to the canonical origin.
 8. Declare only `https://www.googleapis.com/auth/calendar.freebusy` for this feature. This popup token flow needs no redirect URI or client secret in the app.
-9. Configure the audience for external fellows. Complete any branding or scope verification Google requires before general release. Publish the app only after those checks pass.
+9. Configure the audience for external fellows. The owner approved consent publication, and Google now reports In production. Complete the separate branding check before general release.
 10. Check sign-in, consent denial, popup closure, Refresh, expiry, Disconnect, and reconnection on the deployed origin, including a fellow account outside the test-user list.
 11. Set `COFFEE_CHAT_GOOGLE_READY=true` only after these checks pass.
 
-The user approved adding `https://waisi.org` and `http://localhost:4180` to the existing web client. The save is part of this setup session. Google says origin changes can take five minutes to several hours. The earlier live Google check used port 4173; it does not prove that the new origin or iframe works.
+The user approved adding `https://waisi.org` and `http://localhost:4180` to the existing web client. Both origins were saved. The user subsequently confirmed that the integrated page on port 4180 connects and shows free times in Chrome or Safari. This local check does not verify the production origin.
 
 Privacy behavior: request only primary-calendar busy periods; keep the token and periods in page memory; send neither to WAISI. Disconnect clears local memory and requests revocation. Do not add personal calendar details to logs, analytics, or error reports.
 
@@ -64,7 +64,7 @@ Run `npm test` and `npm run build` before release. `npm run coffee:preflight` in
 
 The pull-request workflow runs tests and the production build. The health workflow checks `https://waisi.org/api/coffee-chats/health` approximately every fifteen minutes, after the repository variable `COFFEE_CHAT_MONITOR_ENABLED=true` enables it. GitHub schedules can run late. A failed check creates a failed workflow run; it does not send a custom email or Slack message.
 
-The operations owner is Kaustubh Kislay (`kaustubh.kislay@gmail.com`), as selected by the user. Before launch, the owner must enable GitHub Actions failure notifications, run the monitor manually against an intentionally failed check, and confirm receipt. Alert delivery is not complete until that test succeeds. The subscription and delivery test remain pending. Client errors show a recovery message; this change does not add browser error telemetry.
+The operations owner is Kaustubh Kislay (`kaustubh.kislay@gmail.com`), as selected by the user. GitHub Actions email notifications already use failed-workflows-only delivery to that address, with no custom routing override. The user authorized one intentional failure. [Run 39900985612](https://github.com/aisafetyuw/waisi.org/actions/runs/39900985612) failed in its notification-test step and skipped the production request. Its matching email reached the owner's Gmail inbox at 2026-10-23 04:34:17 UTC. Alert delivery is verified. Scheduled monitoring remains disabled until the calendar launches. Client errors show a recovery message; this change does not add browser error telemetry.
 
 Manual runs work while scheduled monitoring remains disabled. Select `notification_test=true` to create one clearly labeled failure without contacting production. Use it only after the alert owner authorizes the test. Keep `COFFEE_CHAT_MONITOR_ENABLED` disabled until launch; manual test success means confirmed notification delivery, not a healthy production calendar.
 
@@ -86,10 +86,18 @@ For a broken deployment, republish the previous successful Netlify deploy. Do no
 
 ## Verification record
 
-The Node suite has 40 passing tests. A fresh review found and resolved an OAuth callback race and shared cache entries between preview and production. The integrated desktop page has no outer overflow. Browser checks passed for leader multi-select, time selection and keyboard deselection, automatic leader-panel collapse, and phone day navigation at 390 × 844 pixels. Both the parent and embedded page fit the phone width. The production build passes without local service-account credentials; unrelated data pages show their documented credential error states locally. Production retains its existing credentials.
+The Node suite has 47 passing tests. A fresh review found and resolved an OAuth callback race and shared cache entries between preview and production. The integrated desktop page has no outer overflow. Browser checks passed for leader multi-select, time selection and keyboard deselection, automatic leader-panel collapse, and phone day navigation at 390 × 844 pixels. Both the parent and embedded page fit the phone width. The production build passes without local service-account credentials; unrelated data pages show their documented credential error states locally. Production retains its existing credentials.
 
-Google Cloud inspection confirmed an External audience in Testing, two test users, an empty privacy URL, and `waisi.org` as an authorized domain. Publication is unavailable until branding is complete. Keep the existing project-wide app name and contacts unless the WAISI owner requests a change. The privacy URL must be live before it is submitted for review.
+Google Cloud now reports an External audience with publishing status **In production**, after explicit user approval. The home page is `https://waisi.org/coffee-chats/about` and the privacy URL is `https://waisi.org/coffee-chats/privacy`; both are live and saved in Branding. The existing app name `waisi.org`, support email, developer contacts, and authorized domain remain unchanged. Data Access lists only `calendar.freebusy` as non-sensitive. Verification Center explicitly says data-access verification is not required. Brand verification failed because the home page was not registered to the WAISI account.
 
-The Netlify preview deployed successfully. Its six supported source checks returned current availability, and a repeated request reused the persistent cache. The preview correctly withheld the Google client ID because its origin differs from `https://waisi.org`. Both approved Google origins were saved successfully. An embedded local OAuth attempt did not complete in the in-app browser, so that flow still needs a successful end-to-end check.
+The user explicitly approved publishing Google's verification file and claiming `https://waisi.org/` for `aisafetyuw@gmail.com`. PR #4 merged as `214cf79d199f0a77676359d9e31c33dfab032805`. The public file `/google05f367d4eacc68ca.html` returned 200 and matched Google's downloaded file byte-for-byte. Search Console confirmed **Ownership verified** via HTML file at approximately 2026-10-23 04:46 UTC, then opened the WAISI property under the WAISI account. Keep the file in place. Google instructed us to wait 24 hours after ownership verification before retrying branding; retry no earlier than 2026-10-24 04:46 UTC. Branding remains pending. No automatic retry was scheduled.
+
+The Netlify preview deployed successfully. Its six supported source checks returned current availability, and a repeated request reused the persistent cache. The preview correctly withheld the Google client ID because its origin differs from `https://waisi.org`. Both approved Google origins were saved successfully.
+
+A second test reproduced the missing Google popup in the in-app browser both inside the website frame and on the direct embedded page. No browser console error explained it. The user then tested `http://localhost:4180/coffee-chats` in Chrome or Safari and confirmed: "It connects and shows free times." This verifies the integrated local flow by user report. The deployed production origin and an account outside the former test-user list still need verification. Keep `COFFEE_CHAT_GOOGLE_READY=false` until the production flow checks pass.
+
+After the production deployment, `/coffee-chats` returned 404 and `/api/coffee-chats/config` returned 503 as intended. The health endpoint returned 503 with `google_production_review_pending` and no scheduled heartbeat. The merged GitHub build and all 40 automated tests passed. Scheduled refresh and scheduled health checks still require verification after the calendar is enabled.
+
+Selecting Eva and Arya reproduced a misleading "No matching times" message because the empty-day renderer ignored failed source checks. It now shows "Check booking pages" when none of the selected sources were checked, or "Some times unavailable" for partial coverage. A confirmed empty result appears only after every selected source succeeds. Seven regression tests cover failed/missing sources, multiple event types, and personal-calendar filtering. The integrated local browser check confirmed the corrected message with both leaders selected. This message correction does not implement Google appointment-page support.
 
 Netlify serves public assets before Next.js. The static embed therefore also defines its security headers in `netlify.toml`; keep those values aligned with `next.config.ts`. Verify both the embed's content-security policy and the parent page's popup policy after deployment.
