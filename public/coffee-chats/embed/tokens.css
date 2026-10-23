@@ -1,0 +1,25 @@
+/* WAISI calendar · editorial utility · violet accent · filter rail / week grid / booking panel.
+   Theme: studied-DNA (source: waisi.org-1/src/styles/globals.css).
+   Self-critique: Philosophy 4, Hierarchy 4, Execution 4, Specificity 5, Restraint 4, Variety 4. */
+:root {
+  color-scheme: light;
+  --color-paper: #ffffff;
+  --color-paper-alt: #f3f1ec;
+  --color-ink: #26241f;
+  --color-heading: #1c1b1a;
+  --color-muted: #69645c;
+  --color-rule: #e4e1da;
+  --color-grid: #eeece7;
+  --color-accent: #6d28d9;
+  --color-accent-hover: #5b21b6;
+  --color-accent-ink: #ffffff;
+  --color-selection: #ede5fa;
+  --color-selection-hover: #f6f1fd;
+  --color-focus: #1c1b1a;
+  --color-error: #9c2920;
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --radius: 4px;
+  --slot-height: 48px;
+  --ease: 140ms ease;
+}

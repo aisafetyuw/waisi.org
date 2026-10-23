@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* The coffee-chat canvas fills the space below the shared website header. */
+body:has([data-coffee-chats-page]) { height: 100dvh; overflow: hidden; }
+body:has([data-coffee-chats-page]) > nav { flex-shrink: 0; }
+body:has([data-coffee-chats-page]) #content { min-height: 0; }
+body:has([data-coffee-chats-page]) > footer,
+body:has([data-coffee-chats-page]) [data-site-promotion] { display: none; }
+
 /* ===== Theme Variables ===== */
 :root {
   --bg-page: #FFFFFF;

@@ -1,0 +1,16 @@
+name: Coffee chat availability monitor
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+permissions:
+  contents: read
+jobs:
+  health:
+    # Enable this repository variable only after the production feature is enabled.
+    if: vars.COFFEE_CHAT_MONITOR_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Check source freshness and production configuration
+        run: curl --fail --silent --show-error --max-time 25 https://waisi.org/api/coffee-chats/health

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Public OAuth web client ID. See README.md; never put a client secret here. -->
+  <meta name="google-calendar-client-id" content="">
+  <title>Coffee chats · WAISI</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#schedule">Skip to calendar</a>
+  <main>
+    <section id="schedule" class="workspace" aria-label="Plan a coffee chat">
+      <aside class="filter-rail">
+        <details id="filters" open>
+          <summary>Chat preferences <span aria-hidden="true">⌄</span></summary>
+          <div class="filter-body">
+            <div class="mini-calendar">
+              <div class="mini-header"><h2 id="mini-title"></h2><div class="arrow-pair"><button id="mini-prev" class="icon-button" aria-label="Previous month">‹</button><button id="mini-next" class="icon-button" aria-label="Next month">›</button></div></div>
+              <div class="mini-week" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+              <div id="mini-days" class="mini-days" aria-label="Choose a date"></div>
+            </div>
+            <section class="personal-calendar" aria-label="Your availability">
+              <h3>Your availability</h3>
+              <button id="connect-calendar" class="connect-calendar" type="button">Connect Google Calendar</button>
+              <p class="calendar-privacy">Checks busy times on your primary calendar. <a href="/coffee-chats/privacy" target="_blank" rel="noopener noreferrer">Privacy</a></p>
+              <label id="free-times-control" class="free-times-control" hidden><input id="only-free-times" type="checkbox"><span>Only show my free times</span></label>
+              <p id="personal-calendar-status" class="personal-calendar-status" role="status" hidden></p>
+              <div id="calendar-actions" class="calendar-actions" hidden><button id="refresh-calendar" class="link-button" type="button">Refresh</button><button id="disconnect-calendar" class="link-button" type="button">Disconnect</button></div>
+            </section>
+            <fieldset><legend>How would you like to meet?</legend><div class="format-options">
+              <label><input type="radio" name="format" value="either" checked><span>Either works</span></label>
+              <label><input type="radio" name="format" value="online"><span>Online</span></label>
+              <label><input type="radio" name="format" value="in-person"><span>In person</span></label>
+            </div></fieldset>
+            <label class="field">Time zone<span class="select-control"><select id="timezone"></select><svg class="control-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></label>
+          </div>
+        </details>
+      </aside>
+      <section class="calendar-panel" aria-label="Choose your preferred time">
+        <div class="calendar-toolbar">
+          <div class="date-nav"><h2 id="range-title"></h2><div class="arrow-pair"><button id="previous" class="icon-button" aria-label="Previous week">‹</button><button id="next" class="icon-button" aria-label="Next week">›</button></div><button id="today" class="text-button">Today</button></div>
+          <details id="time-filter" class="exact-time"><summary aria-label="Filter by a time window"><span>Time window</span><svg class="control-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <form id="time-form"><label class="field">Start<input id="start-time" type="time" value="10:00" required></label><label class="field">End<input id="end-time" type="time" value="12:00" required></label><button class="primary-button" type="submit">Apply filter</button><p id="time-error" class="error" role="alert"></p></form>
+          </details>
+          <div class="view-switch" role="group" aria-label="Calendar view"><button id="week-view" class="active" aria-pressed="true">Week</button><button id="day-view" aria-pressed="false">Day</button></div>
+        </div>
+        <div id="availability-status" class="availability-status" role="status" hidden></div>
+        <div class="calendar-frame">
+          <div class="week-header"><div id="zone-abbr" class="zone-abbr"></div><div id="day-headings" class="day-headings"></div></div>
+          <div class="calendar-scroll"><div class="time-grid"><div id="time-labels" class="time-labels" aria-hidden="true"></div><div id="calendar-days" class="calendar-days" aria-label="Preferred times"></div></div></div>
+        </div>
+        <div class="calendar-caption"><button id="retry-availability" class="link-button" type="button" hidden>Try again</button><button id="clear-selection" class="link-button" hidden>Show all times</button></div>
+      </section>
+      <aside class="booking-panel" aria-label="Your chat">
+        <div id="slot-details" class="slot-details" hidden>
+          <div id="selection-summary" class="selection-summary" aria-live="polite" hidden></div>
+          <div id="slot-options" class="slot-options" aria-live="polite" hidden></div>
+        </div>
+        <div id="booking-heading" class="booking-heading"><h3 id="booking-title"><button id="toggle-leaders" class="leader-toggle" aria-expanded="true" aria-controls="booking-list missing-details"><span>Choose leaders</span><svg class="leader-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><button id="clear-leaders" class="link-button" aria-label="Clear leader selection" hidden>Clear</button></div>
+        <div id="booking-list" class="booking-list" role="group" aria-label="Filter by leaders"><p>Load leader calendars…</p></div>
+        <details id="unavailable-details" class="unavailable-details" hidden><summary>Open calendars directly</summary><div id="unavailable-list"></div></details>
+        <details id="missing-details" class="missing-details"><summary id="missing-title">Leaders without a link</summary><div id="missing-list"></div></details>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>
