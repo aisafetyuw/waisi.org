@@ -15,9 +15,9 @@ test('partial provider coverage and incomplete Google configuration block readin
   assert.equal(result.status,'degraded');assert.equal(result.sources.available,1);assert.equal(result.sources.total,2);
   assert.equal(healthReport(fresh,{},now).status,'degraded');
 });
-test('preflight rejects unsupported Google sources and missing deployment configuration',()=>{
-  assert.deepEqual(preflight(env,[{provider:'Cal.com'}]),[]);
-  assert.ok(preflight(env,[{provider:'Google Calendar'}]).includes('google_leader_availability_unresolved'));
+test('preflight accepts supported public providers but rejects unknown providers and missing configuration',()=>{
+  assert.deepEqual(preflight(env,[{provider:'Cal.com'},{provider:'Calendly'},{provider:'Google Calendar'}]),[]);
+  assert.ok(preflight(env,[{provider:'Unknown'}]).includes('unsupported_leader_provider'));
   assert.ok(preflight({},[]).includes('google_production_review_pending'));
 });
 

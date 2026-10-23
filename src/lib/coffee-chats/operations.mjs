@@ -1,6 +1,6 @@
 import {launchIssues} from './config.mjs';
 export function preflight(env,sources){
-  return [...launchIssues(env),...(sources.some(s=>s.provider==='Google Calendar')?['google_leader_availability_unresolved']:[])];
+  return [...launchIssues(env),...(sources.some(s=>!['Cal.com','Calendly','Google Calendar'].includes(s.provider))?['unsupported_leader_provider']:[])];
 }
 export function healthReport(snapshot,env,now=Date.now()){
   const issues=launchIssues(env);

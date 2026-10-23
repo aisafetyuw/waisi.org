@@ -4,7 +4,7 @@
 
 The app is integrated at `/coffee-chats`. PR #3 merged as `ab1805b9bc637c70f53fd9b1b63891eb3ed953e2` and Netlify published it. The calendar remains disabled in production. The public `/coffee-chats/about` and `/coffee-chats/privacy` pages return 200. Deploy previews use `COFFEE_CHAT_ENV=preview` and show current public availability; Google connection stays disabled unless the configured origin matches the preview origin.
 
-Live anonymous checks passed for all six event types on Calendly and Cal.com (five leaders). Eight Google appointment links remain unsupported. They appear as direct links, never as available blocks. There is no snapshot fallback. Public Google page inspection was blocked by automatic approval review, including after the user approved the public page. No signed-in calendar data was inspected.
+Live anonymous checks now pass for all eight Google appointment links, in addition to the six event types on Calendly and Cal.com. Google leaders can appear as calendar blocks. There is no snapshot fallback. The Google reader uses anonymous HTTP requests to public pages and their read-only appointment service. It does not use browser sessions, cookies, account tokens, or private calendar data.
 
 ## Configuration
 
@@ -50,9 +50,11 @@ References: [Google web setup](https://developers.google.com/identity/gsi/web/gu
 
 `src/lib/coffee-chats/roster.json` contains the reviewed roster. `sources.json` contains public booking links and format metadata. It contains no saved slots. Changes require a reviewed deploy; automatic roster maintenance is outside this change.
 
-Cal.com uses its public v2 slots endpoint. Calendly uses the public booking-page endpoints, which have no stability guarantee. Each reader validates its response and URL. A malformed response, provider error, or unsupported source removes that source's blocks. Successful sources can still appear. Time and format metadata must remain accurate when leaders change their booking pages.
+Cal.com uses its public v2 slots endpoint. Calendly uses its public booking-page endpoints. Google resolves the public appointment link, reads the page’s published configuration as JSON, and calls only `AppointmentBookingService/ListAvailableSlots`. The Google request uses the page’s public application key and its actual page URL as Referer. It sends no account credentials. These public page interfaces have no stability guarantee. Each reader validates its response and URL. A malformed response, provider error, or unsupported source removes that source's blocks. Successful sources can still appear. Time and format metadata must remain accurate when leaders change their booking pages.
 
 The availability route accepts at most ten days, from two days before today through sixty-two days ahead. Browser requests include a one-day timezone buffer. A five-minute cache uses a deployment-specific Netlify Blobs store. Previews cannot supply cache entries or heartbeats to production. The browser polls and discards old-week responses, expired data, and failed refreshes. Final booking and conflict prevention remain with the provider.
+
+The Google reader allows only the two observed public appointment path formats on `calendar.google.com` and short links on `calendar.app.google`. It validates every redirect and allows no other request destination besides the fixed slot service. One eight-second deadline covers the page and all slot requests. Pagination stops at ten pages of 200 slots; loops, malformed responses, and later-page failures reject the entire source. Slots retain their absolute timestamps and current meeting durations. The public application key never enters the feed, cache, or logs. If Google changes this unpublished protocol, investigate `invalid_response` and update the reader before restoring that source. Do not use account cookies as a fallback.
 
 A scheduled Netlify function refreshes the current range every five minutes. Scheduled functions run only on published deploys. The function writes a separate heartbeat with no appointment slots. The health route returns 503 if setup is incomplete, sources fail, or the heartbeat is older than ten minutes. The heartbeat grace period avoids alerts during normal schedule jitter; it does not extend slot expiry.
 
@@ -60,7 +62,7 @@ References: [Netlify schedules](https://docs.netlify.com/build/functions/schedul
 
 ## Checks and alert delivery
 
-Run `npm test` and `npm run build` before release. `npm run coffee:preflight` intentionally fails while Google leader sources or production setup remain unresolved. When `COFFEE_CHAT_ENABLED=true`, the normal build enforces preflight.
+Run `npm test` and `npm run build` before release. `npm run coffee:preflight` intentionally fails while production setup remains unresolved or the roster contains an unsupported provider. When `COFFEE_CHAT_ENABLED=true`, the normal build enforces preflight.
 
 The pull-request workflow runs tests and the production build. The health workflow checks `https://waisi.org/api/coffee-chats/health` approximately every fifteen minutes, after the repository variable `COFFEE_CHAT_MONITOR_ENABLED=true` enables it. GitHub schedules can run late. A failed check creates a failed workflow run; it does not send a custom email or Slack message.
 
@@ -74,7 +76,7 @@ Netlify function logs contain source IDs and short error codes. Do not log raw p
 
 1. Keep production disabled while the draft change receives review.
 2. Verify the deploy preview's layout, filters, date navigation, source failure behavior, and cache writes.
-3. Resolve all eight Google sources with a permitted public-only integration, or obtain an explicit decision to launch with direct links for those leaders. The current preflight deliberately blocks either accidental omission or an incomplete launch.
+3. Confirm that all 14 source checks succeed on the deploy preview. The public Google reader now supports all eight Google leaders. Preflight rejects unknown provider names; runtime health rejects failed source checks.
 4. Complete the Google production checks above.
 5. Confirm the monitor owner and notification test.
 6. Merge the reviewed change, then enable `COFFEE_CHAT_ENABLED=true` and redeploy.
@@ -86,7 +88,7 @@ For a broken deployment, republish the previous successful Netlify deploy. Do no
 
 ## Verification record
 
-The Node suite has 47 passing tests. A fresh review found and resolved an OAuth callback race and shared cache entries between preview and production. The integrated desktop page has no outer overflow. Browser checks passed for leader multi-select, time selection and keyboard deselection, automatic leader-panel collapse, and phone day navigation at 390 × 844 pixels. Both the parent and embedded page fit the phone width. The production build passes without local service-account credentials; unrelated data pages show their documented credential error states locally. Production retains its existing credentials.
+The Node suite has 58 passing tests. A fresh review found and resolved an OAuth callback race and shared cache entries between preview and production. The integrated desktop page has no outer overflow. Browser checks passed for leader multi-select, time selection and keyboard deselection, automatic leader-panel collapse, and phone day navigation at 390 × 844 pixels. Both the parent and embedded page fit the phone width. The production build passes without local service-account credentials; unrelated data pages show their documented credential error states locally. Production retains its existing credentials.
 
 Google Cloud now reports an External audience with publishing status **In production**, after explicit user approval. The home page is `https://waisi.org/coffee-chats/about` and the privacy URL is `https://waisi.org/coffee-chats/privacy`; both are live and saved in Branding. The existing app name `waisi.org`, support email, developer contacts, and authorized domain remain unchanged. Data Access lists only `calendar.freebusy` as non-sensitive. Verification Center explicitly says data-access verification is not required. Brand verification failed because the home page was not registered to the WAISI account.
 
@@ -101,3 +103,11 @@ After the production deployment, `/coffee-chats` returned 404 and `/api/coffee-c
 Selecting Eva and Arya reproduced a misleading "No matching times" message because the empty-day renderer ignored failed source checks. It now shows "Check booking pages" when none of the selected sources were checked, or "Some times unavailable" for partial coverage. A confirmed empty result appears only after every selected source succeeds. Seven regression tests cover failed/missing sources, multiple event types, and personal-calendar filtering. The integrated local browser check confirmed the corrected message with both leaders selected. This message correction does not implement Google appointment-page support.
 
 Netlify serves public assets before Next.js. The static embed therefore also defines its security headers in `netlify.toml`; keep those values aligned with `next.config.ts`. Verify both the embed's content-security policy and the parent page's popup policy after deployment.
+
+## Google public-page support verification
+
+On 2026-10-23, the anonymous reader returned slots for Anaya, Arya, Celeste, Eva, Kaustubh, Lucy, Maanan, and Samuel. Every source passed for October 23–30 UTC and October 31–November 7 UTC. The latter range spans the Chicago daylight-saving change. Current-week counts were 37, 168, 169, 80, 111, 118, 89, and 50 respectively; these are observations, not saved availability. The reader returned each result in less than one second. Tests cover both public URL formats, strict redirect validation, JSON-only configuration, actual meeting durations, distinct daylight-saving instants, pagination, duplicate removal, response bounds, and failed-source behavior.
+
+Google booking support and personal-calendar consent are separate integrations. This change leaves production disabled and keeps `COFFEE_CHAT_GOOGLE_READY=false`. Branding and production-origin sign-in checks remain pending.
+
+The integrated local page showed live blocks for Arya, Eva, and Anaya. Multi-select combined Eva and Arya; selecting 9 am showed both correct booking links and collapsed the leader panel. Selecting the same block again restored the leader panel. Changing Chicago to New York moved the same two-leader block from 9 am to 10 am. The production build passed. Local data pages still reported their existing missing service-account credentials; no private credentials were required for this feature.
