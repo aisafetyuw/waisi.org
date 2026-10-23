@@ -2,7 +2,7 @@
 
 ## Current state
 
-The app is integrated at `/coffee-chats`. PR #3 merged as `ab1805b9bc637c70f53fd9b1b63891eb3ed953e2` and Netlify published it. The calendar remains disabled in production. The public `/coffee-chats/about` and `/coffee-chats/privacy` pages return 200. Deploy previews use `COFFEE_CHAT_ENV=preview` and show current public availability; Google connection stays disabled unless the configured origin matches the preview origin.
+The app is integrated at `/coffee-chats`. Public leader bookings and personal Google Calendar connection have independent release controls. `COFFEE_CHAT_ENABLED=true` publishes the page and enables its public availability APIs and scheduled refresh. `COFFEE_CHAT_GOOGLE_READY=false` keeps personal calendar connection unavailable without blocking public bookings or health checks. The public `/coffee-chats/about` and `/coffee-chats/privacy` pages remain available. Deploy previews use `COFFEE_CHAT_ENV=preview`; Google connection also requires the exact configured origin and its separate release setting.
 
 Live anonymous checks now pass for all eight Google appointment links, in addition to the six event types on Calendly and Cal.com. Google leaders can appear as calendar blocks. There is no snapshot fallback. The Google reader uses anonymous HTTP requests to public pages and their read-only appointment service. It does not use browser sessions, cookies, account tokens, or private calendar data.
 
@@ -12,17 +12,17 @@ Use Node.js 22. Set these variables in Netlify with both build and function acce
 
 | Variable | Production value |
 | --- | --- |
-| `COFFEE_CHAT_ENABLED` | `false` until all launch checks pass |
+| `COFFEE_CHAT_ENABLED` | `true` to publish public leader bookings after release checks |
 | `COFFEE_CHAT_ENV` | `production`; override to `preview` for Deploy Previews |
 | `COFFEE_CHAT_PUBLIC_ORIGIN` | `https://waisi.org` |
 | `COFFEE_CHAT_STORE` | `netlify` |
 | `GOOGLE_CALENDAR_CLIENT_ID` | Public Google web client ID, never a client secret |
-| `COFFEE_CHAT_GOOGLE_READY` | `false` until the Google checks below pass |
+| `COFFEE_CHAT_GOOGLE_READY` | `false` until personal Google connection passes its production checks; does not block public bookings |
 | `NODE_VERSION` | `22` |
 
 These values were added to the existing WAISI Netlify project. Existing service-account credentials were not changed. Netlify applies updated variables to subsequent deploys.
 
-The public config endpoint exposes only the client ID, privacy URL, and setup status. The client ID is not a secret. Keep all tokens, service-account keys, and OAuth client secrets out of the repository.
+The public config endpoint exposes only the client ID, privacy URL, and setup status. It withholds the client ID until personal connection is enabled and the request origin matches the configured origin. Local development can test connection without enabling production access. The client ID is not a secret. Keep all tokens, service-account keys, and OAuth client secrets out of the repository.
 
 ## Google production setup
 
@@ -36,7 +36,7 @@ Use the existing `waisi-org` Google Cloud project. The local token flow already 
 6. Add and verify the authorized domain `waisi.org`.
 7. For the web client, add the exact JavaScript origin `https://waisi.org`. Add `https://www.waisi.org` only if it serves the app without redirecting to the canonical origin.
 8. Declare only `https://www.googleapis.com/auth/calendar.freebusy` for this feature. This popup token flow needs no redirect URI or client secret in the app.
-9. Configure the audience for external fellows. The owner approved consent publication, and Google now reports In production. Complete the separate branding check before general release.
+9. Configure the audience for external fellows. The owner approved consent publication, and Google now reports In production. Google classifies `calendar.freebusy` as non-sensitive and says data-access verification is not required. Branding verification governs the displayed app identity; it is not a technical prerequisite for public leader bookings. Track branding separately from production connection tests.
 10. Check sign-in, consent denial, popup closure, Refresh, expiry, Disconnect, and reconnection on the deployed origin, including a fellow account outside the test-user list.
 11. Set `COFFEE_CHAT_GOOGLE_READY=true` only after these checks pass.
 
@@ -77,7 +77,7 @@ Netlify function logs contain source IDs and short error codes. Do not log raw p
 1. Keep production disabled while the draft change receives review.
 2. Verify the deploy preview's layout, filters, date navigation, source failure behavior, and cache writes.
 3. Confirm that all 14 source checks succeed on the deploy preview. The public Google reader now supports all eight Google leaders. Preflight rejects unknown provider names; runtime health rejects failed source checks.
-4. Complete the Google production checks above.
+4. Keep `COFFEE_CHAT_GOOGLE_READY=false` for a public-booking-only launch. Complete the separate Google production checks before enabling personal connection.
 5. Confirm the monitor owner and notification test.
 6. Merge the reviewed change, then enable `COFFEE_CHAT_ENABLED=true` and redeploy.
 7. Verify the scheduled function, health response, and full calendar flow on `https://waisi.org/coffee-chats` before sharing the link.
