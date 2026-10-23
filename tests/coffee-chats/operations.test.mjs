@@ -10,7 +10,7 @@ test('health rejects missing or expired scheduled updates and reports no raw cal
   assert.equal(healthReport(fresh,env,now+600000).status,'unavailable');
   assert.ok(!JSON.stringify(healthReport(fresh,env,now)).includes('private'));
 });
-test('partial provider coverage and incomplete Google configuration block readiness',()=>{
+test('partial provider coverage and incomplete public configuration block readiness',()=>{
   const result=healthReport({...fresh,status:'partial',calendars:[{id:'a',status:'ready'},{id:'b',status:'unavailable',error:'unsupported_source'}]},env,now);
   assert.equal(result.status,'degraded');assert.equal(result.sources.available,1);assert.equal(result.sources.total,2);
   assert.equal(healthReport(fresh,{},now).status,'degraded');
@@ -18,7 +18,15 @@ test('partial provider coverage and incomplete Google configuration block readin
 test('preflight accepts supported public providers but rejects unknown providers and missing configuration',()=>{
   assert.deepEqual(preflight(env,[{provider:'Cal.com'},{provider:'Calendly'},{provider:'Google Calendar'}]),[]);
   assert.ok(preflight(env,[{provider:'Unknown'}]).includes('unsupported_leader_provider'));
-  assert.ok(preflight({},[]).includes('google_production_review_pending'));
+  assert.ok(preflight({},[]).includes('origin_missing'));
+});
+
+test('public booking can launch and remain healthy without personal Google Calendar access',()=>{
+  const publicOnly={...env,COFFEE_CHAT_GOOGLE_READY:'false',GOOGLE_CALENDAR_CLIENT_ID:''};
+  assert.deepEqual(preflight(publicOnly,[{provider:'Google Calendar'}]),[]);
+  assert.equal(healthReport(fresh,publicOnly,now).status,'ok');
+  assert.ok(preflight({...publicOnly,COFFEE_CHAT_PUBLIC_ORIGIN:'http://waisi.org'},[]).includes('https_required'));
+  assert.ok(preflight({...publicOnly,COFFEE_CHAT_STORE:''},[]).includes('persistent_cache_required'));
 });
 
 test('health allows scheduler jitter but rejects empty or failed heartbeats',()=>{

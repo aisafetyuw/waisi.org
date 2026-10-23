@@ -24,12 +24,28 @@ test('a failed or malformed refresh removes previous availability',async()=>{
   await f.load({start:'2026-10-23',end:'2026-10-31'});assert.equal(f.status,'error');assert.equal(f.snapshot,null);
 });
 test('Google configuration never enables an unregistered origin or exposes private environment values',()=>{
-  const env={COFFEE_CHAT_PUBLIC_ORIGIN:'https://waisi.org',GOOGLE_CALENDAR_CLIENT_ID:'123-example.apps.googleusercontent.com',GOOGLE_PRIVATE_KEY:'DO-NOT-EXPOSE'};
+  const env={COFFEE_CHAT_ENV:'production',COFFEE_CHAT_GOOGLE_READY:'true',COFFEE_CHAT_PUBLIC_ORIGIN:'https://waisi.org',GOOGLE_CALENDAR_CLIENT_ID:'123-example.apps.googleusercontent.com',GOOGLE_PRIVATE_KEY:'DO-NOT-EXPOSE'};
   assert.equal(publicConfig(env,'https://waisi.org').googleClientId,env.GOOGLE_CALENDAR_CLIENT_ID);
   assert.equal(publicConfig(env,'https://preview.example').googleClientId,'');
   assert.ok(!JSON.stringify(publicConfig(env,'https://waisi.org')).includes('DO-NOT-EXPOSE'));
   assert.ok(configurationIssues({}).includes('google_client_missing'));
   assert.ok(configurationIssues({...env,COFFEE_CHAT_PUBLIC_ORIGIN:'http://waisi.org'}).includes('https_required'));
+});
+
+test('production personal-calendar access stays unavailable until its separate release check passes',()=>{
+  const env={COFFEE_CHAT_ENV:'production',COFFEE_CHAT_PUBLIC_ORIGIN:'https://waisi.org',GOOGLE_CALENDAR_CLIENT_ID:'123-example.apps.googleusercontent.com'};
+  for(const ready of [undefined,'false']){
+    const result=publicConfig({...env,COFFEE_CHAT_GOOGLE_READY:ready},'https://waisi.org');
+    assert.equal(result.googleClientId,'');
+    assert.equal(result.status,'unavailable');
+  }
+  assert.equal(publicConfig({...env,COFFEE_CHAT_GOOGLE_READY:'true'},'https://waisi.org').status,'ready');
+});
+
+test('local development can check personal calendars without enabling production access',()=>{
+  const env={COFFEE_CHAT_ENV:'development',COFFEE_CHAT_GOOGLE_READY:'false',COFFEE_CHAT_PUBLIC_ORIGIN:'http://localhost:4180',GOOGLE_CALENDAR_CLIENT_ID:'123-example.apps.googleusercontent.com'};
+  assert.equal(publicConfig(env,'http://localhost:4180').googleClientId,env.GOOGLE_CALENDAR_CLIENT_ID);
+  assert.equal(publicConfig(env,'https://waisi.org').googleClientId,'');
 });
 
 test('preview access does not enable the production route or Google on a preview origin',async()=>{

@@ -350,7 +350,7 @@ function renderPersonalCalendar() {
   const hasSession = personalCalendar?.hasSession;
   const isExpired = status === 'expired' || (status === 'ready' && !hasSession);
   $('connect-calendar').hidden = Boolean(hasSession);
-  $('connect-calendar').disabled = status === 'connecting' || calendarClientStatus === 'loading' || !state.snapshot;
+  $('connect-calendar').disabled = status === 'connecting' || calendarClientStatus !== 'ready' || !state.snapshot;
   $('connect-calendar').textContent = status === 'connecting' ? 'Connecting…' : isExpired ? 'Reconnect Google Calendar' : 'Connect Google Calendar';
   $('free-times-control').hidden = !hasSession && !state.onlyFreeTimes;
   $('only-free-times').checked = state.onlyFreeTimes;
@@ -368,7 +368,8 @@ function renderPersonalCalendar() {
     range: 'Leader times have not loaded yet. Refresh the page.',
     revoke: 'Disconnected here. Remove app access in your Google Account to finish.',
   };
-  const message = calendarSetupMessage || (isExpired ? 'Your connection expired. Reconnect to check your free times.' :
+  const message = calendarSetupMessage || (calendarClientStatus === 'unavailable' ? 'Personal calendar connection is temporarily unavailable. You can still choose a leader and book a time.' :
+    isExpired ? 'Your connection expired. Reconnect to check your free times.' :
     status === 'loading' ? 'Checking your calendar…' : status === 'ready' ? 'Primary calendar connected.' :
     errors[personalCalendar?.error] || '');
   $('personal-calendar-status').textContent = message;
@@ -401,7 +402,9 @@ async function initializePersonalCalendar() {
   try {
     const response = await fetch('/api/coffee-chats/config', {cache:'no-store',credentials:'omit'});
     if (!response.ok) throw new Error('config');
-    clientId = (await response.json()).googleClientId || '';
+    const config = await response.json();
+    clientId = config.googleClientId || '';
+    if (!clientId) calendarClientStatus = 'unavailable';
   } catch { calendarSetupMessage = 'Calendar connection settings could not load.'; }
   if (!clientId) { renderPersonalCalendar(); return; }
   calendarClientStatus = 'loading'; renderPersonalCalendar();
