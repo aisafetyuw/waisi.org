@@ -273,7 +273,7 @@ $('today').addEventListener('click', () => setDate(todayInZone(state.zone)));
 for (const [id, offset] of [['mini-prev', -1], ['mini-next', 1]]) $(id).addEventListener('click', () => {month = new Date(month.getFullYear(), month.getMonth() + offset, 1, 12); renderMiniCalendar();});
 for (const view of ['week', 'day']) $(view + '-view').addEventListener('click', () => {manualView = true; state.view = view; renderCalendar(); scrollToCalendarTime(); void loadAvailability();});
 document.querySelectorAll('input[name="format"]').forEach(radio => radio.addEventListener('change', event => {state.format = event.target.value; state.activeGroup = null; renderCalendar(); renderSummary(); renderLeaders(); scrollToCalendarTime();}));
-$('clear-selection').addEventListener('click', () => {state.activeGroup = null; state.timeWindow = null; renderCalendar(); renderSummary(); renderLeaders(); scrollToCalendarTime();});
+$('clear-selection').addEventListener('click', () => $('time-form').reset());
 $('toggle-leaders').addEventListener('click', () => {
   leadersExpanded = !leadersExpanded;
   renderLeaderPanel();
@@ -282,6 +282,19 @@ $('clear-leaders').addEventListener('click', () => {
   state.selectedLeaders.clear();
   refreshLeaderFilter();
   $('booking-list').querySelector('.leader-choice')?.focus({preventScroll:true});
+});
+$('time-form').addEventListener('reset', () => {
+  state.activeGroup = null;
+  state.timeWindow = null;
+  $('time-error').textContent = '';
+  $('end-time').removeAttribute('aria-invalid');
+  $('end-time').removeAttribute('aria-describedby');
+  renderCalendar();
+  renderSummary();
+  renderLeaders();
+  $('time-filter').open = false;
+  $('time-filter').querySelector('summary').focus();
+  scrollToCalendarTime();
 });
 $('time-form').addEventListener('submit', event => {
   event.preventDefault();
