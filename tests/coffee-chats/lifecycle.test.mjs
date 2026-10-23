@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {AvailabilityFeed} from '../../public/coffee-chats/embed/live-availability.mjs';
-import {publicConfig,configurationIssues} from '../../src/lib/coffee-chats/config.mjs';
+import {publicConfig,configurationIssues,requestOrigin} from '../../src/lib/coffee-chats/config.mjs';
 const now=Date.parse('2026-10-23T12:00:00Z');
 const snapshot=(start='2026-10-23')=>({kind:'live_public_sources',status:'ready',coverageStart:start,coverageEnd:'2026-10-31',expiresAt:new Date(now+300000).toISOString(),retryAt:new Date(now+60000).toISOString(),calendars:[],slots:[]});
 
@@ -46,6 +46,24 @@ test('local development can check personal calendars without enabling production
   const env={COFFEE_CHAT_ENV:'development',COFFEE_CHAT_GOOGLE_READY:'false',COFFEE_CHAT_PUBLIC_ORIGIN:'http://localhost:4180',GOOGLE_CALENDAR_CLIENT_ID:'123-example.apps.googleusercontent.com'};
   assert.equal(publicConfig(env,'http://localhost:4180').googleClientId,env.GOOGLE_CALENDAR_CLIENT_ID);
   assert.equal(publicConfig(env,'https://waisi.org').googleClientId,'');
+});
+
+test('personal connection uses this request host when a warm server retains another hostname',()=>{
+  const env={COFFEE_CHAT_ENV:'production',COFFEE_CHAT_GOOGLE_READY:'true',COFFEE_CHAT_PUBLIC_ORIGIN:'https://waisi.org',GOOGLE_CALENDAR_CLIENT_ID:'123-example.apps.googleusercontent.com'};
+  const onWaisi=new Request('https://waisi.netlify.app/api/coffee-chats/config',{headers:{host:'waisi.org'}});
+  assert.equal(publicConfig(env,requestOrigin(onWaisi)).status,'ready');
+  for(const host of ['waisi.netlify.app','deploy-preview-11--waisi.netlify.app','waisi.org.evil.test','waisi.org@evil.test','']){
+    const onOtherHost=new Request('https://waisi.org/api/coffee-chats/config',{headers:{host,origin:'https://waisi.org','x-forwarded-host':'waisi.org'}});
+    assert.equal(publicConfig(env,requestOrigin(onOtherHost)).googleClientId,'');
+  }
+});
+
+test('request origins retain the protocol and local port without trusting forwarded host headers',()=>{
+  const local=new Request('http://localhost:4180/api/coffee-chats/config',{headers:{host:'localhost:4180'}});
+  assert.equal(requestOrigin(local),'http://localhost:4180');
+  const http=new Request('http://waisi.netlify.app/api/coffee-chats/config',{headers:{host:'waisi.org','x-forwarded-proto':'https'}});
+  assert.equal(requestOrigin(http),'http://waisi.org');
+  assert.equal(requestOrigin(new Request('https://waisi.org/api/coffee-chats/config')),'https://waisi.org');
 });
 
 test('preview access does not enable the production route or Google on a preview origin',async()=>{

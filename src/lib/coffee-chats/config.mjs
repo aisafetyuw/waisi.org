@@ -11,6 +11,13 @@ function originIssues(env={}) {
 export function configurationIssues(env={}) {
   return [...originIssues(env),...(!/^\d+-[a-zA-Z0-9_-]+\.apps\.googleusercontent\.com$/.test(env.GOOGLE_CALENDAR_CLIENT_ID||'')?['google_client_missing']:[])];
 }
+export function requestOrigin(request) {
+  const url=new URL(request.url);
+  // Netlify's warm Next.js server can retain the first request's hostname.
+  // Host belongs to this request; forwarded host and Origin are not authoritative.
+  const host=request.headers.get('host');
+  return host===null?url.origin:`${url.protocol}//${host}`;
+}
 export function publicConfig(env={},origin='') {
   const valid=configurationIssues(env).length===0&&origin===env.COFFEE_CHAT_PUBLIC_ORIGIN;
   const released=env.COFFEE_CHAT_ENV==='development'||env.COFFEE_CHAT_GOOGLE_READY==='true';
