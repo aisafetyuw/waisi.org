@@ -27,3 +27,23 @@ export function groupStarts(slots) {
   }
   return [...groups.values()].sort((a,b)=>Date.parse(a.id)-Date.parse(b.id));
 }
+
+// An hour summarizes starts within it. It does not promise continuous availability.
+export function groupHours(slots) {
+  const hours = new Map();
+  for (const group of groupStarts(slots)) {
+    const minute = Math.floor(group.minute / 60) * 60;
+    const id = `${group.date}/${minute}`;
+    if (!hours.has(id)) hours.set(id, {id, date:group.date, minute, groups:[], leaders:[]});
+    const hour = hours.get(id);
+    hour.groups.push(group);
+    for (const leader of group.leaders) if (!hour.leaders.includes(leader)) hour.leaders.push(leader);
+  }
+  return [...hours.values()].sort((a,b)=>a.date.localeCompare(b.date) || a.minute-b.minute);
+}
+
+export function reconcileHourSelection(hours, {activeHour, activeGroup}) {
+  const hour = hours.find(candidate=>candidate.id===activeHour?.id) || null;
+  const group = hour?.groups.find(candidate=>candidate.id===activeGroup?.id) || null;
+  return {activeHour:hour, activeGroup:group};
+}

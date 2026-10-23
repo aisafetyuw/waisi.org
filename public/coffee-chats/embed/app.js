@@ -1,5 +1,5 @@
 import {dateKey, parseDate, addDays, weekStart, todayInZone, minutes, timeLabel, validRange} from './calendar-utils.mjs';
-import {filterSlots, groupStarts} from './availability.mjs';
+import {filterSlots, groupHours, reconcileHourSelection} from './availability.mjs';
 import {GoogleCalendarConnection, appointmentRange} from './personal-calendar.mjs';
 import {AvailabilityFeed, emptyDayMessage} from './live-availability.mjs';
 
@@ -9,7 +9,7 @@ const medium = matchMedia('(max-width: 59.99rem)');
 const localZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'America/Chicago';
 const calendarHours = {start: 8 * 60, end: 24 * 60};
 const withinCalendarHours = slot => slot.minute >= calendarHours.start && slot.minute < calendarHours.end;
-const state = {zone: localZone, date: todayInZone(localZone), view: medium.matches ? 'day' : 'week', format: 'either', leaders: [], selectedLeaders: new Set(), snapshot: null, activeGroup: null, timeWindow: null, onlyFreeTimes: false};
+const state = {zone: localZone, date: todayInZone(localZone), view: medium.matches ? 'day' : 'week', format: 'either', leaders: [], selectedLeaders: new Set(), snapshot: null, activeHour: null, activeGroup: null, timeWindow: null, onlyFreeTimes: false};
 let personalCalendar = null;
 let calendarClientStatus = 'unconfigured';
 let calendarSetupMessage = '';
@@ -27,7 +27,11 @@ const matchingSlots = () => {
   const slots = filterSlots((feed.ready ? state.snapshot?.slots : []) || [], {leaders:state.selectedLeaders, format:state.format, zone:state.zone, days:visibleDays(), timeWindow:state.timeWindow}).filter(withinCalendarHours);
   return state.onlyFreeTimes ? personalCalendar?.filter(slots) || [] : slots;
 };
-const matchingGroups = () => groupStarts(matchingSlots());
+const matchingHours = () => groupHours(matchingSlots());
+const hourLabel = hour => `${timeLabel(hour.minute)} – ${timeLabel((hour.minute + 60) % 1440)}`;
+const selectionReady = () => feed.ready && (!state.onlyFreeTimes || personalCalendar?.ready);
+function clearTimeSelection() { state.activeHour = null; state.activeGroup = null; }
+function reconcileSelection() { Object.assign(state, reconcileHourSelection(matchingHours(), state)); }
 function button(text, className, label) {
   const node = document.createElement('button');
   node.type = 'button';
@@ -38,7 +42,7 @@ function button(text, className, label) {
 }
 function setDate(date) {
   state.date = date;
-  state.activeGroup = null;
+  clearTimeSelection();
   month = parseDate(date);
   renderCalendar();
   renderMiniCalendar();
@@ -66,6 +70,7 @@ function renderMiniCalendar() {
   $('mini-days').replaceChildren(fragment);
 }
 function renderCalendar() {
+  const focusedHour = document.activeElement?.dataset.hour;
   const days = visibleDays();
   const first = days[0], last = days.at(-1);
   const isDay = days.length === 1;
@@ -90,10 +95,10 @@ function renderCalendar() {
     head.append(name, number); headers.append(head);
     const column = document.createElement('div');
     column.className = 'calendar-day'; column.dataset.date = key;
-    for (let minute = firstMinute; minute < lastMinute; minute += 30) {
+    for (let minute = firstMinute; minute < lastMinute; minute += 60) {
       const slot = document.createElement('div');
-      slot.className = 'time-slot';
-      slot.setAttribute('aria-hidden', 'true');
+      slot.className = 'hour-cell';
+      slot.dataset.minute = minute;
       column.append(slot);
     }
     columns.append(column);
@@ -108,43 +113,41 @@ function renderCalendar() {
   }
   $('time-labels').replaceChildren(labels);
   paintAvailability();
+  if (focusedHour) [...$('calendar-days').querySelectorAll('.hour-block')].find(node=>node.dataset.hour===focusedHour)?.focus({preventScroll:true});
 }
 function paintAvailability() {
-  const groups = matchingGroups();
-  const height = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--slot-height'));
+  const hours = matchingHours();
   for (const day of visibleDays()) {
     const column = $('calendar-days').querySelector(`.calendar-day[data-date="${day}"]`);
-    const dayGroups = groups.filter(g => g.date === day);
-    dayGroups.forEach((group, index) => {
-      const count = group.leaders.length;
-      const label = `${dateLabel(day,{weekday:'long',month:'short',day:'numeric'})}, ${timeLabel(group.minute)}: ${count} ${count === 1 ? 'leader' : 'leaders'}`;
-      const block = button('', 'availability-block', label);
-      const next = dayGroups[index + 1];
-      const interval = Math.min(30, calendarHours.end - group.minute, next ? Math.max(15, next.minute - group.minute) : 30);
-      block.style.top = ((group.minute - +$('calendar-days').dataset.firstMinute) / 30 * height) + 'px';
-      block.style.height = (interval / 30 * height - 2) + 'px';
-      block.classList.toggle('compact-block', interval < 30);
-      block.classList.toggle('active-block', state.activeGroup?.id === group.id);
-      block.dataset.start = group.id;
-      block.setAttribute('aria-pressed', String(state.activeGroup?.id === group.id));
-      const start = document.createElement('strong'); start.textContent = timeLabel(group.minute);
-      const names = document.createElement('span'); names.textContent = count === 1 ? group.leaders[0].split(' ')[0] : `${count} leaders`;
-      block.title = `${timeLabel(group.minute)} · ${group.slots.map(s=>`${s.leader} (${s.durationMinutes} min)`).join(', ')}`;
-      block.append(start, names);
+    const dayHours = hours.filter(hour => hour.date === day);
+    dayHours.forEach(hour => {
+      const count = hour.leaders.length;
+      const label = `${dateLabel(day,{weekday:'long',month:'short',day:'numeric'})}, ${hourLabel(hour)}: ${count} ${count === 1 ? 'leader' : 'leaders'}, ${hour.groups.length} start times`;
+      const block = button('', 'hour-block', label);
+      block.classList.toggle('active-block', state.activeHour?.id === hour.id);
+      block.dataset.hour = hour.id;
+      block.dataset.density = count === 1 ? 1 : count <= 3 ? 2 : count <= 6 ? 3 : count <= 9 ? 4 : 5;
+      block.setAttribute('aria-pressed', String(state.activeHour?.id === hour.id));
+      block.setAttribute('aria-controls', 'hour-times');
+      const period = document.createElement('span'); period.className = 'hour-period'; period.textContent = hourLabel(hour);
+      const number = document.createElement('strong'); number.textContent = count;
+      const noun = document.createElement('span'); noun.className = 'hour-noun'; noun.textContent = count === 1 ? 'leader' : 'leaders';
+      block.title = `${hourLabel(hour)} · ${hour.leaders.join(', ')}. Choose an exact start time.`;
+      block.append(period, number, noun);
       block.addEventListener('click', () => {
-        state.activeGroup = state.activeGroup?.id === group.id ? null : group;
-        $('calendar-days').querySelectorAll('.availability-block').forEach(n => {
-          const selected = n.dataset.start === state.activeGroup?.id;
+        state.activeHour = state.activeHour?.id === hour.id ? null : hour;
+        state.activeGroup = null;
+        $('calendar-days').querySelectorAll('.hour-block').forEach(n => {
+          const selected = n.dataset.hour === state.activeHour?.id;
           n.classList.toggle('active-block', selected);
           n.setAttribute('aria-pressed', String(selected));
         });
         renderSummary(); renderLeaders();
-        $('clear-selection').hidden = !state.activeGroup && !state.timeWindow;
-        if (narrow.matches && state.activeGroup) document.querySelector('.booking-panel').scrollIntoView({behavior:'smooth',block:'start'});
+        $('clear-selection').hidden = !state.activeHour && !state.timeWindow;
       });
-      column.append(block);
+      column.querySelector(`[data-minute="${hour.minute}"]`).append(block);
     });
-    if (!dayGroups.length) {
+    if (!dayHours.length) {
       const note = document.createElement('p'); note.className = 'empty-day';
       note.textContent = emptyDayMessage({
         snapshot: state.snapshot, feedStatus: feed.status, day, today: todayInZone(state.zone),
@@ -154,22 +157,47 @@ function paintAvailability() {
       column.append(note);
     }
   }
-  $('clear-selection').hidden = !state.activeGroup && !state.timeWindow;
+  $('clear-selection').hidden = !state.activeHour && !state.timeWindow;
 }
 function renderSummary() {
   const section = $('selection-summary'); section.replaceChildren();
-  section.hidden = !state.activeGroup && !state.timeWindow;
+  section.hidden = !state.activeHour && !state.timeWindow;
   $('slot-details').hidden = section.hidden;
+  renderExactTimes();
   if (section.hidden) return;
   const add = (text, className) => {const p = document.createElement('p'); p.className = className; p.textContent = text; section.append(p);};
-  if (state.activeGroup) {
-    add(dateLabel(state.activeGroup.date, {weekday:'long',month:'long',day:'numeric'}), 'chosen-date');
-    add(timeLabel(state.activeGroup.minute), 'chosen-time');
+  if (state.activeHour) {
+    add(dateLabel(state.activeHour.date, {weekday:'long',month:'long',day:'numeric'}), 'chosen-date');
+    add(hourLabel(state.activeHour), 'chosen-time');
+    add(selectionReady() ? 'Choose a start time' : 'Checking times…', 'selection-description');
   } else if (state.timeWindow) {
     add('Your time window', 'empty-selection');
     add(`${timeLabel(state.timeWindow.start)} – ${timeLabel(state.timeWindow.end)}`, 'chosen-time');
     add('The calendar shows meetings that fit fully inside this window.', 'selection-description');
   }
+}
+function renderExactTimes() {
+  const container = $('hour-times');
+  const focusedStart = document.activeElement?.dataset.start;
+  container.hidden = !state.activeHour || !selectionReady();
+  if (container.hidden) { container.replaceChildren(); return; }
+  const fragment = document.createDocumentFragment();
+  for (const group of state.activeHour.groups) {
+    const repeated = state.activeHour.groups.filter(other=>other.minute===group.minute).length > 1;
+    const label = timeLabel(group.minute) + (repeated ? ' ' + new Intl.DateTimeFormat('en-US',{timeZone:state.zone,timeZoneName:'short'}).formatToParts(new Date(group.id)).find(p=>p.type==='timeZoneName').value : '');
+    const choice = button(label, 'exact-start', `${label}, ${group.leaders.length} ${group.leaders.length===1?'leader':'leaders'}`);
+    choice.dataset.start = group.id;
+    choice.setAttribute('aria-pressed', String(state.activeGroup?.id===group.id));
+    choice.setAttribute('aria-controls', 'slot-options');
+    choice.addEventListener('click', () => {
+      state.activeGroup = state.activeGroup?.id===group.id ? null : group;
+      for (const node of container.children) node.setAttribute('aria-pressed', String(node.dataset.start===state.activeGroup?.id));
+      renderSlotOptions();
+    });
+    fragment.append(choice);
+  }
+  container.replaceChildren(fragment);
+  if (focusedStart) [...container.children].find(node=>node.dataset.start===focusedStart)?.focus({preventScroll:true});
 }
 function leaderAvatar(name) {
   const avatar = document.createElement('span');
@@ -226,7 +254,7 @@ function createLeaderChoices() {
   }));
 }
 function renderLeaders() {
-  const selectedStart = state.activeGroup?.id || null;
+  const selectedStart = state.activeHour?.id || null;
   if (selectedStart !== leaderPanelStart) {
     leadersExpanded = !selectedStart;
     leaderPanelStart = selectedStart;
@@ -245,8 +273,7 @@ function renderLeaderPanel() {
   document.querySelector('.booking-panel').classList.toggle('leaders-collapsed', !leadersExpanded);
 }
 function refreshLeaderFilter() {
-  const selectedStart = state.activeGroup?.id;
-  state.activeGroup = selectedStart ? matchingGroups().find(group => group.id === selectedStart) || null : null;
+  reconcileSelection();
   renderCalendar(); renderSummary(); renderLeaders(); scrollToCalendarTime();
 }
 function renderSlotOptions() {
@@ -271,8 +298,8 @@ $('previous').addEventListener('click', () => setDate(addDays(state.date, curren
 $('next').addEventListener('click', () => setDate(addDays(state.date, currentView() === 'day' ? 1 : 7)));
 $('today').addEventListener('click', () => setDate(todayInZone(state.zone)));
 for (const [id, offset] of [['mini-prev', -1], ['mini-next', 1]]) $(id).addEventListener('click', () => {month = new Date(month.getFullYear(), month.getMonth() + offset, 1, 12); renderMiniCalendar();});
-for (const view of ['week', 'day']) $(view + '-view').addEventListener('click', () => {manualView = true; state.view = view; renderCalendar(); scrollToCalendarTime(); void loadAvailability();});
-document.querySelectorAll('input[name="format"]').forEach(radio => radio.addEventListener('change', event => {state.format = event.target.value; state.activeGroup = null; renderCalendar(); renderSummary(); renderLeaders(); scrollToCalendarTime();}));
+for (const view of ['week', 'day']) $(view + '-view').addEventListener('click', () => {manualView = true; state.view = view; reconcileSelection(); renderCalendar(); renderSummary(); renderLeaders(); scrollToCalendarTime(); void loadAvailability();});
+document.querySelectorAll('input[name="format"]').forEach(radio => radio.addEventListener('change', event => {state.format = event.target.value; clearTimeSelection(); renderCalendar(); renderSummary(); renderLeaders(); scrollToCalendarTime();}));
 $('clear-selection').addEventListener('click', () => $('time-form').reset());
 $('toggle-leaders').addEventListener('click', () => {
   leadersExpanded = !leadersExpanded;
@@ -284,7 +311,7 @@ $('clear-leaders').addEventListener('click', () => {
   $('booking-list').querySelector('.leader-choice')?.focus({preventScroll:true});
 });
 $('time-form').addEventListener('reset', () => {
-  state.activeGroup = null;
+  clearTimeSelection();
   state.timeWindow = null;
   $('time-error').textContent = '';
   $('end-time').removeAttribute('aria-invalid');
@@ -307,7 +334,7 @@ $('time-form').addEventListener('submit', event => {
   }
   $('time-error').textContent = '';
   $('end-time').removeAttribute('aria-invalid');
-  state.activeGroup = null;
+  clearTimeSelection();
   state.timeWindow = {start, end};
   renderCalendar();
   renderSummary();
@@ -334,14 +361,13 @@ for (const zone of zones) {
   $('timezone').append(option);
 }
 $('timezone').value = state.zone;
-$('timezone').addEventListener('change', event => {state.zone = event.target.value; state.activeGroup = null; renderCalendar(); renderMiniCalendar(); renderSummary(); renderLeaders(); scrollToCalendarTime();});
+$('timezone').addEventListener('change', event => {state.zone = event.target.value; clearTimeSelection(); renderCalendar(); renderMiniCalendar(); renderSummary(); renderLeaders(); scrollToCalendarTime();});
 
 function personalCalendarChanged() {
   if (personalCalendar?.status === 'disconnected' || (personalCalendar?.status === 'error' && !personalCalendar.hasSession)) state.onlyFreeTimes = false;
-  const selectedStart = state.activeGroup?.id;
   const checking = state.onlyFreeTimes && ['connecting', 'loading'].includes(personalCalendar?.status);
   // Keep the selected instant through a refresh, but hide booking links until it is checked.
-  if (!checking) state.activeGroup = selectedStart ? matchingGroups().find(group => group.id === selectedStart) || null : null;
+  if (!checking) reconcileSelection();
   renderCalendar(); renderSummary(); renderLeaders(); renderPersonalCalendar();
 }
 
@@ -432,7 +458,9 @@ async function initializePersonalCalendar() {
 function respond() {
   $('filters').open = !narrow.matches;
   if (!manualView) state.view = medium.matches ? 'day' : 'week';
+  reconcileSelection();
   renderCalendar();
+  renderSummary(); renderLeaders();
   scrollToCalendarTime();
   void loadAvailability();
 }
@@ -465,10 +493,9 @@ async function loadAvailability(force=false) {
   await feed.load(range);
 }
 function availabilityChanged() {
-  const selectedStart=state.activeGroup?.id;
   state.snapshot=feed.ready?feed.snapshot:null;
   document.body.classList.toggle('has-availability',Boolean(state.snapshot));
-  if(feed.status!=='loading')state.activeGroup=selectedStart?matchingGroups().find(group=>group.id===selectedStart)||null:null;
+  if(feed.status!=='loading')reconcileSelection();
   const failures=state.snapshot?.calendars.filter(c=>c.status!=='ready')||[];
   const status=$('availability-status');
   status.textContent=feed.status==='loading'?'Checking leader times…':feed.status==='error'?'Times could not load. Try again or choose another date.':feed.status==='expired'?'Times expired. Check again.':failures.length?'Some calendars need a direct check.':'';
@@ -492,7 +519,7 @@ setInterval(()=>{
   if(document.hidden)return;
   if(feed.status!=='loading'&&(!feed.ready||Date.parse(feed.snapshot.retryAt)<=Date.now()))void loadAvailability(true);
   void personalCalendar?.refresh();
-  if(state.activeGroup&&Date.parse(state.activeGroup.id)<=Date.now())state.activeGroup=null;
+  if(feed.status!=='loading' && personalCalendar?.status!=='loading')reconcileSelection();
   renderCalendar();renderSummary();renderLeaders();renderPersonalCalendar();
 },30000);
 document.addEventListener('visibilitychange',()=>{
@@ -500,7 +527,12 @@ document.addEventListener('visibilitychange',()=>{
 });
 
 function scrollToCalendarTime() {
-  const minute = state.activeGroup && visibleDays().includes(state.activeGroup.date) ? state.activeGroup.minute : state.timeWindow?.start ?? calendarHours.start;
-  const height = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--slot-height'));
-  document.querySelector('.calendar-scroll').scrollTop = Math.max(0, (minute - +$('calendar-days').dataset.firstMinute) / 30 * height - 24);
+  const days = visibleDays();
+  const selected = state.activeHour && days.includes(state.activeHour.date) ? state.activeHour : null;
+  const minute = Math.floor((selected?.minute ?? state.timeWindow?.start ?? calendarHours.start) / 60) * 60;
+  const column = $('calendar-days').querySelector(`.calendar-day[data-date="${selected?.date ?? days[0]}"]`);
+  const cells = [...column.querySelectorAll('.hour-cell')].filter(cell => cell.getBoundingClientRect().height > 0);
+  const target = cells.find(cell => Number(cell.dataset.minute) >= minute) ?? cells[0];
+  const scroller = document.querySelector('.calendar-scroll');
+  scroller.scrollTop = target ? Math.max(0, target.getBoundingClientRect().top - scroller.getBoundingClientRect().top + scroller.scrollTop - 16) : 0;
 }
