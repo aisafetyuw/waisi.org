@@ -9,7 +9,8 @@ import { MobileNavProps } from "@/types";
 function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
   return (
     <div
-      className={`md:hidden absolute top-0 left-0 h-screen w-screen transition-all duration-500 ease-in-out filter bg-page ${open ? "z-50 opacity-100 translate-y-2" : "opacity-0 -translate-y-2 pointer-events-none"}`}
+      inert={!open}
+      className={`lg:hidden absolute top-0 left-0 h-screen w-screen transition-all duration-500 ease-in-out filter bg-page ${open ? "z-50 opacity-100 translate-y-2" : "opacity-0 -translate-y-2 pointer-events-none"}`}
     >
       <div className="flex flex-col justify-center items-center mt-28">
         <Link
@@ -92,8 +93,8 @@ export default function Nav() {
     >
       <MobileNav open={open} setOpen={setOpen} pathname={pathname} />
 
-      <div className="flex justify-between items-center mx-auto max-w-6xl px-6">
-        <div className="flex items-center py-3">
+      <div className="flex justify-between items-center gap-3 mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="flex shrink-0 items-center py-3">
           <Link href="/" className="z-10 flex items-center gap-3">
             <Image
               src={isTransparent ? "/waisi_white_full.png" : "/waisi_black_full.png"}
@@ -104,7 +105,7 @@ export default function Nav() {
           </Link>
         </div>
 
-        <div className="flex items-center justify-end space-x-4 py-4 -mr-2 text-lg font-medium z-50 md:flex hidden">
+        <div className="items-center justify-end space-x-1 xl:space-x-4 py-4 ml-auto whitespace-nowrap text-base xl:text-lg font-medium z-50 lg:flex hidden">
           <Link
             href="/programs"
             className={`p-2 transition-colors ${pathname == "/programs" ? "text-brand" : isTransparent ? "text-cream hover:text-link-on-dark active:text-link-on-dark" : "text-primary hover:text-brand active:text-link-hover"}`}
@@ -143,9 +144,20 @@ export default function Nav() {
           </Link>
         </div>
 
-        <div className="w-4/5 md:hidden flex justify-end p-4 items-center gap-3">
-          <div
-            className="group z-50 w-6 h-6 cursor-pointer flex-col justify-between items-center flex"
+        <div className="z-50 flex shrink-0 items-center gap-3 py-4">
+          <Link
+            href="/coffee-chats"
+            onClick={() => setOpen(false)}
+            aria-current={pathname === "/coffee-chats" ? "page" : undefined}
+            className="inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-card bg-brand px-3 sm:px-4 py-2.5 text-sm lg:text-base font-semibold text-white transition-colors hover:bg-link-hover active:bg-link-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+          >
+            Book a chat
+          </Link>
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="group lg:hidden w-6 h-6 cursor-pointer flex-col justify-between items-center flex"
             onClick={() => {
               setOpen(!open);
             }}
@@ -159,7 +171,7 @@ export default function Nav() {
             <span
               className={`h-1 w-full rounded-lg cursor-pointer transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-2.5" : ""} ${isTransparent ? "bg-cream" : "bg-brand"}`}
             />
-          </div>
+          </button>
         </div>
       </div>
     </nav>
