@@ -1,7 +1,7 @@
 // Public booking readers. No login cookies, private calendar access, or bookings.
-export class SourceError extends Error {
-  constructor(code) { super(code); this.code = code; }
-}
+import {SourceError} from './provider-error.mjs';
+import {readGoogleBooking} from './google-booking.mjs';
+export {SourceError} from './provider-error.mjs';
 const invalid = () => { throw new SourceError('invalid_response'); };
 const instant = value => typeof value === 'string' && /(?:Z|[+-]\d{2}:\d{2})$/.test(value) ? Date.parse(value) : NaN;
 function slot(source, startValue, duration, range) {
@@ -48,7 +48,7 @@ async function json(url, fetchImpl, headers={}) {
   try {return JSON.parse(Buffer.concat(chunks).toString('utf8'));}catch{invalid();}
 }
 export async function readSource(source, range, fetchImpl=fetch) {
-  if(source.provider==='Google Calendar') throw new SourceError('unsupported_source');
+  if(source.provider==='Google Calendar') return readGoogleBooking(source,range,fetchImpl);
   const url=new URL(source.eventUrl);
   const expected=source.provider==='Calendly'?'calendly.com':source.provider==='Cal.com'?'cal.com':'';
   if(url.protocol!=='https:' || url.hostname!==expected || url.port || url.username || url.password || !/^\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\/?$/.test(url.pathname)) throw new SourceError('invalid_source');
