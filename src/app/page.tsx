@@ -54,7 +54,7 @@ export default function Home() {
               Join our community
             </a>
             <Link
-              href="/contact"
+              href="/coffee-chats"
               className="inline-block px-6 py-3 text-lg font-semibold text-white border-2 border-white rounded transition-colors hover:bg-white/15"
             >
               Chat with us
