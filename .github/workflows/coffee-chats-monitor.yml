@@ -1,6 +1,11 @@
 name: Coffee chat availability monitor
 on:
   workflow_dispatch:
+    inputs:
+      notification_test:
+        description: 'Create one intentional failure to verify the operator receives an alert.'
+        type: boolean
+        default: false
   schedule:
     - cron: '7,22,37,52 * * * *'
 permissions:
@@ -8,9 +13,15 @@ permissions:
 jobs:
   health:
     # Enable this repository variable only after the production feature is enabled.
-    if: vars.COFFEE_CHAT_MONITOR_ENABLED == 'true'
+    if: github.event_name == 'workflow_dispatch' || vars.COFFEE_CHAT_MONITOR_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
+      - name: Intentional notification test
+        if: github.event_name == 'workflow_dispatch' && inputs.notification_test
+        run: |
+          echo '::error::Intentional WAISI coffee-chat alert delivery test. No production request was made.'
+          exit 1
       - name: Check source freshness and production configuration
+        if: github.event_name != 'workflow_dispatch' || !inputs.notification_test
         run: curl --fail --silent --show-error --max-time 25 https://waisi.org/api/coffee-chats/health

@@ -29,8 +29,8 @@ The public config endpoint exposes only the client ID, privacy URL, and setup st
 Use the existing `waisi-org` Google Cloud project. The local token flow already uses the public client ending in `nkfgqaft.apps.googleusercontent.com`. The user approved keeping the existing web client for the production and local origins.
 
 1. Enable the Google Calendar API in the project.
-2. Set the application name to `WAISI Coffee Chats` in Google Auth Platform → Branding.
-3. Set the home page to `https://waisi.org/coffee-chats`.
+2. Keep the existing project-wide application name `waisi.org` in Google Auth Platform → Branding.
+3. Set the home page to `https://waisi.org/coffee-chats/about`. This public page describes the feature and links to its privacy policy while the calendar remains gated.
 4. Set the privacy URL to `https://waisi.org/coffee-chats/privacy`.
 5. Use a WAISI-controlled support email and developer contact.
 6. Add and verify the authorized domain `waisi.org`.
@@ -64,7 +64,9 @@ Run `npm test` and `npm run build` before release. `npm run coffee:preflight` in
 
 The pull-request workflow runs tests and the production build. The health workflow checks `https://waisi.org/api/coffee-chats/health` approximately every fifteen minutes, after the repository variable `COFFEE_CHAT_MONITOR_ENABLED=true` enables it. GitHub schedules can run late. A failed check creates a failed workflow run; it does not send a custom email or Slack message.
 
-Before launch, name an operations owner. That owner must enable GitHub Actions failure notifications, run the monitor manually against an intentionally failed check, and confirm receipt. Alert delivery is not complete until that test succeeds. No recipient or subscription has been configured by this change. Client errors show a recovery message; this change does not add browser error telemetry.
+The operations owner is Kaustubh Kislay (`kaustubh.kislay@gmail.com`), as selected by the user. Before launch, the owner must enable GitHub Actions failure notifications, run the monitor manually against an intentionally failed check, and confirm receipt. Alert delivery is not complete until that test succeeds. The subscription and delivery test remain pending. Client errors show a recovery message; this change does not add browser error telemetry.
+
+Manual runs work while scheduled monitoring remains disabled. Select `notification_test=true` to create one clearly labeled failure without contacting production. Use it only after the alert owner authorizes the test. Keep `COFFEE_CHAT_MONITOR_ENABLED` disabled until launch; manual test success means confirmed notification delivery, not a healthy production calendar.
 
 Netlify function logs contain source IDs and short error codes. Do not log raw provider responses, OAuth tokens, or private busy periods. `provider_blocked`, `rate_limited`, and `provider_schema` require provider inspection. `coffee_cache_unavailable` requires a check of Netlify Blobs and runtime configuration.
 
