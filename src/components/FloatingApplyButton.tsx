@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { PROJECTS_RFP } from "@/constants";
@@ -13,20 +13,25 @@ import { PROJECTS_RFP } from "@/constants";
 // there's no chat-widget / cookie-banner overlap.
 const DISMISS_KEY = "waisi:projects-rfp-cta-dismissed";
 
+function subscribe(onChange: () => void) {
+  window.addEventListener("storage", onChange);
+  return () => window.removeEventListener("storage", onChange);
+}
+
+function wasDismissed() {
+  try {
+    return sessionStorage.getItem(DISMISS_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export default function FloatingApplyButton() {
-  // Start hidden so the server render and first client render match; reveal
-  // once we've checked sessionStorage on mount.
-  const [hidden, setHidden] = useState(true);
+  // Keep the first render hidden until the client can read session storage.
+  const storedHidden = useSyncExternalStore(subscribe, wasDismissed, () => true);
+  const [dismissed, setDismissed] = useState(false);
 
-  useEffect(() => {
-    try {
-      setHidden(sessionStorage.getItem(DISMISS_KEY) === "1");
-    } catch {
-      setHidden(false);
-    }
-  }, []);
-
-  if (hidden || PROJECTS_RFP.status !== "open") return null;
+  if (storedHidden || dismissed || PROJECTS_RFP.status !== "open") return null;
 
   const dismiss = () => {
     try {
@@ -34,7 +39,7 @@ export default function FloatingApplyButton() {
     } catch {
       /* private mode / storage disabled — just hide for now */
     }
-    setHidden(true);
+    setDismissed(true);
   };
 
   // Fellowship-applications version — restore (and re-add Link/usePathname imports) when apps reopen. See docs/ARCHIVE.md.

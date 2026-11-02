@@ -7,7 +7,7 @@ export const INTEREST_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdWum58p_S
 
 // Published-to-web CSV of the WAISI ops calendar (in Sheets: File → Share →
 // Publish to web → pick the sheet → CSV). Parsed by src/lib/calendarEvents.ts
-// and shared by the /events page and the Get Involved summary. If the ops team
+// for the /events page. If the ops team
 // republishes to a new URL, swap it here.
 export const EVENTS_CALENDAR_CSV_URL =
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vRqUFmx3TxWyvCZPF3AbsAh-V_Cr1lA758cLbGansw0UtC2WSiv9hEQvR566JCJHbannVBO2v898pGC/pub?output=csv';
@@ -37,8 +37,7 @@ export const Curricula = {
 export type ApplicationCycle = {
   status: "open" | "closed";
   deadline?: string;
-  techFormUrl: string;
-  policyFormUrl: string;
+  fellowshipFormId: string;
   upskillingInterestUrl: string;
   interestFormUrl: string;
 };
@@ -46,18 +45,16 @@ export type ApplicationCycle = {
 // Single source of truth for application-cycle state. Update status/deadline
 // each semester; every deadline mention and CTA on the site derives from it.
 export const APPLICATION_CYCLE: ApplicationCycle = {
-  status: "closed", // spring apps closed Feb 23, 2026; flip to "open" in fall
-  techFormUrl:
-    "https://docs.google.com/forms/d/e/1FAIpQLSdJ5rgafADd1JlnpmVoCd323XMUGOGzGreGWsmaLGF_3OvMMg/viewform?usp=header",
-  policyFormUrl: "https://forms.gle/4fBTy2cFxuQECqz17",
+  status: "closed",
+  fellowshipFormId: "7k3KgFF5Pkus",
   upskillingInterestUrl: "https://forms.gle/ZB9855GZi6aZ4obh9",
   interestFormUrl: INTEREST_URL,
 };
 
-export function primaryCta(): { label: string; href: string } {
-  return APPLICATION_CYCLE.status === "open"
-    ? { label: "Apply now", href: "/programs" }
-    : { label: "Join us", href: APPLICATION_CYCLE.interestFormUrl };
+export function primaryCta(cycle: ApplicationCycle = APPLICATION_CYCLE): { label: string; href: string } {
+  return cycle.status === "open"
+    ? { label: "Apply now", href: "/apply" }
+    : { label: "Get notified", href: cycle.interestFormUrl };
 }
 
 // Scholars' Projects request for proposals. Single source of truth for the

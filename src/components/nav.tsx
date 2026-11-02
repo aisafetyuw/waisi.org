@@ -3,14 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MobileNavProps } from "@/types";
 
 function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
   return (
     <div
-      inert={!open}
-      className={`lg:hidden absolute top-0 left-0 h-screen w-screen transition-all duration-500 ease-in-out filter bg-page ${open ? "z-50 opacity-100 translate-y-2" : "opacity-0 -translate-y-2 pointer-events-none"}`}
+      id="mobile-navigation"
+      hidden={!open}
+      onClick={(event) => {
+        if ((event.target as HTMLElement).closest("a")) setOpen(false);
+      }}
+      className="lg:hidden absolute top-0 left-0 h-dvh w-full overflow-y-auto z-50 bg-page"
     >
       <div className="flex flex-col justify-center items-center mt-28">
         <Link
@@ -62,12 +66,35 @@ function MobileNav({ open, setOpen, pathname }: MobileNavProps) {
 
 export default function Nav() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  return <Navigation key={pathname} pathname={pathname} />;
+}
 
-  // Close mobile menu on navigation (Firefox fix)
+function Navigation({ pathname }: { pathname: string }) {
+  const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+    if (!open) return;
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    navRef.current?.querySelector<HTMLAnchorElement>("#mobile-navigation a")?.focus();
+    return () => { document.body.style.overflow = overflow; };
+  }, [open]);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) {
+        const menuHadFocus = navRef.current?.querySelector("#mobile-navigation")?.contains(document.activeElement)
+          || document.activeElement === buttonRef.current;
+        setOpen(false);
+        if (menuHadFocus) navRef.current?.querySelector<HTMLAnchorElement>("[data-nav-logo]")?.focus();
+      }
+    };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
 
   // On the home page the nav floats transparent over the full-screen photo
   // hero and turns solid once its bottom edge scrolls past the hero. The
@@ -87,15 +114,40 @@ export default function Nav() {
 
   return (
     <nav
+      ref={navRef}
+      aria-label="Main navigation"
+      onKeyDown={(event) => {
+        if (!open) return;
+        if (event.key === "Escape") {
+          event.preventDefault();
+          setOpen(false);
+          buttonRef.current?.focus();
+        }
+        if (event.key === "Tab") {
+          const links = Array.from(navRef.current?.querySelectorAll<HTMLAnchorElement>("#mobile-navigation a") ?? []);
+          const first = links[0];
+          const last = buttonRef.current;
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+          }
+        }
+      }}
       className={`w-full z-50 transition-colors duration-300 ${
         isHome ? "fixed top-0" : "relative"
       } ${isTransparent ? "bg-transparent" : "bg-page"}`}
     >
-      <MobileNav open={open} setOpen={setOpen} pathname={pathname} />
+      <MobileNav open={open} pathname={pathname} setOpen={(nextOpen) => {
+        setOpen(nextOpen);
+        if (!nextOpen) buttonRef.current?.focus();
+      }} />
 
       <div className="flex justify-between items-center gap-3 mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex shrink-0 items-center py-3">
-          <Link href="/" className="z-10 flex items-center gap-3">
+          <Link href="/" data-nav-logo tabIndex={open ? -1 : undefined} className="z-10 flex items-center gap-3">
             <Image
               src={isTransparent ? "/waisi_white_full.png" : "/waisi_black_full.png"}
               width={120}
@@ -154,9 +206,11 @@ export default function Nav() {
             Book a chat
           </Link>
           <button
+            ref={buttonRef}
             type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             className="group lg:hidden w-6 h-6 cursor-pointer flex-col justify-between items-center flex"
             onClick={() => {
               setOpen(!open);

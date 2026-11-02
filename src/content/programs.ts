@@ -2,12 +2,7 @@
 // CTA hrefs derive from APPLICATION_CYCLE in constants.ts: when the cycle is
 // closed, application CTAs fall back to the interest form.
 
-import {
-  APPLICATION_CYCLE,
-  Handbooks,
-  Curricula,
-  PROJECTS_RFP,
-} from "@/constants";
+import { APPLICATION_CYCLE, Handbooks, Curricula, PROJECTS_RFP, primaryCta } from "@/constants";
 
 export type Program = {
   title: string;
@@ -28,18 +23,11 @@ export type Program = {
   };
 };
 
-// Fellowship applications (both fellowship tracks) now run through the
-// on-site /apply page — a Fillout embed — regardless of cycle state, so the
-// old cycle-aware `open` switch is no longer referenced here. Kept commented
-// for an easy revert.
-// const open = APPLICATION_CYCLE.status === "open";
 const notify = {
   label: "Get notified",
   href: APPLICATION_CYCLE.interestFormUrl,
 };
-// Fellowship apps are closed (Oct 2026), so both fellowship cards point back at
-// the interest form. Restore `cta: applyToFellowship` when they reopen.
-// const applyToFellowship = { label: "Apply", href: "/apply" };
+const applyToFellowship = primaryCta();
 
 export const PROGRAMS: Program[] = [
   {
@@ -48,13 +36,7 @@ export const PROGRAMS: Program[] = [
     commitment: "2 hr/week sessions + ≤1 hr prep, 6 weeks",
     audience:
       "Anyone curious about technical AI safety; ML experience encouraged but not required",
-    // Was a cycle-aware CTA ("Get notified" → interest form while closed,
-    // "Apply" → Google Form while open). Then the on-site /apply embed;
-    // now back to the interest form while apps are closed (docs/ARCHIVE.md):
-    // cta: open
-    //   ? { label: "Apply", href: APPLICATION_CYCLE.techFormUrl }
-    //   : notify,
-    cta: notify,
+    cta: applyToFellowship,
     handbookUrl: Handbooks.FELLOWSHIP,
     curriculumUrl: Curricula.TECHNICAL_FUNDAMENTALS,
   },
@@ -64,13 +46,7 @@ export const PROGRAMS: Program[] = [
     commitment: "2 hr/week sessions + ≤1 hr prep, 6 weeks",
     audience:
       "Anyone interested in AI policy; a public-policy background is encouraged but not required",
-    // Was a cycle-aware CTA ("Get notified" → interest form while closed,
-    // "Apply" → Google Form while open). Then the on-site /apply embed;
-    // now back to the interest form while apps are closed (docs/ARCHIVE.md):
-    // cta: open
-    //   ? { label: "Apply", href: APPLICATION_CYCLE.policyFormUrl }
-    //   : notify,
-    cta: notify,
+    cta: applyToFellowship,
     handbookUrl: Handbooks.FELLOWSHIP,
     curriculumUrl: Curricula.POLICY_FUNDAMENTALS,
   },

@@ -56,12 +56,12 @@ export default function RootLayout({
         <Suspense fallback={<div className="w-full h-20 bg-page" />}>
           <Nav />
         </Suspense>
-        <div
+        <main
           id="content"
           className="flex flex-col flex-1"
         >
           {children}
-        </div>
+        </main>
         <Footer />
         <FloatingApplyButton />
       </body>

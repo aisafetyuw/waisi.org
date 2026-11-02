@@ -161,6 +161,7 @@ export default function Resources() {
       id="resources"
       className="max-w-6xl mx-auto"
     >
+      <h1 className="sr-only">AI safety resources</h1>
       <div className="px-4 sm:px-8 md:px-16 pt-8 pb-16">
         <div className="flex flex-col gap-12 max-w-3xl mx-auto">
           {/* Featured video */}

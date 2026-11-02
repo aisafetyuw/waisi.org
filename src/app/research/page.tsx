@@ -26,9 +26,8 @@ export const revalidate = 3600;
 
 // Driven by PROJECTS_RFP (src/constants.ts) — see docs/ARCHIVE.md
 // Collapsed by default via <details>; no client JS.
-function ScholarsProjects() {
+function ScholarsProjects({ now }: { now: number }) {
   const open = PROJECTS_RFP.status === "open";
-  const now = Date.now();
   // Milestones run through the end of their day (Central time, UTC-5 in Oct,
   // UTC-6 after Nov 1 — a 6h offset is close enough for highlighting).
   const endOf = (iso: string) => new Date(`${iso}T23:59:59-06:00`).getTime();
@@ -196,6 +195,9 @@ function ScholarsProjects() {
 
 export default async function ResearchPage() {
   const research = await getResearch();
+  // Sample the clock on each server regeneration; the timeline receives a stable value.
+  // eslint-disable-next-line react-hooks/purity -- This server-only page regenerates hourly.
+  const now = Date.now();
   const clubMembers = new Set(
     (research ?? []).map((paper) => paper.author.trim()),
   );
@@ -204,7 +206,7 @@ export default async function ResearchPage() {
   return (
     <div id="research" className="-mx-10">
       <div className="mx-auto pt-8 w-3/4">
-        <ScholarsProjects />
+        <ScholarsProjects now={now} />
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-3 ml-1">
             <h2 className="text-3xl font-semibold text-heading">

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <div id="contact" className="max-w-6xl mx-auto">
+      <h1 className="sr-only">Contact WAISI</h1>
       <div className="px-16 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column */}
@@ -72,6 +73,7 @@ export default function Contact() {
           {/* Right Column - Google Form */}
           <div className="flex flex-col">
             <iframe
+              title="Contact WAISI form"
               src="https://docs.google.com/forms/d/e/1FAIpQLSewVZAUvWPY7BkwarV4b_baBN9h3WgpouakfTE6uJXwaDp6IQ/viewform?embedded=true"
               width="100%"
               height="600"

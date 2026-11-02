@@ -1,6 +1,6 @@
 import {availability,currentRange} from '../../src/lib/coffee-chats/runtime.mjs';
 import {availabilityStore} from '../../src/lib/coffee-chats/store.mjs';
-export default async function(){
+export default async function refreshCoffeeChats(){
   if(process.env.COFFEE_CHAT_ENABLED!=='true')return;
   const snapshot=await availability.get(currentRange(),{force:true});
   // The health endpoint checks this scheduled heartbeat; visits cannot hide a failed schedule.

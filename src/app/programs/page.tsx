@@ -11,8 +11,9 @@ export const metadata: Metadata = {
 export default function Programs() {
   return (
     <div id="programs" className="-mx-10">
+      <h1 className="sr-only">Get involved with WAISI</h1>
       <div className="px-8 py-12 pb-20 max-w-5xl mx-auto">
-        {APPLICATION_CYCLE.deadline && (
+        {APPLICATION_CYCLE.status === "open" && APPLICATION_CYCLE.deadline && (
           <p className="text-base max-w-prose mb-10 font-semibold text-heading">
             Applications are due by {APPLICATION_CYCLE.deadline}.
           </p>

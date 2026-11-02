@@ -1,7 +1,3 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
-
 interface Stat {
   number: string;
   label: string;
@@ -28,9 +24,9 @@ export default function NumbersCarousel() {
                 color: "var(--text-primary)",
               }}
             >
-              "It's been great working with everyone and getting to be around
+              &quot;It&apos;s been great working with everyone and getting to be around
               people who are really interested in AI Safety and helping people
-              get involved. It's exciting to be a part of this."
+              get involved. It&apos;s exciting to be a part of this.&quot;
             </p>
             <p
               className="text-lg font-semibold"
@@ -83,11 +79,11 @@ export default function NumbersCarousel() {
                 color: "var(--text-primary)",
               }}
             >
-              "...A year ago the idea of facilitating a group discussion
-              would've been hugely intimidating to me but now I find myself
+              &quot;...A year ago the idea of facilitating a group discussion
+              would&apos;ve been hugely intimidating to me but now I find myself
               looking forward to my cohort sessions. This much needed nudge out
               of my comfort zone has shaped my growth as a leader and
-              student..."
+              student...&quot;
             </p>
             <p
               className="text-lg font-semibold"

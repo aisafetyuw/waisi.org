@@ -1,6 +1,7 @@
 import { ResearchData } from '@/types';
 import { google } from 'googleapis';
 import { getGoogleClient } from '@/lib/google';
+import { parseResearchRows } from '@/lib/sheetRows';
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
@@ -20,18 +21,7 @@ export default async function getResearch(): Promise<ResearchData[] | null> {
         const response = await sheets.spreadsheets.values.get(request);
         const rows = response.data.values ?? [];
 
-        const research: ResearchData[] = rows.slice(1).map((row: string[]) => {
-            return {
-                author: row[0],
-                name: row[1],
-                link: row[2],
-                authors: row[3],
-                date: row[4],
-                conference: row[5] || undefined,
-            };
-        });
-
-        return research;
+        return parseResearchRows(rows);
     } catch (error) {
         console.error('Failed to fetch research from Google Sheets:', error);
         return null;
