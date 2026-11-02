@@ -1,4 +1,4 @@
-import Image from "next/image";
+import MemberPhoto from "./MemberPhoto";
 import { MemberProps } from "@/types";
 import { CALL_BOOKINGS } from "@/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,13 +11,7 @@ export default function Member({ member }: MemberProps) {
     <div className="member p-4 bg-card border border-subtle rounded-card">
       <div className="flex space-x-4 items-start">
         <div className="flex-shrink-0">
-          <Image
-            src={`/leaders/${member.name.replaceAll(" ", "_").toLowerCase()}.webp`}
-            alt={member.name}
-            width={100}
-            height={100}
-            className=""
-          />
+          <MemberPhoto key={member.name} name={member.name} />
         </div>
         <div>
           <div className="text-lg font-semibold text-heading">
@@ -31,6 +25,7 @@ export default function Member({ member }: MemberProps) {
             {member.linkedin && (
               <a
                 href={member.linkedin}
+                aria-label={`${member.name} on LinkedIn`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -46,6 +41,7 @@ export default function Member({ member }: MemberProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={`Book a call with ${member.name.split(" ")[0]}`}
+                aria-label={`Book a call with ${member.name}`}
               >
                 <FontAwesomeIcon
                   icon={faCalendarDays}

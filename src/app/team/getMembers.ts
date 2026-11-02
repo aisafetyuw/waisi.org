@@ -1,6 +1,7 @@
 import { MemberData } from '@/types';
 import { google } from 'googleapis';
 import { getGoogleClient } from '@/lib/google';
+import { parseMemberRows } from '@/lib/sheetRows';
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
@@ -20,18 +21,7 @@ export default async function getMembers(): Promise<MemberData[] | null> {
         const response = await sheets.spreadsheets.values.get(request);
         const rows = response.data.values ?? [];
 
-        const members: MemberData[] = rows.slice(1).map((row: string[]) => {
-            return {
-                name: row[0],
-                pronouns: row[1],
-                role: row[2],
-                email: row[3],
-                linkedin: row[4],
-                team: row[5],
-            };
-        });
-
-        return members;
+        return parseMemberRows(rows);
     } catch (error) {
         console.error('Failed to fetch members from Google Sheets:', error);
         return null;

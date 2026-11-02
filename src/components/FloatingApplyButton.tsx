@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { APPLICATION_CYCLE, primaryCta } from "@/constants";
 
 // Persistent bottom-right CTA on every page except /apply itself. Dismissible
 // for the current tab session only (sessionStorage, so it returns on the next
@@ -13,21 +14,27 @@ import { faPaperPlane, faXmark } from "@fortawesome/free-solid-svg-icons";
 // bottom-right corner, so there's no chat-widget / cookie-banner overlap.
 const DISMISS_KEY = "waisi:apply-cta-dismissed";
 
+function subscribe(onChange: () => void) {
+  window.addEventListener("storage", onChange);
+  return () => window.removeEventListener("storage", onChange);
+}
+
+function wasDismissed() {
+  try {
+    return sessionStorage.getItem(DISMISS_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export default function FloatingApplyButton() {
   const pathname = usePathname();
-  // Start hidden so the server render and first client render match; reveal
-  // once we've checked sessionStorage on mount.
-  const [hidden, setHidden] = useState(true);
+  // The server snapshot keeps the first render hidden until storage is available.
+  const storedHidden = useSyncExternalStore(subscribe, wasDismissed, () => true);
+  const [dismissed, setDismissed] = useState(false);
 
-  useEffect(() => {
-    try {
-      setHidden(sessionStorage.getItem(DISMISS_KEY) === "1");
-    } catch {
-      setHidden(false);
-    }
-  }, []);
-
-  if (hidden || pathname === "/apply") return null;
+  if (storedHidden || dismissed || pathname === "/apply") return null;
+  const cta = primaryCta();
 
   const dismiss = () => {
     try {
@@ -35,20 +42,20 @@ export default function FloatingApplyButton() {
     } catch {
       /* private mode / storage disabled — just hide for now */
     }
-    setHidden(true);
+    setDismissed(true);
   };
 
   return (
     <div className="fixed bottom-4 right-4 z-40 flex max-w-[calc(100vw-2rem)] items-stretch overflow-hidden rounded-full bg-brand text-white shadow-lg shadow-black/20 sm:bottom-6 sm:right-6">
       <Link
-        href="/apply"
+        href={cta.href}
         className="flex items-center gap-2 py-3 pl-4 pr-3 text-sm font-semibold leading-tight transition-colors hover:bg-[#5B21B6]"
       >
         <FontAwesomeIcon icon={faPaperPlane} aria-hidden="true" />
         <span className="hidden sm:inline">
-          Applications open now! Click here to apply.
+          {APPLICATION_CYCLE.status === "open" ? "Applications open now! Click here to apply." : "Get notified about the next fellowship."}
         </span>
-        <span className="sm:hidden">Apply now</span>
+        <span className="sm:hidden">{cta.label}</span>
       </Link>
       <button
         type="button"

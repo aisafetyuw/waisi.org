@@ -5,17 +5,16 @@ import { EVENTS_CALENDAR_CSV_URL } from "@/constants";
 //
 // The ops team maintains a Google Sheet ("WAISI Calendar - Fall <year>") and
 // publishes it to the web as CSV. This module turns that CSV into a normalized,
-// chronologically sorted list of events that both the /events page and the Get
-// Involved summary render. Nothing here throws on bad input: a malformed row is
-// skipped with a console warning, and a failed fetch returns null so callers
-// can show an explicit error state instead of a silently empty list.
+// chronologically sorted list of events for /events. Malformed rows are skipped
+// with a warning. Invalid sheet structure or an ambiguous year fails the fetch
+// so the page shows an error instead of empty or incorrectly dated events.
 //
 // Sheet shape:
-//   Row 1  merged title cell        -> ignored
+//   Row 1  merged title cell        -> supplies the year for yearless dates
 //   Row 2  column headers           -> used to locate columns by name
 //   Row 3+ one calendar day each
 //
-// Columns (located by header, with a fixed-index fallback):
+// Columns (located by header):
 //   Week | Date | Website Calendar | School Calendar | Outreach... | Intro | ...
 // Only "Website Calendar" feeds the site; every other column is ops-internal
 // planning and ignored here. A row yields 0 or 1 event.
@@ -51,9 +50,7 @@ const REVALIDATE_SECONDS = 300;
  * Fetch and parse the published calendar CSV. Returns the normalized events
  * (possibly empty), or null if the CSV could not be fetched/read.
  */
-export async function fetchCalendarEvents(
-    now: Date = new Date(),
-): Promise<CalendarEvent[] | null> {
+export async function fetchCalendarEvents(): Promise<CalendarEvent[] | null> {
     try {
         const res = await fetch(EVENTS_CALENDAR_CSV_URL, {
             next: { revalidate: REVALIDATE_SECONDS },
@@ -65,7 +62,7 @@ export async function fetchCalendarEvents(
             return null;
         }
         const text = await res.text();
-        return normalizeEvents(text, now);
+        return normalizeEvents(text);
     } catch (error) {
         console.error("[calendar] Failed to fetch calendar CSV:", error);
         return null;
@@ -118,6 +115,8 @@ export function parseCsv(text: string): string[][] {
         }
     }
 
+    if (inQuotes) throw new Error("Calendar CSV contains an unterminated quote");
+
     // Flush a final row that wasn't newline-terminated.
     if (field !== "" || row.length > 0) {
         row.push(field);
@@ -143,36 +142,24 @@ const MONTHS = [
 ];
 
 /**
- * Parse a "Weekday, Month Day" string (e.g. "Saturday, August 8"). No year is
- * given, so: assume the current year, and if that date has already passed
- * relative to today, roll forward to next year. Returns null if unparseable.
+ * Parse a named date or ISO date, always keeping its recorded year.
+ * Yearless dates use the sheet's year; never infer a year from today's date.
  */
-export function parseEventDate(raw: string, now: Date = new Date()): Date | null {
+export function parseEventDate(raw: string, calendarYear?: number): Date | null {
     if (!raw) return null;
 
-    // Drop the leading weekday ("Saturday, ") if present.
-    const withoutWeekday = raw.includes(",")
-        ? raw.slice(raw.indexOf(",") + 1)
-        : raw;
-    const match = withoutWeekday.trim().match(/^([A-Za-z]+)\.?\s+(\d{1,2})$/);
-    if (!match) return null;
+    const value = raw.trim().replace(/^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s*/i, "");
+    const iso = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    const named = value.match(/^([A-Za-z]{3,})\.?\s+(\d{1,2})(?:,?\s+(\d{4}))?$/);
+    if (!iso && !named) return null;
 
-    const monthName = match[1].toLowerCase();
-    const monthIndex = MONTHS.findIndex((m) => m.startsWith(monthName));
-    const day = parseInt(match[2], 10);
-    if (monthIndex < 0 || day < 1 || day > 31) return null;
-
-    // Compare on calendar days. Nudge "now" toward US Central (where Madison
-    // is) so the year-rollover boundary tracks the local date, not UTC's.
-    const local = new Date(now.getTime() - 6 * 60 * 60 * 1000);
-    const todayMs = Date.UTC(
-        local.getUTCFullYear(),
-        local.getUTCMonth(),
-        local.getUTCDate(),
-    );
-
-    let year = local.getUTCFullYear();
-    if (Date.UTC(year, monthIndex, day) < todayMs) year += 1;
+    const year = iso ? Number(iso[1]) : named?.[3] ? Number(named[3]) : calendarYear;
+    if (year === undefined) {
+        throw new Error("Calendar year is missing or ambiguous; include a year in the title or event date");
+    }
+    const monthIndex = iso ? Number(iso[2]) - 1 : MONTHS.findIndex(m => m.startsWith(named![1].toLowerCase()));
+    const day = Number(iso ? iso[3] : named![2]);
+    if (year < 1000 || year > 9999 || monthIndex < 0 || monthIndex > 11 || day < 1 || day > 31) return null;
 
     const date = new Date(Date.UTC(year, monthIndex, day));
     // Reject impossible dates that JS would silently roll over (e.g. Feb 30).
@@ -278,8 +265,7 @@ type ColumnMap = {
     payload: number;
 };
 
-// Locate columns by header name, falling back to the documented fixed layout
-// if a header has been renamed or removed.
+// Require the public columns so a changed layout cannot expose internal notes.
 function locateColumns(header: string[]): ColumnMap {
     const norm = header.map((h) => h.trim().toLowerCase());
     const find = (pred: (h: string) => boolean) => norm.findIndex(pred);
@@ -287,10 +273,8 @@ function locateColumns(header: string[]): ColumnMap {
     const date = find((h) => h === "date");
     const payload = find((h) => h === "website calendar");
 
-    return {
-        date: date >= 0 ? date : 1,
-        payload: payload >= 0 ? payload : 2,
-    };
+    if (date < 0 || payload < 0) throw new Error("Calendar headers must include Date and Website Calendar");
+    return { date, payload };
 }
 
 /**
@@ -299,14 +283,13 @@ function locateColumns(header: string[]): ColumnMap {
  * may contribute one event from its "Website Calendar" cell. Malformed rows are
  * skipped with a console warning.
  */
-export function normalizeEvents(
-    csvText: string,
-    now: Date = new Date(),
-): CalendarEvent[] {
+export function normalizeEvents(csvText: string): CalendarEvent[] {
     const rows = parseCsv(csvText.replace(/^\uFEFF/, ""));
-    if (rows.length < 3) return [];
+    if (rows.length < 2) throw new Error("Calendar CSV is missing its title or header row");
 
     const cols = locateColumns(rows[1]);
+    const years = Array.from(new Set(rows[0].join(" ").match(/\b[1-9]\d{3}\b/g) ?? []));
+    const calendarYear = years.length === 1 ? Number(years[0]) : undefined;
     const events: CalendarEvent[] = [];
 
     for (let r = 2; r < rows.length; r++) {
@@ -317,7 +300,7 @@ export function normalizeEvents(
         if (!rawPayload) continue;
 
         const rawDate = (row[cols.date] ?? "").trim();
-        const date = parseEventDate(rawDate, now);
+        const date = parseEventDate(rawDate, calendarYear);
 
         const { title, description, time, location, pinned } =
             parsePayload(rawPayload);
@@ -353,12 +336,11 @@ export function normalizeEvents(
 // ---------------------------------------------------------------------------
 
 function startOfTodayMs(now: Date): number {
-    const local = new Date(now.getTime() - 6 * 60 * 60 * 1000);
-    return Date.UTC(
-        local.getUTCFullYear(),
-        local.getUTCMonth(),
-        local.getUTCDate(),
-    );
+    const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Chicago", year: "numeric", month: "2-digit", day: "2-digit",
+    }).formatToParts(now);
+    const part = (type: Intl.DateTimeFormatPartTypes) => Number(parts.find(p => p.type === type)?.value);
+    return Date.UTC(part("year"), part("month") - 1, part("day"));
 }
 
 /** Events from today through `days` days out, inclusive, in chronological order. */

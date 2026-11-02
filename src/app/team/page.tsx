@@ -36,6 +36,7 @@ export default async function Team() {
 
   return (
     <div id="team" className="-mx-10">
+      <h1 className="sr-only">The WAISI team</h1>
       <div className="px-8 pt-8 pb-16 mx-auto max-w-[1200px]">
         <h2 className="text-3xl font-semibold mb-6 text-heading pb-2">
           Leadership Team
@@ -52,7 +53,7 @@ export default async function Team() {
               Operations Team
             </h3>
             <ul
-              id="team-list"
+              id="operations-team"
               className="grid gap-4 m-1 mb-8 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]"
             >
               {members
@@ -67,7 +68,7 @@ export default async function Team() {
               Research Team
             </h3>
             <ul
-              id="team-list"
+              id="research-team"
               className="grid gap-4 m-1 mb-8 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]"
             >
               {members
@@ -82,7 +83,7 @@ export default async function Team() {
               Technical Team
             </h3>
             <ul
-              id="team-list"
+              id="technical-team"
               className="grid gap-4 m-1 mb-8 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]"
             >
               {members
@@ -97,7 +98,7 @@ export default async function Team() {
               Policy Team
             </h3>
             <ul
-              id="team-list"
+              id="policy-team"
               className="grid gap-4 m-1 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]"
             >
               {members

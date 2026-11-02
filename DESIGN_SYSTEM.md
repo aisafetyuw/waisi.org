@@ -5,14 +5,14 @@ Tailwind mappings in `tailwind.config.js`. Style components with the token
 classes below — never inline `style={{}}` hex values.
 
 The identity is editorial "ink on paper": serif headings, near-black text on
-warm off-white, hairline borders instead of shadows, violet reserved for links
+white, hairline borders instead of shadows, violet reserved for links
 and CTAs.
 
 ## Palette
 
 | Token | Value | Tailwind | Use |
 |---|---|---|---|
-| `--bg-page` | `#FAF9F7` | `bg-page` | Page background (warm off-white paper) |
+| `--bg-page` | `#FFFFFF` | `bg-page` | Page background |
 | `--bg-card` | `#FFFFFF` | `bg-card` | Card surface — always with `border border-subtle` |
 | `--bg-card-alt` | `#F3F1EC` | `bg-card-alt` | Tinted surface |
 | `--bg-ink` | `#1C1B1A` | `bg-ink` | Dark surfaces (footer) |
@@ -27,12 +27,8 @@ and CTAs.
 There are no card shadows: elevation is retired in favor of flat surfaces with
 hairline borders (`bg-card border border-subtle rounded-card`).
 
-**Page background texture:** `components/WeightsBackground.tsx` renders a
-fixed, ultra-low-contrast heatmap of simulated GPT-1 weight magnitudes behind
-all pages (tile generated on a canvas, deterministic seed, slow CSS pan,
-disabled under `prefers-reduced-motion`). Page containers are transparent so
-it shows through; nav, footer, cards, and carousels stay opaque. Keep it
-non-impeding — peak tint values live in the component's `COLORMAP`.
+The page background is plain white. Cards use subtle borders; event cards have
+a small hover shadow and the floating application banner has a shadow.
 
 ## Typography
 
@@ -43,33 +39,37 @@ non-impeding — peak tint values live in the component's `COLORMAP`.
   on `body` at weight 400.
 - Scale: `h1` 2.6em, `h2` 1.8em, `h3` 1.3em (see `globals.css`).
 - Long-form text blocks: constrain measure with `max-w-prose`.
-- Radii: cards/buttons `rounded-card` (4px); nav shell `rounded-2xl` (16px).
+- Radii: cards/buttons `rounded-card` (4px); floating application banner `rounded-full`.
 
 ## Buttons and CTAs
 
 - Primary: `.waisi-button` (violet `--text-link` bg, white text, 4px radius) —
   via `components/button.tsx` or the class directly.
 - Secondary/ghost (over photos): `border border-cream text-cream rounded-card`.
-- The nav carries a persistent CTA whose label/href come from `primaryCta()`.
+- The floating application banner and fellowship cards use `primaryCta()`.
 
 ## Application cycle
 
 `APPLICATION_CYCLE` in `src/constants.ts` is the single source of truth for
-application status, deadline, and form URLs. Every deadline mention and CTA
+application status, deadline, Fillout form ID, and interest URLs. Every deadline mention and fellowship CTA
 state on the site derives from it — never hardcode a dated deadline in a page.
 Flip `status` to `"open"` (and set `deadline`) each semester; when `closed`,
-apply CTAs fall back to the interest form.
+apply CTAs fall back to the interest form and `/apply` hides the Fillout embed.
 
 ## Component conventions
 
 - Server components by default. `"use client"` only for interactivity:
-  nav (scroll/menu state), carousels, `ScrollArrow`, `ResearchList`/resources
-  scroll shadows.
+  nav (scroll/menu state), interactive carousels, `MemberPhoto`, application
+  controls, and `ResearchList`/resources scroll shadows.
 - Page copy lives in `src/content/*.ts` (`home.ts`, `programs.ts`,
   `research.ts`), not in component JSX, where practical.
-- Data-driven pages (team, research, events) fetch server-side from Google
-  Sheets/Calendar via `src/lib/google.ts` with ISR (1 h / 1 h / 15 min) and
-  render an explicit error state when the fetch fails — never silently empty.
+- Team and research fetch server-side through `src/lib/google.ts`, validate
+  rows in `src/lib/sheetRows.ts`, and refresh after one hour on request.
+- Events use a public Sheets CSV through `src/lib/calendarEvents.ts`, with a
+  five-minute refresh interval. All data pages show explicit fetch errors.
+- Member photos fall back to initials when the image cannot load.
+- The mobile menu uses a labeled button, hides closed links from keyboard
+  focus, and returns focus to the button on Escape.
 - External links: `target="_blank" rel="noopener noreferrer"`.
 - Clickable text signals hover and press with a colour change (`hover:text-link-hover` / `active:` on light ground, `hover:text-link-on-dark` on dark), never an underline. The current nav item is `text-brand`.
 - Shared external URLs live in `src/constants.ts`; redirects in `next.config.ts`
@@ -78,7 +78,7 @@ apply CTAs fall back to the interest form.
 ## Accepted off-token exceptions
 
 - Computed inline styles in the carousels and resources scroll-shadow logic.
-- The hero image overlay (`bg-black/45`) and hero inline sizing in
+- The hero image overlay (`bg-black/55`) and hero inline sizing in
   `src/app/page.tsx`.
 
 ## Future considerations

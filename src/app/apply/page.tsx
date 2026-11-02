@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Curricula } from "@/constants";
+import { APPLICATION_CYCLE, Curricula, primaryCta } from "@/constants";
 import ApplyEmbed from "./ApplyEmbed";
 
 export const metadata: Metadata = {
@@ -13,14 +13,15 @@ export const metadata: Metadata = {
 // use tighter mobile gutters (`px-6`) while staying centred and measured on
 // desktop.
 export default function Apply() {
+  const open = APPLICATION_CYCLE.status === "open";
   return (
     <div id="apply" className="-mx-10">
       <div className="mx-auto max-w-3xl px-6 py-10 sm:px-8">
         <h1 className="text-heading">Apply to the Fellowship</h1>
         <p className="mt-2 max-w-prose text-base text-primary">
           Six weeks, two hours a week — technical AI safety or AI governance.
-          Fill out the form below; it takes about ten minutes. Want to see
-          what you&apos;d be reading first? Check out the{" "}
+          {open ? " Fill out the form below; it takes about ten minutes." : " Applications are currently closed."}
+          {" "}See the{" "}
           <a
             href={Curricula.TECHNICAL_FUNDAMENTALS}
             target="_blank"
@@ -40,7 +41,11 @@ export default function Apply() {
           </a>{" "}
           curriculum.
         </p>
-        <ApplyEmbed />
+        {open ? <ApplyEmbed /> : (
+          <a href={primaryCta().href} className="waisi-button mt-8" target="_blank" rel="noopener noreferrer">
+            Get notified when applications open
+          </a>
+        )}
       </div>
     </div>
   );
