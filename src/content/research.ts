@@ -86,7 +86,7 @@ export const SCHOLARS_CONTACT_EMAIL = "aisafetyuw@gmail.com";
 // /research — edit here, not in the page.
 export const SPAR_PROJECTS: SparProject[] = [
   {
-    title: "AI Safety Said Simply",
+    title: "AI Said Simply",
     link: "https://sparai.org/projects/f26/recK4NKaFBvAEznFB/",
     waisiMentor: "Kaustubh Kislay",
     waisiMentorLink: "https://kaustubhais.com",
