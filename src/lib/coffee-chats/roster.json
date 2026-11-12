@@ -206,8 +206,8 @@
     },
     {
       "name": "Celeste Li",
-      "bookingUrl": "https://calendar.app.google/gjrzviL7V2bPfdsw7",
-      "provider": "Google Calendar",
+      "bookingUrl": "https://cal.com/celeste-li/15min",
+      "provider": "Cal.com",
       "meetingFormats": null,
       "location": null,
       "durationMinutes": null,
