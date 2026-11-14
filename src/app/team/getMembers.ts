@@ -21,7 +21,13 @@ export default async function getMembers(): Promise<MemberData[] | null> {
         const response = await sheets.spreadsheets.values.get(request);
         const rows = response.data.values ?? [];
 
-        return parseMemberRows(rows);
+        // Apply the website's leadership transition even while the source
+        // spreadsheet retains its previous roster.
+        return parseMemberRows(rows)
+            .filter(member => member.name.trim().toLowerCase() !== 'kaustubh kislay')
+            .map(member => member.name.trim().toLowerCase() === 'anaya mandal'
+                ? { ...member, role: 'Director' }
+                : member);
     } catch (error) {
         console.error('Failed to fetch members from Google Sheets:', error);
         return null;

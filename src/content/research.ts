@@ -3,8 +3,8 @@ import { ProfProps } from "@/types";
 export type SparProject = {
   title: string;
   link: string;
-  waisiMentor: string; // the WAISI member/alum to highlight
-  waisiMentorLink: string;
+  waisiMentor: string; // the primary mentor displayed on the card
+  waisiMentorLink?: string;
   coMentors?: string;
   description: string;
   tags: string[]; // topic tags as shown on the SPAR project page
@@ -88,9 +88,7 @@ export const SPAR_PROJECTS: SparProject[] = [
   {
     title: "AI Said Simply",
     link: "https://sparai.org/projects/f26/recK4NKaFBvAEznFB/",
-    waisiMentor: "Kaustubh Kislay",
-    waisiMentorLink: "https://kaustubhais.com",
-    coMentors: "Christine Corry",
+    waisiMentor: "Christine Corry",
     description:
       "Produces short, accessible content on AI safety — explainers, videos, and interactive demos on topics like sleeper agents and AI control — for academic and policy audiences.",
     tags: ["Generalist", "Communications"],

@@ -15,7 +15,6 @@ export const EVENTS_CALENDAR_CSV_URL =
 // full name as it appears in the team sheet: the contact page lists them and
 // the team page matches member cards against them to show a booking icon.
 export const CALL_BOOKINGS: { name: string; url: string }[] = [
-    { name: 'Kaustubh Kislay', url: 'https://calendar.app.google/NkBQ5FZ3iF5vtLPN8' },
     { name: 'Anaya Mandal', url: 'https://calendar.app.google/z6UzigtaHzuB9xTm9' },
 ];
 

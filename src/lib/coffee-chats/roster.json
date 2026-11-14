@@ -1,18 +1,6 @@
 {
   "leaders": [
     {
-      "name": "Kaustubh Kislay",
-      "bookingUrl": "https://calendar.app.google/NkBQ5FZ3iF5vtLPN8",
-      "provider": "Google Calendar",
-      "meetingFormats": null,
-      "location": null,
-      "durationMinutes": null,
-      "availabilityStatus": "not_connected",
-      "sourceRow": 2,
-      "photoUrl": "/leaders/kaustubh_kislay.webp",
-      "photoSource": "WAISI website: public/leaders/kaustubh_kislay.webp"
-    },
-    {
       "name": "Anaya Mandal",
       "bookingUrl": "https://calendar.app.google/z6UzigtaHzuB9xTm9",
       "provider": "Google Calendar",

@@ -227,14 +227,18 @@ export default async function ResearchPage() {
                 </h3>
                 <div className="mt-1 text-sm text-primary">
                   Mentored by{" "}
-                  <a
-                    href={project.waisiMentorLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-link no-underline hover:text-link-hover active:text-link-hover transition-colors"
-                  >
-                    {project.waisiMentor}
-                  </a>
+                  {project.waisiMentorLink ? (
+                    <a
+                      href={project.waisiMentorLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-link no-underline hover:text-link-hover active:text-link-hover transition-colors"
+                    >
+                      {project.waisiMentor}
+                    </a>
+                  ) : (
+                    <span className="font-semibold">{project.waisiMentor}</span>
+                  )}
                   {project.coMentors && <> with {project.coMentors}</>}
                 </div>
                 <p className="mt-2 text-sm text-primary">

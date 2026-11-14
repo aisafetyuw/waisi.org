@@ -64,17 +64,6 @@
     "formatNote": "Cal Video"
   },
   {
-    "id": "Kaustubh Kislay:30",
-    "leader": "Kaustubh Kislay",
-    "provider": "Google Calendar",
-    "eventUrl": "https://calendar.app.google/NkBQ5FZ3iF5vtLPN8",
-    "durationMinutes": 30,
-    "formats": [
-      "online"
-    ],
-    "formatNote": "Online meeting"
-  },
-  {
     "id": "Lucy Bugni:30",
     "leader": "Lucy Bugni",
     "provider": "Google Calendar",

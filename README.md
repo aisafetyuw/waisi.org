@@ -57,6 +57,8 @@ Event cells use the existing positional format: `{"Title", "Description", "1800-
 
 Member photographs use `/public/leaders/<lowercase_name_with_underscores>.webp`. A missing photograph displays the member's initials. Add the real photograph to replace that fallback.
 
+The website applies the current leadership transition in `src/app/team/getMembers.ts`: it excludes the former director and displays Anaya Mandal as Director. These overrides remain in effect when the spreadsheet refreshes.
+
 ### Applications
 
 `APPLICATION_CYCLE` in `src/constants.ts` controls fellowship status, the optional deadline, the Fillout form ID, and interest links. Fellowship applications are currently closed. Set `status` to `"closed"` to change fellowship links to the interest form; `/apply` also hides the application form. Set `status` to `"open"` for the next application cycle and update the deadline as needed. `PROJECTS_RFP` separately controls the Scholars' Projects proposal links and floating banner.
