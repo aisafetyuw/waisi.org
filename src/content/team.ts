@@ -48,6 +48,12 @@ export const NOTABLE_ALUMNI: AlumnusData[] = [
     previously: "Founding Leadership Team @ WAISI",
     photo: "satya_srinath_namburi",
   },
+  {
+    name: "Celeste Li",
+    role: "Independent China Research @ Redwood Research, Co-Founder @ Babel Translation",
+    previously: "Contractor @ METR, Contractor @ Nightingale, Policy Lead @ WAISI",
+    photo: "celeste_li",
+  },
 ];
 
 // UW–Madison alumni outside WAISI who work in AI / AI safety. Same card format
