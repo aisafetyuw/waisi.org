@@ -181,18 +181,6 @@
       "photoSource": "WAISI website: public/leaders/zavi_rahmansyah.webp"
     },
     {
-      "name": "Celeste Li",
-      "bookingUrl": "https://cal.com/celeste-li/15min",
-      "provider": "Cal.com",
-      "meetingFormats": null,
-      "location": null,
-      "durationMinutes": null,
-      "availabilityStatus": "not_connected",
-      "sourceRow": 19,
-      "photoUrl": "/leaders/celeste_li.webp",
-      "photoSource": "WAISI website: public/leaders/celeste_li.webp"
-    },
-    {
       "name": "Hemanth Indukuri",
       "bookingUrl": null,
       "provider": null,

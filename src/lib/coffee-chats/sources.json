@@ -20,17 +20,6 @@
     "formatNote": "Confirm the meeting format with the leader."
   },
   {
-    "id": "Celeste Li:15",
-    "leader": "Celeste Li",
-    "provider": "Cal.com",
-    "eventUrl": "https://cal.com/celeste-li/15min",
-    "durationMinutes": 15,
-    "formats": [
-      "online"
-    ],
-    "formatNote": "Cal Video"
-  },
-  {
     "id": "Eva Skarabot:30",
     "leader": "Eva Skarabot",
     "provider": "Google Calendar",

@@ -43,6 +43,12 @@ export const NOTABLE_ALUMNI: AlumnusData[] = [
     photo: "andy_wang",
   },
   {
+    name: "Celeste Li",
+    role: "Independent China Research @ Redwood Research, Co-Founder @ Babel Translation",
+    previously: "Contractor @ METR, Contractor @ Nightingale, Policy Lead @ WAISI",
+    photo: "celeste_li",
+  },
+  {
     name: "Satya Srinath Namburi",
     role: "AI Security Scientist @ GE HealthCare",
     previously: "Founding Leadership Team @ WAISI",
