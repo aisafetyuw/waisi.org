@@ -68,6 +68,12 @@ export const PAST_LEADERSHIP: PastLeader[] = [
     "email": "sakman2@wisc.edu"
   },
   {
+    "name": "Nathan Pease",
+    "image": "/leaders/nathan_pease.webp",
+    "years": "2026",
+    "role": "Operations Team"
+  },
+  {
     "name": "Sam Baumohl",
     "image": "/leaders/sam_baumohl.webp",
     "years": "2026",

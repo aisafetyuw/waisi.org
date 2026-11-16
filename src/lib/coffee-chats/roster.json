@@ -85,18 +85,6 @@
       "photoSource": "WAISI website: public/leaders/samuel_zarr.webp"
     },
     {
-      "name": "Nathan Pease",
-      "bookingUrl": null,
-      "provider": null,
-      "meetingFormats": null,
-      "location": null,
-      "durationMinutes": null,
-      "availabilityStatus": "not_connected",
-      "sourceRow": 10,
-      "photoUrl": "/leaders/nathan_pease.webp",
-      "photoSource": "WAISI website: public/leaders/nathan_pease.webp"
-    },
-    {
       "name": "Arya Pasumarthi",
       "bookingUrl": "https://calendar.app.google/3pCfXPjfFS52DH3FA",
       "provider": "Google Calendar",
