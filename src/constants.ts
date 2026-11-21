@@ -61,7 +61,7 @@ export function primaryCta(cycle: ApplicationCycle = APPLICATION_CYCLE): { label
 // /research section. When the cycle ends, set status to "closed" (CTAs hide) and see
 // docs/ARCHIVE.md for what to restore.
 export const PROJECTS_RFP = {
-  status: "open" as "open" | "closed",
+  status: "closed" as "open" | "closed",
   deadline: "October 18, 2026, 11:59 PM CST",
   rfpUrl:
     "https://docs.google.com/document/d/1O0z5kGK6K-NOElRKu__zcgfW0CsP7vCcIYsZSAHTpSc/edit?tab=t.8ni5omp9szkh",
